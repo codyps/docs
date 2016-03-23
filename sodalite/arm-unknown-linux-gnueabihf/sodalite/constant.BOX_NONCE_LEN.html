@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="API documentation for the Rust `sign_attached` fn in crate `sodalite`.">
-    <meta name="keywords" content="rust, rustlang, rust-lang, sign_attached">
+    <meta name="description" content="API documentation for the Rust `BOX_NONCE_LEN` constant in crate `sodalite`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, BOX_NONCE_LEN">
 
-    <title>sodalite::sign_attached - Rust</title>
+    <title>sodalite::BOX_NONCE_LEN - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../main.css">
@@ -27,7 +27,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='index.html'>sodalite</a></p><script>window.sidebarCurrent = {name: 'sign_attached', ty: 'fn', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'><a href='index.html'>sodalite</a></p><script>window.sidebarCurrent = {name: 'BOX_NONCE_LEN', ty: 'constant', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -41,25 +41,13 @@
         </form>
     </nav>
 
-    <section id='main' class="content fn">
-<h1 class='fqn'><span class='in-band'>Function <a href='index.html'>sodalite</a>::<wbr><a class='fn' href=''>sign_attached</a></span><span class='out-of-band'><span id='render-detail'>
+    <section id='main' class="content constant">
+<h1 class='fqn'><span class='in-band'><a href='index.html'>sodalite</a>::<wbr><a class='constant' href=''>BOX_NONCE_LEN</a></span><span class='out-of-band'><span id='render-detail'>
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-659' class='srclink' href='../src/sodalite/src/lib.rs.html#1019-1067' title='goto source code'>[src]</a></span></h1>
-<pre class='rust fn'>pub fn sign_attached(sm: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;mut [</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>, m: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>, sk: &amp;<a class='type' href='../sodalite/type.SignSecretKey.html' title='sodalite::SignSecretKey'>SignSecretKey</a>)</pre><div class='docblock'><p>Generate an attached (ie: joined) signature for a message</p>
-
-<p>The signature is stored at the beginning of @sm (signed message). @sm must be at exactly
-@m.len() + SIGN_LEN bytes long.</p>
-
-<p>@sm is not read from, it is only used as an output parameter.</p>
-
-<p>Panics:</p>
-
-<ul>
-<li>@sm is not the right size.</li>
-</ul>
-</div></section>
+        </span><a id='src-449' class='srclink' href='../src/sodalite/src/lib.rs.html#656' title='goto source code'>[src]</a></span></h1>
+<pre class='rust const'>pub const BOX_NONCE_LEN: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a><code> = </code><code>24</code></pre></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>

@@ -1225,6 +1225,12 @@
 <span id="1182">1182</span>
 <span id="1183">1183</span>
 <span id="1184">1184</span>
+<span id="1185">1185</span>
+<span id="1186">1186</span>
+<span id="1187">1187</span>
+<span id="1188">1188</span>
+<span id="1189">1189</span>
+<span id="1190">1190</span>
 </pre><pre class='rust '>
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>cmp</span>;
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>mem</span>;
@@ -1497,7 +1503,6 @@
 <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>onetimeauth</span>(<span class='ident'>out</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>OnetimeauthHash</span>, <span class='kw-2'>mut</span> <span class='ident'>m</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>u8</span>], <span class='ident'>k</span>: <span class='kw-2'>&amp;</span><span class='ident'>OnetimeauthKey</span>)
 {
     <span class='comment'>/* FIXME: not zeroed in tweet-nacl */</span>
-    <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>x</span> <span class='op'>=</span> [<span class='number'>0u32</span>;<span class='number'>17</span>];
     <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>r</span> <span class='op'>=</span> [<span class='number'>0u32</span>;<span class='number'>17</span>];
     <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>h</span> <span class='op'>=</span> [<span class='number'>0u32</span>;<span class='number'>17</span>];
     <span class='comment'>/* FIXME: not zeroed in tweet-nacl */</span>
@@ -1529,8 +1534,8 @@
         <span class='ident'>c</span>[<span class='ident'>j_end</span>] <span class='op'>=</span> <span class='number'>1</span>;
         <span class='ident'>m</span> <span class='op'>=</span> <span class='kw-2'>&amp;</span><span class='ident'>m</span>[<span class='ident'>j_end</span>..];
         <span class='ident'>add1305</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>h</span>, <span class='kw-2'>&amp;</span><span class='ident'>c</span>);
+        <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>x</span> <span class='op'>=</span> [<span class='number'>0u32</span>;<span class='number'>17</span>];
         <span class='kw'>for</span> <span class='ident'>i</span> <span class='kw'>in</span> <span class='number'>0</span>..<span class='number'>17</span> {
-            <span class='ident'>x</span>[<span class='ident'>i</span>] <span class='op'>=</span> <span class='number'>0</span>;
             <span class='kw'>for</span> <span class='ident'>j</span> <span class='kw'>in</span> <span class='number'>0</span>..<span class='number'>17</span> {
                 <span class='ident'>x</span>[<span class='ident'>i</span>] <span class='op'>+=</span> <span class='ident'>h</span>[<span class='ident'>j</span>] <span class='op'>*</span> (<span class='kw'>if</span> <span class='ident'>j</span> <span class='op'>&lt;=</span> <span class='ident'>i</span> { <span class='ident'>r</span>[<span class='ident'>i</span> <span class='op'>-</span> <span class='ident'>j</span>] } <span class='kw'>else</span> { <span class='number'>320</span> <span class='op'>*</span> <span class='ident'>r</span>[<span class='ident'>i</span> <span class='op'>+</span> <span class='number'>17</span> <span class='op'>-</span> <span class='ident'>j</span>]});
             }
@@ -1882,8 +1887,10 @@
 
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BOX_SECRET_KEY_LEN</span> : <span class='ident'>usize</span> <span class='op'>=</span> <span class='number'>32</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BOX_PUBLIC_KEY_LEN</span> : <span class='ident'>usize</span> <span class='op'>=</span> <span class='number'>32</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BOX_NONCE_LEN</span> : <span class='ident'>usize</span> <span class='op'>=</span> <span class='number'>24</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>BoxPublicKey</span> <span class='op'>=</span> [<span class='ident'>u8</span>; <span class='ident'>BOX_PUBLIC_KEY_LEN</span>];
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>BoxSecretKey</span> <span class='op'>=</span> [<span class='ident'>u8</span>; <span class='ident'>BOX_SECRET_KEY_LEN</span>];
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>BoxNonce</span> <span class='op'>=</span> [<span class='ident'>u8</span>; <span class='ident'>BOX_NONCE_LEN</span>];
 <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>box_keypair</span>(<span class='ident'>pk</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>BoxPublicKey</span>, <span class='ident'>sk</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>BoxSecretKey</span>)
 {
     <span class='ident'>randombytes</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>sk</span>[..<span class='number'>32</span>]);
@@ -1908,7 +1915,7 @@
     <span class='ident'>secretbox_open</span>(<span class='ident'>m</span>,<span class='ident'>c</span>,<span class='ident'>n</span>,<span class='ident'>k</span>)
 }
 
-<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>box_</span>(<span class='ident'>c</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> [<span class='ident'>u8</span>], <span class='ident'>m</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>u8</span>], <span class='ident'>n</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>u8</span>;<span class='number'>24</span>], <span class='ident'>pk</span>: <span class='kw-2'>&amp;</span><span class='ident'>BoxPublicKey</span>, <span class='ident'>sk</span>: <span class='kw-2'>&amp;</span><span class='ident'>BoxSecretKey</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span>(),()<span class='op'>&gt;</span>
+<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>box_</span>(<span class='ident'>c</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> [<span class='ident'>u8</span>], <span class='ident'>m</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>u8</span>], <span class='ident'>n</span>: <span class='kw-2'>&amp;</span><span class='ident'>BoxNonce</span>, <span class='ident'>pk</span>: <span class='kw-2'>&amp;</span><span class='ident'>BoxPublicKey</span>, <span class='ident'>sk</span>: <span class='kw-2'>&amp;</span><span class='ident'>BoxSecretKey</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span>(),()<span class='op'>&gt;</span>
 {
     <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='kw-2'>&amp;</span><span class='ident'>m</span>[..<span class='number'>32</span>], <span class='kw-2'>&amp;</span>[<span class='number'>0u8</span>;<span class='number'>32</span>]);
     <span class='comment'>/* FIXME: uninit in tweet-nacl */</span>
@@ -1920,7 +1927,7 @@
 <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>box_open</span>(<span class='ident'>m</span> : <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> [<span class='ident'>u8</span>], <span class='ident'>c</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>u8</span>], <span class='ident'>n</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>u8</span>;<span class='number'>24</span>], <span class='ident'>y</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>u8</span>;<span class='number'>32</span>], <span class='ident'>x</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>u8</span>;<span class='number'>32</span>]) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span>(),()<span class='op'>&gt;</span>
 {
     <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='kw-2'>&amp;</span><span class='ident'>c</span>[..<span class='number'>16</span>], <span class='kw-2'>&amp;</span>[<span class='number'>0u8</span>;<span class='number'>16</span>]);
-    <span class='comment'>/* FIXME: k was not zeroed */</span>
+    <span class='comment'>/* FIXME: uninit in tweet-nacl */</span>
     <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>k</span> <span class='op'>=</span> [<span class='number'>0u8</span>; <span class='number'>32</span>];
     <span class='ident'>box_beforenm</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>k</span>,<span class='ident'>y</span>,<span class='ident'>x</span>);
     <span class='ident'>box_open_afternm</span>(<span class='ident'>m</span>,<span class='ident'>c</span>,<span class='ident'>n</span>, <span class='kw-2'>&amp;</span><span class='ident'>k</span>)
@@ -1957,7 +1964,7 @@
     <span class='number'>0x4cc5d4becb3e42b6</span>, <span class='number'>0x597f299cfc657e2a</span>, <span class='number'>0x5fcb6fab3ad6faec</span>, <span class='number'>0x6c44198c4a475817</span>
 ];
 
-<span class='kw'>fn</span> <span class='ident'>hashblocks</span>(<span class='ident'>x</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span>[<span class='ident'>u8</span>], <span class='kw-2'>mut</span> <span class='ident'>m</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>u8</span>]) <span class='op'>-&gt;</span> <span class='ident'>usize</span>
+<span class='kw'>fn</span> <span class='ident'>hashblocks</span>(<span class='ident'>x</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> [<span class='ident'>u8</span>], <span class='kw-2'>mut</span> <span class='ident'>m</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>u8</span>]) <span class='op'>-&gt;</span> <span class='ident'>usize</span>
 {
     <span class='comment'>/* XXX: all uninit in tweet-nacl */</span>
     <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>z</span> <span class='op'>=</span> [<span class='ident'>W</span>(<span class='number'>0u64</span>);<span class='number'>8</span>];
@@ -2020,7 +2027,9 @@
 ];
 
 <span class='comment'>/* sha512 */</span>
-<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>hash</span>(<span class='ident'>out</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> [<span class='ident'>u8</span>], <span class='kw-2'>mut</span> <span class='ident'>m</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>u8</span>])
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HASH_LEN</span> : <span class='ident'>usize</span> <span class='op'>=</span> <span class='number'>64</span>;
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>Hash</span> <span class='op'>=</span> [<span class='ident'>u8</span>;<span class='ident'>HASH_LEN</span>];
+<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>hash</span>(<span class='ident'>out</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>Hash</span>, <span class='kw-2'>mut</span> <span class='ident'>m</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>u8</span>])
 {
     <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>h</span> <span class='op'>=</span> <span class='ident'>IV</span>;
 
@@ -2230,13 +2239,16 @@
 }
 
 <span class='doccomment'>/**
- * Generate an attached (ie: joined) signature for @m (the message). The signature is stored at the
- * beginning of @sm (signed message). @sm must be at exactly @m.len() + SIGN_LEN bytes long.
- * 
+ * Generate an attached (ie: joined) signature for a message
+ *
+ * The signature is stored at the beginning of @sm (signed message). @sm must be at exactly
+ * @m.len() + SIGN_LEN bytes long.
+ *
  * @sm is not read from, it is only used as an output parameter.
- * 
+ *
  * Panics:
- *  - @sm is not the right size.
+ *
+ * - @sm is not the right size.
  */</span>
 <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sign_attached</span>(<span class='ident'>sm</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> [<span class='ident'>u8</span>], <span class='ident'>m</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>u8</span>], <span class='ident'>sk</span>: <span class='kw-2'>&amp;</span><span class='ident'>SignSecretKey</span>)
 {
