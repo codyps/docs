@@ -9,8 +9,8 @@
 
     <title>lib.rs.html -- source</title>
 
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
     
@@ -1945,13 +1945,13 @@
     <span class='ident'>box_afternm</span>(<span class='ident'>c</span>,<span class='ident'>m</span>,<span class='ident'>n</span>, <span class='kw-2'>&amp;</span><span class='ident'>k</span>)
 }
 
-<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>box_open</span>(<span class='ident'>m</span> : <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> [<span class='ident'>u8</span>], <span class='ident'>c</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>u8</span>], <span class='ident'>n</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>u8</span>;<span class='number'>24</span>], <span class='ident'>y</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>u8</span>;<span class='number'>32</span>], <span class='ident'>x</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>u8</span>;<span class='number'>32</span>]) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span>(),()<span class='op'>&gt;</span>
+<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>box_open</span>(<span class='ident'>m</span> : <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> [<span class='ident'>u8</span>], <span class='ident'>c</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>u8</span>], <span class='ident'>n</span>: <span class='kw-2'>&amp;</span><span class='ident'>BoxNonce</span>, <span class='ident'>pk</span>: <span class='kw-2'>&amp;</span><span class='ident'>BoxPublicKey</span>, <span class='ident'>sk</span>: <span class='kw-2'>&amp;</span><span class='ident'>BoxSecretKey</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span>(),()<span class='op'>&gt;</span>
 {
     <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='kw-2'>&amp;</span><span class='ident'>c</span>[..<span class='number'>16</span>], <span class='kw-2'>&amp;</span>[<span class='number'>0u8</span>;<span class='number'>16</span>]);
     <span class='comment'>/* FIXME: uninit in tweet-nacl */</span>
     <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>k</span> <span class='op'>=</span> [<span class='number'>0u8</span>; <span class='number'>32</span>];
-    <span class='ident'>box_beforenm</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>k</span>,<span class='ident'>y</span>,<span class='ident'>x</span>);
-    <span class='ident'>box_open_afternm</span>(<span class='ident'>m</span>,<span class='ident'>c</span>,<span class='ident'>n</span>, <span class='kw-2'>&amp;</span><span class='ident'>k</span>)
+    <span class='ident'>box_beforenm</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>k</span>,<span class='ident'>pk</span>,<span class='ident'>sk</span>);
+    <span class='ident'>box_open_afternm</span>(<span class='ident'>m</span>,<span class='ident'>c</span>,<span class='ident'>n</span>,<span class='kw-2'>&amp;</span><span class='ident'>k</span>)
 }
 
 <span class='kw'>fn</span> <span class='ident'>r</span>(<span class='ident'>x</span>: <span class='ident'>W</span><span class='op'>&lt;</span><span class='ident'>u64</span><span class='op'>&gt;</span>, <span class='ident'>c</span>: <span class='ident'>usize</span>) <span class='op'>-&gt;</span> <span class='ident'>W</span><span class='op'>&lt;</span><span class='ident'>u64</span><span class='op'>&gt;</span> { (<span class='ident'>x</span> <span class='op'>&gt;&gt;</span> <span class='ident'>c</span>) <span class='op'>|</span> (<span class='ident'>x</span> <span class='op'>&lt;&lt;</span> (<span class='number'>64</span> <span class='op'>-</span> <span class='ident'>c</span>)) }
@@ -2500,7 +2500,7 @@ pub fn sign(sig: &amp;mut Sign, m: &amp;[u8], sk: &amp;SignSecretKey)
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                    <code>vec -> usize</code>)
                 </p>
             </div>
         </div>
@@ -2509,13 +2509,13 @@ pub fn sign(sig: &amp;mut Sign, m: &amp;[u8], sk: &amp;SignSecretKey)
     
 
     <script>
-        window.rootPath = "../../../";
+        window.rootPath = "../../";
         window.currentCrate = "sodalite";
         window.playgroundUrl = "";
     </script>
-    <script src="../../../jquery.js"></script>
-    <script src="../../../main.js"></script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
     
-    <script defer src="../../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>
