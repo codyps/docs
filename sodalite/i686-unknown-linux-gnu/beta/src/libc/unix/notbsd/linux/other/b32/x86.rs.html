@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/home/travis/.multirust/toolchains/beta/cargo/registry/src/github.com-88ac128001ac3a9a/libc-0.2.8/src/unix/notbsd/linux/other/b32/x86.rs`.">
+    <meta name="description" content="Source to the Rust file `/home/travis/.multirust/toolchains/beta/cargo/registry/src/github.com-88ac128001ac3a9a/libc-0.2.9/src/unix/notbsd/linux/other/b32/x86.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>x86.rs.html -- source</title>
@@ -89,6 +89,7 @@
 <span id="46">46</span>
 <span id="47">47</span>
 <span id="48">48</span>
+<span id="49">49</span>
 </pre><pre class='rust '>
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>c_char</span> <span class='op'>=</span> <span class='ident'>i8</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>wchar_t</span> <span class='op'>=</span> <span class='ident'>i32</span>;
@@ -128,6 +129,7 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FIONBIO</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>0x5421</span>;
 
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SYS_gettid</span>: ::<span class='ident'>c_long</span> <span class='op'>=</span> <span class='number'>224</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SYS_perf_event_open</span>: ::<span class='ident'>c_long</span> <span class='op'>=</span> <span class='number'>336</span>;
 
 <span class='kw'>extern</span> {
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>getcontext</span>(<span class='ident'>ucp</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ucontext_t</span>) <span class='op'>-&gt;</span> ::<span class='ident'>c_int</span>;
