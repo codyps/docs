@@ -47,41 +47,42 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-13' class='srclink' href='../src/owned_fd/src/lib.rs.html#34-36' title='goto source code'>[src]</a></span></h1>
+               </span><a id='src-13' class='srclink' href='../src/owned_fd/src/lib.rs.html#35-37' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct OwnedFd {
     // some fields omitted
-}</pre><div class='docblock'><p>OwnedFd is an RAII wrapper around RawFd: it automatically closes on drop &amp; provides borrow()
-functionality to support lifetimes &amp; borrow checking around the use of file descriptors</p>
+}</pre><div class='docblock'><p><code>OwnedFd</code> is an RAII wrapper around <code>RawFd</code>: it automatically closes on <code>Drop</code> &amp; provides
+<code>Borrow::borrow()</code> functionality to support lifetimes &amp; borrow checking around the use of file
+descriptors</p>
 
-<p>Compared to using File, TcpStream, etc as a wrapper to close on drop, OwnedFd:</p>
+<p>Compared to using <code>File</code>, <code>TcpStream</code>, etc as a wrapper to close on drop, <code>OwnedFd</code>:</p>
 
 <ul>
 <li>allows any type of filedescriptor to be used safely</li>
-<li>has no overhead greater than a RawFd (no buffer, metadata, or other allocations)</li>
+<li>has no overhead greater than a <code>RawFd</code> (no buffer, metadata, or other allocations)</li>
 <li>allows use of the borrow system to ensure drop (close) happens only when all users of an
 ownedfd have released it.</li>
 </ul>
 </div><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../owned_fd/struct.OwnedFd.html' title='owned_fd::OwnedFd'>OwnedFd</a></code></h3><div class='impl-items'><h4 id='method.from_unowned_raw' class='method'><code>unsafe fn <a href='#method.from_unowned_raw' class='fnname'>from_unowned_raw</a>(i: <a class='type' href='https://doc.rust-lang.org/nightly/std/sys/ext/io/type.RawFd.html' title='std::sys::ext::io::RawFd'>RawFd</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a class='struct' href='../owned_fd/struct.OwnedFd.html' title='owned_fd::OwnedFd'>OwnedFd</a>&gt;</code></h4>
 <div class='docblock'><p>Given a raw file descriptor that may be owned by another (ie: another data structure might
-close it), create a Owned version that we have control over (via dup())</p>
+close it), create an owned version that we have control over (via <code>OwnedF::dup()</code>)</p>
 
 <p>For taking ownership, see <code>FromRawFd::from_raw_fd()</code>.</p>
 
 <p>Unsafety:</p>
 
 <ul>
-<li>@i <em>must</em> be a valid file descriptor (of any kind)</li>
+<li><code>i</code> <em>must</em> be a valid file descriptor (of any kind)</li>
 </ul>
 </div><h4 id='method.dup' class='method'><code>fn <a href='#method.dup' class='fnname'>dup</a>(&amp;self) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/std/io/error/type.Result.html' title='std::io::error::Result'>Result</a>&lt;<a class='struct' href='../owned_fd/struct.OwnedFd.html' title='owned_fd::OwnedFd'>OwnedFd</a>&gt;</code></h4>
-<div class='docblock'><p>Duplicate this OwnedFd, and allow the error to be detected.</p>
+<div class='docblock'><p>Duplicate this <code>OwnedFd</code>, and allow the error to be detected.</p>
 
-<p>Clone uses this, but panics on error</p>
+<p><code>Clone::clone()</code> uses this, but panics on error</p>
 </div><h4 id='method.from' class='method'><code>fn <a href='#method.from' class='fnname'>from</a>&lt;T: <a class='trait' href='https://doc.rust-lang.org/nightly/std/sys/ext/io/trait.IntoRawFd.html' title='std::sys::ext::io::IntoRawFd'>IntoRawFd</a>&gt;(i: T) -&gt; Self</code></h4>
-<div class='docblock'><p>Given a type that impliments <code>IntoRawFd</code> construct an OwnedFd.</p>
+<div class='docblock'><p>Given a type that impliments <code>IntoRawFd</code> construct an <code>OwnedFd</code>.</p>
 
 <p>This is safe because we assume the promises of <code>IntoRawFd</code> are followed.</p>
 
-<p>NOTE: ideally, we&#39;d impl this as From<T>, but current rust doesn&#39;t allow that. Revisit when
+<p>NOTE: ideally, we&#39;d impl this as <code>From&lt;T&gt;</code>, but current rust doesn&#39;t allow that. Revisit when
 specialization stabilizes.</p>
 </div></div><h2 id='deref-methods'>Methods from <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html' title='core::ops::Deref'>Deref</a>&lt;Target=<a class='struct' href='../owned_fd/struct.FdRef.html' title='owned_fd::FdRef'>FdRef</a>&gt;</h2><div class='impl-items'></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/std/sys/ext/io/trait.AsRawFd.html' title='std::sys::ext::io::AsRawFd'>AsRawFd</a> for <a class='struct' href='../owned_fd/struct.OwnedFd.html' title='owned_fd::OwnedFd'>OwnedFd</a></code></h3><div class='impl-items'><h4 id='method.as_raw_fd' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/std/sys/ext/io/trait.AsRawFd.html#tymethod.as_raw_fd' class='fnname'>as_raw_fd</a>(&amp;self) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/std/sys/ext/io/type.RawFd.html' title='std::sys::ext::io::RawFd'>RawFd</a></code></h4>
 </div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/std/sys/ext/io/trait.IntoRawFd.html' title='std::sys::ext::io::IntoRawFd'>IntoRawFd</a> for <a class='struct' href='../owned_fd/struct.OwnedFd.html' title='owned_fd::OwnedFd'>OwnedFd</a></code></h3><div class='impl-items'><h4 id='method.into_raw_fd' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/std/sys/ext/io/trait.IntoRawFd.html#tymethod.into_raw_fd' class='fnname'>into_raw_fd</a>(self) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/std/sys/ext/io/type.RawFd.html' title='std::sys::ext::io::RawFd'>RawFd</a></code></h4>
