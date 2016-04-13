@@ -46,7 +46,7 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-0' class='srclink' href='../src/owned_fd/lib.rs.html#1-181' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-0' class='srclink' href='../src/owned_fd/lib.rs.html#1-182' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>Provide a general handler for file descriptor reasources via the <code>OwnedFd</code> and <code>FdRef</code> types</p>
 </div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
@@ -54,7 +54,7 @@
                         <td><a class='struct' href='struct.FdRef.html'
                                title='owned_fd::FdRef'>FdRef</a></td>
                         <td class='docblock short'>
-                             <p>A zero-cost (well, very, very, low cost) borrow of an OwnedFd.</p>
+                             <p>A zero-cost (well, very, very, low cost) borrow of an <code>OwnedFd</code>.</p>
 
                         </td>
                     </tr>
@@ -63,8 +63,9 @@
                         <td><a class='struct' href='struct.OwnedFd.html'
                                title='owned_fd::OwnedFd'>OwnedFd</a></td>
                         <td class='docblock short'>
-                             <p>OwnedFd is an RAII wrapper around RawFd: it automatically closes on drop &amp; provides borrow()
-functionality to support lifetimes &amp; borrow checking around the use of file descriptors</p>
+                             <p><code>OwnedFd</code> is an RAII wrapper around <code>RawFd</code>: it automatically closes on <code>Drop</code> &amp; provides
+<code>Borrow::borrow()</code> functionality to support lifetimes &amp; borrow checking around the use of file
+descriptors</p>
 
                         </td>
                     </tr>

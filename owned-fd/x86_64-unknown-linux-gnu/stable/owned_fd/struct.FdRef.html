@@ -46,22 +46,22 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-48' class='srclink' href='../src/owned_fd/lib.rs.html#132-135' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-48' class='srclink' href='../src/owned_fd/lib.rs.html#133-136' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct FdRef {
     // some fields omitted
-}</pre><div class='docblock'><p>A zero-cost (well, very, very, low cost) borrow of an OwnedFd.</p>
+}</pre><div class='docblock'><p>A zero-cost (well, very, very, low cost) borrow of an <code>OwnedFd</code>.</p>
 
 <p>This cannot be constructed directly, and can only exist as <code>&amp;FdRef</code>.</p>
 
-<p>As a result, it might be slightly larger than a bare RawFd.</p>
+<p>As a result, it might be slightly larger than a bare <code>RawFd</code>.</p>
 </div><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../owned_fd/struct.FdRef.html' title='owned_fd::FdRef'>FdRef</a></code></h3><div class='impl-items'><h4 id='method.from_unowned_raw' class='method'><code>unsafe fn <a href='#method.from_unowned_raw' class='fnname'>from_unowned_raw</a>&lt;'a&gt;(i: <a class='type' href='https://doc.rust-lang.org/nightly/std/sys/ext/io/type.RawFd.html' title='std::sys::ext::io::RawFd'>RawFd</a>) -&gt; &amp;'a <a class='struct' href='../owned_fd/struct.FdRef.html' title='owned_fd::FdRef'>FdRef</a></code></h4>
-<div class='docblock'><p>Construct a FdRef reference from a RawFd. No ownership is taken.</p>
+<div class='docblock'><p>Construct a <code>FdRef</code> reference from a <code>RawFd</code>. No ownership is taken.</p>
 
 <p>unsafety:</p>
 
 <ul>
-<li>@i <em>must</em> be a valid fd</li>
-<li>the lifetime &#39;a must be appropriately bound</li>
+<li><code>i</code> <em>must</em> be a valid file descriptor</li>
+<li>the lifetime <code>&#39;a</code> must be appropriately bound to <code>i</code>&#39;s lifetime</li>
 </ul>
 </div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/std/sys/ext/io/trait.AsRawFd.html' title='std::sys::ext::io::AsRawFd'>AsRawFd</a> for <a class='struct' href='../owned_fd/struct.FdRef.html' title='owned_fd::FdRef'>FdRef</a></code></h3><div class='impl-items'><h4 id='method.as_raw_fd' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/std/sys/ext/io/trait.AsRawFd.html#method.as_raw_fd' class='fnname'>as_raw_fd</a>(&amp;self) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/std/sys/ext/io/type.RawFd.html' title='std::sys::ext::io::RawFd'>RawFd</a></code></h4>
 </div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/collections/borrow/trait.ToOwned.html' title='collections::borrow::ToOwned'>ToOwned</a> for <a class='struct' href='../owned_fd/struct.FdRef.html' title='owned_fd::FdRef'>FdRef</a></code></h3><div class='impl-items'><h4 id='assoc_type.Owned' class='type'><code>type Owned = <a class='struct' href='../owned_fd/struct.OwnedFd.html' title='owned_fd::OwnedFd'>OwnedFd</a></code></h4>
