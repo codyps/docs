@@ -48,7 +48,18 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a id='src-253' class='srclink' href='../../src/systemd/src/bus/mod.rs.html#1-927' title='goto source code'>[src]</a></span></h1>
-<div class='docblock'><p>Systemd&#39;s interface for working with dbus. Allows both dbus servers and clients to be created</p>
+<div class='docblock'><p>An interface to work with the dbus message bus.</p>
+
+<p>WARNING: this is not complete. Right now we&#39;re missing:</p>
+
+<ul>
+<li>message encoding/decoding</li>
+<li>server support</li>
+<li>async client support</li>
+</ul>
+
+<p>In short, the only functional thing is issuing blocking dbus calls with pre-populated messages
+and writing custom ffi decoders of the message replies.</p>
 </div><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
 <table>
                        <tr class=' module-item'>
