@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["JournalFiles","Represents the set of journal files to read."]],"fn":[["log",""],["log_record","Send a `log::LogRecord` to systemd."],["print","Send a simple message to systemd."],["send","Send preformatted fields to systemd."]],"struct":[["Journal","A cursor into the systemd journal."],["JournalLog",""]],"type":[["JournalRecord",""]]});
