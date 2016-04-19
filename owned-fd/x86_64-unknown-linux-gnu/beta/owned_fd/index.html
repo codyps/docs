@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" type="text/css" href="../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../main.css">
+    
 
     
     
@@ -43,31 +44,29 @@
 
     <section id='main' class="content mod">
 <h1 class='fqn'><span class='in-band'>Crate <a class='mod' href=''>owned_fd</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                [<span class='inner'>&#x2212;</span>]
-            </a>
-        </span><a id='src-0' class='srclink' href='../src/owned_fd/src/lib.rs.html#1-182' title='goto source code'>[src]</a></span></h1>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-0' class='srclink' href='../src/owned_fd/src/lib.rs.html#1-182' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>Provide a general handler for file descriptor reasources via the <code>OwnedFd</code> and <code>FdRef</code> types</p>
 </div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
-                    <tr class=' module-item'>
-                        <td><a class='struct' href='struct.FdRef.html'
-                               title='owned_fd::FdRef'>FdRef</a></td>
-                        <td class='docblock short'>
-                             <p>A zero-cost (well, very, very, low cost) borrow of an <code>OwnedFd</code>.</p>
-                        </td>
-                    </tr>
-                
-                    <tr class=' module-item'>
-                        <td><a class='struct' href='struct.OwnedFd.html'
-                               title='owned_fd::OwnedFd'>OwnedFd</a></td>
-                        <td class='docblock short'>
-                             <p><code>OwnedFd</code> is an RAII wrapper around <code>RawFd</code>: it automatically closes on <code>Drop</code> &amp; provides
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.FdRef.html'
+                                  title='owned_fd::FdRef'>FdRef</a></td>
+                           <td class='docblock short'>
+                                <p>A zero-cost (well, very, very, low cost) borrow of an <code>OwnedFd</code>.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.OwnedFd.html'
+                                  title='owned_fd::OwnedFd'>OwnedFd</a></td>
+                           <td class='docblock short'>
+                                <p><code>OwnedFd</code> is an RAII wrapper around <code>RawFd</code>: it automatically closes on <code>Drop</code> &amp; provides
 <code>Borrow::borrow()</code> functionality to support lifetimes &amp; borrow checking around the use of file
 descriptors</p>
-                        </td>
-                    </tr>
-                </table></section>
+                           </td>
+                       </tr></table></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>

@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" type="text/css" href="../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../main.css">
+    
 
     
     
@@ -43,10 +44,10 @@
 
     <section id='main' class="content struct">
 <h1 class='fqn'><span class='in-band'>Struct <a href='index.html'>owned_fd</a>::<wbr><a class='struct' href=''>FdRef</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                [<span class='inner'>&#x2212;</span>]
-            </a>
-        </span><a id='src-48' class='srclink' href='../src/owned_fd/src/lib.rs.html#133-136' title='goto source code'>[src]</a></span></h1>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-48' class='srclink' href='../src/owned_fd/src/lib.rs.html#133-136' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct FdRef {
     // some fields omitted
 }</pre><div class='docblock'><p>A zero-cost (well, very, very, low cost) borrow of an <code>OwnedFd</code>.</p>
@@ -63,9 +64,9 @@
 <li><code>i</code> <em>must</em> be a valid file descriptor</li>
 <li>the lifetime <code>&#39;a</code> must be appropriately bound to <code>i</code>&#39;s lifetime</li>
 </ul>
-</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/std/sys/ext/io/trait.AsRawFd.html' title='std::sys::ext::io::AsRawFd'>AsRawFd</a> for <a class='struct' href='../owned_fd/struct.FdRef.html' title='owned_fd::FdRef'>FdRef</a></code></h3><div class='impl-items'><h4 id='method.as_raw_fd' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/std/sys/ext/io/trait.AsRawFd.html#method.as_raw_fd' class='fnname'>as_raw_fd</a>(&amp;self) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/std/sys/ext/io/type.RawFd.html' title='std::sys::ext::io::RawFd'>RawFd</a></code></h4>
-</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/collections/borrow/trait.ToOwned.html' title='collections::borrow::ToOwned'>ToOwned</a> for <a class='struct' href='../owned_fd/struct.FdRef.html' title='owned_fd::FdRef'>FdRef</a></code></h3><div class='impl-items'><h4 id='associatedtype.Owned' class='type'><code>type Owned = <a class='struct' href='../owned_fd/struct.OwnedFd.html' title='owned_fd::OwnedFd'>OwnedFd</a></code></h4>
-<h4 id='method.to_owned' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/collections/borrow/trait.ToOwned.html#method.to_owned' class='fnname'>to_owned</a>(&amp;self) -&gt; Self::<a class='trait' href='https://doc.rust-lang.org/nightly/collections/borrow/trait.ToOwned.html' title='collections::borrow::ToOwned'>Owned</a></code></h4>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/std/sys/ext/io/trait.AsRawFd.html' title='std::sys::ext::io::AsRawFd'>AsRawFd</a> for <a class='struct' href='../owned_fd/struct.FdRef.html' title='owned_fd::FdRef'>FdRef</a></code></h3><div class='impl-items'><h4 id='method.as_raw_fd' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/std/sys/ext/io/trait.AsRawFd.html#tymethod.as_raw_fd' class='fnname'>as_raw_fd</a>(&amp;self) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/std/sys/ext/io/type.RawFd.html' title='std::sys::ext::io::RawFd'>RawFd</a></code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/collections/borrow/trait.ToOwned.html' title='collections::borrow::ToOwned'>ToOwned</a> for <a class='struct' href='../owned_fd/struct.FdRef.html' title='owned_fd::FdRef'>FdRef</a></code></h3><div class='impl-items'><h4 id='associatedtype.Owned' class='type'><code>type <a href='https://doc.rust-lang.org/nightly/collections/borrow/trait.ToOwned.html#associatedtype.Owned' class='type'>Owned</a> = <a class='struct' href='../owned_fd/struct.OwnedFd.html' title='owned_fd::OwnedFd'>OwnedFd</a></code></h4>
+<h4 id='method.to_owned' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/collections/borrow/trait.ToOwned.html#tymethod.to_owned' class='fnname'>to_owned</a>(&amp;self) -&gt; Self::<a class='trait' href='https://doc.rust-lang.org/nightly/collections/borrow/trait.ToOwned.html' title='collections::borrow::ToOwned'>Owned</a></code></h4>
 </div></section>
     <section id='search' class="content hidden"></section>
 
