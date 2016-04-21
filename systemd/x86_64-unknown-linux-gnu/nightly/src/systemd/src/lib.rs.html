@@ -133,9 +133,12 @@
 <span id="89">89</span>
 <span id="90">90</span>
 <span id="91">91</span>
+<span id="92">92</span>
+<span id="93">93</span>
 </pre><pre class='rust '>
 <span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>libc</span>;
-<span class='attribute'>#[<span class='ident'>macro_use</span>]</span> <span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>log</span>;
+<span class='attribute'>#[<span class='ident'>macro_use</span>]</span>
+<span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>log</span>;
 <span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>libsystemd_sys</span> <span class='kw'>as</span> <span class='ident'>ffi</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>io</span>::{<span class='prelude-ty'>Result</span>, <span class='ident'>Error</span>};
 
@@ -175,7 +178,8 @@
 <span class='attribute'>#[<span class='ident'>macro_export</span>]</span>
 <span class='macro'>macro_rules</span><span class='macro'>!</span> <span class='ident'>char_or_null</span> {
     (<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>e</span>:<span class='ident'>expr</span>) <span class='op'>=&gt;</span> (<span class='kw'>match</span> <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>e</span> {
-        <span class='prelude-val'>Some</span>(<span class='ident'>p</span>) <span class='op'>=&gt;</span> ::<span class='ident'>std</span>::<span class='ident'>ffi</span>::<span class='ident'>CString</span>::<span class='ident'>new</span>(<span class='ident'>p</span>.<span class='ident'>as_bytes</span>()).<span class='ident'>unwrap</span>().<span class='ident'>as_ptr</span>() <span class='kw'>as</span> <span class='op'>*</span><span class='kw'>const</span> ::<span class='ident'>libc</span>::<span class='ident'>c_char</span>,
+        <span class='prelude-val'>Some</span>(<span class='ident'>p</span>) <span class='op'>=&gt;</span> ::<span class='ident'>std</span>::<span class='ident'>ffi</span>::<span class='ident'>CString</span>::<span class='ident'>new</span>(<span class='ident'>p</span>.<span class='ident'>as_bytes</span>()).<span class='ident'>unwrap</span>()
+                                                         .<span class='ident'>as_ptr</span>() <span class='kw'>as</span> <span class='op'>*</span><span class='kw'>const</span> ::<span class='ident'>libc</span>::<span class='ident'>c_char</span>,
         <span class='prelude-val'>None</span> <span class='op'>=&gt;</span> <span class='ident'>ptr</span>::<span class='ident'>null</span>() <span class='kw'>as</span> <span class='op'>*</span><span class='kw'>const</span> ::<span class='ident'>libc</span>::<span class='ident'>c_char</span>
     })
 }
