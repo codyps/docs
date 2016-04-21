@@ -57,16 +57,36 @@
 <span id="14">14</span>
 <span id="15">15</span>
 <span id="16">16</span>
+<span id="17">17</span>
+<span id="18">18</span>
+<span id="19">19</span>
+<span id="20">20</span>
+<span id="21">21</span>
+<span id="22">22</span>
+<span id="23">23</span>
+<span id="24">24</span>
+<span id="25">25</span>
+<span id="26">26</span>
 </pre><pre class='rust '>
-<span class='kw'>use</span> <span class='ident'>super</span>::{<span class='ident'>c_int</span>,<span class='ident'>size_t</span>,<span class='ident'>c_char</span>,<span class='ident'>pid_t</span>};
+<span class='kw'>use</span> <span class='ident'>super</span>::{<span class='ident'>c_int</span>, <span class='ident'>size_t</span>, <span class='ident'>c_char</span>, <span class='ident'>pid_t</span>};
 
-<span class='kw'>extern</span> {
+<span class='kw'>extern</span> <span class='string'>&quot;C&quot;</span> {
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_listen_fds</span>(<span class='ident'>unset_environment</span>: <span class='ident'>c_int</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_is_fifo</span>(<span class='ident'>fd</span>: <span class='ident'>c_int</span>, <span class='ident'>path</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>c_char</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_is_special</span>(<span class='ident'>fd</span>: <span class='ident'>c_int</span>, <span class='ident'>path</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>c_char</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_is_socket</span>(<span class='ident'>fd</span>: <span class='ident'>c_int</span>, <span class='ident'>family</span>: <span class='ident'>c_int</span>, <span class='ident'>sock_type</span>: <span class='ident'>c_int</span>, <span class='ident'>listening</span>: <span class='ident'>c_int</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_is_socket_inet</span>(<span class='ident'>fd</span>: <span class='ident'>c_int</span>, <span class='ident'>family</span>: <span class='ident'>c_int</span>, <span class='ident'>sock_type</span>: <span class='ident'>c_int</span>, <span class='ident'>listening</span>: <span class='ident'>c_int</span>, <span class='ident'>port</span>: <span class='ident'>u16</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_is_socket_unix</span>(<span class='ident'>fd</span>: <span class='ident'>c_int</span>, <span class='ident'>sock_type</span>: <span class='ident'>c_int</span>, <span class='ident'>listening</span>: <span class='ident'>c_int</span>, <span class='ident'>path</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>c_char</span>, <span class='ident'>length</span>: <span class='ident'>size_t</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_is_socket_inet</span>(<span class='ident'>fd</span>: <span class='ident'>c_int</span>,
+                             <span class='ident'>family</span>: <span class='ident'>c_int</span>,
+                             <span class='ident'>sock_type</span>: <span class='ident'>c_int</span>,
+                             <span class='ident'>listening</span>: <span class='ident'>c_int</span>,
+                             <span class='ident'>port</span>: <span class='ident'>u16</span>)
+                             <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_is_socket_unix</span>(<span class='ident'>fd</span>: <span class='ident'>c_int</span>,
+                             <span class='ident'>sock_type</span>: <span class='ident'>c_int</span>,
+                             <span class='ident'>listening</span>: <span class='ident'>c_int</span>,
+                             <span class='ident'>path</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>c_char</span>,
+                             <span class='ident'>length</span>: <span class='ident'>size_t</span>)
+                             <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_is_mq</span>(<span class='ident'>fd</span>: <span class='ident'>c_int</span>, <span class='ident'>path</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>c_char</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_notify</span>(<span class='ident'>unset_environment</span>: <span class='ident'>c_int</span>, <span class='ident'>state</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>c_char</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
     <span class='comment'>// skipping sd_*notifyf; ignoring format strings</span>

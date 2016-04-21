@@ -239,11 +239,31 @@
 <span id="196">196</span>
 <span id="197">197</span>
 <span id="198">198</span>
+<span id="199">199</span>
+<span id="200">200</span>
+<span id="201">201</span>
+<span id="202">202</span>
+<span id="203">203</span>
+<span id="204">204</span>
+<span id="205">205</span>
+<span id="206">206</span>
+<span id="207">207</span>
+<span id="208">208</span>
+<span id="209">209</span>
+<span id="210">210</span>
+<span id="211">211</span>
+<span id="212">212</span>
+<span id="213">213</span>
+<span id="214">214</span>
+<span id="215">215</span>
+<span id="216">216</span>
+<span id="217">217</span>
+<span id="218">218</span>
 </pre><pre class='rust '>
-<span class='kw'>use</span> <span class='ident'>std</span>::{<span class='ident'>ptr</span>,<span class='ident'>collections</span>};
+<span class='kw'>use</span> <span class='ident'>std</span>::{<span class='ident'>ptr</span>, <span class='ident'>collections</span>};
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>unix</span>::<span class='ident'>io</span>::<span class='ident'>RawFd</span> <span class='kw'>as</span> <span class='ident'>Fd</span>;
 <span class='kw'>use</span> <span class='ident'>libc</span>::{<span class='ident'>c_char</span>, <span class='ident'>c_uint</span>};
-<span class='kw'>use</span> <span class='ident'>super</span>::<span class='ident'>ffi</span>::{<span class='ident'>c_int</span>,<span class='ident'>size_t</span>,<span class='ident'>pid_t</span>};
+<span class='kw'>use</span> <span class='ident'>super</span>::<span class='ident'>ffi</span>::{<span class='ident'>c_int</span>, <span class='ident'>size_t</span>, <span class='ident'>pid_t</span>};
 <span class='kw'>use</span> <span class='ident'>libc</span>::{<span class='ident'>SOCK_STREAM</span>, <span class='ident'>SOCK_DGRAM</span>, <span class='ident'>SOCK_RAW</span>};
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>net</span>::<span class='ident'>TcpListener</span>;
 <span class='kw'>use</span> <span class='ident'>ffi</span>::<span class='ident'>daemon</span> <span class='kw'>as</span> <span class='ident'>ffi</span>;
@@ -256,7 +276,7 @@
 <span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>SocketType</span> {
     <span class='ident'>Stream</span>,
     <span class='ident'>Datagram</span>,
-    <span class='ident'>Raw</span>
+    <span class='ident'>Raw</span>,
 }
 
 <span class='doccomment'>/// Options for checking whether a socket is in listening mode</span>
@@ -266,7 +286,7 @@
     <span class='doccomment'>/// Verify that socket is not in listening mode</span>
     <span class='ident'>IsNotListening</span>,
     <span class='doccomment'>/// Don&#39;t check whether socket is listening</span>
-    <span class='ident'>NoListeningCheck</span>
+    <span class='ident'>NoListeningCheck</span>,
 }
 
 <span class='doccomment'>/// Number of the first passed file descriptor</span>
@@ -318,7 +338,7 @@
         <span class='prelude-val'>Some</span>(<span class='ident'>SocketType</span>::<span class='ident'>Stream</span>) <span class='op'>=&gt;</span> <span class='ident'>SOCK_STREAM</span>,
         <span class='prelude-val'>Some</span>(<span class='ident'>SocketType</span>::<span class='ident'>Datagram</span>) <span class='op'>=&gt;</span> <span class='ident'>SOCK_DGRAM</span>,
         <span class='prelude-val'>Some</span>(<span class='ident'>SocketType</span>::<span class='ident'>Raw</span>) <span class='op'>=&gt;</span> <span class='ident'>SOCK_RAW</span>,
-        <span class='prelude-val'>None</span> <span class='op'>=&gt;</span> <span class='number'>0</span>
+        <span class='prelude-val'>None</span> <span class='op'>=&gt;</span> <span class='number'>0</span>,
     }
 }
 
@@ -328,14 +348,18 @@
     <span class='kw'>match</span> <span class='ident'>listening</span> {
         <span class='ident'>Listening</span>::<span class='ident'>IsListening</span> <span class='op'>=&gt;</span> <span class='number'>1</span>,
         <span class='ident'>Listening</span>::<span class='ident'>IsNotListening</span> <span class='op'>=&gt;</span> <span class='number'>0</span>,
-        <span class='ident'>Listening</span>::<span class='ident'>NoListeningCheck</span> <span class='op'>=&gt;</span> <span class='op'>-</span><span class='number'>1</span>
+        <span class='ident'>Listening</span>::<span class='ident'>NoListeningCheck</span> <span class='op'>=&gt;</span> <span class='op'>-</span><span class='number'>1</span>,
     }
 }
 
 <span class='doccomment'>/// Identifies whether the passed file descriptor is a socket. If family and</span>
 <span class='doccomment'>/// type are supplied, they must match as well. See `Listening` for listening</span>
 <span class='doccomment'>/// check parameters.</span>
-<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>is_socket</span>(<span class='ident'>fd</span>: <span class='ident'>Fd</span>, <span class='ident'>family</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>c_uint</span><span class='op'>&gt;</span>, <span class='ident'>socktype</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>SocketType</span><span class='op'>&gt;</span>, <span class='ident'>listening</span>: <span class='ident'>Listening</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>bool</span><span class='op'>&gt;</span> {
+<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>is_socket</span>(<span class='ident'>fd</span>: <span class='ident'>Fd</span>,
+                 <span class='ident'>family</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>c_uint</span><span class='op'>&gt;</span>,
+                 <span class='ident'>socktype</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>SocketType</span><span class='op'>&gt;</span>,
+                 <span class='ident'>listening</span>: <span class='ident'>Listening</span>)
+                 <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>bool</span><span class='op'>&gt;</span> {
     <span class='kw'>let</span> <span class='ident'>c_family</span> <span class='op'>=</span> <span class='ident'>family</span>.<span class='ident'>unwrap_or</span>(<span class='number'>0</span>) <span class='kw'>as</span> <span class='ident'>c_int</span>;
     <span class='kw'>let</span> <span class='ident'>c_socktype</span> <span class='op'>=</span> <span class='ident'>get_c_socktype</span>(<span class='ident'>socktype</span>);
     <span class='kw'>let</span> <span class='ident'>c_listening</span> <span class='op'>=</span> <span class='ident'>get_c_listening</span>(<span class='ident'>listening</span>);
@@ -347,7 +371,12 @@
 <span class='doccomment'>/// Identifies whether the passed file descriptor is an Internet socket. If</span>
 <span class='doccomment'>/// family, type, and/or port are supplied, they must match as well. See</span>
 <span class='doccomment'>/// `Listening` for listening check parameters.</span>
-<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>is_socket_inet</span>(<span class='ident'>fd</span>: <span class='ident'>Fd</span>, <span class='ident'>family</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>c_uint</span><span class='op'>&gt;</span>, <span class='ident'>socktype</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>SocketType</span><span class='op'>&gt;</span>, <span class='ident'>listening</span>: <span class='ident'>Listening</span>, <span class='ident'>port</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>u16</span><span class='op'>&gt;</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>bool</span><span class='op'>&gt;</span> {
+<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>is_socket_inet</span>(<span class='ident'>fd</span>: <span class='ident'>Fd</span>,
+                      <span class='ident'>family</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>c_uint</span><span class='op'>&gt;</span>,
+                      <span class='ident'>socktype</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>SocketType</span><span class='op'>&gt;</span>,
+                      <span class='ident'>listening</span>: <span class='ident'>Listening</span>,
+                      <span class='ident'>port</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>u16</span><span class='op'>&gt;</span>)
+                      <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>bool</span><span class='op'>&gt;</span> {
     <span class='kw'>let</span> <span class='ident'>c_family</span> <span class='op'>=</span> <span class='ident'>family</span>.<span class='ident'>unwrap_or</span>(<span class='number'>0</span>) <span class='kw'>as</span> <span class='ident'>c_int</span>;
     <span class='kw'>let</span> <span class='ident'>c_socktype</span> <span class='op'>=</span> <span class='ident'>get_c_socktype</span>(<span class='ident'>socktype</span>);
     <span class='kw'>let</span> <span class='ident'>c_listening</span> <span class='op'>=</span> <span class='ident'>get_c_listening</span>(<span class='ident'>listening</span>);
@@ -358,7 +387,11 @@
 }
 
 <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>tcp_listener</span>(<span class='ident'>fd</span>: <span class='ident'>Fd</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>TcpListener</span><span class='op'>&gt;</span> {
-    <span class='kw'>if</span> <span class='op'>!</span> <span class='macro'>try</span><span class='macro'>!</span>(<span class='ident'>is_socket_inet</span>(<span class='ident'>fd</span>, <span class='prelude-val'>None</span>, <span class='prelude-val'>Some</span>(<span class='ident'>SocketType</span>::<span class='ident'>Stream</span>), <span class='ident'>Listening</span>::<span class='ident'>IsListening</span>, <span class='prelude-val'>None</span>)) {
+    <span class='kw'>if</span> <span class='op'>!</span><span class='macro'>try</span><span class='macro'>!</span>(<span class='ident'>is_socket_inet</span>(<span class='ident'>fd</span>,
+                            <span class='prelude-val'>None</span>,
+                            <span class='prelude-val'>Some</span>(<span class='ident'>SocketType</span>::<span class='ident'>Stream</span>),
+                            <span class='ident'>Listening</span>::<span class='ident'>IsListening</span>,
+                            <span class='prelude-val'>None</span>)) {
         <span class='prelude-val'>Err</span>(<span class='ident'>Error</span>::<span class='ident'>new</span>(<span class='ident'>ErrorKind</span>::<span class='ident'>InvalidInput</span>, <span class='string'>&quot;Socket type was not as expected&quot;</span>))
     } <span class='kw'>else</span> {
         <span class='prelude-val'>Ok</span>(<span class='kw'>unsafe</span> { <span class='ident'>TcpListener</span>::<span class='ident'>from_raw_fd</span>(<span class='ident'>fd</span>) })
@@ -369,7 +402,11 @@
 <span class='doccomment'>/// are supplied, it must match as well. For normal sockets, leave the path set</span>
 <span class='doccomment'>/// to None; otherwise, pass in the full socket path.  See `Listening` for</span>
 <span class='doccomment'>/// listening check parameters.</span>
-<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>is_socket_unix</span>(<span class='ident'>fd</span>: <span class='ident'>Fd</span>, <span class='ident'>socktype</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>SocketType</span><span class='op'>&gt;</span>, <span class='ident'>listening</span>: <span class='ident'>Listening</span>, <span class='ident'>path</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw-2'>&amp;</span><span class='ident'>str</span><span class='op'>&gt;</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>bool</span><span class='op'>&gt;</span> {
+<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>is_socket_unix</span>(<span class='ident'>fd</span>: <span class='ident'>Fd</span>,
+                      <span class='ident'>socktype</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>SocketType</span><span class='op'>&gt;</span>,
+                      <span class='ident'>listening</span>: <span class='ident'>Listening</span>,
+                      <span class='ident'>path</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw-2'>&amp;</span><span class='ident'>str</span><span class='op'>&gt;</span>)
+                      <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>bool</span><span class='op'>&gt;</span> {
     <span class='kw'>let</span> <span class='ident'>c_socktype</span> <span class='op'>=</span> <span class='ident'>get_c_socktype</span>(<span class='ident'>socktype</span>);
     <span class='kw'>let</span> <span class='ident'>c_listening</span> <span class='op'>=</span> <span class='ident'>get_c_listening</span>(<span class='ident'>listening</span>);
     <span class='kw'>let</span> <span class='ident'>c_path</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>c_char</span>;
@@ -379,7 +416,7 @@
             <span class='kw'>let</span> <span class='ident'>path_cstr</span> <span class='op'>=</span> ::<span class='ident'>std</span>::<span class='ident'>ffi</span>::<span class='ident'>CString</span>::<span class='ident'>new</span>(<span class='ident'>p</span>.<span class='ident'>as_bytes</span>()).<span class='ident'>unwrap</span>();
             <span class='ident'>c_length</span> <span class='op'>=</span> <span class='ident'>path_cstr</span>.<span class='ident'>as_bytes</span>().<span class='ident'>len</span>() <span class='kw'>as</span> <span class='ident'>size_t</span>;
             <span class='ident'>c_path</span> <span class='op'>=</span> <span class='ident'>path_cstr</span>.<span class='ident'>as_ptr</span>() <span class='kw'>as</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>c_char</span>;
-        },
+        }
         <span class='prelude-val'>None</span> <span class='op'>=&gt;</span> {
             <span class='ident'>c_path</span> <span class='op'>=</span> <span class='ident'>ptr</span>::<span class='ident'>null</span>();
             <span class='ident'>c_length</span> <span class='op'>=</span> <span class='number'>0</span>;
@@ -419,7 +456,10 @@
 
 <span class='doccomment'>/// Similar to `notify()`, but this sends the message on behalf of the supplied</span>
 <span class='doccomment'>/// PID, if possible.</span>
-<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>pid_notify</span>(<span class='ident'>pid</span>: <span class='ident'>pid_t</span>, <span class='ident'>unset_environment</span>: <span class='ident'>bool</span>, <span class='ident'>state</span>: <span class='ident'>collections</span>::<span class='ident'>HashMap</span><span class='op'>&lt;</span><span class='kw-2'>&amp;</span><span class='ident'>str</span>, <span class='kw-2'>&amp;</span><span class='ident'>str</span><span class='op'>&gt;</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>bool</span><span class='op'>&gt;</span> {
+<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>pid_notify</span>(<span class='ident'>pid</span>: <span class='ident'>pid_t</span>,
+                  <span class='ident'>unset_environment</span>: <span class='ident'>bool</span>,
+                  <span class='ident'>state</span>: <span class='ident'>collections</span>::<span class='ident'>HashMap</span><span class='op'>&lt;</span><span class='kw-2'>&amp;</span><span class='ident'>str</span>, <span class='kw-2'>&amp;</span><span class='ident'>str</span><span class='op'>&gt;</span>)
+                  <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>bool</span><span class='op'>&gt;</span> {
     <span class='kw'>let</span> <span class='ident'>c_state</span> <span class='op'>=</span> <span class='ident'>state_to_c_string</span>(<span class='ident'>state</span>).<span class='ident'>as_ptr</span>() <span class='kw'>as</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>c_char</span>;
     <span class='kw'>let</span> <span class='ident'>result</span> <span class='op'>=</span> <span class='macro'>sd_try</span><span class='macro'>!</span>(<span class='ident'>ffi</span>::<span class='ident'>sd_pid_notify</span>(<span class='ident'>pid</span>, <span class='ident'>unset_environment</span> <span class='kw'>as</span> <span class='ident'>c_int</span>, <span class='ident'>c_state</span>));
     <span class='prelude-val'>Ok</span>(<span class='ident'>result</span> <span class='op'>!=</span> <span class='number'>0</span>)
