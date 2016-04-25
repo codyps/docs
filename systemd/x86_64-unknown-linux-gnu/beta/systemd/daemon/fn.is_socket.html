@@ -47,7 +47,7 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-140' class='srclink' href='../../src/systemd/src/daemon.rs.html#96-107' title='goto source code'>[src]</a></span></h1>
+               </span><a id='src-141' class='srclink' href='../../src/systemd/src/daemon.rs.html#96-107' title='goto source code'>[src]</a></span></h1>
 <pre class='rust fn'>pub fn is_socket(fd: <a class='type' href='https://doc.rust-lang.org/nightly/std/sys/ext/io/type.RawFd.html' title='std::sys::ext::io::RawFd'>Fd</a>, family: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../../libc/type.c_uint.html' title='libc::c_uint'>c_uint</a>&gt;, socktype: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='enum' href='../../systemd/daemon/enum.SocketType.html' title='systemd::daemon::SocketType'>SocketType</a>&gt;, listening: <a class='enum' href='../../systemd/daemon/enum.Listening.html' title='systemd::daemon::Listening'>Listening</a>) -&gt; <a class='type' href='../../systemd/type.Result.html' title='systemd::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>&gt;</pre><div class='docblock'><p>Identifies whether the passed file descriptor is a socket. If family and
 type are supplied, they must match as well. See <code>Listening</code> for listening
 check parameters.</p>
