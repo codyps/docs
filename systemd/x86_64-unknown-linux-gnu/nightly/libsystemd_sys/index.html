@@ -47,7 +47,7 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-0' class='srclink' href='../src/libsystemd_sys/libsystemd-sys/src/lib.rs.html#1-129' title='goto source code'>[src]</a></span></h1>
+               </span><a id='src-0' class='srclink' href='../src/libsystemd_sys/libsystemd-sys/src/lib.rs.html#1-44' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>Contains definitions for low-level bindings.</p>
 
 <p>Most of this module is Rust versions of the systemd headers. The goal of
@@ -56,8 +56,7 @@ it&#39;s there if you need it.</p>
 
 <p>Items in this module corresponding to systemd functions are well-documented
 by the systemd man pages.</p>
-</div><h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
-<table><tr><td><code>pub use <a class='mod' href='../libsystemd_sys/daemon/index.html' title='libsystemd_sys::daemon'>daemon</a>::*;</code></td></tr></table><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+</div><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
 <table>
                        <tr class=' module-item'>
                            <td><a class='mod' href='bus/index.html'
@@ -86,6 +85,13 @@ by the systemd man pages.</p>
                            <td class='docblock short'>
                                 
                            </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='journal/index.html'
+                                  title='libsystemd_sys::journal'>journal</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
                        </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
                        <tr class=' module-item'>
@@ -101,6 +107,20 @@ by the systemd man pages.</p>
                            <td class='docblock short'>
                                 
                            </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.siginfo_t.html'
+                                  title='libsystemd_sys::siginfo_t'>siginfo_t</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.signalfd_siginfo.html'
+                                  title='libsystemd_sys::signalfd_siginfo'>signalfd_siginfo</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
                        </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
 <table>
                        <tr class=' module-item'>
@@ -109,313 +129,11 @@ by the systemd man pages.</p>
                            <td class='docblock short'>
                                 <p>Type used to construct void pointers for use with C.</p>
                            </td>
-                       </tr></table><h2 id='constants' class='section-header'><a href="#constants">Constants</a></h2>
-<table>
-                       <tr class=' module-item'>
-                           <td><a class='constant' href='constant.SD_JOURNAL_CURRENT_USER.html'
-                                  title='libsystemd_sys::SD_JOURNAL_CURRENT_USER'>SD_JOURNAL_CURRENT_USER</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='constant' href='constant.SD_JOURNAL_LOCAL_ONLY.html'
-                                  title='libsystemd_sys::SD_JOURNAL_LOCAL_ONLY'>SD_JOURNAL_LOCAL_ONLY</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='constant' href='constant.SD_JOURNAL_RUNTIME_ONLY.html'
-                                  title='libsystemd_sys::SD_JOURNAL_RUNTIME_ONLY'>SD_JOURNAL_RUNTIME_ONLY</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='constant' href='constant.SD_JOURNAL_SYSTEM.html'
-                                  title='libsystemd_sys::SD_JOURNAL_SYSTEM'>SD_JOURNAL_SYSTEM</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
                        </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
 <table>
                        <tr class=' module-item'>
                            <td><a class='fn' href='fn.array_to_iovecs.html'
                                   title='libsystemd_sys::array_to_iovecs'>array_to_iovecs</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='fn' href='fn.sd_journal_add_conjunction.html'
-                                  title='libsystemd_sys::sd_journal_add_conjunction'>sd_journal_add_conjunction</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='fn' href='fn.sd_journal_add_disjunction.html'
-                                  title='libsystemd_sys::sd_journal_add_disjunction'>sd_journal_add_disjunction</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='fn' href='fn.sd_journal_add_match.html'
-                                  title='libsystemd_sys::sd_journal_add_match'>sd_journal_add_match</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='fn' href='fn.sd_journal_close.html'
-                                  title='libsystemd_sys::sd_journal_close'>sd_journal_close</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='fn' href='fn.sd_journal_enumerate_data.html'
-                                  title='libsystemd_sys::sd_journal_enumerate_data'>sd_journal_enumerate_data</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='fn' href='fn.sd_journal_enumerate_unique.html'
-                                  title='libsystemd_sys::sd_journal_enumerate_unique'>sd_journal_enumerate_unique</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='fn' href='fn.sd_journal_flush_matches.html'
-                                  title='libsystemd_sys::sd_journal_flush_matches'>sd_journal_flush_matches</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='fn' href='fn.sd_journal_get_catalog.html'
-                                  title='libsystemd_sys::sd_journal_get_catalog'>sd_journal_get_catalog</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='fn' href='fn.sd_journal_get_catalog_for_message_id.html'
-                                  title='libsystemd_sys::sd_journal_get_catalog_for_message_id'>sd_journal_get_catalog_for_message_id</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='fn' href='fn.sd_journal_get_cursor.html'
-                                  title='libsystemd_sys::sd_journal_get_cursor'>sd_journal_get_cursor</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='fn' href='fn.sd_journal_get_cutoff_monotonic_usec.html'
-                                  title='libsystemd_sys::sd_journal_get_cutoff_monotonic_usec'>sd_journal_get_cutoff_monotonic_usec</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='fn' href='fn.sd_journal_get_cutoff_realtime_usec.html'
-                                  title='libsystemd_sys::sd_journal_get_cutoff_realtime_usec'>sd_journal_get_cutoff_realtime_usec</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='fn' href='fn.sd_journal_get_data.html'
-                                  title='libsystemd_sys::sd_journal_get_data'>sd_journal_get_data</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='fn' href='fn.sd_journal_get_data_threshold.html'
-                                  title='libsystemd_sys::sd_journal_get_data_threshold'>sd_journal_get_data_threshold</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='fn' href='fn.sd_journal_get_events.html'
-                                  title='libsystemd_sys::sd_journal_get_events'>sd_journal_get_events</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='fn' href='fn.sd_journal_get_fd.html'
-                                  title='libsystemd_sys::sd_journal_get_fd'>sd_journal_get_fd</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='fn' href='fn.sd_journal_get_monotonic_usec.html'
-                                  title='libsystemd_sys::sd_journal_get_monotonic_usec'>sd_journal_get_monotonic_usec</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='fn' href='fn.sd_journal_get_realtime_usec.html'
-                                  title='libsystemd_sys::sd_journal_get_realtime_usec'>sd_journal_get_realtime_usec</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='fn' href='fn.sd_journal_get_timeout.html'
-                                  title='libsystemd_sys::sd_journal_get_timeout'>sd_journal_get_timeout</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='fn' href='fn.sd_journal_get_usage.html'
-                                  title='libsystemd_sys::sd_journal_get_usage'>sd_journal_get_usage</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='fn' href='fn.sd_journal_next.html'
-                                  title='libsystemd_sys::sd_journal_next'>sd_journal_next</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='fn' href='fn.sd_journal_next_skip.html'
-                                  title='libsystemd_sys::sd_journal_next_skip'>sd_journal_next_skip</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='fn' href='fn.sd_journal_open.html'
-                                  title='libsystemd_sys::sd_journal_open'>sd_journal_open</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='fn' href='fn.sd_journal_previous.html'
-                                  title='libsystemd_sys::sd_journal_previous'>sd_journal_previous</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='fn' href='fn.sd_journal_previous_skip.html'
-                                  title='libsystemd_sys::sd_journal_previous_skip'>sd_journal_previous_skip</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='fn' href='fn.sd_journal_process.html'
-                                  title='libsystemd_sys::sd_journal_process'>sd_journal_process</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='fn' href='fn.sd_journal_query_unique.html'
-                                  title='libsystemd_sys::sd_journal_query_unique'>sd_journal_query_unique</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='fn' href='fn.sd_journal_reliable_fd.html'
-                                  title='libsystemd_sys::sd_journal_reliable_fd'>sd_journal_reliable_fd</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='fn' href='fn.sd_journal_restart_data.html'
-                                  title='libsystemd_sys::sd_journal_restart_data'>sd_journal_restart_data</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='fn' href='fn.sd_journal_restart_unique.html'
-                                  title='libsystemd_sys::sd_journal_restart_unique'>sd_journal_restart_unique</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='fn' href='fn.sd_journal_seek_cursor.html'
-                                  title='libsystemd_sys::sd_journal_seek_cursor'>sd_journal_seek_cursor</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='fn' href='fn.sd_journal_seek_head.html'
-                                  title='libsystemd_sys::sd_journal_seek_head'>sd_journal_seek_head</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='fn' href='fn.sd_journal_seek_monotonic_usec.html'
-                                  title='libsystemd_sys::sd_journal_seek_monotonic_usec'>sd_journal_seek_monotonic_usec</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='fn' href='fn.sd_journal_seek_realtime_usec.html'
-                                  title='libsystemd_sys::sd_journal_seek_realtime_usec'>sd_journal_seek_realtime_usec</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='fn' href='fn.sd_journal_seek_tail.html'
-                                  title='libsystemd_sys::sd_journal_seek_tail'>sd_journal_seek_tail</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='fn' href='fn.sd_journal_sendv.html'
-                                  title='libsystemd_sys::sd_journal_sendv'>sd_journal_sendv</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='fn' href='fn.sd_journal_set_data_threshold.html'
-                                  title='libsystemd_sys::sd_journal_set_data_threshold'>sd_journal_set_data_threshold</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='fn' href='fn.sd_journal_test_cursor.html'
-                                  title='libsystemd_sys::sd_journal_test_cursor'>sd_journal_test_cursor</a></td>
-                           <td class='docblock short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='fn' href='fn.sd_journal_wait.html'
-                                  title='libsystemd_sys::sd_journal_wait'>sd_journal_wait</a></td>
                            <td class='docblock short'>
                                 
                            </td>
@@ -443,6 +161,13 @@ by the systemd man pages.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
+                           <td><a class='type' href='type.clockid_t.html'
+                                  title='libsystemd_sys::clockid_t'>clockid_t</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
                            <td><a class='type' href='type.gid_t.html'
                                   title='libsystemd_sys::gid_t'>gid_t</a></td>
                            <td class='docblock short'>
@@ -450,15 +175,15 @@ by the systemd man pages.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class='type' href='type.pid_t.html'
-                                  title='libsystemd_sys::pid_t'>pid_t</a></td>
+                           <td><a class='type' href='type.int64_t.html'
+                                  title='libsystemd_sys::int64_t'>int64_t</a></td>
                            <td class='docblock short'>
                                 
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class='type' href='type.sd_journal.html'
-                                  title='libsystemd_sys::sd_journal'>sd_journal</a></td>
+                           <td><a class='type' href='type.pid_t.html'
+                                  title='libsystemd_sys::pid_t'>pid_t</a></td>
                            <td class='docblock short'>
                                 
                            </td>
@@ -473,6 +198,20 @@ by the systemd man pages.</p>
                        <tr class=' module-item'>
                            <td><a class='type' href='type.uid_t.html'
                                   title='libsystemd_sys::uid_t'>uid_t</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='type' href='type.uint32_t.html'
+                                  title='libsystemd_sys::uint32_t'>uint32_t</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='type' href='type.uint64_t.html'
+                                  title='libsystemd_sys::uint64_t'>uint64_t</a></td>
                            <td class='docblock short'>
                                 
                            </td>
