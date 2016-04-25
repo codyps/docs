@@ -1717,18 +1717,6 @@
         <span class='prelude-val'>Ok</span>(<span class='kw'>unsafe</span> { <span class='ident'>Message</span>::<span class='ident'>take_ptr</span>(<span class='ident'>m</span>) })
     }
 
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>new_method_error</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>error</span>: <span class='kw-2'>&amp;</span><span class='ident'>Error</span>) <span class='op'>-&gt;</span> <span class='ident'>super</span>::<span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>Message</span><span class='op'>&gt;</span> {
-        <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>m</span> <span class='op'>=</span> <span class='kw'>unsafe</span> { <span class='ident'>uninitialized</span>() };
-        <span class='macro'>sd_try</span><span class='macro'>!</span>(<span class='ident'>ffi</span>::<span class='ident'>bus</span>::<span class='ident'>sd_bus_message_new_method_error</span>(<span class='self'>self</span>.<span class='ident'>as_ptr</span>(), <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>m</span>, <span class='ident'>error</span>.<span class='ident'>as_ptr</span>()));
-        <span class='prelude-val'>Ok</span>(<span class='kw'>unsafe</span> { <span class='ident'>Message</span>::<span class='ident'>take_ptr</span>(<span class='ident'>m</span>) })
-    }
-
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>new_method_return</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>super</span>::<span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>Message</span><span class='op'>&gt;</span> {
-        <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>m</span> <span class='op'>=</span> <span class='kw'>unsafe</span> { <span class='ident'>uninitialized</span>() };
-        <span class='macro'>sd_try</span><span class='macro'>!</span>(<span class='ident'>ffi</span>::<span class='ident'>bus</span>::<span class='ident'>sd_bus_message_new_method_return</span>(<span class='self'>self</span>.<span class='ident'>as_ptr</span>(), <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>m</span>));
-        <span class='prelude-val'>Ok</span>(<span class='kw'>unsafe</span> { <span class='ident'>Message</span>::<span class='ident'>take_ptr</span>(<span class='ident'>m</span>) })
-    }
-
     <span class='comment'>// new_method_errno</span>
 
     <span class='comment'>// TODO: consider using a guard object for name handling</span>
@@ -2035,6 +2023,18 @@
                                             <span class='ident'>callback</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> _ <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> _,
                                             <span class='ident'>usec</span>));
         <span class='prelude-val'>Ok</span>(())
+    }
+
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>new_method_error</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>error</span>: <span class='kw-2'>&amp;</span><span class='ident'>Error</span>) <span class='op'>-&gt;</span> <span class='ident'>super</span>::<span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>Message</span><span class='op'>&gt;</span> {
+        <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>m</span> <span class='op'>=</span> <span class='kw'>unsafe</span> { <span class='ident'>uninitialized</span>() };
+        <span class='macro'>sd_try</span><span class='macro'>!</span>(<span class='ident'>ffi</span>::<span class='ident'>bus</span>::<span class='ident'>sd_bus_message_new_method_error</span>(<span class='self'>self</span>.<span class='ident'>as_mut_ptr</span>(), <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>m</span>, <span class='ident'>error</span>.<span class='ident'>as_ptr</span>()));
+        <span class='prelude-val'>Ok</span>(<span class='kw'>unsafe</span> { <span class='ident'>Message</span>::<span class='ident'>take_ptr</span>(<span class='ident'>m</span>) })
+    }
+
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>new_method_return</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>super</span>::<span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>Message</span><span class='op'>&gt;</span> {
+        <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>m</span> <span class='op'>=</span> <span class='kw'>unsafe</span> { <span class='ident'>uninitialized</span>() };
+        <span class='macro'>sd_try</span><span class='macro'>!</span>(<span class='ident'>ffi</span>::<span class='ident'>bus</span>::<span class='ident'>sd_bus_message_new_method_return</span>(<span class='self'>self</span>.<span class='ident'>as_mut_ptr</span>(), <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>m</span>));
+        <span class='prelude-val'>Ok</span>(<span class='kw'>unsafe</span> { <span class='ident'>Message</span>::<span class='ident'>take_ptr</span>(<span class='ident'>m</span>) })
     }
 }
 
