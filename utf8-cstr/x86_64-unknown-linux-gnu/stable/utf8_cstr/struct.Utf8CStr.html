@@ -46,14 +46,27 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-26' class='srclink' href='../src/utf8_cstr/src/lib.rs.html#28-31' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-26' class='srclink' href='../src/utf8_cstr/src/lib.rs.html#28-30' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct Utf8CStr {
     // some fields omitted
 }</pre><div class='docblock'><p>A wrapper that promises it&#39;s contents are null-terminated &amp; validly utf-8 encoded</p>
 
 <p>Plain <code>std::ffi::CStr</code> only promises null termination, but some ffi (and other bits) require
 strings that are both valid utf8 and null terminated.</p>
-</div><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../utf8_cstr/struct.Utf8CStr.html' title='utf8_cstr::Utf8CStr'>Utf8CStr</a></code></h3><div class='impl-items'><h4 id='method.from_cstr' class='method'><code>fn <a href='#method.from_cstr' class='fnname'>from_cstr</a>(v: &amp;<a class='struct' href='https://doc.rust-lang.org/nightly/std/ffi/c_str/struct.CStr.html' title='std::ffi::c_str::CStr'>CStr</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;&amp;<a class='struct' href='../utf8_cstr/struct.Utf8CStr.html' title='utf8_cstr::Utf8CStr'>Utf8CStr</a>, <a class='struct' href='https://doc.rust-lang.org/nightly/core/str/struct.Utf8Error.html' title='core::str::Utf8Error'>Utf8Error</a>&gt;</code></h4>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../utf8_cstr/struct.Utf8CStr.html' title='utf8_cstr::Utf8CStr'>Utf8CStr</a></code></h3><div class='impl-items'><h4 id='method.from_ptr_unchecked' class='method'><code>unsafe fn <a href='#method.from_ptr_unchecked' class='fnname'>from_ptr_unchecked</a>&lt;'a&gt;(v: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const </a><a class='type' href='https://doc.rust-lang.org/nightly/std/os/raw/type.c_char.html' title='std::os::raw::c_char'>c_char</a>) -&gt; &amp;'a Self</code></h4>
+<div class='docblock'><p>Construct a <code>Utf8CStr</code> with minimal checking.</p>
+
+<p>This currently will scan for the terminating &#39;\0&#39; just to establish the length for various
+slices.</p>
+
+<p>Unsafety:</p>
+
+<ul>
+<li><code>&#39;a</code> must be the correct lifetime</li>
+<li><code>v</code> must be nul terminated</li>
+<li><code>v</code> must be utf-8 encoded (for use in <code>&amp;str</code>)</li>
+</ul>
+</div><h4 id='method.from_cstr' class='method'><code>fn <a href='#method.from_cstr' class='fnname'>from_cstr</a>(v: &amp;<a class='struct' href='https://doc.rust-lang.org/nightly/std/ffi/c_str/struct.CStr.html' title='std::ffi::c_str::CStr'>CStr</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;&amp;Self, <a class='struct' href='https://doc.rust-lang.org/nightly/core/str/struct.Utf8Error.html' title='core::str::Utf8Error'>Utf8Error</a>&gt;</code></h4>
 <div class='docblock'><p>Failable convertion from a CStr.</p>
 
 <p>Verifies that the CStr is utf8 encoded.</p>
@@ -67,12 +80,12 @@ strings that are both valid utf8 and null terminated.</p>
 <ul>
 <li><code>v</code> must be valid utf8 for use in a <code>&amp;str</code></li>
 </ul>
-</div><h4 id='method.from_bytes' class='method'><code>fn <a href='#method.from_bytes' class='fnname'>from_bytes</a>(b: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;&amp;<a class='struct' href='../utf8_cstr/struct.Utf8CStr.html' title='utf8_cstr::Utf8CStr'>Utf8CStr</a>, <a class='enum' href='../utf8_cstr/enum.Utf8CStrError.html' title='utf8_cstr::Utf8CStrError'>Utf8CStrError</a>&gt;</code></h4>
+</div><h4 id='method.from_bytes' class='method'><code>fn <a href='#method.from_bytes' class='fnname'>from_bytes</a>(b: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;&amp;Self, <a class='enum' href='../utf8_cstr/enum.Utf8CStrError.html' title='utf8_cstr::Utf8CStrError'>Utf8CStrError</a>&gt;</code></h4>
 <div class='docblock'><p>Convert directly from bytes</p>
 
 <p>NOTE: right now this scans <code>b</code> a few times over. Ideally, we&#39;d adjust it to only scan <code>b</code>
 once.</p>
-</div><h4 id='method.from_bytes_with_nul_unchecked' class='method'><code>unsafe fn <a href='#method.from_bytes_with_nul_unchecked' class='fnname'>from_bytes_with_nul_unchecked</a>(b: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; &amp;<a class='struct' href='../utf8_cstr/struct.Utf8CStr.html' title='utf8_cstr::Utf8CStr'>Utf8CStr</a></code></h4>
+</div><h4 id='method.from_bytes_with_nul_unchecked' class='method'><code>unsafe fn <a href='#method.from_bytes_with_nul_unchecked' class='fnname'>from_bytes_with_nul_unchecked</a>(b: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; &amp;Self</code></h4>
 <div class='docblock'><p>Raw convertion from basic data type with no checking.</p>
 </div><h4 id='method.as_ptr' class='method'><code>fn <a href='#method.as_ptr' class='fnname'>as_ptr</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const </a><a class='type' href='https://doc.rust-lang.org/nightly/std/os/raw/type.c_char.html' title='std::os::raw::c_char'>c_char</a></code></h4>
 </div><h2 id='deref-methods'>Methods from <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html' title='core::ops::Deref'>Deref</a>&lt;Target=<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>&gt;</h2><div class='impl-items'><h4 id='method.len' class='method'><span class="since">1.0.0</span><code>fn <a href='#method.len' class='fnname'>len</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h4>
