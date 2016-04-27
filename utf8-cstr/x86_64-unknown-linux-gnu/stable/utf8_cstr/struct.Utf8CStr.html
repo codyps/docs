@@ -56,7 +56,17 @@ strings that are both valid utf8 and null terminated.</p>
 </div><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../utf8_cstr/struct.Utf8CStr.html' title='utf8_cstr::Utf8CStr'>Utf8CStr</a></code></h3><div class='impl-items'><h4 id='method.from_cstr' class='method'><code>fn <a href='#method.from_cstr' class='fnname'>from_cstr</a>(v: &amp;<a class='struct' href='https://doc.rust-lang.org/nightly/std/ffi/c_str/struct.CStr.html' title='std::ffi::c_str::CStr'>CStr</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;&amp;<a class='struct' href='../utf8_cstr/struct.Utf8CStr.html' title='utf8_cstr::Utf8CStr'>Utf8CStr</a>, <a class='struct' href='https://doc.rust-lang.org/nightly/core/str/struct.Utf8Error.html' title='core::str::Utf8Error'>Utf8Error</a>&gt;</code></h4>
 <div class='docblock'><p>Failable convertion from a CStr.</p>
 
+<p>Verifies that the CStr is utf8 encoded.</p>
+
 <p>NOTE: Only handles non-mutable variants. We may want to accept &amp;mut as well in the future.</p>
+</div><h4 id='method.from_cstr_unchecked' class='method'><code>unsafe fn <a href='#method.from_cstr_unchecked' class='fnname'>from_cstr_unchecked</a>(v: &amp;<a class='struct' href='https://doc.rust-lang.org/nightly/std/ffi/c_str/struct.CStr.html' title='std::ffi::c_str::CStr'>CStr</a>) -&gt; &amp;<a class='struct' href='../utf8_cstr/struct.Utf8CStr.html' title='utf8_cstr::Utf8CStr'>Utf8CStr</a></code></h4>
+<div class='docblock'><p>Convert from a <code>&amp;CStr</code> without any checking</p>
+
+<p>Unsafety:</p>
+
+<ul>
+<li><code>v</code> must be valid utf8 for use in a <code>&amp;str</code></li>
+</ul>
 </div><h4 id='method.from_bytes' class='method'><code>fn <a href='#method.from_bytes' class='fnname'>from_bytes</a>(b: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;&amp;<a class='struct' href='../utf8_cstr/struct.Utf8CStr.html' title='utf8_cstr::Utf8CStr'>Utf8CStr</a>, <a class='enum' href='../utf8_cstr/enum.Utf8CStrError.html' title='utf8_cstr::Utf8CStrError'>Utf8CStrError</a>&gt;</code></h4>
 <div class='docblock'><p>Convert directly from bytes</p>
 
