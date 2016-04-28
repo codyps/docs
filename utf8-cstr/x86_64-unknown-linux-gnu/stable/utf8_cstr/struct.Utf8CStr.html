@@ -53,7 +53,18 @@
 
 <p>Plain <code>std::ffi::CStr</code> only promises null termination, but some ffi (and other bits) require
 strings that are both valid utf8 and null terminated.</p>
-</div><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../utf8_cstr/struct.Utf8CStr.html' title='utf8_cstr::Utf8CStr'>Utf8CStr</a></code></h3><div class='impl-items'><h4 id='method.from_ptr_unchecked' class='method'><code>unsafe fn <a href='#method.from_ptr_unchecked' class='fnname'>from_ptr_unchecked</a>&lt;'a&gt;(v: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const </a><a class='type' href='https://doc.rust-lang.org/nightly/std/os/raw/type.c_char.html' title='std::os::raw::c_char'>c_char</a>) -&gt; &amp;'a Self</code></h4>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../utf8_cstr/struct.Utf8CStr.html' title='utf8_cstr::Utf8CStr'>Utf8CStr</a></code></h3><div class='impl-items'><h4 id='method.from_raw_parts' class='method'><code>unsafe fn <a href='#method.from_raw_parts' class='fnname'>from_raw_parts</a>&lt;'a&gt;(v: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const </a><a class='type' href='https://doc.rust-lang.org/nightly/std/os/raw/type.c_char.html' title='std::os::raw::c_char'>c_char</a>, l: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; &amp;'a Self</code></h4>
+<div class='docblock'><p>Construct a <code>Utf8CStr</code> with no checking.</p>
+
+<p>Unsafety:</p>
+
+<ul>
+<li><code>&#39;a</code> must be the correct lifetime</li>
+<li><code>v</code> must be nul terminated</li>
+<li><code>v</code> must be utf-8 encoded (for use in <code>&amp;str</code>)</li>
+<li><code>l</code> must be the length of <code>v</code> including the nul terminator</li>
+</ul>
+</div><h4 id='method.from_ptr_unchecked' class='method'><code>unsafe fn <a href='#method.from_ptr_unchecked' class='fnname'>from_ptr_unchecked</a>&lt;'a&gt;(v: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const </a><a class='type' href='https://doc.rust-lang.org/nightly/std/os/raw/type.c_char.html' title='std::os::raw::c_char'>c_char</a>) -&gt; &amp;'a Self</code></h4>
 <div class='docblock'><p>Construct a <code>Utf8CStr</code> with minimal checking.</p>
 
 <p>This currently will scan for the terminating &#39;\0&#39; just to establish the length for various
