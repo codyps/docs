@@ -47,11 +47,16 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-346' class='srclink' href='../../src/systemd/src/bus/mod.rs.html#21' title='goto source code'>[src]</a></span></h1>
-<pre class='rust typedef'>type Result&lt;T&gt; = <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;T, <a class='struct' href='../../systemd/bus/struct.Error.html' title='systemd::bus::Error'>Error</a>&gt;;</pre><div class='docblock'><p>Result type for dbus calls that contains errors returned by remote services.</p>
+               </span><a id='src-388' class='srclink' href='../../src/systemd/src/bus/mod.rs.html#29' title='goto source code'>[src]</a></span></h1>
+<pre class='rust typedef'>type Result&lt;T&gt; = <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;T, <a class='struct' href='../../systemd/bus/struct.Error.html' title='systemd::bus::Error'>Error</a>&gt;;</pre><div class='docblock'><p>Result type for dbus calls that contains errors returned by remote services (and local errors as
+well).</p>
 
-<p>Most often, this will be encapsulated in the systemd::Result type (a std::io::Result alias)
-which knows about other failure types</p>
+<p>For functions that can pass over dbus, sd-bus provides detailed error information for all
+failures, including those cause by bus failures (not necessarily errors sent by the called
+method).</p>
+
+<p>To clairfy: getting this error does not necessarily mean it comes from a remote service. It
+might be a local failure (resource exaustion, programmer error, service unreachable) as well.</p>
 </div></section>
     <section id='search' class="content hidden"></section>
 
