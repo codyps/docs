@@ -173,8 +173,8 @@
 </pre><pre class='rust '>
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>mem</span>::{<span class='ident'>transmute</span>, <span class='ident'>zeroed</span>};
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>default</span>::<span class='ident'>Default</span>;
-<span class='kw'>use</span> <span class='ident'>super</span>::<span class='ident'>super</span>::{<span class='ident'>c_char</span>, <span class='ident'>size_t</span>};
-<span class='kw'>use</span> <span class='ident'>super</span>::{<span class='ident'>sd_bus_message_handler_t</span>, <span class='ident'>sd_bus_property_get_t</span>, <span class='ident'>sd_bus_property_set_t</span>};
+<span class='kw'>use</span> <span class='kw'>super</span>::<span class='kw'>super</span>::{<span class='ident'>c_char</span>, <span class='ident'>size_t</span>};
+<span class='kw'>use</span> <span class='kw'>super</span>::{<span class='ident'>sd_bus_message_handler_t</span>, <span class='ident'>sd_bus_property_get_t</span>, <span class='ident'>sd_bus_property_set_t</span>};
 
 <span class='comment'>// XXX: check this repr, might vary based on platform type sizes</span>
 <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>,<span class='ident'>Copy</span>,<span class='ident'>Debug</span>)]</span>
