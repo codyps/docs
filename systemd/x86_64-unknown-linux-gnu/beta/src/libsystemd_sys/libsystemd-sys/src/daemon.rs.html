@@ -69,7 +69,7 @@
 <span id="25">25</span>
 <span id="26">26</span>
 </pre><pre class='rust '>
-<span class='kw'>use</span> <span class='ident'>super</span>::{<span class='ident'>c_int</span>, <span class='ident'>size_t</span>, <span class='ident'>c_char</span>, <span class='ident'>pid_t</span>};
+<span class='kw'>use</span> <span class='kw'>super</span>::{<span class='ident'>c_int</span>, <span class='ident'>size_t</span>, <span class='ident'>c_char</span>, <span class='ident'>pid_t</span>};
 
 <span class='kw'>extern</span> <span class='string'>&quot;C&quot;</span> {
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_listen_fds</span>(<span class='ident'>unset_environment</span>: <span class='ident'>c_int</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
@@ -119,6 +119,8 @@
                     <dd>Move down in search results</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 

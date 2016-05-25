@@ -47,7 +47,7 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-390' class='srclink' href='../../src/systemd/src/bus/mod.rs.html#44-46' title='goto source code'>[src]</a></span></h1>
+               </span><a id='src-387' class='srclink' href='../../src/systemd/src/bus/mod.rs.html#44-46' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct ObjectPath {
     // some fields omitted
 }</pre><div class='docblock'><p>A wrapper which promises it always holds a valid dbus object path</p>
@@ -62,17 +62,83 @@
 <li>A trailing &#39;/&#39; character is not allowed unless the path is the root path</li>
 <li>Further, sd-bus additionally requires nul (&#39;\0&#39;) termination of paths.</li>
 </ul>
-</div><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../../systemd/bus/struct.ObjectPath.html' title='systemd::bus::ObjectPath'>ObjectPath</a></code></h3><div class='impl-items'><h4 id='method.from_bytes' class='method'><code>fn <a href='#method.from_bytes' class='fnname'>from_bytes</a>(b: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;&amp;<a class='struct' href='../../systemd/bus/struct.ObjectPath.html' title='systemd::bus::ObjectPath'>ObjectPath</a>, &amp;'static <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>&gt;</code></h4>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl <a class='struct' href='../../systemd/bus/struct.ObjectPath.html' title='systemd::bus::ObjectPath'>ObjectPath</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-395' class='srclink' href='../../src/systemd/src/bus/mod.rs.html#48-100' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.from_bytes' class='method'><code>fn <a href='#method.from_bytes' class='fnname'>from_bytes</a>(b: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;&amp;<a class='struct' href='../../systemd/bus/struct.ObjectPath.html' title='systemd::bus::ObjectPath'>ObjectPath</a>, &amp;'static <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>&gt;</code></h4>
 <div class='docblock'><p>Create a path reference from a u8 slice. Performs all checking needed to ensure requirements
 are met.</p>
 </div><h4 id='method.from_bytes_unchecked' class='method'><code>unsafe fn <a href='#method.from_bytes_unchecked' class='fnname'>from_bytes_unchecked</a>(b: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; &amp;<a class='struct' href='../../systemd/bus/struct.ObjectPath.html' title='systemd::bus::ObjectPath'>ObjectPath</a></code></h4>
 <h4 id='method.from_ptr_unchecked' class='method'><code>unsafe fn <a href='#method.from_ptr_unchecked' class='fnname'>from_ptr_unchecked</a>&lt;'b&gt;(b: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const </a><a class='type' href='https://doc.rust-lang.org/nightly/std/os/raw/type.c_char.html' title='std::os::raw::c_char'>c_char</a>) -&gt; &amp;'b <a class='struct' href='../../systemd/bus/struct.ObjectPath.html' title='systemd::bus::ObjectPath'>ObjectPath</a></code></h4>
-</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl&lt;'a&gt; <a class='trait' href='../../systemd/bus/types/trait.ToSdBusMessage.html' title='systemd::bus::types::ToSdBusMessage'>ToSdBusMessage</a> for &amp;'a <a class='struct' href='../../systemd/bus/struct.ObjectPath.html' title='systemd::bus::ObjectPath'>ObjectPath</a></code></h3><div class='impl-items'><h4 id='method.to_message' class='method'><code>fn <a href='../../systemd/bus/types/trait.ToSdBusMessage.html#tymethod.to_message' class='fnname'>to_message</a>(&amp;self, m: &amp;mut <a class='struct' href='../../systemd/bus/struct.MessageRef.html' title='systemd::bus::MessageRef'>MessageRef</a>) -&gt; <a class='type' href='../../systemd/type.Result.html' title='systemd::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
-</div><h3 class='impl'><code>impl&lt;'a&gt; <a class='trait' href='../../systemd/bus/types/trait.FromSdBusMessage.html' title='systemd::bus::types::FromSdBusMessage'>FromSdBusMessage</a>&lt;'a&gt; for &amp;'a <a class='struct' href='../../systemd/bus/struct.ObjectPath.html' title='systemd::bus::ObjectPath'>ObjectPath</a></code></h3><div class='impl-items'><h4 id='method.from_message' class='method'><code>fn <a href='../../systemd/bus/types/trait.FromSdBusMessage.html#tymethod.from_message' class='fnname'>from_message</a>(m: &amp;'a mut <a class='struct' href='../../systemd/bus/struct.MessageIter.html' title='systemd::bus::MessageIter'>MessageIter</a>&lt;'a&gt;) -&gt; <a class='type' href='../../systemd/type.Result.html' title='systemd::Result'>Result</a>&lt;<a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;Self&gt;&gt; <span class='where'>where Self: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a></span></code></h4>
-</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html' title='core::ops::Deref'>Deref</a> for <a class='struct' href='../../systemd/bus/struct.ObjectPath.html' title='systemd::bus::ObjectPath'>ObjectPath</a></code></h3><div class='impl-items'><h4 id='associatedtype.Target' class='type'><code>type <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html#associatedtype.Target' class='type'>Target</a> = <a class='struct' href='https://doc.rust-lang.org/nightly/std/ffi/c_str/struct.CStr.html' title='std::ffi::c_str::CStr'>CStr</a></code></h4>
-<h4 id='method.deref' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html#tymethod.deref' class='fnname'>deref</a>(&amp;self) -&gt; &amp;Self::<a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html' title='core::ops::Deref'>Target</a></code></h4>
-</div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../../systemd/bus/struct.ObjectPath.html' title='systemd::bus::ObjectPath'>ObjectPath</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
-</div></section>
+</div><h2 id='deref-methods'>Methods from <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html' title='core::ops::Deref'>Deref</a>&lt;Target=<a class='struct' href='https://doc.rust-lang.org/nightly/std/ffi/c_str/struct.CStr.html' title='std::ffi::c_str::CStr'>CStr</a>&gt;</h2><div class='impl-items'><h4 id='method.as_ptr' class='method'><code>fn <a href='#method.as_ptr' class='fnname'>as_ptr</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const </a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.i8.html'>i8</a></code><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div></h4>
+<div class='docblock'><p>Returns the inner pointer to this C string.</p>
+
+<p>The returned pointer will be valid for as long as <code>self</code> is and points
+to a contiguous region of memory terminated with a 0 byte to represent
+the end of the string.</p>
+</div><h4 id='method.to_bytes' class='method'><code>fn <a href='#method.to_bytes' class='fnname'>to_bytes</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a></code><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div></h4>
+<div class='docblock'><p>Converts this C string to a byte slice.</p>
+
+<p>This function will calculate the length of this string (which normally
+requires a linear amount of work to be done) and then return the
+resulting slice of <code>u8</code> elements.</p>
+
+<p>The returned slice will <strong>not</strong> contain the trailing nul that this C
+string has.</p>
+
+<blockquote>
+<p><strong>Note</strong>: This method is currently implemented as a 0-cost cast, but
+it is planned to alter its definition in the future to perform the
+length calculation whenever this method is called.</p>
+</blockquote>
+</div><h4 id='method.to_bytes_with_nul' class='method'><code>fn <a href='#method.to_bytes_with_nul' class='fnname'>to_bytes_with_nul</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a></code><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div></h4>
+<div class='docblock'><p>Converts this C string to a byte slice containing the trailing 0 byte.</p>
+
+<p>This function is the equivalent of <code>to_bytes</code> except that it will retain
+the trailing nul instead of chopping it off.</p>
+
+<blockquote>
+<p><strong>Note</strong>: This method is currently implemented as a 0-cost cast, but
+it is planned to alter its definition in the future to perform the
+length calculation whenever this method is called.</p>
+</blockquote>
+</div><h4 id='method.to_str' class='method'><code>fn <a href='#method.to_str' class='fnname'>to_str</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;&amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, <a class='struct' href='https://doc.rust-lang.org/nightly/core/str/struct.Utf8Error.html' title='core::str::Utf8Error'>Utf8Error</a>&gt;</code><div class='since' title='Stable since Rust version 1.4.0'>1.4.0</div></h4>
+<div class='docblock'><p>Yields a <code>&amp;str</code> slice if the <code>CStr</code> contains valid UTF-8.</p>
+
+<p>This function will calculate the length of this string and check for
+UTF-8 validity, and then return the <code>&amp;str</code> if it&#39;s valid.</p>
+
+<blockquote>
+<p><strong>Note</strong>: This method is currently implemented to check for validity
+after a 0-cost cast, but it is planned to alter its definition in the
+future to perform the length calculation in addition to the UTF-8
+check whenever this method is called.</p>
+</blockquote>
+</div><h4 id='method.to_string_lossy' class='method'><code>fn <a href='#method.to_string_lossy' class='fnname'>to_string_lossy</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/collections/borrow/enum.Cow.html' title='collections::borrow::Cow'>Cow</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>&gt;</code><div class='since' title='Stable since Rust version 1.4.0'>1.4.0</div></h4>
+<div class='docblock'><p>Converts a <code>CStr</code> into a <code>Cow&lt;str&gt;</code>.</p>
+
+<p>This function will calculate the length of this string (which normally
+requires a linear amount of work to be done) and then return the
+resulting slice as a <code>Cow&lt;str&gt;</code>, replacing any invalid UTF-8 sequences
+with <code>U+FFFD REPLACEMENT CHARACTER</code>.</p>
+
+<blockquote>
+<p><strong>Note</strong>: This method is currently implemented to check for validity
+after a 0-cost cast, but it is planned to alter its definition in the
+future to perform the length calculation in addition to the UTF-8
+check whenever this method is called.</p>
+</blockquote>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl&lt;'a&gt; <a class='trait' href='../../systemd/bus/types/trait.ToSdBusMessage.html' title='systemd::bus::types::ToSdBusMessage'>ToSdBusMessage</a> for &amp;'a <a class='struct' href='../../systemd/bus/struct.ObjectPath.html' title='systemd::bus::ObjectPath'>ObjectPath</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-361' class='srclink' href='../../src/systemd/src/bus/types.rs.html#166-171' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.to_message' class='method'><code>fn <a href='../../systemd/bus/types/trait.ToSdBusMessage.html#tymethod.to_message' class='fnname'>to_message</a>(&amp;self, m: &amp;mut <a class='struct' href='../../systemd/bus/struct.MessageRef.html' title='systemd::bus::MessageRef'>MessageRef</a>) -&gt; <a class='type' href='../../systemd/type.Result.html' title='systemd::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+</div><h3 class='impl'><span class='in-band'><code>impl&lt;'a&gt; <a class='trait' href='../../systemd/bus/types/trait.FromSdBusMessage.html' title='systemd::bus::types::FromSdBusMessage'>FromSdBusMessage</a>&lt;'a&gt; for &amp;'a <a class='struct' href='../../systemd/bus/struct.ObjectPath.html' title='systemd::bus::ObjectPath'>ObjectPath</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-368' class='srclink' href='../../src/systemd/src/bus/types.rs.html#178-184' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.from_message' class='method'><code>fn <a href='../../systemd/bus/types/trait.FromSdBusMessage.html#tymethod.from_message' class='fnname'>from_message</a>(m: &amp;'a mut <a class='struct' href='../../systemd/bus/struct.MessageIter.html' title='systemd::bus::MessageIter'>MessageIter</a>&lt;'a&gt;) -&gt; <a class='type' href='../../systemd/type.Result.html' title='systemd::Result'>Result</a>&lt;<a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;Self&gt;&gt; <span class='where'>where Self: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a></span></code></h4>
+</div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html' title='core::ops::Deref'>Deref</a> for <a class='struct' href='../../systemd/bus/struct.ObjectPath.html' title='systemd::bus::ObjectPath'>ObjectPath</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-406' class='srclink' href='../../src/systemd/src/bus/mod.rs.html#102-108' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='associatedtype.Target' class='type'><code>type <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html#associatedtype.Target' class='type'>Target</a> = <a class='struct' href='https://doc.rust-lang.org/nightly/std/ffi/c_str/struct.CStr.html' title='std::ffi::c_str::CStr'>CStr</a></code></h4>
+<div class='docblock'><p>The resulting type after dereferencing</p>
+</div><h4 id='method.deref' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html#tymethod.deref' class='fnname'>deref</a>(&amp;self) -&gt; &amp;Self::<a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html' title='core::ops::Deref'>Target</a></code></h4>
+<div class='docblock'><p>The method called to dereference a value</p>
+</div></div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../../systemd/bus/struct.ObjectPath.html' title='systemd::bus::ObjectPath'>ObjectPath</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-389' class='srclink' href='../../src/systemd/src/bus/mod.rs.html#43' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+<div class='docblock'><p>Formats the value using the given formatter.</p>
+</div></div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -95,6 +161,8 @@ are met.</p>
                     <dd>Move down in search results</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
