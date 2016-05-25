@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="API documentation for the Rust `index_fixed` crate.">
-    <meta name="keywords" content="rust, rustlang, rust-lang, index_fixed">
+    <meta name="description" content="API documentation for the Rust `transmute` fn in crate `index_fixed`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, transmute">
 
-    <title>index_fixed - Rust</title>
+    <title>index_fixed::transmute - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../main.css">
@@ -28,7 +28,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'></p><script>window.sidebarCurrent = {name: 'index_fixed', ty: 'mod', relpath: '../'};</script>
+        <p class='location'><a href='index.html'>index_fixed</a></p><script>window.sidebarCurrent = {name: 'transmute', ty: 'fn', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -42,29 +42,23 @@
         </form>
     </nav>
 
-    <section id='main' class="content mod">
-<h1 class='fqn'><span class='in-band'>Crate <a class='mod' href=''>index_fixed</a></span><span class='out-of-band'><span id='render-detail'>
+    <section id='main' class="content fn">
+<h1 class='fqn'><span class='in-band'>Function <a href='index.html'>index_fixed</a>::<wbr><a class='fn' href=''>transmute</a></span><span class='out-of-band'><span class='since' title='Stable since Rust version 1.0.0'>1.0.0</span><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-0' class='srclink' href='../src/index_fixed/src/lib.rs.html#1-139' title='goto source code'>[src]</a></span></h1>
-<h2 id='macros' class='section-header'><a href="#macros">Macros</a></h2>
-<table>
-                       <tr class=' module-item'>
-                           <td><a class='macro' href='macro.index_fixed!.html'
-                                  title='index_fixed::index_fixed!'>index_fixed!</a></td>
-                           <td class='docblock short'>
-                                <p>Slices (via the Index trait &amp; operation) into fixed size arrays</p>
-                           </td>
-                       </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
-<table>
-                       <tr class=' module-item'>
-                           <td><a class='fn' href='fn.transmute.html'
-                                  title='index_fixed::transmute'>transmute</a></td>
-                           <td class='docblock short'>
-                                <p>Unsafely transforms a value of one type into a value of another type.</p>
-                           </td>
-                       </tr></table></section>
+               </span><a id='src-6019' class='srclink' href='https://doc.rust-lang.org/nightly/core/intrinsics//fn.transmute.html?gotosrc=6019' title='goto source code'>[src]</a></span></h1>
+<pre class='rust fn'>pub unsafe extern &quot;rust-intrinsic&quot; fn transmute&lt;T, U&gt;(e: T) -&gt; U</pre><div class='docblock'><p>Unsafely transforms a value of one type into a value of another type.</p>
+
+<p>Both types must have the same size.</p>
+
+<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
+<pre class='rust rust-example-rendered'>
+<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>mem</span>;
+
+<span class='kw'>let</span> <span class='ident'>array</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>u8</span>] <span class='op'>=</span> <span class='kw'>unsafe</span> { <span class='ident'>mem</span>::<span class='ident'>transmute</span>(<span class='string'>&quot;Rust&quot;</span>) };
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>array</span>, [<span class='number'>82</span>, <span class='number'>117</span>, <span class='number'>115</span>, <span class='number'>116</span>]);</pre>
+</div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
