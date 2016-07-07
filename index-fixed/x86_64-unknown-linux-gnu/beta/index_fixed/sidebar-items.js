@@ -1,1 +1,1 @@
-initSidebarItems({"fn":[["transmute","Unsafely transforms a value of one type into a value of another type."]],"macro":[["index_fixed!","Slices (via the Index trait & operation) into fixed size arrays"]]});
+initSidebarItems({"macro":[["index_fixed!","Slices (via the Index trait & operation) into fixed size arrays"]]});
