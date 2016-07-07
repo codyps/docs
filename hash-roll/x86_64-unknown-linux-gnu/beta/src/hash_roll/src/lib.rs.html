@@ -967,24 +967,24 @@
         <span class='kw'>where</span> <span class='ident'>T</span>: <span class='ident'>PartialOrd</span><span class='op'>&lt;</span><span class='ident'>T</span><span class='op'>&gt;</span>
     {
         <span class='kw'>match</span> <span class='self'>self</span>.<span class='ident'>last</span> {
-            <span class='ident'>Bound</span>::<span class='ident'>Included</span>(<span class='kw-2'>ref</span> <span class='ident'>i</span>) <span class='op'>=&gt;</span> <span class='kw'>if</span> <span class='ident'>item</span> <span class='op'>&gt;</span> <span class='ident'>i</span> { <span class='kw'>return</span> <span class='boolvalue'>true</span>; },
-            <span class='ident'>Bound</span>::<span class='ident'>Excluded</span>(<span class='kw-2'>ref</span> <span class='ident'>i</span>) <span class='op'>=&gt;</span> <span class='kw'>if</span> <span class='ident'>item</span> <span class='op'>&gt;=</span> <span class='ident'>i</span> { <span class='kw'>return</span> <span class='boolvalue'>true</span>; },
+            <span class='ident'>Bound</span>::<span class='ident'>Included</span>(<span class='kw-2'>ref</span> <span class='ident'>i</span>) <span class='op'>=&gt;</span> <span class='kw'>if</span> <span class='ident'>item</span> <span class='op'>&gt;</span> <span class='ident'>i</span> { <span class='kw'>return</span> <span class='bool-val'>true</span>; },
+            <span class='ident'>Bound</span>::<span class='ident'>Excluded</span>(<span class='kw-2'>ref</span> <span class='ident'>i</span>) <span class='op'>=&gt;</span> <span class='kw'>if</span> <span class='ident'>item</span> <span class='op'>&gt;=</span> <span class='ident'>i</span> { <span class='kw'>return</span> <span class='bool-val'>true</span>; },
             <span class='ident'>Bound</span>::<span class='ident'>Unbounded</span> <span class='op'>=&gt;</span> {}
         }
 
-        <span class='boolvalue'>false</span>
+        <span class='bool-val'>false</span>
     }
 
     <span class='kw'>fn</span> <span class='ident'>under_min</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>item</span>: <span class='kw-2'>&amp;</span><span class='ident'>T</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span>
         <span class='kw'>where</span> <span class='ident'>T</span>: <span class='ident'>PartialOrd</span><span class='op'>&lt;</span><span class='ident'>T</span><span class='op'>&gt;</span>
     {
         <span class='kw'>match</span> <span class='self'>self</span>.<span class='ident'>first</span> {
-            <span class='ident'>Bound</span>::<span class='ident'>Included</span>(<span class='kw-2'>ref</span> <span class='ident'>i</span>) <span class='op'>=&gt;</span> <span class='kw'>if</span> <span class='ident'>item</span> <span class='op'>&lt;</span> <span class='ident'>i</span> { <span class='kw'>return</span> <span class='boolvalue'>true</span>; },
-            <span class='ident'>Bound</span>::<span class='ident'>Excluded</span>(<span class='kw-2'>ref</span> <span class='ident'>i</span>) <span class='op'>=&gt;</span> <span class='kw'>if</span> <span class='ident'>item</span> <span class='op'>&lt;=</span> <span class='ident'>i</span> { <span class='kw'>return</span> <span class='boolvalue'>true</span>; },
+            <span class='ident'>Bound</span>::<span class='ident'>Included</span>(<span class='kw-2'>ref</span> <span class='ident'>i</span>) <span class='op'>=&gt;</span> <span class='kw'>if</span> <span class='ident'>item</span> <span class='op'>&lt;</span> <span class='ident'>i</span> { <span class='kw'>return</span> <span class='bool-val'>true</span>; },
+            <span class='ident'>Bound</span>::<span class='ident'>Excluded</span>(<span class='kw-2'>ref</span> <span class='ident'>i</span>) <span class='op'>=&gt;</span> <span class='kw'>if</span> <span class='ident'>item</span> <span class='op'>&lt;=</span> <span class='ident'>i</span> { <span class='kw'>return</span> <span class='bool-val'>true</span>; },
             <span class='ident'>Bound</span>::<span class='ident'>Unbounded</span> <span class='op'>=&gt;</span> {}
         }
 
-        <span class='boolvalue'>false</span>
+        <span class='bool-val'>false</span>
     }
 
     <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>dead_code</span>)]</span>
@@ -993,14 +993,14 @@
     {
         <span class='comment'>/* not excluded by first */</span>
         <span class='kw'>if</span> <span class='self'>self</span>.<span class='ident'>under_min</span>(<span class='ident'>item</span>) {
-            <span class='kw'>return</span> <span class='boolvalue'>false</span>;
+            <span class='kw'>return</span> <span class='bool-val'>false</span>;
         }
 
         <span class='kw'>if</span> <span class='self'>self</span>.<span class='ident'>exceeds_max</span>(<span class='ident'>item</span>) {
-            <span class='kw'>return</span> <span class='boolvalue'>false</span>;
+            <span class='kw'>return</span> <span class='bool-val'>false</span>;
         }
 
-        <span class='boolvalue'>true</span>
+        <span class='bool-val'>true</span>
     }
 }
 
