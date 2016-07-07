@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" type="text/css" href="../../../../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../../../../main.css">
+    
 
     
     
@@ -739,10 +740,10 @@
 <span id="696">696</span>
 <span id="697">697</span>
 </pre><pre class='rust '>
-<span class='kw'>use</span> <span class='ident'>super</span>::{<span class='ident'>c_char</span>, <span class='ident'>c_int</span>, <span class='ident'>c_void</span>, <span class='ident'>uid_t</span>, <span class='ident'>gid_t</span>, <span class='ident'>pid_t</span>, <span class='ident'>size_t</span>, <span class='ident'>c_uint</span>};
-<span class='kw'>use</span> <span class='ident'>super</span>::<span class='ident'>id128</span>::<span class='ident'>sd_id128_t</span>;
-<span class='kw'>use</span> <span class='ident'>super</span>::<span class='ident'>const_iovec</span>;
-<span class='kw'>use</span> <span class='ident'>super</span>::<span class='ident'>event</span>::<span class='ident'>sd_event</span>;
+<span class='kw'>use</span> <span class='kw'>super</span>::{<span class='ident'>c_char</span>, <span class='ident'>c_int</span>, <span class='ident'>c_void</span>, <span class='ident'>uid_t</span>, <span class='ident'>gid_t</span>, <span class='ident'>pid_t</span>, <span class='ident'>size_t</span>, <span class='ident'>c_uint</span>};
+<span class='kw'>use</span> <span class='kw'>super</span>::<span class='ident'>id128</span>::<span class='ident'>sd_id128_t</span>;
+<span class='kw'>use</span> <span class='kw'>super</span>::<span class='ident'>const_iovec</span>;
+<span class='kw'>use</span> <span class='kw'>super</span>::<span class='ident'>event</span>::<span class='ident'>sd_event</span>;
 
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>vtable</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>vtable</span>::<span class='ident'>sd_bus_vtable</span>;
@@ -1460,6 +1461,8 @@
                     <dd>Move down in search results</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 

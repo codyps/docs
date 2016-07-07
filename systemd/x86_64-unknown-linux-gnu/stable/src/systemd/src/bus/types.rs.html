@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../../../main.css">
+    
 
     
     
@@ -268,9 +269,9 @@
  *   potentially the most convenient.
  */</span>
 
-<span class='kw'>use</span> <span class='ident'>super</span>::<span class='ident'>utf8_cstr</span>::<span class='ident'>Utf8CStr</span>;
+<span class='kw'>use</span> <span class='kw'>super</span>::<span class='ident'>utf8_cstr</span>::<span class='ident'>Utf8CStr</span>;
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>ffi</span>::<span class='ident'>CStr</span>;
-<span class='kw'>use</span> <span class='ident'>super</span>::{<span class='ident'>MessageRef</span>, <span class='ident'>MessageIter</span>};
+<span class='kw'>use</span> <span class='kw'>super</span>::{<span class='ident'>MessageRef</span>, <span class='ident'>MessageIter</span>};
 <span class='kw'>use</span> <span class='ident'>ffi</span>::{<span class='ident'>c_int</span>, <span class='ident'>c_char</span>};
 
 <span class='doccomment'>/**
@@ -305,21 +306,21 @@
  * may need to add a `from_message_to()` that takes a reference, much like `Clone`.
  */</span>
 <span class='kw'>pub</span> <span class='kw'>trait</span> <span class='ident'>FromSdBusMessage</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span> {
-    <span class='kw'>fn</span> <span class='ident'>from_message</span>(<span class='ident'>m</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;a</span> <span class='kw-2'>mut</span> <span class='ident'>MessageIter</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span>) <span class='op'>-&gt;</span> ::<span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>Self</span><span class='op'>&gt;&gt;</span>
-        <span class='kw'>where</span> <span class='kw'>Self</span>: <span class='ident'>Sized</span>;
+    <span class='kw'>fn</span> <span class='ident'>from_message</span>(<span class='ident'>m</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;a</span> <span class='kw-2'>mut</span> <span class='ident'>MessageIter</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span>) <span class='op'>-&gt;</span> ::<span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='self'>Self</span><span class='op'>&gt;&gt;</span>
+        <span class='kw'>where</span> <span class='self'>Self</span>: <span class='ident'>Sized</span>;
 }
 
 <span class='kw'>impl</span><span class='op'>&lt;</span><span class='ident'>T</span>: <span class='ident'>SdBusMessageDirect</span><span class='op'>&gt;</span> <span class='ident'>ToSdBusMessage</span> <span class='kw'>for</span> <span class='ident'>T</span> {
     <span class='kw'>fn</span> <span class='ident'>to_message</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>m</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>MessageRef</span>) <span class='op'>-&gt;</span> ::<span class='prelude-ty'>Result</span><span class='op'>&lt;</span>()<span class='op'>&gt;</span> {
-        <span class='kw'>unsafe</span> { <span class='ident'>m</span>.<span class='ident'>append_basic_raw</span>(<span class='ident'>Self</span>::<span class='ident'>dbus_type</span>(), <span class='self'>self</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw'>const</span> _ <span class='kw'>as</span> <span class='op'>*</span><span class='kw'>const</span> _) }
+        <span class='kw'>unsafe</span> { <span class='ident'>m</span>.<span class='ident'>append_basic_raw</span>(<span class='self'>Self</span>::<span class='ident'>dbus_type</span>(), <span class='self'>self</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw'>const</span> _ <span class='kw'>as</span> <span class='op'>*</span><span class='kw'>const</span> _) }
     }
 }
 
 <span class='kw'>impl</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span>, <span class='ident'>T</span>: <span class='ident'>SdBusMessageDirect</span> <span class='op'>+</span> <span class='lifetime'>&#39;a</span><span class='op'>&gt;</span> <span class='ident'>FromSdBusMessage</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span> <span class='kw'>for</span> <span class='ident'>T</span> {
-    <span class='kw'>fn</span> <span class='ident'>from_message</span>(<span class='ident'>m</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;a</span> <span class='kw-2'>mut</span> <span class='ident'>MessageIter</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span>) <span class='op'>-&gt;</span> ::<span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>Self</span><span class='op'>&gt;&gt;</span>
-        <span class='kw'>where</span> <span class='kw'>Self</span>: <span class='ident'>Sized</span>
+    <span class='kw'>fn</span> <span class='ident'>from_message</span>(<span class='ident'>m</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;a</span> <span class='kw-2'>mut</span> <span class='ident'>MessageIter</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span>) <span class='op'>-&gt;</span> ::<span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='self'>Self</span><span class='op'>&gt;&gt;</span>
+        <span class='kw'>where</span> <span class='self'>Self</span>: <span class='ident'>Sized</span>
     {
-        <span class='kw'>let</span> <span class='ident'>t</span> <span class='op'>=</span> <span class='ident'>Self</span>::<span class='ident'>dbus_type</span>();
+        <span class='kw'>let</span> <span class='ident'>t</span> <span class='op'>=</span> <span class='self'>Self</span>::<span class='ident'>dbus_type</span>();
         <span class='kw'>unsafe</span> { <span class='ident'>m</span>.<span class='ident'>read_basic_raw</span>(<span class='ident'>t</span>, <span class='op'>|</span><span class='ident'>x</span><span class='op'>|</span> <span class='ident'>x</span>)}
     }
 }
@@ -384,8 +385,8 @@
 }
 
 <span class='kw'>impl</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span> <span class='ident'>FromSdBusMessage</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span> <span class='kw'>for</span> <span class='ident'>bool</span> {
-    <span class='kw'>fn</span> <span class='ident'>from_message</span>(<span class='ident'>m</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>MessageIter</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span>) <span class='op'>-&gt;</span> ::<span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>Self</span><span class='op'>&gt;&gt;</span>
-        <span class='kw'>where</span> <span class='kw'>Self</span>: <span class='ident'>Sized</span>
+    <span class='kw'>fn</span> <span class='ident'>from_message</span>(<span class='ident'>m</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>MessageIter</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span>) <span class='op'>-&gt;</span> ::<span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='self'>Self</span><span class='op'>&gt;&gt;</span>
+        <span class='kw'>where</span> <span class='self'>Self</span>: <span class='ident'>Sized</span>
     {
         <span class='kw'>unsafe</span> { <span class='ident'>m</span>.<span class='ident'>read_basic_raw</span>(<span class='string'>b&#39;b&#39;</span>, <span class='op'>|</span><span class='ident'>x</span>: <span class='ident'>c_int</span><span class='op'>|</span> <span class='ident'>x</span> <span class='op'>!=</span> <span class='number'>0</span>) }
     }
@@ -406,14 +407,14 @@
 }
 
 <span class='kw'>impl</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span> <span class='ident'>FromSdBusMessage</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span> <span class='kw'>for</span> <span class='ident'>UnixFd</span> {
-    <span class='kw'>fn</span> <span class='ident'>from_message</span>(<span class='ident'>m</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;a</span> <span class='kw-2'>mut</span> <span class='ident'>MessageIter</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span>) <span class='op'>-&gt;</span> ::<span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>Self</span><span class='op'>&gt;&gt;</span>
-        <span class='kw'>where</span> <span class='kw'>Self</span>: <span class='ident'>Sized</span>
+    <span class='kw'>fn</span> <span class='ident'>from_message</span>(<span class='ident'>m</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;a</span> <span class='kw-2'>mut</span> <span class='ident'>MessageIter</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span>) <span class='op'>-&gt;</span> ::<span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='self'>Self</span><span class='op'>&gt;&gt;</span>
+        <span class='kw'>where</span> <span class='self'>Self</span>: <span class='ident'>Sized</span>
     {
         <span class='kw'>unsafe</span> { <span class='ident'>m</span>.<span class='ident'>read_basic_raw</span>(<span class='string'>b&#39;h&#39;</span>, <span class='op'>|</span><span class='ident'>x</span>: <span class='ident'>c_int</span><span class='op'>|</span> <span class='ident'>UnixFd</span>(<span class='ident'>x</span>)) }
     }
 }
 
-<span class='kw'>impl</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span> <span class='ident'>ToSdBusMessage</span> <span class='kw'>for</span> <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;a</span> <span class='ident'>super</span>::<span class='ident'>ObjectPath</span> {
+<span class='kw'>impl</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span> <span class='ident'>ToSdBusMessage</span> <span class='kw'>for</span> <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;a</span> <span class='kw'>super</span>::<span class='ident'>ObjectPath</span> {
     <span class='kw'>fn</span> <span class='ident'>to_message</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>m</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>MessageRef</span>) <span class='op'>-&gt;</span> ::<span class='prelude-ty'>Result</span><span class='op'>&lt;</span>()<span class='op'>&gt;</span> {
         <span class='macro'>try</span><span class='macro'>!</span>(<span class='kw'>unsafe</span> { <span class='ident'>m</span>.<span class='ident'>append_basic_raw</span>(<span class='string'>b&#39;o&#39;</span>, <span class='self'>self</span>.<span class='ident'>as_ptr</span>() <span class='kw'>as</span> <span class='op'>*</span><span class='kw'>const</span> _)});
         <span class='prelude-val'>Ok</span>(())
@@ -425,11 +426,11 @@
 <span class='comment'>// without copying.</span>
 <span class='comment'>//</span>
 <span class='comment'>// If we could use &amp;MessageRef instead this could be useful.</span>
-<span class='kw'>impl</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span> <span class='ident'>FromSdBusMessage</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span> <span class='kw'>for</span> <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;a</span> <span class='ident'>super</span>::<span class='ident'>ObjectPath</span> {
-    <span class='kw'>fn</span> <span class='ident'>from_message</span>(<span class='ident'>m</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;a</span> <span class='kw-2'>mut</span> <span class='ident'>MessageIter</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span>) <span class='op'>-&gt;</span> ::<span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>Self</span><span class='op'>&gt;&gt;</span>
-        <span class='kw'>where</span> <span class='kw'>Self</span>: <span class='ident'>Sized</span>
+<span class='kw'>impl</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span> <span class='ident'>FromSdBusMessage</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span> <span class='kw'>for</span> <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;a</span> <span class='kw'>super</span>::<span class='ident'>ObjectPath</span> {
+    <span class='kw'>fn</span> <span class='ident'>from_message</span>(<span class='ident'>m</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;a</span> <span class='kw-2'>mut</span> <span class='ident'>MessageIter</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span>) <span class='op'>-&gt;</span> ::<span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='self'>Self</span><span class='op'>&gt;&gt;</span>
+        <span class='kw'>where</span> <span class='self'>Self</span>: <span class='ident'>Sized</span>
     {
-        <span class='kw'>unsafe</span> {<span class='ident'>m</span>.<span class='ident'>read_basic_raw</span>(<span class='string'>b&#39;o&#39;</span>, <span class='op'>|</span><span class='ident'>x</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>c_char</span><span class='op'>|</span> <span class='ident'>super</span>::<span class='ident'>ObjectPath</span>::<span class='ident'>from_ptr_unchecked</span>(<span class='ident'>x</span>))}
+        <span class='kw'>unsafe</span> {<span class='ident'>m</span>.<span class='ident'>read_basic_raw</span>(<span class='string'>b&#39;o&#39;</span>, <span class='op'>|</span><span class='ident'>x</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>c_char</span><span class='op'>|</span> <span class='kw'>super</span>::<span class='ident'>ObjectPath</span>::<span class='ident'>from_ptr_unchecked</span>(<span class='ident'>x</span>))}
     }
 }
 
@@ -440,8 +441,8 @@
 }
 
 <span class='kw'>impl</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span> <span class='ident'>FromSdBusMessage</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span> <span class='kw'>for</span> <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;a</span> <span class='ident'>Utf8CStr</span> {
-    <span class='kw'>fn</span> <span class='ident'>from_message</span>(<span class='ident'>m</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;a</span> <span class='kw-2'>mut</span> <span class='ident'>MessageIter</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span>) <span class='op'>-&gt;</span> ::<span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>Self</span><span class='op'>&gt;&gt;</span>
-        <span class='kw'>where</span> <span class='kw'>Self</span>: <span class='ident'>Sized</span>
+    <span class='kw'>fn</span> <span class='ident'>from_message</span>(<span class='ident'>m</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;a</span> <span class='kw-2'>mut</span> <span class='ident'>MessageIter</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span>) <span class='op'>-&gt;</span> ::<span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='self'>Self</span><span class='op'>&gt;&gt;</span>
+        <span class='kw'>where</span> <span class='self'>Self</span>: <span class='ident'>Sized</span>
     {
         <span class='kw'>unsafe</span> {<span class='ident'>m</span>.<span class='ident'>read_basic_raw</span>(<span class='string'>b&#39;s&#39;</span>, <span class='op'>|</span><span class='ident'>x</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>c_char</span><span class='op'>|</span> <span class='ident'>Utf8CStr</span>::<span class='ident'>from_cstr_unchecked</span>(<span class='ident'>CStr</span>::<span class='ident'>from_ptr</span>(<span class='ident'>x</span>)))}
     }
@@ -478,6 +479,8 @@
                     <dd>Move down in search results</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 

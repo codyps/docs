@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../../main.css">
+    
 
     
     
@@ -94,7 +95,7 @@
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>fmt</span>;
 <span class='kw'>use</span> <span class='ident'>ffi</span>;
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>ffi</span>::<span class='ident'>CStr</span>;
-<span class='kw'>use</span> <span class='ident'>super</span>::<span class='prelude-ty'>Result</span>;
+<span class='kw'>use</span> <span class='kw'>super</span>::<span class='prelude-ty'>Result</span>;
 
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>Id128</span> {
     <span class='ident'>inner</span>: <span class='ident'>ffi</span>::<span class='ident'>id128</span>::<span class='ident'>sd_id128_t</span>,
@@ -162,6 +163,8 @@
                     <dd>Move down in search results</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
