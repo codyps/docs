@@ -1,5 +1,5 @@
 (function() {var implementors = {};
-implementors['leak'] = [];
+implementors["leak"] = [];
 
             if (window.register_implementors) {
                 window.register_implementors(implementors);
