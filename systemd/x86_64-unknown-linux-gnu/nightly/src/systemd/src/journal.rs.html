@@ -186,9 +186,16 @@
 <span id="142">142</span>
 <span id="143">143</span>
 <span id="144">144</span>
+<span id="145">145</span>
+<span id="146">146</span>
+<span id="147">147</span>
+<span id="148">148</span>
+<span id="149">149</span>
+<span id="150">150</span>
+<span id="151">151</span>
 </pre><pre class='rust '>
 <span class='kw'>use</span> <span class='ident'>libc</span>::{<span class='ident'>c_int</span>, <span class='ident'>size_t</span>};
-<span class='kw'>use</span> <span class='ident'>log</span>::{<span class='self'>self</span>, <span class='ident'>Log</span>, <span class='ident'>LogRecord</span>, <span class='ident'>LogLocation</span>, <span class='ident'>SetLoggerError</span>};
+<span class='kw'>use</span> <span class='ident'>log</span>::{<span class='self'>self</span>, <span class='ident'>Log</span>, <span class='ident'>LogRecord</span>, <span class='ident'>LogLocation</span>, <span class='ident'>LogLevelFilter</span>, <span class='ident'>SetLoggerError</span>};
 <span class='kw'>use</span> <span class='ident'>std</span>::{<span class='ident'>fmt</span>, <span class='ident'>ptr</span>, <span class='ident'>result</span>};
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>collections</span>::<span class='ident'>BTreeMap</span>;
 <span class='kw'>use</span> <span class='ident'>ffi</span>::<span class='ident'>array_to_iovecs</span>;
@@ -239,7 +246,14 @@
 
 <span class='kw'>impl</span> <span class='ident'>JournalLog</span> {
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>init</span>() <span class='op'>-&gt;</span> <span class='ident'>result</span>::<span class='prelude-ty'>Result</span><span class='op'>&lt;</span>(), <span class='ident'>SetLoggerError</span><span class='op'>&gt;</span> {
-        <span class='ident'>log</span>::<span class='ident'>set_logger</span>(<span class='op'>|</span><span class='ident'>_max_log_level</span><span class='op'>|</span> <span class='ident'>Box</span>::<span class='ident'>new</span>(<span class='ident'>JournalLog</span>))
+        <span class='self'>Self</span>::<span class='ident'>init_with_level</span>(<span class='ident'>LogLevelFilter</span>::<span class='ident'>Info</span>)
+    }
+
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>init_with_level</span>(<span class='ident'>level</span>: <span class='ident'>LogLevelFilter</span>) <span class='op'>-&gt;</span> <span class='ident'>result</span>::<span class='prelude-ty'>Result</span><span class='op'>&lt;</span>(), <span class='ident'>SetLoggerError</span><span class='op'>&gt;</span> {
+        <span class='ident'>log</span>::<span class='ident'>set_logger</span>(<span class='op'>|</span><span class='ident'>max_log_level</span><span class='op'>|</span> {
+            <span class='ident'>max_log_level</span>.<span class='ident'>set</span>(<span class='ident'>level</span>);
+            <span class='ident'>Box</span>::<span class='ident'>new</span>(<span class='ident'>JournalLog</span>)
+        })
     }
 }
 
