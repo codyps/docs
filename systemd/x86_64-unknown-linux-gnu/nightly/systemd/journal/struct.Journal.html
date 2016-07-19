@@ -47,13 +47,13 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-62' class='srclink' href='../../src/systemd/src/journal.rs.html#69-71' title='goto source code'>[src]</a></span></h1>
+               </span><a id='src-66' class='srclink' href='../../src/systemd/src/journal.rs.html#76-78' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct Journal {
     // some fields omitted
-}</pre><div class='docblock'><p>A cursor into the systemd journal.</p>
+}</pre><div class='docblock'><p>A reader for systemd journal.</p>
 
 <p>Supports read, next, previous, and seek operations.</p>
-</div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl <a class='struct' href='../../systemd/journal/struct.Journal.html' title='systemd::journal::Journal'>Journal</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-68' class='srclink' href='../../src/systemd/src/journal.rs.html#83-141' title='goto source code'>[src]</a></span></h3>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl <a class='struct' href='../../systemd/journal/struct.Journal.html' title='systemd::journal::Journal'>Journal</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-83' class='srclink' href='../../src/systemd/src/journal.rs.html#107-196' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.open' class='method'><code>fn <a href='#method.open' class='fnname'>open</a>(files: <a class='enum' href='../../systemd/journal/enum.JournalFiles.html' title='systemd::journal::JournalFiles'>JournalFiles</a>, runtime_only: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>, local_only: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='type' href='../../systemd/type.Result.html' title='systemd::Result'>Result</a>&lt;<a class='struct' href='../../systemd/journal/struct.Journal.html' title='systemd::journal::Journal'>Journal</a>&gt;</code></h4>
 <div class='docblock'><p>Open the systemd journal for reading.</p>
 
@@ -70,9 +70,12 @@ boot. If false, include all entries.</li>
 localhost. If false, include all entries.</li>
 </ul>
 </div><h4 id='method.next_record' class='method'><code>fn <a href='#method.next_record' class='fnname'>next_record</a>(&amp;self) -&gt; <a class='type' href='../../systemd/type.Result.html' title='systemd::Result'>Result</a>&lt;<a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../../systemd/journal/type.JournalRecord.html' title='systemd::journal::JournalRecord'>JournalRecord</a>&gt;&gt;</code></h4>
-<div class='docblock'><p>Read the next record from the journal. Returns <code>io::EndOfFile</code> if there
+<div class='docblock'><p>Read the next record from the journal. Returns <code>Ok(None)</code> if there
 are no more records to read.</p>
-</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Drop.html' title='core::ops::Drop'>Drop</a> for <a class='struct' href='../../systemd/journal/struct.Journal.html' title='systemd::journal::Journal'>Journal</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-93' class='srclink' href='../../src/systemd/src/journal.rs.html#143-151' title='goto source code'>[src]</a></span></h3>
+</div><h4 id='method.seek' class='method'><code>fn <a href='#method.seek' class='fnname'>seek</a>(&amp;self, seek: <a class='enum' href='../../systemd/journal/enum.JournalSeek.html' title='systemd::journal::JournalSeek'>JournalSeek</a>) -&gt; <a class='type' href='../../systemd/type.Result.html' title='systemd::Result'>Result</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;</code></h4>
+<div class='docblock'><p>Seek to a specific position in journal. On success, returns a cursor
+to the current entry.</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Drop.html' title='core::ops::Drop'>Drop</a> for <a class='struct' href='../../systemd/journal/struct.Journal.html' title='systemd::journal::Journal'>Journal</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-131' class='srclink' href='../../src/systemd/src/journal.rs.html#198-206' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.drop' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Drop.html#tymethod.drop' class='fnname'>drop</a>(&amp;mut self)</code></h4>
 <div class='docblock'><p>A method called when the value goes out of scope. <a href="https://doc.rust-lang.org/nightly/core/ops/trait.Drop.html#tymethod.drop">Read more</a></p>
 </div></div></section>
