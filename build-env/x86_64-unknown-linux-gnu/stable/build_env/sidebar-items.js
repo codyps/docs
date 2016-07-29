@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["VarErrorKind","If variable retrieval fails, it will be for one of these reasons"]],"struct":[["BuildEnv","Allow retrieval of values pretaining to a `build` process that may be related to the `target` and/or `host` triple."],["VarError","Describes a variable retrieval failure"]]});
