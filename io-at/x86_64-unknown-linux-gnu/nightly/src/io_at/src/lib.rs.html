@@ -375,8 +375,6 @@
 <span id="331">331</span>
 <span id="332">332</span>
 <span id="333">333</span>
-<span id="334">334</span>
-<span id="335">335</span>
 </pre><pre class='rust '>
 <span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>test</span>)]</span>
 <span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>tempfile</span>;
@@ -387,9 +385,6 @@
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>convert</span>::<span class='ident'>From</span>;
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>sync</span>::<span class='ident'>Mutex</span>;
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>io</span>::{<span class='ident'>SeekFrom</span>, <span class='ident'>Seek</span>, <span class='ident'>Read</span>, <span class='ident'>Write</span>};
-
-<span class='attribute'>#[<span class='ident'>macro_use</span>]</span>
-<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>macros</span>;
 
 <span class='doccomment'>/**
  * Read data at an offset
@@ -713,6 +708,7 @@ pub struct&lt;T: WriteAt&gt; RateLimitWrite&lt;T&gt; {
 
 <span class='kw'>mod</span> <span class='ident'>slice</span>;
 <span class='kw'>mod</span> <span class='ident'>vec</span>;
+<span class='kw'>mod</span> <span class='ident'>refs</span>;
 </pre>
 </section>
     <section id='search' class="content hidden"></section>
