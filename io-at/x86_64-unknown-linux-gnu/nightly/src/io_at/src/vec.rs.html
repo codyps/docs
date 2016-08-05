@@ -109,8 +109,6 @@
 <span id="65">65</span>
 <span id="66">66</span>
 <span id="67">67</span>
-<span id="68">68</span>
-<span id="69">69</span>
 </pre><pre class='rust '>
 <span class='comment'>/* TODO: provide a wrapper type impl for Deref&lt;[u8]&gt; and DerefMut&lt;[u8]&gt; */</span>
 <span class='kw'>use</span> <span class='kw'>super</span>::<span class='op'>*</span>;
@@ -173,8 +171,6 @@
     <span class='kw'>let</span> <span class='ident'>x</span> <span class='op'>=</span> <span class='macro'>vec</span><span class='macro'>!</span>[];
     <span class='kw'>super</span>::<span class='ident'>test_impl</span>(<span class='ident'>x</span>);
 }
-
-<span class='macro'>impl_ref_io_at</span><span class='macro'>!</span>{<span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>u8</span><span class='op'>&gt;</span>}
 
 <span class='attribute'>#[<span class='ident'>test</span>]</span>
 <span class='kw'>fn</span> <span class='ident'>ref_vec</span>() {
