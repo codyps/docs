@@ -1466,6 +1466,11 @@
 <span id="1422">1422</span>
 <span id="1423">1423</span>
 <span id="1424">1424</span>
+<span id="1425">1425</span>
+<span id="1426">1426</span>
+<span id="1427">1427</span>
+<span id="1428">1428</span>
+<span id="1429">1429</span>
 </pre><pre class='rust '>
 <span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>utf8_cstr</span>;
 
@@ -2835,6 +2840,11 @@ impl Track {
     <span class='doccomment'>///  - sd_bus_message_peek_type is called a second time</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// Using &amp;mut allows us to prevent #2.</span>
+    <span class='doccomment'>///</span>
+    <span class='doccomment'>/// FIXME/WARNING: Message might have been cloned, in which case we can&#39;t rely on the lifetime of</span>
+    <span class='doccomment'>/// &amp;str! As `Message` isn&#39;t `Send` or `Sync`, we can garuntee we&#39;re not racing with someone</span>
+    <span class='doccomment'>/// else to free it though. Probably need to allocate space for it here rather than return a</span>
+    <span class='doccomment'>/// ref.</span>
     <span class='comment'>// &amp;str lasts until next call of sd_bus_message_peek_type</span>
     <span class='comment'>// XXX: confirm that lifetimes here match that!</span>
     <span class='attribute'>#[<span class='ident'>inline</span>]</span>

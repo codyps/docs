@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["free","Trait to instruct how to properly drop and free pointers."],["mbox","`malloc`-based Box."],["sentinel","Sentinel-terminated types."]]});
