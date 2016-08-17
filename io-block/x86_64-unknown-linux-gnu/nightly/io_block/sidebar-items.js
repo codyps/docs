@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["os",""]],"struct":[["BlockFile","Wrap some type T in a block container"],["Error","The error type for I/O operations of the `Read`, `Write`, `Seek`, and associated traits."]],"type":[["Result",""]]});
