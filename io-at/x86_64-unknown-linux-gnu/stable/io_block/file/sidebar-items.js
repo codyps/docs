@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["BlockFile","Wrap some type T in a block container"]]});
