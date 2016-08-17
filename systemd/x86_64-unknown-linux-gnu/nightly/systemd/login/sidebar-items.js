@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["UnitType","Systemd unit types"]],"fn":[["get_unit","Determines the systemd unit (i.e. service or scope unit) identifier of a process."]]});
