@@ -1137,8 +1137,8 @@
         <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>inner_counter</span>.<span class='ident'>get</span>(), <span class='ident'>expected</span>);
     }
 
-    <span class='ident'>do_test_for_drop_flag</span>(<span class='boolvalue'>true</span>, <span class='number'>1</span>);
-    <span class='ident'>do_test_for_drop_flag</span>(<span class='boolvalue'>false</span>, <span class='number'>0</span>);
+    <span class='ident'>do_test_for_drop_flag</span>(<span class='bool-val'>true</span>, <span class='number'>1</span>);
+    <span class='ident'>do_test_for_drop_flag</span>(<span class='bool-val'>false</span>, <span class='number'>0</span>);
 
     <span class='kw'>if</span> <span class='macro'>cfg</span><span class='macro'>!</span>(<span class='ident'>nightly_channel</span>) {
         <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>size_of</span>::<span class='op'>&lt;</span><span class='ident'>MBox</span><span class='op'>&lt;</span><span class='ident'>DropCounter</span><span class='op'>&gt;&gt;</span>(), <span class='ident'>size_of</span>::<span class='op'>&lt;</span><span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DropCounter</span><span class='op'>&gt;</span>());
