@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="API documentation for the Rust `sd_try!` macro in crate `systemd`.">
-    <meta name="keywords" content="rust, rustlang, rust-lang, sd_try!">
+    <meta name="description" content="API documentation for the Rust `get_cgroup` fn in crate `systemd`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, get_cgroup">
 
-    <title>systemd::sd_try! - Rust</title>
+    <title>systemd::login::get_cgroup - Rust</title>
 
-    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../main.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
     
 
     
@@ -28,7 +28,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='index.html'>systemd</a></p><script>window.sidebarCurrent = {name: 'sd_try!', ty: 'macro', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'><a href='../index.html'>systemd</a>::<wbr><a href='index.html'>login</a></p><script>window.sidebarCurrent = {name: 'get_cgroup', ty: 'fn', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -42,23 +42,20 @@
         </form>
     </nav>
 
-    <section id='main' class="content macro">
-<h1 class='fqn'><span class='in-band'><a href='index.html'>systemd</a>::<wbr><a class='macro' href=''>sd_try!</a></span><span class='out-of-band'><span id='render-detail'>
+    <section id='main' class="content fn">
+<h1 class='fqn'><span class='in-band'>Function <a href='../index.html'>systemd</a>::<wbr><a href='index.html'>login</a>::<wbr><a class='fn' href=''>get_cgroup</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-974' class='srclink' href='../src/systemd/src/lib.rs.html#26-30' title='goto source code'>[src]</a></span></h1>
-<pre class='rust macro'>
-<span class='macro'>macro_rules</span><span class='macro'>!</span> <span class='ident'>sd_try</span> {
-    (<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>e</span>:<span class='ident'>expr</span>) <span class='op'>=&gt;</span> { ... };
-}</pre>
-<div class='docblock'><p>An analogue of <code>try!()</code> for systemd FFI calls.</p>
+               </span><a id='src-393' class='srclink' href='../../src/systemd/src/login.rs.html#69-75' title='goto source code'>[src]</a></span></h1>
+<pre class='rust fn'>pub fn get_cgroup(pid: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../../libc/unix/type.pid_t.html' title='libc::unix::pid_t'>pid_t</a>&gt;) -&gt; <a class='type' href='../../systemd/type.Result.html' title='systemd::Result'>Result</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;</pre><div class='docblock'><p>Determines the control group path of a process.</p>
 
-<p>The parameter should be a call to a systemd FFI fn with an c_int return
-value. It is called, and if the return is negative then <code>sd_try!()</code>
-interprets it as an error code and returns IoError from the enclosing fn.
-Otherwise, the value of <code>sd_try!()</code> is the non-negative value returned by
-the FFI call.</p>
+<p>Specific processes can be optionally targeted via their PID. When no PID is
+specified, operation is executed for the calling process.
+This method can be used to retrieve the control group path of a specific
+process, relative to the root of the hierarchy. It returns the path without
+trailing slash, except for processes located in the root control group,
+where &quot;/&quot; is returned.</p>
 </div></section>
     <section id='search' class="content hidden"></section>
 
@@ -113,13 +110,13 @@ the FFI call.</p>
     
 
     <script>
-        window.rootPath = "../";
+        window.rootPath = "../../";
         window.currentCrate = "systemd";
         window.playgroundUrl = "";
     </script>
-    <script src="../jquery.js"></script>
-    <script src="../main.js"></script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
     
-    <script defer src="../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>
