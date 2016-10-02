@@ -313,11 +313,14 @@
 <span id="269">269</span>
 <span id="270">270</span>
 <span id="271">271</span>
+<span id="272">272</span>
+<span id="273">273</span>
 </pre><pre class='rust '>
 <span class='kw'>use</span> <span class='ident'>libc</span>::{<span class='ident'>c_char</span>, <span class='ident'>c_int</span>, <span class='ident'>size_t</span>};
 <span class='kw'>use</span> <span class='ident'>log</span>::{<span class='self'>self</span>, <span class='ident'>Log</span>, <span class='ident'>LogRecord</span>, <span class='ident'>LogLocation</span>, <span class='ident'>LogLevelFilter</span>, <span class='ident'>SetLoggerError</span>};
 <span class='kw'>use</span> <span class='ident'>std</span>::{<span class='ident'>fmt</span>, <span class='ident'>io</span>, <span class='ident'>ptr</span>, <span class='ident'>result</span>};
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>collections</span>::<span class='ident'>BTreeMap</span>;
+<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>ffi</span>::<span class='ident'>CString</span>;
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>io</span>::<span class='ident'>ErrorKind</span>::<span class='ident'>InvalidData</span>;
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>raw</span>::<span class='ident'>c_void</span>;
 <span class='kw'>use</span> <span class='ident'>ffi</span>::<span class='ident'>array_to_iovecs</span>;
@@ -511,7 +514,8 @@
                 <span class='macro'>sd_try</span><span class='macro'>!</span>(<span class='ident'>ffi</span>::<span class='ident'>sd_journal_seek_realtime_usec</span>(<span class='self'>self</span>.<span class='ident'>j</span>, <span class='ident'>usec</span>))
             }
             <span class='ident'>JournalSeek</span>::<span class='ident'>Cursor</span> { <span class='ident'>cursor</span> } <span class='op'>=&gt;</span> {
-                <span class='macro'>sd_try</span><span class='macro'>!</span>(<span class='ident'>ffi</span>::<span class='ident'>sd_journal_seek_cursor</span>(<span class='self'>self</span>.<span class='ident'>j</span>, <span class='ident'>cursor</span>.<span class='ident'>as_ptr</span>() <span class='kw'>as</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>c_char</span>))
+                <span class='kw'>let</span> <span class='ident'>c</span> <span class='op'>=</span> <span class='macro'>try</span><span class='macro'>!</span>(<span class='ident'>CString</span>::<span class='ident'>new</span>(<span class='ident'>cursor</span>));
+                <span class='macro'>sd_try</span><span class='macro'>!</span>(<span class='ident'>ffi</span>::<span class='ident'>sd_journal_seek_cursor</span>(<span class='self'>self</span>.<span class='ident'>j</span>, <span class='ident'>c</span>.<span class='ident'>as_ptr</span>()))
             }
         };
         <span class='kw'>let</span> <span class='ident'>c</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>c_char</span> <span class='op'>=</span> <span class='ident'>ptr</span>::<span class='ident'>null_mut</span>();
