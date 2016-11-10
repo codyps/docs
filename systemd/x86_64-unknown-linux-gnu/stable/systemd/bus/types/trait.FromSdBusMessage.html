@@ -47,7 +47,7 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-429' class='srclink' href='../../../src/systemd/src/bus/types.rs.html#57-60' title='goto source code'>[src]</a></span></h1>
+               </span><a id='src-437' class='srclink' href='../../../src/systemd/src/bus/types.rs.html#57-60' title='goto source code'>[src]</a></span></h1>
 <pre class='rust trait'>pub trait FromSdBusMessage&lt;'a&gt; {
     fn <a href='#tymethod.from_message' class='fnname'>from_message</a>(m: &amp;'a mut <a class='struct' href='../../../systemd/bus/struct.MessageIter.html' title='systemd::bus::MessageIter'>MessageIter</a>&lt;'a&gt;) -&gt; <a class='type' href='../../../systemd/type.Result.html' title='systemd::Result'>Result</a>&lt;<a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;Self&gt;&gt; <span class='where'>where Self: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a></span>;
 }</pre><div class='docblock'><p>Allows types to provide a convertion from a dbus message</p>
@@ -57,7 +57,7 @@ may need to add a <code>from_message_to()</code> that takes a reference, much li
 </div>
             <h2 id='required-methods'>Required Methods</h2>
             <div class='methods'>
-        <h3 id='tymethod.from_message' class='method stab '><code>fn <a href='#tymethod.from_message' class='fnname'>from_message</a>(m: &amp;'a mut <a class='struct' href='../../../systemd/bus/struct.MessageIter.html' title='systemd::bus::MessageIter'>MessageIter</a>&lt;'a&gt;) -&gt; <a class='type' href='../../../systemd/type.Result.html' title='systemd::Result'>Result</a>&lt;<a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;Self&gt;&gt; <span class='where'>where Self: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a></span></code></h3></div>
+        <h3 id='tymethod.from_message' class='method stab '><span id='from_message.v' class='invisible'><code>fn <a href='#tymethod.from_message' class='fnname'>from_message</a>(m: &amp;'a mut <a class='struct' href='../../../systemd/bus/struct.MessageIter.html' title='systemd::bus::MessageIter'>MessageIter</a>&lt;'a&gt;) -&gt; <a class='type' href='../../../systemd/type.Result.html' title='systemd::Result'>Result</a>&lt;<a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;Self&gt;&gt; <span class='where'>where Self: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a></span></code></span></h3></div>
         <h2 id='implementors'>Implementors</h2>
         <ul class='item-list' id='implementors-list'>
     <li><code>impl&lt;'a,&nbsp;T:&nbsp;<a class='trait' href='../../../systemd/bus/types/trait.SdBusMessageDirect.html' title='systemd::bus::types::SdBusMessageDirect'>SdBusMessageDirect</a> + 'a&gt; FromSdBusMessage&lt;'a&gt; for T</code></li>
