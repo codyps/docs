@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="API documentation for the Rust `sd_bus_error_map` struct in crate `libsystemd_sys`.">
-    <meta name="keywords" content="rust, rustlang, rust-lang, sd_bus_error_map">
+    <meta name="description" content="API documentation for the Rust `log_target` fn in crate `systemd`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, log_target">
 
-    <title>libsystemd_sys::bus::sd_bus_error_map - Rust</title>
+    <title>systemd::journal::log_target - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
@@ -28,7 +28,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>libsystemd_sys</a>::<wbr><a href='index.html'>bus</a></p><script>window.sidebarCurrent = {name: 'sd_bus_error_map', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'><a href='../index.html'>systemd</a>::<wbr><a href='index.html'>journal</a></p><script>window.sidebarCurrent = {name: 'log_target', ty: 'fn', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -42,23 +42,14 @@
         </form>
     </nav>
 
-    <section id='main' class="content struct">
-<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>libsystemd_sys</a>::<wbr><a href='index.html'>bus</a>::<wbr><a class='struct' href=''>sd_bus_error_map</a></span><span class='out-of-band'><span id='render-detail'>
+    <section id='main' class="content fn">
+<h1 class='fqn'><span class='in-band'>Function <a href='../index.html'>systemd</a>::<wbr><a href='index.html'>journal</a>::<wbr><a class='fn' href=''>log_target</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-638' class='srclink' href='../../src/libsystemd_sys/libsystemd-sys/src/bus/mod.rs.html#71-74' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'><div class="docblock attributes">#[repr(C)]
-</div>pub struct sd_bus_error_map {
-    pub name: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const </a><a class='type' href='../../libsystemd_sys/type.c_char.html' title='libsystemd_sys::c_char'>c_char</a>,
-    pub code: <a class='type' href='../../libsystemd_sys/type.c_int.html' title='libsystemd_sys::c_int'>c_int</a>,
-}</pre><h2 class='fields'>Fields</h2><span id='structfield.name' class='structfield'>
-                           <span id='name.v' class='invisible'>
-                           <code>name: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const </a><a class='type' href='../../libsystemd_sys/type.c_char.html' title='libsystemd_sys::c_char'>c_char</a></code>
-                           </span></span><span class='stab '></span><span id='structfield.code' class='structfield'>
-                           <span id='code.v' class='invisible'>
-                           <code>code: <a class='type' href='../../libsystemd_sys/type.c_int.html' title='libsystemd_sys::c_int'>c_int</a></code>
-                           </span></span><span class='stab '></span></section>
+               </span><a id='src-48' class='srclink' href='../../src/systemd/src/journal.rs.html#63-70' title='goto source code'>[src]</a></span></h1>
+<pre class='rust fn'>pub fn log_target(level: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; loc: &amp;<a class='struct' href='../../log/struct.LogLocation.html' title='log::LogLocation'>LogLocation</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; args: &amp;<a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Arguments.html' title='core::fmt::Arguments'>Arguments</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; target: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>)</pre><div class='docblock'><p>Record a log entry, with custom priority, location and target.</p>
+</div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -113,7 +104,7 @@
 
     <script>
         window.rootPath = "../../";
-        window.currentCrate = "libsystemd_sys";
+        window.currentCrate = "systemd";
     </script>
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>

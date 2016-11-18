@@ -329,6 +329,16 @@
 <span id="285">285</span>
 <span id="286">286</span>
 <span id="287">287</span>
+<span id="288">288</span>
+<span id="289">289</span>
+<span id="290">290</span>
+<span id="291">291</span>
+<span id="292">292</span>
+<span id="293">293</span>
+<span id="294">294</span>
+<span id="295">295</span>
+<span id="296">296</span>
+<span id="297">297</span>
 </pre><pre class='rust '>
 <span class='kw'>use</span> <span class='ident'>libc</span>::{<span class='ident'>c_char</span>, <span class='ident'>c_int</span>, <span class='ident'>size_t</span>};
 <span class='kw'>use</span> <span class='ident'>log</span>::{<span class='self'>self</span>, <span class='ident'>Log</span>, <span class='ident'>LogRecord</span>, <span class='ident'>LogLocation</span>, <span class='ident'>LogLevel</span>, <span class='ident'>LogLevelFilter</span>, <span class='ident'>SetLoggerError</span>};
@@ -379,13 +389,23 @@
         <span class='ident'>LogLevel</span>::<span class='ident'>Debug</span> <span class='op'>|</span>
         <span class='ident'>LogLevel</span>::<span class='ident'>Trace</span> <span class='op'>=&gt;</span> <span class='ident'>SyslogLevel</span>::<span class='ident'>Debug</span>,
     } <span class='kw'>as</span> <span class='ident'>usize</span>;
-    <span class='ident'>log</span>(<span class='ident'>lvl</span>, <span class='ident'>record</span>.<span class='ident'>location</span>(), <span class='ident'>record</span>.<span class='ident'>args</span>());
+    <span class='ident'>log_target</span>(<span class='ident'>lvl</span>, <span class='ident'>record</span>.<span class='ident'>location</span>(), <span class='ident'>record</span>.<span class='ident'>args</span>(), <span class='ident'>record</span>.<span class='ident'>target</span>());
 }
 
 <span class='doccomment'>/// Record a log entry, with custom priority and location.</span>
 <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>log</span>(<span class='ident'>level</span>: <span class='ident'>usize</span>, <span class='ident'>loc</span>: <span class='kw-2'>&amp;</span><span class='ident'>LogLocation</span>, <span class='ident'>args</span>: <span class='kw-2'>&amp;</span><span class='ident'>fmt</span>::<span class='ident'>Arguments</span>) {
     <span class='ident'>send</span>(<span class='kw-2'>&amp;</span>[<span class='kw-2'>&amp;</span><span class='macro'>format</span><span class='macro'>!</span>(<span class='string'>&quot;PRIORITY={}&quot;</span>, <span class='ident'>level</span>),
            <span class='kw-2'>&amp;</span><span class='macro'>format</span><span class='macro'>!</span>(<span class='string'>&quot;MESSAGE={}&quot;</span>, <span class='ident'>args</span>),
+           <span class='kw-2'>&amp;</span><span class='macro'>format</span><span class='macro'>!</span>(<span class='string'>&quot;CODE_LINE={}&quot;</span>, <span class='ident'>loc</span>.<span class='ident'>line</span>()),
+           <span class='kw-2'>&amp;</span><span class='macro'>format</span><span class='macro'>!</span>(<span class='string'>&quot;CODE_FILE={}&quot;</span>, <span class='ident'>loc</span>.<span class='ident'>file</span>()),
+           <span class='kw-2'>&amp;</span><span class='macro'>format</span><span class='macro'>!</span>(<span class='string'>&quot;CODE_FUNCTION={}&quot;</span>, <span class='ident'>loc</span>.<span class='ident'>module_path</span>())]);
+}
+
+<span class='doccomment'>/// Record a log entry, with custom priority, location and target.</span>
+<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>log_target</span>(<span class='ident'>level</span>: <span class='ident'>usize</span>, <span class='ident'>loc</span>: <span class='kw-2'>&amp;</span><span class='ident'>LogLocation</span>, <span class='ident'>args</span>: <span class='kw-2'>&amp;</span><span class='ident'>fmt</span>::<span class='ident'>Arguments</span>, <span class='ident'>target</span>: <span class='kw-2'>&amp;</span><span class='ident'>str</span>) {
+    <span class='ident'>send</span>(<span class='kw-2'>&amp;</span>[<span class='kw-2'>&amp;</span><span class='macro'>format</span><span class='macro'>!</span>(<span class='string'>&quot;PRIORITY={}&quot;</span>, <span class='ident'>level</span>),
+           <span class='kw-2'>&amp;</span><span class='macro'>format</span><span class='macro'>!</span>(<span class='string'>&quot;MESSAGE={}&quot;</span>, <span class='ident'>args</span>),
+           <span class='kw-2'>&amp;</span><span class='macro'>format</span><span class='macro'>!</span>(<span class='string'>&quot;TARGET={}&quot;</span>, <span class='ident'>target</span>),
            <span class='kw-2'>&amp;</span><span class='macro'>format</span><span class='macro'>!</span>(<span class='string'>&quot;CODE_LINE={}&quot;</span>, <span class='ident'>loc</span>.<span class='ident'>line</span>()),
            <span class='kw-2'>&amp;</span><span class='macro'>format</span><span class='macro'>!</span>(<span class='string'>&quot;CODE_FILE={}&quot;</span>, <span class='ident'>loc</span>.<span class='ident'>file</span>()),
            <span class='kw-2'>&amp;</span><span class='macro'>format</span><span class='macro'>!</span>(<span class='string'>&quot;CODE_FUNCTION={}&quot;</span>, <span class='ident'>loc</span>.<span class='ident'>module_path</span>())]);
