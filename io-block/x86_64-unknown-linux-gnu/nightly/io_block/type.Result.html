@@ -9,6 +9,7 @@
 
     <title>io_block::Result - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../normalize.css">
     <link rel="stylesheet" type="text/css" href="../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../main.css">
     
@@ -47,8 +48,36 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-4295' class='srclink' href='https://doc.rust-lang.org/nightly/std/io/error/type.Result.html?gotosrc=4295' title='goto source code'>[src]</a></span></h1>
-<pre class='rust typedef'>type Result&lt;T&gt; = <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;T,&nbsp;<a class='struct' href='../io_block/struct.Error.html' title='io_block::Error'>Error</a>&gt;;</pre></section>
+               </span><a class='srclink' href='https://doc.rust-lang.org/nightly/src/std/io/error.rs.html#48' title='goto source code'>[src]</a></span></h1>
+<pre class='rust typedef'>type Result&lt;T&gt; = <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;T, <a class='struct' href='../io_block/struct.Error.html' title='io_block::Error'>Error</a>&gt;;</pre><div class='docblock'><p>A specialized <a href="../result/enum.Result.html"><code>Result</code></a> type for I/O
+operations.</p>
+
+<p>This type is broadly used across <code>std::io</code> for any operation which may
+produce an error.</p>
+
+<p>This typedef is generally used to avoid writing out <code>io::Error</code> directly and
+is otherwise a direct mapping to <code>Result</code>.</p>
+
+<p>While usual Rust style is to import types directly, aliases of <code>Result</code>
+often are not, to make it easier to distinguish between them. <code>Result</code> is
+generally assumed to be <code>std::result::Result</code>, and so users of this alias
+will generally use <code>io::Result</code> instead of shadowing the prelude&#39;s import
+of <code>std::result::Result</code>.</p>
+
+<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
+<p>A convenience function that bubbles an <code>io::Result</code> to its caller:</p>
+
+<pre class='rust rust-example-rendered'>
+<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>io</span>;
+
+<span class='kw'>fn</span> <span class='ident'>get_string</span>() <span class='op'>-&gt;</span> <span class='ident'>io</span>::<span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>String</span><span class='op'>&gt;</span> {
+    <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>buffer</span> <span class='op'>=</span> <span class='ident'>String</span>::<span class='ident'>new</span>();
+
+    <span class='ident'>io</span>::<span class='ident'>stdin</span>().<span class='ident'>read_line</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>buffer</span>)<span class='question-mark'>?</span>;
+
+    <span class='prelude-val'>Ok</span>(<span class='ident'>buffer</span>)
+}</pre>
+</div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -104,11 +133,9 @@
     <script>
         window.rootPath = "../";
         window.currentCrate = "io_block";
-        window.playgroundUrl = "";
     </script>
     <script src="../jquery.js"></script>
     <script src="../main.js"></script>
-    
     <script defer src="../search-index.js"></script>
 </body>
 </html>
