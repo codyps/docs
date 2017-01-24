@@ -47,8 +47,8 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-323' class='srclink' href='../../src/systemd/src/daemon.rs.html#189-193' title='goto source code'>[src]</a></span></h1>
-<pre class='rust fn'>pub fn notify(unset_environment: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>, state: <a class='struct' href='https://doc.rust-lang.org/nightly/std/collections/hash/map/struct.HashMap.html' title='std::collections::hash::map::HashMap'>HashMap</a>&lt;&amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>,&nbsp;&amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>&gt;) -&gt; <a class='type' href='../../systemd/type.Result.html' title='systemd::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>&gt;</pre><div class='docblock'><p>Notifies systemd that daemon state has changed.  state is made up of a set
+               </span><a id='src-237' class='srclink' href='../../src/systemd/src/daemon.rs.html#189-193' title='goto source code'>[src]</a></span></h1>
+<pre class='rust fn'>pub fn notify(unset_environment: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; state: <a class='struct' href='https://doc.rust-lang.org/nightly/std/collections/hash/map/struct.HashMap.html' title='std::collections::hash::map::HashMap'>HashMap</a>&lt;&amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>&gt;)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&gt; <a class='type' href='../../systemd/type.Result.html' title='systemd::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>&gt;</pre><div class='docblock'><p>Notifies systemd that daemon state has changed.  state is made up of a set
 of key-value pairs.  See <code>sd-daemon.h</code> for details. Some of the most common
 keys are defined as <code>STATE_*</code> constants in this module. Returns <code>true</code> if
 systemd was contacted successfully.</p>
@@ -108,11 +108,9 @@ systemd was contacted successfully.</p>
     <script>
         window.rootPath = "../../";
         window.currentCrate = "systemd";
-        window.playgroundUrl = "";
     </script>
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

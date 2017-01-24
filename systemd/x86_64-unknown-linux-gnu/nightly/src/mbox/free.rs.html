@@ -9,6 +9,7 @@
 
     <title>free.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
     
@@ -108,10 +109,10 @@
     <span class='doccomment'>/// Do not call this method if the pointer has been freed. Users of this trait should maintain a</span>
     <span class='doccomment'>/// flag to track if the pointer has been freed or not (the Rust compiler will automatically do</span>
     <span class='doccomment'>/// this with a `Drop` type).</span>
-    <span class='kw'>fn</span> <span class='ident'>free</span>(<span class='ident'>ptr</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='self'>Self</span>);
+    <span class='kw'>fn</span> <span class='ident'>free</span>(<span class='ident'>ptr</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='self'>Self</span>);
 }
 
-<span class='kw'>fn</span> <span class='ident'>free_ptr_ref</span><span class='op'>&lt;</span><span class='ident'>T</span><span class='op'>&gt;</span>(<span class='ident'>ptr</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>T</span>) {
+<span class='kw'>fn</span> <span class='ident'>free_ptr_ref</span><span class='op'>&lt;</span><span class='ident'>T</span><span class='op'>&gt;</span>(<span class='ident'>ptr</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>T</span>) {
     <span class='kw'>unsafe</span> {
         <span class='ident'>drop_in_place</span>(<span class='ident'>ptr</span>);
         <span class='ident'>gen_free</span>(<span class='ident'>ptr</span>);
@@ -120,20 +121,20 @@
 
 <span class='kw'>impl</span><span class='op'>&lt;</span><span class='ident'>T</span><span class='op'>&gt;</span> <span class='ident'>Free</span> <span class='kw'>for</span> <span class='ident'>T</span> {
     <span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>nightly_channel</span>)]</span>
-    <span class='ident'>default</span> <span class='kw'>fn</span> <span class='ident'>free</span>(<span class='ident'>ptr_ref</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>T</span>) {
+    <span class='ident'>default</span> <span class='kw'>fn</span> <span class='ident'>free</span>(<span class='ident'>ptr_ref</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>T</span>) {
         <span class='ident'>free_ptr_ref</span>(<span class='ident'>ptr_ref</span>);
     }
 
     <span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>stable_channel</span>)]</span>
-    <span class='kw'>fn</span> <span class='ident'>free</span>(<span class='ident'>ptr_ref</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>T</span>) {
+    <span class='kw'>fn</span> <span class='ident'>free</span>(<span class='ident'>ptr_ref</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>T</span>) {
         <span class='ident'>free_ptr_ref</span>(<span class='ident'>ptr_ref</span>);
     }
 }
 
 <span class='kw'>impl</span><span class='op'>&lt;</span><span class='ident'>T</span><span class='op'>&gt;</span> <span class='ident'>Free</span> <span class='kw'>for</span> [<span class='ident'>T</span>] {
-    <span class='kw'>fn</span> <span class='ident'>free</span>(<span class='ident'>fat_ptr</span>: <span class='op'>*</span><span class='kw-2'>mut</span> [<span class='ident'>T</span>]) {
+    <span class='kw'>fn</span> <span class='ident'>free</span>(<span class='ident'>fat_ptr</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> [<span class='ident'>T</span>]) {
         <span class='kw'>unsafe</span> {
-            <span class='kw'>let</span> <span class='ident'>thin_ptr</span> <span class='op'>=</span> (<span class='op'>*</span><span class='ident'>fat_ptr</span>).<span class='ident'>as_mut_ptr</span>();
+            <span class='kw'>let</span> <span class='ident'>thin_ptr</span> <span class='op'>=</span> (<span class='kw-2'>*</span><span class='ident'>fat_ptr</span>).<span class='ident'>as_mut_ptr</span>();
             <span class='ident'>drop_in_place</span>(<span class='ident'>fat_ptr</span>);
             <span class='ident'>gen_free</span>(<span class='ident'>thin_ptr</span>);
         }
@@ -141,8 +142,8 @@
 }
 
 <span class='kw'>impl</span> <span class='ident'>Free</span> <span class='kw'>for</span> <span class='ident'>str</span> {
-    <span class='kw'>fn</span> <span class='ident'>free</span>(<span class='ident'>fat_ptr</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>str</span>) {
-        <span class='ident'>Free</span>::<span class='ident'>free</span>(<span class='ident'>fat_ptr</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> [<span class='ident'>u8</span>]);
+    <span class='kw'>fn</span> <span class='ident'>free</span>(<span class='ident'>fat_ptr</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>str</span>) {
+        <span class='ident'>Free</span>::<span class='ident'>free</span>(<span class='ident'>fat_ptr</span> <span class='kw'>as</span> <span class='kw-2'>*</span><span class='kw-2'>mut</span> [<span class='ident'>u8</span>]);
     }
 }
 
