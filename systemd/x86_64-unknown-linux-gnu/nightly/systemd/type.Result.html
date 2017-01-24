@@ -9,6 +9,7 @@
 
     <title>systemd::Result - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../normalize.css">
     <link rel="stylesheet" type="text/css" href="../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../main.css">
     
@@ -47,7 +48,7 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-3655' class='srclink' href='https://doc.rust-lang.org/nightly/std/io/error/type.Result.html?gotosrc=3655' title='goto source code'>[src]</a></span></h1>
+               </span><a class='srclink' href='https://doc.rust-lang.org/nightly/src/std/io/error.rs.html#48' title='goto source code'>[src]</a></span></h1>
 <pre class='rust typedef'>type Result&lt;T&gt; = <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;T, <a class='struct' href='../systemd/struct.Error.html' title='systemd::Error'>Error</a>&gt;;</pre><div class='docblock'><p>A specialized <a href="../result/enum.Result.html"><code>Result</code></a> type for I/O
 operations.</p>
 
@@ -72,7 +73,7 @@ of <code>std::result::Result</code>.</p>
 <span class='kw'>fn</span> <span class='ident'>get_string</span>() <span class='op'>-&gt;</span> <span class='ident'>io</span>::<span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>String</span><span class='op'>&gt;</span> {
     <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>buffer</span> <span class='op'>=</span> <span class='ident'>String</span>::<span class='ident'>new</span>();
 
-    <span class='macro'>try</span><span class='macro'>!</span>(<span class='ident'>io</span>::<span class='ident'>stdin</span>().<span class='ident'>read_line</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>buffer</span>));
+    <span class='ident'>io</span>::<span class='ident'>stdin</span>().<span class='ident'>read_line</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>buffer</span>)<span class='question-mark'>?</span>;
 
     <span class='prelude-val'>Ok</span>(<span class='ident'>buffer</span>)
 }</pre>

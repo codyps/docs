@@ -1,5 +1,8 @@
 (function() {var implementors = {};
-implementors["libc"] = [];implementors["mbox"] = [];implementors["libsystemd_sys"] = [];implementors["systemd"] = [];
+implementors["libc"] = [];
+implementors["libsystemd_sys"] = [];
+implementors["mbox"] = [];
+implementors["systemd"] = [];
 
             if (window.register_implementors) {
                 window.register_implementors(implementors);
