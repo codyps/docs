@@ -9,6 +9,7 @@
 
     <title>journal.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
     
@@ -339,6 +340,21 @@
 <span id="295">295</span>
 <span id="296">296</span>
 <span id="297">297</span>
+<span id="298">298</span>
+<span id="299">299</span>
+<span id="300">300</span>
+<span id="301">301</span>
+<span id="302">302</span>
+<span id="303">303</span>
+<span id="304">304</span>
+<span id="305">305</span>
+<span id="306">306</span>
+<span id="307">307</span>
+<span id="308">308</span>
+<span id="309">309</span>
+<span id="310">310</span>
+<span id="311">311</span>
+<span id="312">312</span>
 </pre><pre class='rust '>
 <span class='kw'>use</span> <span class='ident'>libc</span>::{<span class='ident'>c_char</span>, <span class='ident'>c_int</span>, <span class='ident'>size_t</span>};
 <span class='kw'>use</span> <span class='ident'>log</span>::{<span class='self'>self</span>, <span class='ident'>Log</span>, <span class='ident'>LogRecord</span>, <span class='ident'>LogLocation</span>, <span class='ident'>LogLevel</span>, <span class='ident'>LogLevelFilter</span>, <span class='ident'>SetLoggerError</span>};
@@ -455,7 +471,7 @@
 <span class='doccomment'>///</span>
 <span class='doccomment'>/// Supports read, next, previous, and seek operations.</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>Journal</span> {
-    <span class='ident'>j</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ffi</span>::<span class='ident'>sd_journal</span>,
+    <span class='ident'>j</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>ffi</span>::<span class='ident'>sd_journal</span>,
 }
 
 <span class='doccomment'>/// Represents the set of journal files to read.</span>
@@ -518,18 +534,14 @@
         <span class='prelude-val'>Ok</span>(<span class='ident'>journal</span>)
     }
 
-    <span class='doccomment'>/// Read the next record from the journal. Returns `Ok(None)` if there</span>
-    <span class='doccomment'>/// are no more records to read.</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>next_record</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>JournalRecord</span><span class='op'>&gt;&gt;</span> {
-        <span class='kw'>if</span> <span class='macro'>sd_try</span><span class='macro'>!</span>(<span class='ident'>ffi</span>::<span class='ident'>sd_journal_next</span>(<span class='self'>self</span>.<span class='ident'>j</span>)) <span class='op'>==</span> <span class='number'>0</span> {
-            <span class='kw'>return</span> <span class='prelude-val'>Ok</span>(<span class='prelude-val'>None</span>);
-        }
+    <span class='doccomment'>/// Get and parse the currently journal record from the journal</span>
+    <span class='kw'>fn</span> <span class='ident'>get_record</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>JournalRecord</span><span class='op'>&gt;&gt;</span> {
         <span class='kw'>unsafe</span> { <span class='ident'>ffi</span>::<span class='ident'>sd_journal_restart_data</span>(<span class='self'>self</span>.<span class='ident'>j</span>) }
 
         <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>ret</span>: <span class='ident'>JournalRecord</span> <span class='op'>=</span> <span class='ident'>BTreeMap</span>::<span class='ident'>new</span>();
 
         <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>sz</span>: <span class='ident'>size_t</span> <span class='op'>=</span> <span class='number'>0</span>;
-        <span class='kw'>let</span> <span class='ident'>data</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>u8</span> <span class='op'>=</span> <span class='ident'>ptr</span>::<span class='ident'>null_mut</span>();
+        <span class='kw'>let</span> <span class='ident'>data</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>u8</span> <span class='op'>=</span> <span class='ident'>ptr</span>::<span class='ident'>null_mut</span>();
         <span class='kw'>while</span> <span class='macro'>sd_try</span><span class='macro'>!</span>(<span class='ident'>ffi</span>::<span class='ident'>sd_journal_enumerate_data</span>(<span class='self'>self</span>.<span class='ident'>j</span>, <span class='kw-2'>&amp;</span><span class='ident'>data</span>, <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>sz</span>)) <span class='op'>&gt;</span> <span class='number'>0</span> {
             <span class='kw'>unsafe</span> {
                 <span class='kw'>let</span> <span class='ident'>b</span> <span class='op'>=</span> ::<span class='ident'>std</span>::<span class='ident'>slice</span>::<span class='ident'>from_raw_parts_mut</span>(<span class='ident'>data</span>, <span class='ident'>sz</span> <span class='kw'>as</span> <span class='ident'>usize</span>);
@@ -544,6 +556,25 @@
         <span class='prelude-val'>Ok</span>(<span class='prelude-val'>Some</span>(<span class='ident'>ret</span>))
     }
 
+    <span class='doccomment'>/// Read the next record from the journal. Returns `Ok(None)` if there</span>
+    <span class='doccomment'>/// are no more records to read.</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>next_record</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>JournalRecord</span><span class='op'>&gt;&gt;</span> {
+        <span class='kw'>if</span> <span class='macro'>sd_try</span><span class='macro'>!</span>(<span class='ident'>ffi</span>::<span class='ident'>sd_journal_next</span>(<span class='self'>self</span>.<span class='ident'>j</span>)) <span class='op'>==</span> <span class='number'>0</span> {
+            <span class='kw'>return</span> <span class='prelude-val'>Ok</span>(<span class='prelude-val'>None</span>);
+        }
+
+        <span class='self'>self</span>.<span class='ident'>get_record</span>()
+        
+    }
+
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>previous_record</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>JournalRecord</span><span class='op'>&gt;&gt;</span> {
+        <span class='kw'>if</span> <span class='macro'>sd_try</span><span class='macro'>!</span>(<span class='ident'>ffi</span>::<span class='ident'>sd_journal_previous</span>(<span class='self'>self</span>.<span class='ident'>j</span>)) <span class='op'>==</span> <span class='number'>0</span> {
+            <span class='kw'>return</span> <span class='prelude-val'>Ok</span>(<span class='prelude-val'>None</span>);
+        }
+        
+        <span class='self'>self</span>.<span class='ident'>get_record</span>()
+    }
+
     <span class='doccomment'>/// Seek to a specific position in journal. On success, returns a cursor</span>
     <span class='doccomment'>/// to the current entry.</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>seek</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>seek</span>: <span class='ident'>JournalSeek</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>String</span><span class='op'>&gt;</span> {
@@ -554,7 +585,7 @@
             <span class='ident'>JournalSeek</span>::<span class='ident'>ClockMonotonic</span> { <span class='ident'>boot_id</span>, <span class='ident'>usec</span> } <span class='op'>=&gt;</span> {
                 <span class='macro'>sd_try</span><span class='macro'>!</span>(<span class='ident'>ffi</span>::<span class='ident'>sd_journal_seek_monotonic_usec</span>(<span class='self'>self</span>.<span class='ident'>j</span>,
                                                             <span class='ident'>sd_id128_t</span> {
-                                                                <span class='ident'>bytes</span>: <span class='op'>*</span><span class='ident'>boot_id</span>.<span class='ident'>as_bytes</span>(),
+                                                                <span class='ident'>bytes</span>: <span class='kw-2'>*</span><span class='ident'>boot_id</span>.<span class='ident'>as_bytes</span>(),
                                                             },
                                                             <span class='ident'>usec</span>))
             }
@@ -566,7 +597,7 @@
                 <span class='macro'>sd_try</span><span class='macro'>!</span>(<span class='ident'>ffi</span>::<span class='ident'>sd_journal_seek_cursor</span>(<span class='self'>self</span>.<span class='ident'>j</span>, <span class='ident'>c</span>.<span class='ident'>as_ptr</span>()))
             }
         };
-        <span class='kw'>let</span> <span class='ident'>c</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>c_char</span> <span class='op'>=</span> <span class='ident'>ptr</span>::<span class='ident'>null_mut</span>();
+        <span class='kw'>let</span> <span class='ident'>c</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>c_char</span> <span class='op'>=</span> <span class='ident'>ptr</span>::<span class='ident'>null_mut</span>();
         <span class='kw'>if</span> <span class='kw'>unsafe</span> { <span class='ident'>ffi</span>::<span class='ident'>sd_journal_get_cursor</span>(<span class='self'>self</span>.<span class='ident'>j</span>, <span class='kw-2'>&amp;</span><span class='ident'>c</span>) <span class='op'>!=</span> <span class='number'>0</span> } {
             <span class='comment'>// Cursor may need to be re-aligned on a real entry first.</span>
             <span class='macro'>sd_try</span><span class='macro'>!</span>(<span class='ident'>ffi</span>::<span class='ident'>sd_journal_next</span>(<span class='self'>self</span>.<span class='ident'>j</span>));
@@ -579,7 +610,7 @@
 
     <span class='doccomment'>/// Returns the cursor of current journal entry</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>cursor</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>String</span><span class='op'>&gt;</span> {
-        <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>c_cursor</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>c_char</span> <span class='op'>=</span> <span class='ident'>ptr</span>::<span class='ident'>null_mut</span>();
+        <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>c_cursor</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>c_char</span> <span class='op'>=</span> <span class='ident'>ptr</span>::<span class='ident'>null_mut</span>();
 
         <span class='macro'>sd_try</span><span class='macro'>!</span>(<span class='ident'>ffi</span>::<span class='ident'>sd_journal_get_cursor</span>(<span class='self'>self</span>.<span class='ident'>j</span>, <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>c_cursor</span>));
 
@@ -601,7 +632,7 @@
         <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>filter</span> <span class='op'>=</span> <span class='ident'>Vec</span>::<span class='op'>&lt;</span><span class='ident'>u8</span><span class='op'>&gt;</span>::<span class='ident'>from</span>(<span class='ident'>key</span>);
         <span class='ident'>filter</span>.<span class='ident'>push</span>(<span class='string'>&#39;=&#39;</span> <span class='kw'>as</span> <span class='ident'>u8</span>);
         <span class='ident'>filter</span>.<span class='ident'>extend</span>(<span class='ident'>val</span>.<span class='ident'>into</span>());
-        <span class='kw'>let</span> <span class='ident'>data</span> <span class='op'>=</span> <span class='ident'>filter</span>.<span class='ident'>as_ptr</span>() <span class='kw'>as</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>c_void</span>;
+        <span class='kw'>let</span> <span class='ident'>data</span> <span class='op'>=</span> <span class='ident'>filter</span>.<span class='ident'>as_ptr</span>() <span class='kw'>as</span> <span class='kw-2'>*</span><span class='kw'>const</span> <span class='ident'>c_void</span>;
         <span class='kw'>let</span> <span class='ident'>datalen</span> <span class='op'>=</span> <span class='ident'>filter</span>.<span class='ident'>len</span>() <span class='kw'>as</span> <span class='ident'>size_t</span>;
         <span class='macro'>sd_try</span><span class='macro'>!</span>(<span class='ident'>ffi</span>::<span class='ident'>sd_journal_add_match</span>(<span class='self'>self</span>.<span class='ident'>j</span>, <span class='ident'>data</span>, <span class='ident'>datalen</span>));
         <span class='prelude-val'>Ok</span>(<span class='self'>self</span>)

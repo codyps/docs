@@ -9,6 +9,7 @@
 
     <title>lib.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
     
@@ -261,7 +262,7 @@
     <span class='doccomment'>///  - `v` must be nul terminated</span>
     <span class='doccomment'>///  - `v` must be utf-8 encoded (for use in `&amp;str`)</span>
     <span class='doccomment'>///  - `l` must be the length of `v` including the nul terminator</span>
-    <span class='kw'>pub</span> <span class='kw'>unsafe</span> <span class='kw'>fn</span> <span class='ident'>from_raw_parts</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span>(<span class='ident'>v</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>c_char</span>, <span class='ident'>l</span>: <span class='ident'>usize</span>) <span class='op'>-&gt;</span> <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;a</span> <span class='self'>Self</span> {
+    <span class='kw'>pub</span> <span class='kw'>unsafe</span> <span class='kw'>fn</span> <span class='ident'>from_raw_parts</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span>(<span class='ident'>v</span>: <span class='kw-2'>*</span><span class='kw'>const</span> <span class='ident'>c_char</span>, <span class='ident'>l</span>: <span class='ident'>usize</span>) <span class='op'>-&gt;</span> <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;a</span> <span class='self'>Self</span> {
         <span class='ident'>transmute</span>((<span class='ident'>v</span>, <span class='ident'>l</span>))
     }
 
@@ -275,7 +276,7 @@
     <span class='doccomment'>///  - `&#39;a` must be the correct lifetime</span>
     <span class='doccomment'>///  - `v` must be nul terminated</span>
     <span class='doccomment'>///  - `v` must be utf-8 encoded (for use in `&amp;str`)</span>
-    <span class='kw'>pub</span> <span class='kw'>unsafe</span> <span class='kw'>fn</span> <span class='ident'>from_ptr_unchecked</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span>(<span class='ident'>v</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>c_char</span>) <span class='op'>-&gt;</span> <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;a</span> <span class='self'>Self</span> {
+    <span class='kw'>pub</span> <span class='kw'>unsafe</span> <span class='kw'>fn</span> <span class='ident'>from_ptr_unchecked</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span>(<span class='ident'>v</span>: <span class='kw-2'>*</span><span class='kw'>const</span> <span class='ident'>c_char</span>) <span class='op'>-&gt;</span> <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;a</span> <span class='self'>Self</span> {
         <span class='self'>Self</span>::<span class='ident'>from_cstr_unchecked</span>(<span class='ident'>CStr</span>::<span class='ident'>from_ptr</span>(<span class='ident'>v</span>))
     }
 
@@ -322,7 +323,7 @@
         <span class='ident'>transmute</span>(<span class='ident'>b</span>)
     }
 
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>as_ptr</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>c_char</span> {
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>as_ptr</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='kw-2'>*</span><span class='kw'>const</span> <span class='ident'>c_char</span> {
         <span class='kw'>let</span> <span class='ident'>v</span> : <span class='kw-2'>&amp;</span><span class='ident'>CStr</span> <span class='op'>=</span> <span class='self'>self</span>.<span class='ident'>as_ref</span>();
         <span class='ident'>v</span>.<span class='ident'>as_ptr</span>()
     }
@@ -367,7 +368,7 @@
         <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>x</span> <span class='op'>!=</span> <span class='ident'>Utf8CStr</span>::<span class='ident'>from_bytes</span>(<span class='string'>b&quot;hell\0&quot;</span>).<span class='ident'>unwrap</span>());
 
         <span class='kw'>let</span> <span class='ident'>v</span> <span class='op'>=</span> <span class='string'>b&quot;hello\0&quot;</span>;
-        <span class='kw'>let</span> <span class='ident'>b</span> <span class='op'>=</span> <span class='kw'>unsafe</span> { <span class='ident'>Utf8CStr</span>::<span class='ident'>from_raw_parts</span>(<span class='ident'>v</span>.<span class='ident'>as_ptr</span>() <span class='kw'>as</span> <span class='op'>*</span><span class='kw'>const</span> _, <span class='ident'>v</span>.<span class='ident'>len</span>()) };
+        <span class='kw'>let</span> <span class='ident'>b</span> <span class='op'>=</span> <span class='kw'>unsafe</span> { <span class='ident'>Utf8CStr</span>::<span class='ident'>from_raw_parts</span>(<span class='ident'>v</span>.<span class='ident'>as_ptr</span>() <span class='kw'>as</span> <span class='kw-2'>*</span><span class='kw'>const</span> _, <span class='ident'>v</span>.<span class='ident'>len</span>()) };
         <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>b</span>, <span class='ident'>x</span>);
     }
 }

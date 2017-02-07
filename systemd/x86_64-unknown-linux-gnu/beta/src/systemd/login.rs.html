@@ -9,6 +9,7 @@
 
     <title>login.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
     
@@ -138,7 +139,7 @@
 <span class='doccomment'>/// specified, operation is executed for the calling process.</span>
 <span class='doccomment'>/// This method can be used to retrieve either a system or an user unit identifier.</span>
 <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>get_unit</span>(<span class='ident'>unit_type</span>: <span class='ident'>UnitType</span>, <span class='ident'>pid</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>pid_t</span><span class='op'>&gt;</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>String</span><span class='op'>&gt;</span> {
-    <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>c_unit_name</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>c_char</span> <span class='op'>=</span> <span class='ident'>ptr</span>::<span class='ident'>null_mut</span>();
+    <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>c_unit_name</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>c_char</span> <span class='op'>=</span> <span class='ident'>ptr</span>::<span class='ident'>null_mut</span>();
     <span class='kw'>let</span> <span class='ident'>p</span>: <span class='ident'>pid_t</span> <span class='op'>=</span> <span class='ident'>pid</span>.<span class='ident'>unwrap_or</span>(<span class='number'>0</span>);
     <span class='kw'>match</span> <span class='ident'>unit_type</span> {
         <span class='ident'>UnitType</span>::<span class='ident'>UserUnit</span> <span class='op'>=&gt;</span> <span class='macro'>sd_try</span><span class='macro'>!</span>(<span class='ident'>ffi</span>::<span class='ident'>sd_pid_get_user_unit</span>(<span class='ident'>p</span>, <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>c_unit_name</span>)),
@@ -154,7 +155,7 @@
 <span class='doccomment'>/// specified, operation is executed for the calling process.</span>
 <span class='doccomment'>/// This method can be used to retrieve either a system or an user slice identifier.</span>
 <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>get_slice</span>(<span class='ident'>slice_type</span>: <span class='ident'>UnitType</span>, <span class='ident'>pid</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>pid_t</span><span class='op'>&gt;</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>String</span><span class='op'>&gt;</span> {
-    <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>c_slice_name</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>c_char</span> <span class='op'>=</span> <span class='ident'>ptr</span>::<span class='ident'>null_mut</span>();
+    <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>c_slice_name</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>c_char</span> <span class='op'>=</span> <span class='ident'>ptr</span>::<span class='ident'>null_mut</span>();
     <span class='kw'>let</span> <span class='ident'>p</span>: <span class='ident'>pid_t</span> <span class='op'>=</span> <span class='ident'>pid</span>.<span class='ident'>unwrap_or</span>(<span class='number'>0</span>);
     <span class='kw'>match</span> <span class='ident'>slice_type</span> {
         <span class='ident'>UnitType</span>::<span class='ident'>UserUnit</span> <span class='op'>=&gt;</span> <span class='macro'>sd_try</span><span class='macro'>!</span>(<span class='ident'>ffi</span>::<span class='ident'>sd_pid_get_user_slice</span>(<span class='ident'>p</span>, <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>c_slice_name</span>)),
@@ -171,7 +172,7 @@
 <span class='doccomment'>/// This method can be used to retrieve the machine name of processes running</span>
 <span class='doccomment'>/// inside a VM or a container.</span>
 <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>get_machine_name</span>(<span class='ident'>pid</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>pid_t</span><span class='op'>&gt;</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>String</span><span class='op'>&gt;</span> {
-    <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>c_machine_name</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>c_char</span> <span class='op'>=</span> <span class='ident'>ptr</span>::<span class='ident'>null_mut</span>();
+    <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>c_machine_name</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>c_char</span> <span class='op'>=</span> <span class='ident'>ptr</span>::<span class='ident'>null_mut</span>();
     <span class='kw'>let</span> <span class='ident'>p</span>: <span class='ident'>pid_t</span> <span class='op'>=</span> <span class='ident'>pid</span>.<span class='ident'>unwrap_or</span>(<span class='number'>0</span>);
     <span class='macro'>sd_try</span><span class='macro'>!</span>(<span class='ident'>ffi</span>::<span class='ident'>sd_pid_get_machine_name</span>(<span class='ident'>p</span>, <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>c_machine_name</span>));
     <span class='kw'>let</span> <span class='ident'>machine_id</span> <span class='op'>=</span> <span class='kw'>unsafe</span> { <span class='ident'>MString</span>::<span class='ident'>from_raw</span>(<span class='ident'>c_machine_name</span>) };
@@ -187,7 +188,7 @@
 <span class='doccomment'>/// trailing slash, except for processes located in the root control group,</span>
 <span class='doccomment'>/// where &quot;/&quot; is returned.</span>
 <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>get_cgroup</span>(<span class='ident'>pid</span>: <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>pid_t</span><span class='op'>&gt;</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>String</span><span class='op'>&gt;</span> {
-    <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>c_cgroup</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>c_char</span> <span class='op'>=</span> <span class='ident'>ptr</span>::<span class='ident'>null_mut</span>();
+    <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>c_cgroup</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>c_char</span> <span class='op'>=</span> <span class='ident'>ptr</span>::<span class='ident'>null_mut</span>();
     <span class='kw'>let</span> <span class='ident'>p</span>: <span class='ident'>pid_t</span> <span class='op'>=</span> <span class='ident'>pid</span>.<span class='ident'>unwrap_or</span>(<span class='number'>0</span>);
     <span class='macro'>sd_try</span><span class='macro'>!</span>(<span class='ident'>ffi</span>::<span class='ident'>sd_pid_get_cgroup</span>(<span class='ident'>p</span>, <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>c_cgroup</span>));
     <span class='kw'>let</span> <span class='ident'>cg</span> <span class='op'>=</span> <span class='kw'>unsafe</span> { <span class='ident'>MString</span>::<span class='ident'>from_raw</span>(<span class='ident'>c_cgroup</span>) };
