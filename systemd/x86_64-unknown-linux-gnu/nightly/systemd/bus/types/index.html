@@ -70,7 +70,7 @@ potentially the most convenient.</p></li>
 <table>
                        <tr class=' module-item'>
                            <td><a class='struct' href='struct.UnixFd.html'
-                                  title='systemd::bus::types::UnixFd'>UnixFd</a></td>
+                                  title='struct systemd::bus::types::UnixFd'>UnixFd</a></td>
                            <td class='docblock-short'>
                                 <p>A basic wrapper that simply ensures we send a Fd via the dbus file descriptor mechanisms rather
 than as a integer</p>
@@ -79,14 +79,14 @@ than as a integer</p>
 <table>
                        <tr class=' module-item'>
                            <td><a class='trait' href='trait.FromSdBusMessage.html'
-                                  title='systemd::bus::types::FromSdBusMessage'>FromSdBusMessage</a></td>
+                                  title='trait systemd::bus::types::FromSdBusMessage'>FromSdBusMessage</a></td>
                            <td class='docblock-short'>
                                 <p>Allows types to provide a convertion from a dbus message</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
                            <td><a class='trait' href='trait.SdBusMessageDirect.html'
-                                  title='systemd::bus::types::SdBusMessageDirect'>SdBusMessageDirect</a></td>
+                                  title='trait systemd::bus::types::SdBusMessageDirect'>SdBusMessageDirect</a></td>
                            <td class='docblock-short'>
                                 <p>When impled for a Type, promises that a reference to the type cast to a pointer can be encoded
 using the given <code>dbus_type()</code> using <code>sd_bus_message_append_basic</code> and decoded similarly using
@@ -95,7 +95,7 @@ using the given <code>dbus_type()</code> using <code>sd_bus_message_append_basic
                        </tr>
                        <tr class=' module-item'>
                            <td><a class='trait' href='trait.ToSdBusMessage.html'
-                                  title='systemd::bus::types::ToSdBusMessage'>ToSdBusMessage</a></td>
+                                  title='trait systemd::bus::types::ToSdBusMessage'>ToSdBusMessage</a></td>
                            <td class='docblock-short'>
                                 <p>Allows types to provide a convertion to a dbus message</p>
                            </td>
