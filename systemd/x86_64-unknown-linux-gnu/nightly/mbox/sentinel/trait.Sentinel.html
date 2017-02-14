@@ -49,7 +49,7 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../../src/mbox/sentinel.rs.html#22-25' title='goto source code'>[src]</a></span></h1>
-<pre class='rust trait'>pub trait Sentinel: <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.Eq.html' title='core::cmp::Eq'>Eq</a> {
+<pre class='rust trait'>pub trait Sentinel: <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.Eq.html' title='trait core::cmp::Eq'>Eq</a> {
     fn <a href='#tymethod.sentinel' class='fnname'>sentinel</a>() -&gt; Self;
 }</pre><div class='docblock'><p>Implemented for types which has a sentinel value.</p>
 </div>
@@ -61,7 +61,7 @@
         <ul class='item-list' id='implementors-list'>
     <li><code>impl&lt;T&gt; Sentinel for <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const T</a></code></li>
 <li><code>impl&lt;T&gt; Sentinel for <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut T</a></code></li>
-<li><code>impl&lt;T:&nbsp;<a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.Eq.html' title='core::cmp::Eq'>Eq</a>&gt; Sentinel for <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;T&gt;</code></li>
+<li><code>impl&lt;T:&nbsp;<a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.Eq.html' title='trait core::cmp::Eq'>Eq</a>&gt; Sentinel for <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='enum core::option::Option'>Option</a>&lt;T&gt;</code></li>
 <li><code>impl Sentinel for <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a></code></li>
 <li><code>impl Sentinel for <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.i8.html'>i8</a></code></li>
 <li><code>impl Sentinel for <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u16.html'>u16</a></code></li>
