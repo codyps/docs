@@ -50,10 +50,10 @@
                    </a>
                </span><a class='srclink' href='../src/io_block/lib.rs.html#16-33' title='goto source code'>[src]</a></span></h1>
 <pre class='rust trait'>pub trait BlockSize {
-    fn <a href='#tymethod.block_size_logical' class='fnname'>block_size_logical</a>(&amp;self) -&gt; <a class='type' href='../io_block/type.Result.html' title='io_block::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>&gt;;
-    fn <a href='#tymethod.block_count' class='fnname'>block_count</a>(&amp;self) -&gt; <a class='type' href='../io_block/type.Result.html' title='io_block::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>&gt;;
+    fn <a href='#tymethod.block_size_logical' class='fnname'>block_size_logical</a>(&amp;self) -&gt; <a class='type' href='../io_block/type.Result.html' title='type io_block::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>&gt;;
+    fn <a href='#tymethod.block_count' class='fnname'>block_count</a>(&amp;self) -&gt; <a class='type' href='../io_block/type.Result.html' title='type io_block::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>&gt;;
 
-    fn <a href='#method.block_size_physical' class='fnname'>block_size_physical</a>(&amp;self) -&gt; <a class='type' href='../io_block/type.Result.html' title='io_block::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>&gt; { ... }
+    fn <a href='#method.block_size_physical' class='fnname'>block_size_physical</a>(&amp;self) -&gt; <a class='type' href='../io_block/type.Result.html' title='type io_block::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>&gt; { ... }
 }</pre><div class='docblock'><p>Some writable and readable devices (disk drives, media cards) have a block size (number of bytes
 that are read or written at a time) associated with them.</p>
 
@@ -62,20 +62,20 @@ their length. At least, they can&#39;t be appended to.</p>
 </div>
             <h2 id='required-methods'>Required Methods</h2>
             <div class='methods'>
-        <h3 id='tymethod.block_size_logical' class='method'><span id='block_size_logical.v' class='invisible'><code>fn <a href='#tymethod.block_size_logical' class='fnname'>block_size_logical</a>(&amp;self) -&gt; <a class='type' href='../io_block/type.Result.html' title='io_block::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>&gt;</code></span></h3><div class='docblock'><p>The number of bytes in each logical block</p>
-</div><h3 id='tymethod.block_count' class='method'><span id='block_count.v' class='invisible'><code>fn <a href='#tymethod.block_count' class='fnname'>block_count</a>(&amp;self) -&gt; <a class='type' href='../io_block/type.Result.html' title='io_block::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>&gt;</code></span></h3><div class='docblock'><p>The total number of logical blocks</p>
+        <h3 id='tymethod.block_size_logical' class='method'><span id='block_size_logical.v' class='invisible'><code>fn <a href='#tymethod.block_size_logical' class='fnname'>block_size_logical</a>(&amp;self) -&gt; <a class='type' href='../io_block/type.Result.html' title='type io_block::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>&gt;</code></span></h3><div class='docblock'><p>The number of bytes in each logical block</p>
+</div><h3 id='tymethod.block_count' class='method'><span id='block_count.v' class='invisible'><code>fn <a href='#tymethod.block_count' class='fnname'>block_count</a>(&amp;self) -&gt; <a class='type' href='../io_block/type.Result.html' title='type io_block::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>&gt;</code></span></h3><div class='docblock'><p>The total number of logical blocks</p>
 </div></div>
             <h2 id='provided-methods'>Provided Methods</h2>
             <div class='methods'>
-        <h3 id='method.block_size_physical' class='method'><span id='block_size_physical.v' class='invisible'><code>fn <a href='#method.block_size_physical' class='fnname'>block_size_physical</a>(&amp;self) -&gt; <a class='type' href='../io_block/type.Result.html' title='io_block::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>&gt;</code></span></h3><div class='docblock'><p>The number of bytes in each physical block</p>
+        <h3 id='method.block_size_physical' class='method'><span id='block_size_physical.v' class='invisible'><code>fn <a href='#method.block_size_physical' class='fnname'>block_size_physical</a>(&amp;self) -&gt; <a class='type' href='../io_block/type.Result.html' title='type io_block::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>&gt;</code></span></h3><div class='docblock'><p>The number of bytes in each physical block</p>
 
 <p>This is only a best guess. Many devices do not report a physical block size or do not
 report and accurate physical block size. Results will vary, be wary.</p>
 </div></div>
         <h2 id='implementors'>Implementors</h2>
         <ul class='item-list' id='implementors-list'>
-    <li><code>impl&lt;T&gt; BlockSize for <a class='struct' href='../io_block/struct.BlockFile.html' title='io_block::BlockFile'>BlockFile</a>&lt;T&gt;</code></li>
-<li><code>impl BlockSize for <a class='struct' href='../io_block/os/linux/struct.BlockDev.html' title='io_block::os::linux::BlockDev'>BlockDev</a></code></li>
+    <li><code>impl&lt;T&gt; BlockSize for <a class='struct' href='../io_block/struct.BlockFile.html' title='struct io_block::BlockFile'>BlockFile</a>&lt;T&gt;</code></li>
+<li><code>impl BlockSize for <a class='struct' href='../io_block/os/linux/struct.BlockDev.html' title='struct io_block::os::linux::BlockDev'>BlockDev</a></code></li>
 </ul><script type="text/javascript" async
                          src="../implementors/io_block/trait.BlockSize.js">
                  </script></section>
