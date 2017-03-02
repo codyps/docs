@@ -44,13 +44,13 @@
     </nav>
 
     <section id='main' class="content trait">
-<h1 class='fqn'><span class='in-band'>Trait <a href='index.html'>leak</a>::<wbr><a class='trait' href=''>Leak</a></span><span class='out-of-band'><span id='render-detail'>
+<h1 class='fqn'><span class='in-band'>Trait <a href='index.html'>leak</a>::<wbr><a class="trait" href=''>Leak</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../src/leak/lib.rs.html#16-18' title='goto source code'>[src]</a></span></h1>
-<pre class='rust trait'>pub trait Leak&lt;T:&nbsp;?<a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='trait core::marker::Sized'>Sized</a>&gt; {
-    fn <a href='#tymethod.leak' class='fnname'>leak</a>&lt;'a&gt;(self) -&gt; &amp;'a mut T <span class='where fmt-newline'>where T: 'a</span>;
+<pre class='rust trait'>pub trait Leak&lt;T:&nbsp;?<a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a>&gt; {
+    fn <a href='#tymethod.leak' class='fnname'>leak</a>&lt;'a&gt;(self) -&gt; &amp;'a mut T <span class="where fmt-newline">where T: 'a</span>;
 }</pre><div class='docblock'><p>Leak a piece of data by never calling its destructor</p>
 
 <p>Useful for things that are going to be used for the life of the program, but aren&#39;t technically
@@ -67,12 +67,12 @@ configuration/data read at program start).</p>
 </div>
             <h2 id='required-methods'>Required Methods</h2>
             <div class='methods'>
-        <h3 id='tymethod.leak' class='method'><span id='leak.v' class='invisible'><code>fn <a href='#tymethod.leak' class='fnname'>leak</a>&lt;'a&gt;(self) -&gt; &amp;'a mut T <span class='where fmt-newline'>where T: 'a</span></code></span></h3></div>
+        <h3 id='tymethod.leak' class='method'><span id='leak.v' class='invisible'><code>fn <a href='#tymethod.leak' class='fnname'>leak</a>&lt;'a&gt;(self) -&gt; &amp;'a mut T <span class="where fmt-newline">where T: 'a</span></code></span></h3></div>
         <h2 id='implementors'>Implementors</h2>
         <ul class='item-list' id='implementors-list'>
-    <li><code>impl&lt;T:&nbsp;?<a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='trait core::marker::Sized'>Sized</a>&gt; Leak&lt;T&gt; for <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html' title='struct alloc::boxed::Box'>Box</a>&lt;T&gt;</code></li>
-<li><code>impl Leak&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>&gt; for <a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='struct collections::string::String'>String</a></code></li>
-<li><code>impl&lt;T&gt; Leak&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>[</a>T<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>&gt; for <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='struct collections::vec::Vec'>Vec</a>&lt;T&gt;</code></li>
+    <li><code>impl&lt;T:&nbsp;?<a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a>&gt; Leak&lt;T&gt; for <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;T&gt;</code></li>
+<li><code>impl Leak&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt; for <a class="struct" href="https://doc.rust-lang.org/nightly/collections/string/struct.String.html" title="struct collections::string::String">String</a></code></li>
+<li><code>impl&lt;T&gt; Leak&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">[</a>T<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a>&gt; for <a class="struct" href="https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html" title="struct collections::vec::Vec">Vec</a>&lt;T&gt;</code></li>
 </ul><script type="text/javascript" async
                          src="../implementors/leak/trait.Leak.js">
                  </script></section>
