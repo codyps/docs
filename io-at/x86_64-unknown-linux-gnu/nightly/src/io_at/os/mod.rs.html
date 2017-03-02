@@ -61,25 +61,25 @@
 <span id="16">16</span>
 <span id="17">17</span>
 <span id="18">18</span>
-</pre><pre class='rust '>
-<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>unix</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>unix</span>;
-<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>windows</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>windows</span>;
+</pre><pre class="rust ">
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">unix</span>)]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">unix</span>;
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">windows</span>)]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">windows</span>;
 
-<span class='comment'>/* Expose the semi-compatible IoAtRaw types via the same name */</span>
-<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>unix</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>unix</span>::{<span class='ident'>AsRaw</span>,<span class='ident'>pread</span>,<span class='ident'>pwrite</span>};
-<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>windows</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>windows</span>::{<span class='ident'>AsRaw</span>,<span class='ident'>pread</span>,<span class='ident'>pwrite</span>};
+<span class="comment">/* Expose the semi-compatible IoAtRaw types via the same name */</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">unix</span>)]</span>
+<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span>::<span class="ident">unix</span>::{<span class="ident">AsRaw</span>,<span class="ident">pread</span>,<span class="ident">pwrite</span>};
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">windows</span>)]</span>
+<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span>::<span class="ident">windows</span>::{<span class="ident">AsRaw</span>,<span class="ident">pread</span>,<span class="ident">pwrite</span>};
 
-<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>any</span>(<span class='ident'>unix</span>,<span class='ident'>windows</span>))]</span>
-<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>raw</span>;
-<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>any</span>(<span class='ident'>unix</span>,<span class='ident'>windows</span>))]</span>
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>raw</span>::<span class='ident'>IoAtRaw</span>;
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">unix</span>,<span class="ident">windows</span>))]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">raw</span>;
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">unix</span>,<span class="ident">windows</span>))]</span>
+<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span>::<span class="ident">raw</span>::<span class="ident">IoAtRaw</span>;
 
-<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>any</span>(<span class='ident'>unix</span>,<span class='ident'>windows</span>))]</span>
-<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>file</span>;
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">unix</span>,<span class="ident">windows</span>))]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">file</span>;
 </pre>
 </section>
     <section id='search' class="content hidden"></section>
