@@ -44,12 +44,12 @@
     </nav>
 
     <section id='main' class="content fn">
-<h1 class='fqn'><span class='in-band'>Function <a href='../index.html'>systemd</a>::<wbr><a href='index.html'>daemon</a>::<wbr><a class='fn' href=''>listen_fds</a></span><span class='out-of-band'><span id='render-detail'>
+<h1 class='fqn'><span class='in-band'>Function <a href='../index.html'>systemd</a>::<wbr><a href='index.html'>daemon</a>::<wbr><a class="fn" href=''>listen_fds</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../../src/systemd/daemon.rs.html#50-53' title='goto source code'>[src]</a></span></h1>
-<pre class='rust fn'>pub fn listen_fds(unset_environment: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='type' href='../../systemd/type.Result.html' title='type systemd::Result'>Result</a>&lt;<a class='type' href='https://doc.rust-lang.org/nightly/std/sys/imp/ext/io/type.RawFd.html' title='type std::sys::imp::ext::io::RawFd'>Fd</a>&gt;</pre><div class='docblock'><p>Returns how many file descriptors have been passed. Removes the
+<pre class='rust fn'>pub fn listen_fds(unset_environment: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <a class="type" href="../../systemd/type.Result.html" title="type systemd::Result">Result</a>&lt;<a class="type" href="https://doc.rust-lang.org/nightly/std/sys/imp/ext/io/type.RawFd.html" title="type std::sys::imp::ext::io::RawFd">Fd</a>&gt;</pre><div class='docblock'><p>Returns how many file descriptors have been passed. Removes the
 <code>$LISTEN_FDS</code> and <code>$LISTEN_PID</code> file descriptors from the environment if
 <code>unset_environment</code> is <code>true</code></p>
 </div></section>
