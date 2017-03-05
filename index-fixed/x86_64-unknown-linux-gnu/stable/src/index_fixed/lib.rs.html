@@ -9,8 +9,8 @@
 
     <title>lib.rs.html -- source</title>
 
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
     
 
     
@@ -181,6 +181,11 @@
 <span id="137">137</span>
 <span id="138">138</span>
 <span id="139">139</span>
+<span id="140">140</span>
+<span id="141">141</span>
+<span id="142">142</span>
+<span id="143">143</span>
+<span id="144">144</span>
 </pre><pre class='rust '>
 <span class='attribute'>#<span class='op'>!</span>[<span class='ident'>no_std</span>]</span>
 
@@ -207,10 +212,15 @@
  *
  * # Examples
  *
- * ```notest
- * let my_slice = [1, 2, 3, 4];
- * let slice_of_2 = index_fixed!(&amp;my_slice ; .. 2);
- * assert_eq!(slice_of_2, &amp;[1..2]);
+ * ```
+ * #[macro_use]
+ * extern crate index_fixed;
+ *
+ * fn main() {
+ *   let my_slice = [1, 2, 3, 4];
+ *   let slice_of_2 = index_fixed!(&amp;my_slice ; .. 2);
+ *   assert_eq!(slice_of_2, &amp;my_slice[..2]);
+ * }
  * ```
  */</span>
 <span class='comment'>// FIXME example test disabled because index_fixed!() is not defined</span>
@@ -376,13 +386,11 @@
     
 
     <script>
-        window.rootPath = "../../../";
+        window.rootPath = "../../";
         window.currentCrate = "index_fixed";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../../jquery.js"></script>
-    <script src="../../../main.js"></script>
-    
-    <script defer src="../../../search-index.js"></script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>
