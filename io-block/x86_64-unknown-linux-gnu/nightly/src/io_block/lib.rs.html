@@ -81,11 +81,11 @@
 <span id="36">36</span>
 <span id="37">37</span>
 <span id="38">38</span>
-</pre><pre class='rust '>
-<span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>core</span>;
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>io</span>::{<span class='ident'>Error</span>,<span class='prelude-ty'>Result</span>};
+</pre><pre class="rust ">
+<span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">core</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">io</span>::{<span class="ident">Error</span>,<span class="prelude-ty">Result</span>};
 
-<span class='doccomment'>/**
+<span class="doccomment">/**
  * Some writable and readable devices (disk drives, media cards) have a block size (number of bytes
  * that are read or written at a time) associated with them.
  *
@@ -93,33 +93,33 @@
  * their length. At least, they can&#39;t be appended to.
  *
  */</span>
-<span class='comment'>// TODO: consider if we should require ReadAt &amp;/or WriteAt</span>
-<span class='comment'>// TODO: consider if we should provide (here or in a seperate trait) read/write methods on blocks</span>
-<span class='comment'>// of data.</span>
-<span class='comment'>// TODO: consider providing block_sz_physical?</span>
-<span class='kw'>pub</span> <span class='kw'>trait</span> <span class='ident'>BlockSize</span> {
-    <span class='doccomment'>/// The number of bytes in each logical block</span>
-    <span class='kw'>fn</span> <span class='ident'>block_size_logical</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>u64</span><span class='op'>&gt;</span>;
+<span class="comment">// TODO: consider if we should require ReadAt &amp;/or WriteAt</span>
+<span class="comment">// TODO: consider if we should provide (here or in a seperate trait) read/write methods on blocks</span>
+<span class="comment">// of data.</span>
+<span class="comment">// TODO: consider providing block_sz_physical?</span>
+<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">BlockSize</span> {
+    <span class="doccomment">/// The number of bytes in each logical block</span>
+    <span class="kw">fn</span> <span class="ident">block_size_logical</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">u64</span><span class="op">&gt;</span>;
 
-    <span class='doccomment'>/// The total number of logical blocks</span>
-    <span class='kw'>fn</span> <span class='ident'>block_count</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>u64</span><span class='op'>&gt;</span>;
+    <span class="doccomment">/// The total number of logical blocks</span>
+    <span class="kw">fn</span> <span class="ident">block_count</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">u64</span><span class="op">&gt;</span>;
 
-    <span class='doccomment'>/// The number of bytes in each physical block</span>
-    <span class='doccomment'>///</span>
-    <span class='doccomment'>/// This is only a best guess. Many devices do not report a physical block size or do not</span>
-    <span class='doccomment'>/// report and accurate physical block size. Results will vary, be wary.</span>
-    <span class='kw'>fn</span> <span class='ident'>block_size_physical</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>u64</span><span class='op'>&gt;</span> {
-        <span class='self'>self</span>.<span class='ident'>block_size_logical</span>()
+    <span class="doccomment">/// The number of bytes in each physical block</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// This is only a best guess. Many devices do not report a physical block size or do not</span>
+    <span class="doccomment">/// report and accurate physical block size. Results will vary, be wary.</span>
+    <span class="kw">fn</span> <span class="ident">block_size_physical</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">u64</span><span class="op">&gt;</span> {
+        <span class="self">self</span>.<span class="ident">block_size_logical</span>()
     }
 
-    <span class='comment'>// fn write_block();</span>
-    <span class='comment'>// fn read_block();</span>
+    <span class="comment">// fn write_block();</span>
+    <span class="comment">// fn read_block();</span>
 }
 
-<span class='kw'>mod</span> <span class='ident'>file</span>;
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>file</span>::<span class='ident'>BlockFile</span>;
+<span class="kw">mod</span> <span class="ident">file</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">file</span>::<span class="ident">BlockFile</span>;
 
-<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>os</span>;
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">os</span>;
 </pre>
 </section>
     <section id='search' class="content hidden"></section>
