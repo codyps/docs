@@ -1102,6 +1102,10 @@ replaces them with the replacement string slice at most <code>N</code> times.</p
 <p>&#39;Lowercase&#39; is defined according to the terms of the Unicode Derived Core Property
 <code>Lowercase</code>.</p>
 
+<p>Since some characters can expand into multiple characters when changing
+the case, this function returns a <a href="string/struct.String.html"><code>String</code></a> instead of modifying the
+parameter in-place.</p>
+
 <h1 id='examples-35' class='section-header'><a href='#examples-35'>Examples</a></h1>
 <p>Basic usage:</p>
 
@@ -1133,6 +1137,10 @@ replaces them with the replacement string slice at most <code>N</code> times.</p
 
 <p>&#39;Uppercase&#39; is defined according to the terms of the Unicode Derived Core Property
 <code>Uppercase</code>.</p>
+
+<p>Since some characters can expand into multiple characters when changing
+the case, this function returns a <a href="string/struct.String.html"><code>String</code></a> instead of modifying the
+parameter in-place.</p>
 
 <h1 id='examples-36' class='section-header'><a href='#examples-36'>Examples</a></h1>
 <p>Basic usage:</p>
@@ -1187,7 +1195,7 @@ replaces them with the replacement string slice at most <code>N</code> times.</p
 <div class='docblock'><p>Formats the value using the given formatter.</p>
 </div></div><h3 class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html" title="trait core::fmt::Display">Display</a> for <a class="struct" href="../utf8_cstr/struct.Utf8CStr.html" title="struct utf8_cstr::Utf8CStr">Utf8CStr</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/utf8_cstr/lib.rs.html#39-44' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.fmt-1' class="method"><span id='fmt.v-1' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, fmt: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span></h4>
-<div class='docblock'><p>Formats the value using the given formatter.</p>
+<div class='docblock'><p>Formats the value using the given formatter. <a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html#tymethod.fmt">Read more</a></p>
 </div></div><h3 class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html" title="trait core::convert::AsRef">AsRef</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt; for <a class="struct" href="../utf8_cstr/struct.Utf8CStr.html" title="struct utf8_cstr::Utf8CStr">Utf8CStr</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/utf8_cstr/lib.rs.html#123-127' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.as_ref' class="method"><span id='as_ref.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref' class='fnname'>as_ref</a>(&amp;self) -&gt; &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a></code></span></h4>
 <div class='docblock'><p>Performs the conversion.</p>
