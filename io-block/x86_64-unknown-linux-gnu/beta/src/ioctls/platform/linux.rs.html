@@ -304,268 +304,268 @@
 <span id="259">259</span>
 <span id="260">260</span>
 <span id="261">261</span>
-</pre><pre class='rust '>
+</pre><pre class="rust ">
 
-<span class='kw'>const</span> <span class='ident'>WATCHDOG_IOCTL_BASE</span>: <span class='ident'>u32</span> <span class='op'>=</span> <span class='string'>b&#39;W&#39;</span> <span class='kw'>as</span> <span class='ident'>u32</span>;
-<span class='kw'>const</span> <span class='ident'>BASE_VIDIOC_PRIVATE</span>: <span class='ident'>u32</span> <span class='op'>=</span> <span class='number'>192</span>;
-<span class='kw'>const</span> <span class='ident'>USBTMC_IOC_NR</span>: <span class='ident'>u32</span> <span class='op'>=</span> <span class='number'>91</span>;
-<span class='kw'>const</span> <span class='ident'>UBI_VOL_IOC_MAGIC</span>: <span class='ident'>u32</span> <span class='op'>=</span> <span class='string'>b&#39;O&#39;</span> <span class='kw'>as</span> <span class='ident'>u32</span>;
-<span class='kw'>const</span> <span class='ident'>UBI_IOC_MAGIC</span>: <span class='ident'>u32</span> <span class='op'>=</span> <span class='string'>b&#39;o&#39;</span> <span class='kw'>as</span> <span class='ident'>u32</span>;
-<span class='kw'>const</span> <span class='ident'>UBI_CTRL_IOC_MAGIC</span>: <span class='ident'>u32</span> <span class='op'>=</span> <span class='string'>b&#39;o&#39;</span> <span class='kw'>as</span> <span class='ident'>u32</span>;
-<span class='kw'>const</span> <span class='ident'>SPI_IOC_MAGIC</span>: <span class='ident'>u32</span> <span class='op'>=</span> <span class='string'>b&#39;k&#39;</span> <span class='kw'>as</span> <span class='ident'>u32</span>;
-<span class='kw'>const</span> <span class='ident'>MGSL_MAGIC_IOC</span>: <span class='ident'>u32</span> <span class='op'>=</span> <span class='string'>b&#39;m&#39;</span> <span class='kw'>as</span> <span class='ident'>u32</span>;
-<span class='kw'>const</span> <span class='ident'>DRM_IOCTL_BASE</span>: <span class='ident'>u32</span> <span class='op'>=</span> <span class='string'>b&#39;d&#39;</span> <span class='kw'>as</span> <span class='ident'>u32</span>;
-<span class='kw'>const</span> <span class='ident'>DRM_COMMAND_BASE</span>: <span class='ident'>u32</span> <span class='op'>=</span> <span class='number'>0x40</span>;
-<span class='kw'>const</span> <span class='ident'>BTRFS_IOCTL_MAGIC</span>: <span class='ident'>u32</span> <span class='op'>=</span> <span class='number'>0x94</span>;
-<span class='kw'>const</span> <span class='ident'>BTRFS_LABEL_SIZE</span>: <span class='ident'>usize</span> <span class='op'>=</span> <span class='number'>256</span>;
-<span class='comment'>//const SIOCPARM_MASK: u32 = 0x1fff;</span>
+<span class="kw">const</span> <span class="ident">WATCHDOG_IOCTL_BASE</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="string">b&#39;W&#39;</span> <span class="kw">as</span> <span class="ident">u32</span>;
+<span class="kw">const</span> <span class="ident">BASE_VIDIOC_PRIVATE</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="number">192</span>;
+<span class="kw">const</span> <span class="ident">USBTMC_IOC_NR</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="number">91</span>;
+<span class="kw">const</span> <span class="ident">UBI_VOL_IOC_MAGIC</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="string">b&#39;O&#39;</span> <span class="kw">as</span> <span class="ident">u32</span>;
+<span class="kw">const</span> <span class="ident">UBI_IOC_MAGIC</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="string">b&#39;o&#39;</span> <span class="kw">as</span> <span class="ident">u32</span>;
+<span class="kw">const</span> <span class="ident">UBI_CTRL_IOC_MAGIC</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="string">b&#39;o&#39;</span> <span class="kw">as</span> <span class="ident">u32</span>;
+<span class="kw">const</span> <span class="ident">SPI_IOC_MAGIC</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="string">b&#39;k&#39;</span> <span class="kw">as</span> <span class="ident">u32</span>;
+<span class="kw">const</span> <span class="ident">MGSL_MAGIC_IOC</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="string">b&#39;m&#39;</span> <span class="kw">as</span> <span class="ident">u32</span>;
+<span class="kw">const</span> <span class="ident">DRM_IOCTL_BASE</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="string">b&#39;d&#39;</span> <span class="kw">as</span> <span class="ident">u32</span>;
+<span class="kw">const</span> <span class="ident">DRM_COMMAND_BASE</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="number">0x40</span>;
+<span class="kw">const</span> <span class="ident">BTRFS_IOCTL_MAGIC</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="number">0x94</span>;
+<span class="kw">const</span> <span class="ident">BTRFS_LABEL_SIZE</span>: <span class="ident">usize</span> <span class="op">=</span> <span class="number">256</span>;
+<span class="comment">//const SIOCPARM_MASK: u32 = 0x1fff;</span>
 
-<span class='kw'>const</span> <span class='ident'>ATMIOC_ITF</span>: <span class='ident'>u32</span> <span class='op'>=</span> <span class='number'>0x80</span>;
-<span class='kw'>const</span> <span class='ident'>ATMIOC_CLIP</span>: <span class='ident'>u32</span> <span class='op'>=</span> <span class='number'>0xe0</span>;
-<span class='kw'>const</span> <span class='ident'>RFKILL_IOC_NOINPUT</span>: <span class='ident'>u32</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>const</span> <span class='ident'>RFKILL_IOC_MAGIC</span>: <span class='ident'>u32</span> <span class='op'>=</span> <span class='string'>b&#39;R&#39;</span> <span class='kw'>as</span> <span class='ident'>u32</span>;
-<span class='kw'>const</span> <span class='ident'>IFNAMSIZ</span>: <span class='ident'>usize</span> <span class='op'>=</span> <span class='number'>16</span>;
-<span class='kw'>const</span> <span class='ident'>DECNET_IOCTL_BASE</span>: <span class='ident'>u32</span> <span class='op'>=</span> <span class='number'>0x89</span>;
-<span class='kw'>const</span> <span class='ident'>ABS_MAX</span>: <span class='ident'>usize</span> <span class='op'>=</span> <span class='number'>0x3f</span>;
-<span class='kw'>const</span> <span class='ident'>ABS_CNT</span>: <span class='ident'>usize</span> <span class='op'>=</span> <span class='ident'>ABS_MAX</span><span class='op'>+</span><span class='number'>1</span>;
-<span class='kw'>const</span> <span class='ident'>CXL_MAGIC</span>: <span class='ident'>u32</span> <span class='op'>=</span> <span class='number'>0xCA</span>;
-<span class='kw'>const</span> <span class='ident'>CM_IOC_MAGIC</span>: <span class='ident'>u32</span> <span class='op'>=</span> <span class='string'>b&#39;c&#39;</span> <span class='kw'>as</span> <span class='ident'>u32</span>;
+<span class="kw">const</span> <span class="ident">ATMIOC_ITF</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="number">0x80</span>;
+<span class="kw">const</span> <span class="ident">ATMIOC_CLIP</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="number">0xe0</span>;
+<span class="kw">const</span> <span class="ident">RFKILL_IOC_NOINPUT</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">const</span> <span class="ident">RFKILL_IOC_MAGIC</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="string">b&#39;R&#39;</span> <span class="kw">as</span> <span class="ident">u32</span>;
+<span class="kw">const</span> <span class="ident">IFNAMSIZ</span>: <span class="ident">usize</span> <span class="op">=</span> <span class="number">16</span>;
+<span class="kw">const</span> <span class="ident">DECNET_IOCTL_BASE</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="number">0x89</span>;
+<span class="kw">const</span> <span class="ident">ABS_MAX</span>: <span class="ident">usize</span> <span class="op">=</span> <span class="number">0x3f</span>;
+<span class="kw">const</span> <span class="ident">ABS_CNT</span>: <span class="ident">usize</span> <span class="op">=</span> <span class="ident">ABS_MAX</span><span class="op">+</span><span class="number">1</span>;
+<span class="kw">const</span> <span class="ident">CXL_MAGIC</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="number">0xCA</span>;
+<span class="kw">const</span> <span class="ident">CM_IOC_MAGIC</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="string">b&#39;c&#39;</span> <span class="kw">as</span> <span class="ident">u32</span>;
 
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span>
-<span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>input_event</span> {
-    <span class='kw'>pub</span> <span class='ident'>time</span>: ::<span class='ident'>libc</span>::<span class='ident'>timeval</span>,
-    <span class='kw'>pub</span> <span class='ident'>_type</span>: <span class='ident'>u16</span>,
-    <span class='kw'>pub</span> <span class='ident'>code</span>: <span class='ident'>u16</span>,
-    <span class='kw'>pub</span> <span class='ident'>value</span>: <span class='ident'>i32</span>,
+<span class="attribute">#[<span class="ident">repr</span>(<span class="ident">C</span>)]</span>
+<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">input_event</span> {
+    <span class="kw">pub</span> <span class="ident">time</span>: ::<span class="ident">libc</span>::<span class="ident">timeval</span>,
+    <span class="kw">pub</span> <span class="ident">_type</span>: <span class="ident">u16</span>,
+    <span class="kw">pub</span> <span class="ident">code</span>: <span class="ident">u16</span>,
+    <span class="kw">pub</span> <span class="ident">value</span>: <span class="ident">i32</span>,
 }
-<span class='kw'>impl</span> ::<span class='ident'>std</span>::<span class='ident'>default</span>::<span class='ident'>Default</span> <span class='kw'>for</span> <span class='ident'>input_event</span> {
-    <span class='kw'>fn</span> <span class='ident'>default</span>() <span class='op'>-&gt;</span> <span class='self'>Self</span> { <span class='kw'>unsafe</span> { ::<span class='ident'>std</span>::<span class='ident'>mem</span>::<span class='ident'>zeroed</span>() } }
+<span class="kw">impl</span> ::<span class="ident">std</span>::<span class="ident">default</span>::<span class="ident">Default</span> <span class="kw">for</span> <span class="ident">input_event</span> {
+    <span class="kw">fn</span> <span class="ident">default</span>() <span class="op">-&gt;</span> <span class="self">Self</span> { <span class="kw">unsafe</span> { ::<span class="ident">std</span>::<span class="ident">mem</span>::<span class="ident">zeroed</span>() } }
 }
-<span class='kw'>impl</span> ::<span class='ident'>std</span>::<span class='ident'>fmt</span>::<span class='ident'>Debug</span> <span class='kw'>for</span> <span class='ident'>input_event</span> {
-    <span class='kw'>fn</span> <span class='ident'>fmt</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>f</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> ::<span class='ident'>std</span>::<span class='ident'>fmt</span>::<span class='ident'>Formatter</span>) <span class='op'>-&gt;</span> ::<span class='ident'>std</span>::<span class='ident'>fmt</span>::<span class='prelude-ty'>Result</span> {
-        <span class='macro'>write</span><span class='macro'>!</span>(<span class='ident'>f</span>, <span class='string'>&quot;input_event {{ time: {{ tv_sec: {}, tv_usec: {} }}, _type: {}, code: {}, value: {}&quot;</span>,
-               <span class='self'>self</span>.<span class='ident'>time</span>.<span class='ident'>tv_sec</span>, <span class='self'>self</span>.<span class='ident'>time</span>.<span class='ident'>tv_usec</span>, <span class='self'>self</span>.<span class='ident'>_type</span>, <span class='self'>self</span>.<span class='ident'>code</span>, <span class='self'>self</span>.<span class='ident'>value</span>)
+<span class="kw">impl</span> ::<span class="ident">std</span>::<span class="ident">fmt</span>::<span class="ident">Debug</span> <span class="kw">for</span> <span class="ident">input_event</span> {
+    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> ::<span class="ident">std</span>::<span class="ident">fmt</span>::<span class="ident">Formatter</span>) <span class="op">-&gt;</span> ::<span class="ident">std</span>::<span class="ident">fmt</span>::<span class="prelude-ty">Result</span> {
+        <span class="macro">write</span><span class="macro">!</span>(<span class="ident">f</span>, <span class="string">&quot;input_event {{ time: {{ tv_sec: {}, tv_usec: {} }}, _type: {}, code: {}, value: {}&quot;</span>,
+               <span class="self">self</span>.<span class="ident">time</span>.<span class="ident">tv_sec</span>, <span class="self">self</span>.<span class="ident">time</span>.<span class="ident">tv_usec</span>, <span class="self">self</span>.<span class="ident">_type</span>, <span class="self">self</span>.<span class="ident">code</span>, <span class="self">self</span>.<span class="ident">value</span>)
     }
 }
 
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span>
-<span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>input_id</span> {
-    <span class='kw'>pub</span> <span class='ident'>bustype</span>: <span class='ident'>u16</span>,
-    <span class='kw'>pub</span> <span class='ident'>vendor</span>: <span class='ident'>u16</span>,
-    <span class='kw'>pub</span> <span class='ident'>product</span>: <span class='ident'>u16</span>,
-    <span class='kw'>pub</span> <span class='ident'>version</span>: <span class='ident'>u16</span>,
+<span class="attribute">#[<span class="ident">repr</span>(<span class="ident">C</span>)]</span>
+<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Debug</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">input_id</span> {
+    <span class="kw">pub</span> <span class="ident">bustype</span>: <span class="ident">u16</span>,
+    <span class="kw">pub</span> <span class="ident">vendor</span>: <span class="ident">u16</span>,
+    <span class="kw">pub</span> <span class="ident">product</span>: <span class="ident">u16</span>,
+    <span class="kw">pub</span> <span class="ident">version</span>: <span class="ident">u16</span>,
 }
 
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span>
-<span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>ff_effect</span> {
-    <span class='kw'>pub</span> <span class='ident'>_type</span>: <span class='ident'>u16</span>,
-    <span class='kw'>pub</span> <span class='ident'>id</span>: <span class='ident'>i16</span>,
-    <span class='kw'>pub</span> <span class='ident'>direction</span>: <span class='ident'>u16</span>,
-    <span class='kw'>pub</span> <span class='ident'>trigger</span>: <span class='ident'>ff_trigger</span>,
-    <span class='kw'>pub</span> <span class='ident'>replay</span>: <span class='ident'>ff_replay</span>,
-    <span class='kw'>pub</span> <span class='ident'>u</span>: <span class='ident'>Union_Unnamed16</span>,
+<span class="attribute">#[<span class="ident">repr</span>(<span class="ident">C</span>)]</span>
+<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ff_effect</span> {
+    <span class="kw">pub</span> <span class="ident">_type</span>: <span class="ident">u16</span>,
+    <span class="kw">pub</span> <span class="ident">id</span>: <span class="ident">i16</span>,
+    <span class="kw">pub</span> <span class="ident">direction</span>: <span class="ident">u16</span>,
+    <span class="kw">pub</span> <span class="ident">trigger</span>: <span class="ident">ff_trigger</span>,
+    <span class="kw">pub</span> <span class="ident">replay</span>: <span class="ident">ff_replay</span>,
+    <span class="kw">pub</span> <span class="ident">u</span>: <span class="ident">Union_Unnamed16</span>,
 }
 
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span>
-<span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>Union_Unnamed16</span> {
-    <span class='kw'>pub</span> <span class='ident'>_bindgen_data_</span>: [<span class='ident'>u64</span>; <span class='number'>4usize</span>],
+<span class="attribute">#[<span class="ident">repr</span>(<span class="ident">C</span>)]</span>
+<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Union_Unnamed16</span> {
+    <span class="kw">pub</span> <span class="ident">_bindgen_data_</span>: [<span class="ident">u64</span>; <span class="number">4usize</span>],
 }
-<span class='kw'>impl</span> <span class='ident'>Union_Unnamed16</span> {
-    <span class='kw'>pub</span> <span class='kw'>unsafe</span> <span class='kw'>fn</span> <span class='ident'>constant</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>ff_constant_effect</span> {
-        <span class='kw'>let</span> <span class='ident'>raw</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>u8</span> <span class='op'>=</span> ::<span class='ident'>std</span>::<span class='ident'>mem</span>::<span class='ident'>transmute</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>.<span class='ident'>_bindgen_data_</span>);
-        ::<span class='ident'>std</span>::<span class='ident'>mem</span>::<span class='ident'>transmute</span>(<span class='ident'>raw</span>.<span class='ident'>offset</span>(<span class='number'>0</span>))
+<span class="kw">impl</span> <span class="ident">Union_Unnamed16</span> {
+    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">constant</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ff_constant_effect</span> {
+        <span class="kw">let</span> <span class="ident">raw</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u8</span> <span class="op">=</span> ::<span class="ident">std</span>::<span class="ident">mem</span>::<span class="ident">transmute</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">_bindgen_data_</span>);
+        ::<span class="ident">std</span>::<span class="ident">mem</span>::<span class="ident">transmute</span>(<span class="ident">raw</span>.<span class="ident">offset</span>(<span class="number">0</span>))
     }
-    <span class='kw'>pub</span> <span class='kw'>unsafe</span> <span class='kw'>fn</span> <span class='ident'>ramp</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>ff_ramp_effect</span> {
-        <span class='kw'>let</span> <span class='ident'>raw</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>u8</span> <span class='op'>=</span> ::<span class='ident'>std</span>::<span class='ident'>mem</span>::<span class='ident'>transmute</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>.<span class='ident'>_bindgen_data_</span>);
-        ::<span class='ident'>std</span>::<span class='ident'>mem</span>::<span class='ident'>transmute</span>(<span class='ident'>raw</span>.<span class='ident'>offset</span>(<span class='number'>0</span>))
+    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">ramp</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ff_ramp_effect</span> {
+        <span class="kw">let</span> <span class="ident">raw</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u8</span> <span class="op">=</span> ::<span class="ident">std</span>::<span class="ident">mem</span>::<span class="ident">transmute</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">_bindgen_data_</span>);
+        ::<span class="ident">std</span>::<span class="ident">mem</span>::<span class="ident">transmute</span>(<span class="ident">raw</span>.<span class="ident">offset</span>(<span class="number">0</span>))
     }
-    <span class='kw'>pub</span> <span class='kw'>unsafe</span> <span class='kw'>fn</span> <span class='ident'>periodic</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>ff_periodic_effect</span> {
-        <span class='kw'>let</span> <span class='ident'>raw</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>u8</span> <span class='op'>=</span> ::<span class='ident'>std</span>::<span class='ident'>mem</span>::<span class='ident'>transmute</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>.<span class='ident'>_bindgen_data_</span>);
-        ::<span class='ident'>std</span>::<span class='ident'>mem</span>::<span class='ident'>transmute</span>(<span class='ident'>raw</span>.<span class='ident'>offset</span>(<span class='number'>0</span>))
+    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">periodic</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ff_periodic_effect</span> {
+        <span class="kw">let</span> <span class="ident">raw</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u8</span> <span class="op">=</span> ::<span class="ident">std</span>::<span class="ident">mem</span>::<span class="ident">transmute</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">_bindgen_data_</span>);
+        ::<span class="ident">std</span>::<span class="ident">mem</span>::<span class="ident">transmute</span>(<span class="ident">raw</span>.<span class="ident">offset</span>(<span class="number">0</span>))
     }
-    <span class='kw'>pub</span> <span class='kw'>unsafe</span> <span class='kw'>fn</span> <span class='ident'>condition</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>)
-     <span class='op'>-&gt;</span> <span class='kw-2'>*</span><span class='kw-2'>mut</span> [<span class='ident'>ff_condition_effect</span>; <span class='number'>2usize</span>] {
-        <span class='kw'>let</span> <span class='ident'>raw</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>u8</span> <span class='op'>=</span> ::<span class='ident'>std</span>::<span class='ident'>mem</span>::<span class='ident'>transmute</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>.<span class='ident'>_bindgen_data_</span>);
-        ::<span class='ident'>std</span>::<span class='ident'>mem</span>::<span class='ident'>transmute</span>(<span class='ident'>raw</span>.<span class='ident'>offset</span>(<span class='number'>0</span>))
+    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">condition</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>)
+     <span class="op">-&gt;</span> <span class="kw-2">*</span><span class="kw-2">mut</span> [<span class="ident">ff_condition_effect</span>; <span class="number">2usize</span>] {
+        <span class="kw">let</span> <span class="ident">raw</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u8</span> <span class="op">=</span> ::<span class="ident">std</span>::<span class="ident">mem</span>::<span class="ident">transmute</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">_bindgen_data_</span>);
+        ::<span class="ident">std</span>::<span class="ident">mem</span>::<span class="ident">transmute</span>(<span class="ident">raw</span>.<span class="ident">offset</span>(<span class="number">0</span>))
     }
-    <span class='kw'>pub</span> <span class='kw'>unsafe</span> <span class='kw'>fn</span> <span class='ident'>rumble</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>ff_rumble_effect</span> {
-        <span class='kw'>let</span> <span class='ident'>raw</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>u8</span> <span class='op'>=</span> ::<span class='ident'>std</span>::<span class='ident'>mem</span>::<span class='ident'>transmute</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>.<span class='ident'>_bindgen_data_</span>);
-        ::<span class='ident'>std</span>::<span class='ident'>mem</span>::<span class='ident'>transmute</span>(<span class='ident'>raw</span>.<span class='ident'>offset</span>(<span class='number'>0</span>))
+    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">rumble</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ff_rumble_effect</span> {
+        <span class="kw">let</span> <span class="ident">raw</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u8</span> <span class="op">=</span> ::<span class="ident">std</span>::<span class="ident">mem</span>::<span class="ident">transmute</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">_bindgen_data_</span>);
+        ::<span class="ident">std</span>::<span class="ident">mem</span>::<span class="ident">transmute</span>(<span class="ident">raw</span>.<span class="ident">offset</span>(<span class="number">0</span>))
     }
 }
-<span class='kw'>impl</span> ::<span class='ident'>std</span>::<span class='ident'>default</span>::<span class='ident'>Default</span> <span class='kw'>for</span> <span class='ident'>Union_Unnamed16</span> {
-    <span class='kw'>fn</span> <span class='ident'>default</span>() <span class='op'>-&gt;</span> <span class='self'>Self</span> { <span class='kw'>unsafe</span> { ::<span class='ident'>std</span>::<span class='ident'>mem</span>::<span class='ident'>zeroed</span>() } }
+<span class="kw">impl</span> ::<span class="ident">std</span>::<span class="ident">default</span>::<span class="ident">Default</span> <span class="kw">for</span> <span class="ident">Union_Unnamed16</span> {
+    <span class="kw">fn</span> <span class="ident">default</span>() <span class="op">-&gt;</span> <span class="self">Self</span> { <span class="kw">unsafe</span> { ::<span class="ident">std</span>::<span class="ident">mem</span>::<span class="ident">zeroed</span>() } }
 }
 
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span>
-<span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>, <span class='ident'>Eq</span>, <span class='ident'>Ord</span>, <span class='ident'>PartialEq</span>, <span class='ident'>PartialOrd</span>, <span class='ident'>Hash</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>input_absinfo</span> {
-    <span class='kw'>pub</span> <span class='ident'>value</span>: <span class='ident'>i32</span>,
-    <span class='kw'>pub</span> <span class='ident'>minimum</span>: <span class='ident'>i32</span>,
-    <span class='kw'>pub</span> <span class='ident'>maximum</span>: <span class='ident'>i32</span>,
-    <span class='kw'>pub</span> <span class='ident'>fuzz</span>: <span class='ident'>i32</span>,
-    <span class='kw'>pub</span> <span class='ident'>flat</span>: <span class='ident'>i32</span>,
-    <span class='kw'>pub</span> <span class='ident'>resolution</span>: <span class='ident'>i32</span>,
+<span class="attribute">#[<span class="ident">repr</span>(<span class="ident">C</span>)]</span>
+<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Debug</span>, <span class="ident">Eq</span>, <span class="ident">Ord</span>, <span class="ident">PartialEq</span>, <span class="ident">PartialOrd</span>, <span class="ident">Hash</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">input_absinfo</span> {
+    <span class="kw">pub</span> <span class="ident">value</span>: <span class="ident">i32</span>,
+    <span class="kw">pub</span> <span class="ident">minimum</span>: <span class="ident">i32</span>,
+    <span class="kw">pub</span> <span class="ident">maximum</span>: <span class="ident">i32</span>,
+    <span class="kw">pub</span> <span class="ident">fuzz</span>: <span class="ident">i32</span>,
+    <span class="kw">pub</span> <span class="ident">flat</span>: <span class="ident">i32</span>,
+    <span class="kw">pub</span> <span class="ident">resolution</span>: <span class="ident">i32</span>,
 }
-<span class='kw'>impl</span> ::<span class='ident'>std</span>::<span class='ident'>default</span>::<span class='ident'>Default</span> <span class='kw'>for</span> <span class='ident'>input_absinfo</span> {
-    <span class='kw'>fn</span> <span class='ident'>default</span>() <span class='op'>-&gt;</span> <span class='self'>Self</span> { <span class='kw'>unsafe</span> { ::<span class='ident'>std</span>::<span class='ident'>mem</span>::<span class='ident'>zeroed</span>() } }
+<span class="kw">impl</span> ::<span class="ident">std</span>::<span class="ident">default</span>::<span class="ident">Default</span> <span class="kw">for</span> <span class="ident">input_absinfo</span> {
+    <span class="kw">fn</span> <span class="ident">default</span>() <span class="op">-&gt;</span> <span class="self">Self</span> { <span class="kw">unsafe</span> { ::<span class="ident">std</span>::<span class="ident">mem</span>::<span class="ident">zeroed</span>() } }
 }
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span>
-<span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>input_keymap_entry</span> {
-    <span class='kw'>pub</span> <span class='ident'>flags</span>: <span class='ident'>u8</span>,
-    <span class='kw'>pub</span> <span class='ident'>len</span>: <span class='ident'>u8</span>,
-    <span class='kw'>pub</span> <span class='ident'>index</span>: <span class='ident'>u16</span>,
-    <span class='kw'>pub</span> <span class='ident'>keycode</span>: <span class='ident'>u32</span>,
-    <span class='kw'>pub</span> <span class='ident'>scancode</span>: [<span class='ident'>u8</span>; <span class='number'>32usize</span>],
+<span class="attribute">#[<span class="ident">repr</span>(<span class="ident">C</span>)]</span>
+<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Debug</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">input_keymap_entry</span> {
+    <span class="kw">pub</span> <span class="ident">flags</span>: <span class="ident">u8</span>,
+    <span class="kw">pub</span> <span class="ident">len</span>: <span class="ident">u8</span>,
+    <span class="kw">pub</span> <span class="ident">index</span>: <span class="ident">u16</span>,
+    <span class="kw">pub</span> <span class="ident">keycode</span>: <span class="ident">u32</span>,
+    <span class="kw">pub</span> <span class="ident">scancode</span>: [<span class="ident">u8</span>; <span class="number">32usize</span>],
 }
-<span class='kw'>impl</span> ::<span class='ident'>std</span>::<span class='ident'>default</span>::<span class='ident'>Default</span> <span class='kw'>for</span> <span class='ident'>input_keymap_entry</span> {
-    <span class='kw'>fn</span> <span class='ident'>default</span>() <span class='op'>-&gt;</span> <span class='self'>Self</span> { <span class='kw'>unsafe</span> { ::<span class='ident'>std</span>::<span class='ident'>mem</span>::<span class='ident'>zeroed</span>() } }
+<span class="kw">impl</span> ::<span class="ident">std</span>::<span class="ident">default</span>::<span class="ident">Default</span> <span class="kw">for</span> <span class="ident">input_keymap_entry</span> {
+    <span class="kw">fn</span> <span class="ident">default</span>() <span class="op">-&gt;</span> <span class="self">Self</span> { <span class="kw">unsafe</span> { ::<span class="ident">std</span>::<span class="ident">mem</span>::<span class="ident">zeroed</span>() } }
 }
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span>
-<span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>ff_replay</span> {
-    <span class='kw'>pub</span> <span class='ident'>length</span>: <span class='ident'>u16</span>,
-    <span class='kw'>pub</span> <span class='ident'>delay</span>: <span class='ident'>u16</span>,
+<span class="attribute">#[<span class="ident">repr</span>(<span class="ident">C</span>)]</span>
+<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Debug</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ff_replay</span> {
+    <span class="kw">pub</span> <span class="ident">length</span>: <span class="ident">u16</span>,
+    <span class="kw">pub</span> <span class="ident">delay</span>: <span class="ident">u16</span>,
 }
-<span class='kw'>impl</span> ::<span class='ident'>std</span>::<span class='ident'>default</span>::<span class='ident'>Default</span> <span class='kw'>for</span> <span class='ident'>ff_replay</span> {
-    <span class='kw'>fn</span> <span class='ident'>default</span>() <span class='op'>-&gt;</span> <span class='self'>Self</span> { <span class='kw'>unsafe</span> { ::<span class='ident'>std</span>::<span class='ident'>mem</span>::<span class='ident'>zeroed</span>() } }
+<span class="kw">impl</span> ::<span class="ident">std</span>::<span class="ident">default</span>::<span class="ident">Default</span> <span class="kw">for</span> <span class="ident">ff_replay</span> {
+    <span class="kw">fn</span> <span class="ident">default</span>() <span class="op">-&gt;</span> <span class="self">Self</span> { <span class="kw">unsafe</span> { ::<span class="ident">std</span>::<span class="ident">mem</span>::<span class="ident">zeroed</span>() } }
 }
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span>
-<span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>ff_trigger</span> {
-    <span class='kw'>pub</span> <span class='ident'>button</span>: <span class='ident'>u16</span>,
-    <span class='kw'>pub</span> <span class='ident'>interval</span>: <span class='ident'>u16</span>,
+<span class="attribute">#[<span class="ident">repr</span>(<span class="ident">C</span>)]</span>
+<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Debug</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ff_trigger</span> {
+    <span class="kw">pub</span> <span class="ident">button</span>: <span class="ident">u16</span>,
+    <span class="kw">pub</span> <span class="ident">interval</span>: <span class="ident">u16</span>,
 }
-<span class='kw'>impl</span> ::<span class='ident'>std</span>::<span class='ident'>default</span>::<span class='ident'>Default</span> <span class='kw'>for</span> <span class='ident'>ff_trigger</span> {
-    <span class='kw'>fn</span> <span class='ident'>default</span>() <span class='op'>-&gt;</span> <span class='self'>Self</span> { <span class='kw'>unsafe</span> { ::<span class='ident'>std</span>::<span class='ident'>mem</span>::<span class='ident'>zeroed</span>() } }
+<span class="kw">impl</span> ::<span class="ident">std</span>::<span class="ident">default</span>::<span class="ident">Default</span> <span class="kw">for</span> <span class="ident">ff_trigger</span> {
+    <span class="kw">fn</span> <span class="ident">default</span>() <span class="op">-&gt;</span> <span class="self">Self</span> { <span class="kw">unsafe</span> { ::<span class="ident">std</span>::<span class="ident">mem</span>::<span class="ident">zeroed</span>() } }
 }
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span>
-<span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>ff_envelope</span> {
-    <span class='kw'>pub</span> <span class='ident'>attack_length</span>: <span class='ident'>u16</span>,
-    <span class='kw'>pub</span> <span class='ident'>attack_level</span>: <span class='ident'>u16</span>,
-    <span class='kw'>pub</span> <span class='ident'>fade_length</span>: <span class='ident'>u16</span>,
-    <span class='kw'>pub</span> <span class='ident'>fade_level</span>: <span class='ident'>u16</span>,
+<span class="attribute">#[<span class="ident">repr</span>(<span class="ident">C</span>)]</span>
+<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Debug</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ff_envelope</span> {
+    <span class="kw">pub</span> <span class="ident">attack_length</span>: <span class="ident">u16</span>,
+    <span class="kw">pub</span> <span class="ident">attack_level</span>: <span class="ident">u16</span>,
+    <span class="kw">pub</span> <span class="ident">fade_length</span>: <span class="ident">u16</span>,
+    <span class="kw">pub</span> <span class="ident">fade_level</span>: <span class="ident">u16</span>,
 }
-<span class='kw'>impl</span> ::<span class='ident'>std</span>::<span class='ident'>default</span>::<span class='ident'>Default</span> <span class='kw'>for</span> <span class='ident'>ff_envelope</span> {
-    <span class='kw'>fn</span> <span class='ident'>default</span>() <span class='op'>-&gt;</span> <span class='self'>Self</span> { <span class='kw'>unsafe</span> { ::<span class='ident'>std</span>::<span class='ident'>mem</span>::<span class='ident'>zeroed</span>() } }
+<span class="kw">impl</span> ::<span class="ident">std</span>::<span class="ident">default</span>::<span class="ident">Default</span> <span class="kw">for</span> <span class="ident">ff_envelope</span> {
+    <span class="kw">fn</span> <span class="ident">default</span>() <span class="op">-&gt;</span> <span class="self">Self</span> { <span class="kw">unsafe</span> { ::<span class="ident">std</span>::<span class="ident">mem</span>::<span class="ident">zeroed</span>() } }
 }
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span>
-<span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>ff_constant_effect</span> {
-    <span class='kw'>pub</span> <span class='ident'>level</span>: <span class='ident'>i16</span>,
-    <span class='kw'>pub</span> <span class='ident'>envelope</span>: <span class='ident'>ff_envelope</span>,
+<span class="attribute">#[<span class="ident">repr</span>(<span class="ident">C</span>)]</span>
+<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Debug</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ff_constant_effect</span> {
+    <span class="kw">pub</span> <span class="ident">level</span>: <span class="ident">i16</span>,
+    <span class="kw">pub</span> <span class="ident">envelope</span>: <span class="ident">ff_envelope</span>,
 }
-<span class='kw'>impl</span> ::<span class='ident'>std</span>::<span class='ident'>default</span>::<span class='ident'>Default</span> <span class='kw'>for</span> <span class='ident'>ff_constant_effect</span> {
-    <span class='kw'>fn</span> <span class='ident'>default</span>() <span class='op'>-&gt;</span> <span class='self'>Self</span> { <span class='kw'>unsafe</span> { ::<span class='ident'>std</span>::<span class='ident'>mem</span>::<span class='ident'>zeroed</span>() } }
+<span class="kw">impl</span> ::<span class="ident">std</span>::<span class="ident">default</span>::<span class="ident">Default</span> <span class="kw">for</span> <span class="ident">ff_constant_effect</span> {
+    <span class="kw">fn</span> <span class="ident">default</span>() <span class="op">-&gt;</span> <span class="self">Self</span> { <span class="kw">unsafe</span> { ::<span class="ident">std</span>::<span class="ident">mem</span>::<span class="ident">zeroed</span>() } }
 }
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span>
-<span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>ff_ramp_effect</span> {
-    <span class='kw'>pub</span> <span class='ident'>start_level</span>: <span class='ident'>i16</span>,
-    <span class='kw'>pub</span> <span class='ident'>end_level</span>: <span class='ident'>i16</span>,
-    <span class='kw'>pub</span> <span class='ident'>envelope</span>: <span class='ident'>ff_envelope</span>,
+<span class="attribute">#[<span class="ident">repr</span>(<span class="ident">C</span>)]</span>
+<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Debug</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ff_ramp_effect</span> {
+    <span class="kw">pub</span> <span class="ident">start_level</span>: <span class="ident">i16</span>,
+    <span class="kw">pub</span> <span class="ident">end_level</span>: <span class="ident">i16</span>,
+    <span class="kw">pub</span> <span class="ident">envelope</span>: <span class="ident">ff_envelope</span>,
 }
-<span class='kw'>impl</span> ::<span class='ident'>std</span>::<span class='ident'>default</span>::<span class='ident'>Default</span> <span class='kw'>for</span> <span class='ident'>ff_ramp_effect</span> {
-    <span class='kw'>fn</span> <span class='ident'>default</span>() <span class='op'>-&gt;</span> <span class='self'>Self</span> { <span class='kw'>unsafe</span> { ::<span class='ident'>std</span>::<span class='ident'>mem</span>::<span class='ident'>zeroed</span>() } }
+<span class="kw">impl</span> ::<span class="ident">std</span>::<span class="ident">default</span>::<span class="ident">Default</span> <span class="kw">for</span> <span class="ident">ff_ramp_effect</span> {
+    <span class="kw">fn</span> <span class="ident">default</span>() <span class="op">-&gt;</span> <span class="self">Self</span> { <span class="kw">unsafe</span> { ::<span class="ident">std</span>::<span class="ident">mem</span>::<span class="ident">zeroed</span>() } }
 }
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span>
-<span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>ff_condition_effect</span> {
-    <span class='kw'>pub</span> <span class='ident'>right_saturation</span>: <span class='ident'>u16</span>,
-    <span class='kw'>pub</span> <span class='ident'>left_saturation</span>: <span class='ident'>u16</span>,
-    <span class='kw'>pub</span> <span class='ident'>right_coeff</span>: <span class='ident'>i16</span>,
-    <span class='kw'>pub</span> <span class='ident'>left_coeff</span>: <span class='ident'>i16</span>,
-    <span class='kw'>pub</span> <span class='ident'>deadband</span>: <span class='ident'>u16</span>,
-    <span class='kw'>pub</span> <span class='ident'>center</span>: <span class='ident'>i16</span>,
+<span class="attribute">#[<span class="ident">repr</span>(<span class="ident">C</span>)]</span>
+<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Debug</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ff_condition_effect</span> {
+    <span class="kw">pub</span> <span class="ident">right_saturation</span>: <span class="ident">u16</span>,
+    <span class="kw">pub</span> <span class="ident">left_saturation</span>: <span class="ident">u16</span>,
+    <span class="kw">pub</span> <span class="ident">right_coeff</span>: <span class="ident">i16</span>,
+    <span class="kw">pub</span> <span class="ident">left_coeff</span>: <span class="ident">i16</span>,
+    <span class="kw">pub</span> <span class="ident">deadband</span>: <span class="ident">u16</span>,
+    <span class="kw">pub</span> <span class="ident">center</span>: <span class="ident">i16</span>,
 }
-<span class='kw'>impl</span> ::<span class='ident'>std</span>::<span class='ident'>default</span>::<span class='ident'>Default</span> <span class='kw'>for</span> <span class='ident'>ff_condition_effect</span> {
-    <span class='kw'>fn</span> <span class='ident'>default</span>() <span class='op'>-&gt;</span> <span class='self'>Self</span> { <span class='kw'>unsafe</span> { ::<span class='ident'>std</span>::<span class='ident'>mem</span>::<span class='ident'>zeroed</span>() } }
+<span class="kw">impl</span> ::<span class="ident">std</span>::<span class="ident">default</span>::<span class="ident">Default</span> <span class="kw">for</span> <span class="ident">ff_condition_effect</span> {
+    <span class="kw">fn</span> <span class="ident">default</span>() <span class="op">-&gt;</span> <span class="self">Self</span> { <span class="kw">unsafe</span> { ::<span class="ident">std</span>::<span class="ident">mem</span>::<span class="ident">zeroed</span>() } }
 }
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span>
-<span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>ff_periodic_effect</span> {
-    <span class='kw'>pub</span> <span class='ident'>waveform</span>: <span class='ident'>u16</span>,
-    <span class='kw'>pub</span> <span class='ident'>period</span>: <span class='ident'>u16</span>,
-    <span class='kw'>pub</span> <span class='ident'>magnitude</span>: <span class='ident'>i16</span>,
-    <span class='kw'>pub</span> <span class='ident'>offset</span>: <span class='ident'>i16</span>,
-    <span class='kw'>pub</span> <span class='ident'>phase</span>: <span class='ident'>u16</span>,
-    <span class='kw'>pub</span> <span class='ident'>envelope</span>: <span class='ident'>ff_envelope</span>,
-    <span class='kw'>pub</span> <span class='ident'>custom_len</span>: <span class='ident'>u32</span>,
-    <span class='kw'>pub</span> <span class='ident'>custom_data</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>i16</span>,
+<span class="attribute">#[<span class="ident">repr</span>(<span class="ident">C</span>)]</span>
+<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Debug</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ff_periodic_effect</span> {
+    <span class="kw">pub</span> <span class="ident">waveform</span>: <span class="ident">u16</span>,
+    <span class="kw">pub</span> <span class="ident">period</span>: <span class="ident">u16</span>,
+    <span class="kw">pub</span> <span class="ident">magnitude</span>: <span class="ident">i16</span>,
+    <span class="kw">pub</span> <span class="ident">offset</span>: <span class="ident">i16</span>,
+    <span class="kw">pub</span> <span class="ident">phase</span>: <span class="ident">u16</span>,
+    <span class="kw">pub</span> <span class="ident">envelope</span>: <span class="ident">ff_envelope</span>,
+    <span class="kw">pub</span> <span class="ident">custom_len</span>: <span class="ident">u32</span>,
+    <span class="kw">pub</span> <span class="ident">custom_data</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">i16</span>,
 }
-<span class='kw'>impl</span> ::<span class='ident'>std</span>::<span class='ident'>default</span>::<span class='ident'>Default</span> <span class='kw'>for</span> <span class='ident'>ff_periodic_effect</span> {
-    <span class='kw'>fn</span> <span class='ident'>default</span>() <span class='op'>-&gt;</span> <span class='self'>Self</span> { <span class='kw'>unsafe</span> { ::<span class='ident'>std</span>::<span class='ident'>mem</span>::<span class='ident'>zeroed</span>() } }
+<span class="kw">impl</span> ::<span class="ident">std</span>::<span class="ident">default</span>::<span class="ident">Default</span> <span class="kw">for</span> <span class="ident">ff_periodic_effect</span> {
+    <span class="kw">fn</span> <span class="ident">default</span>() <span class="op">-&gt;</span> <span class="self">Self</span> { <span class="kw">unsafe</span> { ::<span class="ident">std</span>::<span class="ident">mem</span>::<span class="ident">zeroed</span>() } }
 }
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span>
-<span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>ff_rumble_effect</span> {
-    <span class='kw'>pub</span> <span class='ident'>strong_magnitude</span>: <span class='ident'>u16</span>,
-    <span class='kw'>pub</span> <span class='ident'>weak_magnitude</span>: <span class='ident'>u16</span>,
+<span class="attribute">#[<span class="ident">repr</span>(<span class="ident">C</span>)]</span>
+<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Debug</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ff_rumble_effect</span> {
+    <span class="kw">pub</span> <span class="ident">strong_magnitude</span>: <span class="ident">u16</span>,
+    <span class="kw">pub</span> <span class="ident">weak_magnitude</span>: <span class="ident">u16</span>,
 }
-<span class='kw'>impl</span> ::<span class='ident'>std</span>::<span class='ident'>default</span>::<span class='ident'>Default</span> <span class='kw'>for</span> <span class='ident'>ff_rumble_effect</span> {
-    <span class='kw'>fn</span> <span class='ident'>default</span>() <span class='op'>-&gt;</span> <span class='self'>Self</span> { <span class='kw'>unsafe</span> { ::<span class='ident'>std</span>::<span class='ident'>mem</span>::<span class='ident'>zeroed</span>() } }
-}
-
-<span class='macro'>ioctl</span><span class='macro'>!</span>(<span class='ident'>read</span> <span class='ident'>buf</span> <span class='ident'>eviocgname</span> <span class='ident'>with</span> <span class='string'>b&#39;E&#39;</span>, <span class='number'>0x06</span>; <span class='ident'>u8</span>);
-<span class='macro'>ioctl</span><span class='macro'>!</span>(<span class='ident'>read</span> <span class='ident'>buf</span> <span class='ident'>eviocgphys</span> <span class='ident'>with</span> <span class='string'>b&#39;E&#39;</span>, <span class='number'>0x07</span>; <span class='ident'>u8</span>);
-<span class='macro'>ioctl</span><span class='macro'>!</span>(<span class='ident'>read</span> <span class='ident'>buf</span> <span class='ident'>eviocguniq</span> <span class='ident'>with</span> <span class='string'>b&#39;E&#39;</span>, <span class='number'>0x08</span>; <span class='ident'>u8</span>);
-<span class='macro'>ioctl</span><span class='macro'>!</span>(<span class='ident'>read</span> <span class='ident'>buf</span> <span class='ident'>eviocgprop</span> <span class='ident'>with</span> <span class='string'>b&#39;E&#39;</span>, <span class='number'>0x09</span>; <span class='ident'>u8</span>);
-<span class='macro'>ioctl</span><span class='macro'>!</span>(<span class='ident'>read</span> <span class='ident'>buf</span> <span class='ident'>eviocgmtslots</span> <span class='ident'>with</span> <span class='string'>b&#39;E&#39;</span>, <span class='number'>0x0a</span>; <span class='ident'>u8</span>);
-<span class='macro'>ioctl</span><span class='macro'>!</span>(<span class='ident'>read</span> <span class='ident'>buf</span> <span class='ident'>eviocgkey</span> <span class='ident'>with</span> <span class='string'>b&#39;E&#39;</span>, <span class='number'>0x18</span>; <span class='ident'>u8</span>);
-<span class='macro'>ioctl</span><span class='macro'>!</span>(<span class='ident'>read</span> <span class='ident'>buf</span> <span class='ident'>eviocgled</span> <span class='ident'>with</span> <span class='string'>b&#39;E&#39;</span>, <span class='number'>0x19</span>; <span class='ident'>u8</span>);
-<span class='macro'>ioctl</span><span class='macro'>!</span>(<span class='ident'>read</span> <span class='ident'>buf</span> <span class='ident'>eviocgsnd</span> <span class='ident'>with</span> <span class='string'>b&#39;E&#39;</span>, <span class='number'>0x1a</span>; <span class='ident'>u8</span>);
-<span class='macro'>ioctl</span><span class='macro'>!</span>(<span class='ident'>read</span> <span class='ident'>buf</span> <span class='ident'>eviocgsw</span> <span class='ident'>with</span> <span class='string'>b&#39;E&#39;</span>, <span class='number'>0x1b</span>; <span class='ident'>u8</span>);
-
-<span class='macro'>ioctl</span><span class='macro'>!</span>(<span class='ident'>write</span> <span class='ident'>eviocsff</span> <span class='ident'>with</span> <span class='string'>b&#39;E&#39;</span>, <span class='number'>0x80</span>; <span class='ident'>ff_effect</span>);
-<span class='macro'>ioctl</span><span class='macro'>!</span>(<span class='ident'>write</span> <span class='ident'>eviocgrab</span> <span class='ident'>with</span> <span class='string'>b&#39;E&#39;</span>, <span class='number'>0x90</span>; ::<span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>raw</span>::<span class='ident'>c_int</span>);
-<span class='macro'>ioctl</span><span class='macro'>!</span>(<span class='ident'>write</span> <span class='ident'>eviocrevoke</span> <span class='ident'>with</span> <span class='string'>b&#39;E&#39;</span>, <span class='number'>0x91</span>; ::<span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>raw</span>::<span class='ident'>c_int</span>);
-<span class='macro'>ioctl</span><span class='macro'>!</span>(<span class='ident'>write</span> <span class='ident'>eviocsclockid</span> <span class='ident'>with</span> <span class='string'>b&#39;E&#39;</span>, <span class='number'>0xa0</span>; ::<span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>raw</span>::<span class='ident'>c_int</span>);
-
-<span class='kw'>pub</span> <span class='kw'>unsafe</span> <span class='kw'>fn</span> <span class='ident'>eviocgbit</span>(<span class='ident'>fd</span>: ::<span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>raw</span>::<span class='ident'>c_int</span>, <span class='ident'>ev</span>: <span class='ident'>u32</span>, <span class='ident'>len</span>: ::<span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>raw</span>::<span class='ident'>c_int</span>, <span class='ident'>buf</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>u8</span>) <span class='op'>-&gt;</span> ::<span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>raw</span>::<span class='ident'>c_int</span> {
-    ::<span class='ident'>ioctl</span>(<span class='ident'>fd</span>, <span class='macro'>ior</span><span class='macro'>!</span>(<span class='string'>b&#39;E&#39;</span>, <span class='number'>0x20</span> <span class='op'>+</span> <span class='ident'>ev</span>, <span class='ident'>len</span>) <span class='kw'>as</span> ::<span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>raw</span>::<span class='ident'>c_ulong</span>, <span class='ident'>buf</span>)
+<span class="kw">impl</span> ::<span class="ident">std</span>::<span class="ident">default</span>::<span class="ident">Default</span> <span class="kw">for</span> <span class="ident">ff_rumble_effect</span> {
+    <span class="kw">fn</span> <span class="ident">default</span>() <span class="op">-&gt;</span> <span class="self">Self</span> { <span class="kw">unsafe</span> { ::<span class="ident">std</span>::<span class="ident">mem</span>::<span class="ident">zeroed</span>() } }
 }
 
-<span class='kw'>pub</span> <span class='kw'>unsafe</span> <span class='kw'>fn</span> <span class='ident'>eviocgabs</span>(<span class='ident'>fd</span>: ::<span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>raw</span>::<span class='ident'>c_int</span>, <span class='ident'>abs</span>: <span class='ident'>u32</span>, <span class='ident'>buf</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>input_absinfo</span>) <span class='op'>-&gt;</span> ::<span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>raw</span>::<span class='ident'>c_int</span> {
-    ::<span class='ident'>ioctl</span>(<span class='ident'>fd</span>, <span class='macro'>ior</span><span class='macro'>!</span>(<span class='string'>b&#39;E&#39;</span>, <span class='number'>0x40</span> <span class='op'>+</span> <span class='ident'>abs</span>, ::<span class='ident'>std</span>::<span class='ident'>mem</span>::<span class='ident'>size_of</span>::<span class='op'>&lt;</span><span class='ident'>input_absinfo</span><span class='op'>&gt;</span>()) <span class='kw'>as</span> ::<span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>raw</span>::<span class='ident'>c_ulong</span>, <span class='ident'>buf</span>)
+<span class="macro">ioctl</span><span class="macro">!</span>(<span class="ident">read</span> <span class="ident">buf</span> <span class="ident">eviocgname</span> <span class="ident">with</span> <span class="string">b&#39;E&#39;</span>, <span class="number">0x06</span>; <span class="ident">u8</span>);
+<span class="macro">ioctl</span><span class="macro">!</span>(<span class="ident">read</span> <span class="ident">buf</span> <span class="ident">eviocgphys</span> <span class="ident">with</span> <span class="string">b&#39;E&#39;</span>, <span class="number">0x07</span>; <span class="ident">u8</span>);
+<span class="macro">ioctl</span><span class="macro">!</span>(<span class="ident">read</span> <span class="ident">buf</span> <span class="ident">eviocguniq</span> <span class="ident">with</span> <span class="string">b&#39;E&#39;</span>, <span class="number">0x08</span>; <span class="ident">u8</span>);
+<span class="macro">ioctl</span><span class="macro">!</span>(<span class="ident">read</span> <span class="ident">buf</span> <span class="ident">eviocgprop</span> <span class="ident">with</span> <span class="string">b&#39;E&#39;</span>, <span class="number">0x09</span>; <span class="ident">u8</span>);
+<span class="macro">ioctl</span><span class="macro">!</span>(<span class="ident">read</span> <span class="ident">buf</span> <span class="ident">eviocgmtslots</span> <span class="ident">with</span> <span class="string">b&#39;E&#39;</span>, <span class="number">0x0a</span>; <span class="ident">u8</span>);
+<span class="macro">ioctl</span><span class="macro">!</span>(<span class="ident">read</span> <span class="ident">buf</span> <span class="ident">eviocgkey</span> <span class="ident">with</span> <span class="string">b&#39;E&#39;</span>, <span class="number">0x18</span>; <span class="ident">u8</span>);
+<span class="macro">ioctl</span><span class="macro">!</span>(<span class="ident">read</span> <span class="ident">buf</span> <span class="ident">eviocgled</span> <span class="ident">with</span> <span class="string">b&#39;E&#39;</span>, <span class="number">0x19</span>; <span class="ident">u8</span>);
+<span class="macro">ioctl</span><span class="macro">!</span>(<span class="ident">read</span> <span class="ident">buf</span> <span class="ident">eviocgsnd</span> <span class="ident">with</span> <span class="string">b&#39;E&#39;</span>, <span class="number">0x1a</span>; <span class="ident">u8</span>);
+<span class="macro">ioctl</span><span class="macro">!</span>(<span class="ident">read</span> <span class="ident">buf</span> <span class="ident">eviocgsw</span> <span class="ident">with</span> <span class="string">b&#39;E&#39;</span>, <span class="number">0x1b</span>; <span class="ident">u8</span>);
+
+<span class="macro">ioctl</span><span class="macro">!</span>(<span class="ident">write</span> <span class="ident">eviocsff</span> <span class="ident">with</span> <span class="string">b&#39;E&#39;</span>, <span class="number">0x80</span>; <span class="ident">ff_effect</span>);
+<span class="macro">ioctl</span><span class="macro">!</span>(<span class="ident">write</span> <span class="ident">eviocgrab</span> <span class="ident">with</span> <span class="string">b&#39;E&#39;</span>, <span class="number">0x90</span>; ::<span class="ident">std</span>::<span class="ident">os</span>::<span class="ident">raw</span>::<span class="ident">c_int</span>);
+<span class="macro">ioctl</span><span class="macro">!</span>(<span class="ident">write</span> <span class="ident">eviocrevoke</span> <span class="ident">with</span> <span class="string">b&#39;E&#39;</span>, <span class="number">0x91</span>; ::<span class="ident">std</span>::<span class="ident">os</span>::<span class="ident">raw</span>::<span class="ident">c_int</span>);
+<span class="macro">ioctl</span><span class="macro">!</span>(<span class="ident">write</span> <span class="ident">eviocsclockid</span> <span class="ident">with</span> <span class="string">b&#39;E&#39;</span>, <span class="number">0xa0</span>; ::<span class="ident">std</span>::<span class="ident">os</span>::<span class="ident">raw</span>::<span class="ident">c_int</span>);
+
+<span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">eviocgbit</span>(<span class="ident">fd</span>: ::<span class="ident">std</span>::<span class="ident">os</span>::<span class="ident">raw</span>::<span class="ident">c_int</span>, <span class="ident">ev</span>: <span class="ident">u32</span>, <span class="ident">len</span>: ::<span class="ident">std</span>::<span class="ident">os</span>::<span class="ident">raw</span>::<span class="ident">c_int</span>, <span class="ident">buf</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u8</span>) <span class="op">-&gt;</span> ::<span class="ident">std</span>::<span class="ident">os</span>::<span class="ident">raw</span>::<span class="ident">c_int</span> {
+    ::<span class="ident">ioctl</span>(<span class="ident">fd</span>, <span class="macro">ior</span><span class="macro">!</span>(<span class="string">b&#39;E&#39;</span>, <span class="number">0x20</span> <span class="op">+</span> <span class="ident">ev</span>, <span class="ident">len</span>) <span class="kw">as</span> ::<span class="ident">std</span>::<span class="ident">os</span>::<span class="ident">raw</span>::<span class="ident">c_ulong</span>, <span class="ident">buf</span>)
 }
 
-<span class='macro'>ioctl</span><span class='macro'>!</span>(<span class='ident'>bad</span> <span class='ident'>write</span> <span class='ident'>blkroset</span> <span class='ident'>with</span> <span class='macro'>io</span><span class='macro'>!</span>(<span class='number'>0x12</span>, <span class='number'>93</span>); ::<span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>raw</span>::<span class='ident'>c_int</span>);
-<span class='macro'>ioctl</span><span class='macro'>!</span>(<span class='ident'>bad</span> <span class='ident'>read</span> <span class='ident'>blkroget</span> <span class='ident'>with</span> <span class='macro'>io</span><span class='macro'>!</span>(<span class='number'>0x12</span>, <span class='number'>94</span>); ::<span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>raw</span>::<span class='ident'>c_int</span>);
-<span class='macro'>ioctl</span><span class='macro'>!</span>(<span class='ident'>none</span> <span class='ident'>blkrrpart</span> <span class='ident'>with</span> <span class='number'>0x12</span>, <span class='number'>95</span>);
-<span class='macro'>ioctl</span><span class='macro'>!</span>(<span class='ident'>bad</span> <span class='ident'>read</span> <span class='ident'>blkgetsize</span> <span class='ident'>with</span> <span class='macro'>io</span><span class='macro'>!</span>(<span class='number'>0x12</span>, <span class='number'>96</span>); ::<span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>raw</span>::<span class='ident'>c_ulong</span>);
-<span class='macro'>ioctl</span><span class='macro'>!</span>(<span class='ident'>none</span> <span class='ident'>blkflsbuf</span> <span class='ident'>with</span> <span class='number'>0x12</span>, <span class='number'>97</span>);
-<span class='macro'>ioctl</span><span class='macro'>!</span>(<span class='ident'>arg</span>  <span class='ident'>blkraset</span> <span class='ident'>with</span> <span class='number'>0x12</span>, <span class='number'>98</span>);
-<span class='macro'>ioctl</span><span class='macro'>!</span>(<span class='ident'>bad</span> <span class='ident'>read</span> <span class='ident'>blkraget</span> <span class='ident'>with</span> <span class='macro'>io</span><span class='macro'>!</span>(<span class='number'>0x12</span>, <span class='number'>99</span>); ::<span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>raw</span>::<span class='ident'>c_long</span>);
-<span class='macro'>ioctl</span><span class='macro'>!</span>(<span class='ident'>arg</span>  <span class='ident'>blkfraset</span> <span class='ident'>with</span> <span class='number'>0x12</span>, <span class='number'>100</span>);
-<span class='macro'>ioctl</span><span class='macro'>!</span>(<span class='ident'>bad</span> <span class='ident'>read</span> <span class='ident'>blkfraget</span> <span class='ident'>with</span> <span class='macro'>io</span><span class='macro'>!</span>(<span class='number'>0x12</span>, <span class='number'>101</span>); ::<span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>raw</span>::<span class='ident'>c_long</span>);
-<span class='comment'>// ioctl!(bad blksectset with io!(0x12, 102));</span>
-<span class='macro'>ioctl</span><span class='macro'>!</span>(<span class='ident'>bad</span> <span class='ident'>read</span> <span class='ident'>blksectget</span> <span class='ident'>with</span> <span class='macro'>io</span><span class='macro'>!</span>(<span class='number'>0x12</span>, <span class='number'>103</span>); ::<span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>raw</span>::<span class='ident'>c_ushort</span>);
-<span class='macro'>ioctl</span><span class='macro'>!</span>(<span class='ident'>bad</span> <span class='ident'>read</span> <span class='ident'>blksszget</span> <span class='ident'>with</span> <span class='macro'>io</span><span class='macro'>!</span>(<span class='number'>0x12</span>, <span class='number'>104</span>); ::<span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>raw</span>::<span class='ident'>c_int</span>);
-<span class='macro'>ioctl</span><span class='macro'>!</span>(<span class='ident'>bad</span> <span class='ident'>read</span> <span class='ident'>blkbszget</span> <span class='ident'>with</span> <span class='macro'>ior</span><span class='macro'>!</span>(<span class='number'>0x12</span>, <span class='number'>112</span>, ::<span class='ident'>std</span>::<span class='ident'>mem</span>::<span class='ident'>size_of</span>::<span class='op'>&lt;</span>::<span class='ident'>libc</span>::<span class='ident'>size_t</span><span class='op'>&gt;</span>()); ::<span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>raw</span>::<span class='ident'>c_int</span>);
-<span class='macro'>ioctl</span><span class='macro'>!</span>(<span class='ident'>bad</span> <span class='ident'>write</span> <span class='ident'>blkbszset</span> <span class='ident'>with</span> <span class='macro'>iow</span><span class='macro'>!</span>(<span class='number'>0x12</span>, <span class='number'>113</span>, ::<span class='ident'>std</span>::<span class='ident'>mem</span>::<span class='ident'>size_of</span>::<span class='op'>&lt;</span>::<span class='ident'>libc</span>::<span class='ident'>size_t</span><span class='op'>&gt;</span>()); ::<span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>raw</span>::<span class='ident'>c_int</span>);
-<span class='macro'>ioctl</span><span class='macro'>!</span>(<span class='ident'>bad</span> <span class='ident'>read</span> <span class='ident'>blkgetsize64</span> <span class='ident'>with</span> <span class='macro'>ior</span><span class='macro'>!</span>(<span class='number'>0x12</span>, <span class='number'>114</span>, ::<span class='ident'>std</span>::<span class='ident'>mem</span>::<span class='ident'>size_of</span>::<span class='op'>&lt;</span>::<span class='ident'>libc</span>::<span class='ident'>size_t</span><span class='op'>&gt;</span>()); <span class='ident'>u64</span>);
-<span class='comment'>//ioctl!(readwrite blktracesetup with 0x12, 115; blk_user_trace_setup);</span>
-<span class='macro'>ioctl</span><span class='macro'>!</span>(<span class='ident'>none</span> <span class='ident'>blktracestart</span> <span class='ident'>with</span> <span class='number'>0x12</span>, <span class='number'>116</span>);
-<span class='macro'>ioctl</span><span class='macro'>!</span>(<span class='ident'>none</span> <span class='ident'>blktracestop</span> <span class='ident'>with</span> <span class='number'>0x12</span>, <span class='number'>117</span>);
-<span class='macro'>ioctl</span><span class='macro'>!</span>(<span class='ident'>none</span> <span class='ident'>blktraceteardown</span> <span class='ident'>with</span> <span class='number'>0x12</span>, <span class='number'>118</span>);
-<span class='macro'>ioctl</span><span class='macro'>!</span>(<span class='ident'>bad</span> <span class='ident'>write</span> <span class='ident'>blkdiscard</span> <span class='ident'>with</span> <span class='macro'>io</span><span class='macro'>!</span>(<span class='number'>0x12</span>, <span class='number'>119</span>); [<span class='ident'>u64</span>; <span class='number'>2</span>]);
-<span class='macro'>ioctl</span><span class='macro'>!</span>(<span class='ident'>bad</span> <span class='ident'>read</span> <span class='ident'>blkiomin</span> <span class='ident'>with</span> <span class='macro'>io</span><span class='macro'>!</span>(<span class='number'>0x12</span>, <span class='number'>120</span>); ::<span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>raw</span>::<span class='ident'>c_uint</span>);
-<span class='macro'>ioctl</span><span class='macro'>!</span>(<span class='ident'>bad</span> <span class='ident'>read</span> <span class='ident'>blkioopt</span> <span class='ident'>with</span> <span class='macro'>io</span><span class='macro'>!</span>(<span class='number'>0x12</span>, <span class='number'>121</span>); ::<span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>raw</span>::<span class='ident'>c_uint</span>);
-<span class='macro'>ioctl</span><span class='macro'>!</span>(<span class='ident'>bad</span> <span class='ident'>read</span> <span class='ident'>blkalignoff</span> <span class='ident'>with</span> <span class='macro'>io</span><span class='macro'>!</span>(<span class='number'>0x12</span>, <span class='number'>122</span>); ::<span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>raw</span>::<span class='ident'>c_int</span>);
-<span class='macro'>ioctl</span><span class='macro'>!</span>(<span class='ident'>bad</span> <span class='ident'>read</span> <span class='ident'>blkpbszget</span> <span class='ident'>with</span> <span class='macro'>io</span><span class='macro'>!</span>(<span class='number'>0x12</span>, <span class='number'>123</span>); ::<span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>raw</span>::<span class='ident'>c_uint</span>);
-<span class='macro'>ioctl</span><span class='macro'>!</span>(<span class='ident'>bad</span> <span class='ident'>read</span> <span class='ident'>blkdiscardzeros</span> <span class='ident'>with</span> <span class='macro'>io</span><span class='macro'>!</span>(<span class='number'>0x12</span>, <span class='number'>124</span>); ::<span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>raw</span>::<span class='ident'>c_uint</span>);
-<span class='macro'>ioctl</span><span class='macro'>!</span>(<span class='ident'>bad</span> <span class='ident'>write</span> <span class='ident'>blksecdiscard</span> <span class='ident'>with</span> <span class='macro'>io</span><span class='macro'>!</span>(<span class='number'>0x12</span>, <span class='number'>125</span>); [<span class='ident'>u64</span>; <span class='number'>2</span>]);
-<span class='macro'>ioctl</span><span class='macro'>!</span>(<span class='ident'>bad</span> <span class='ident'>read</span> <span class='ident'>blkrotational</span> <span class='ident'>with</span> <span class='macro'>io</span><span class='macro'>!</span>(<span class='number'>0x12</span>, <span class='number'>126</span>); ::<span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>raw</span>::<span class='ident'>c_ushort</span>);
-<span class='macro'>ioctl</span><span class='macro'>!</span>(<span class='ident'>bad</span> <span class='ident'>write</span> <span class='ident'>blkzeroout</span> <span class='ident'>with</span> <span class='macro'>io</span><span class='macro'>!</span>(<span class='number'>0x12</span>, <span class='number'>127</span>); [<span class='ident'>u64</span>; <span class='number'>2</span>]);
+<span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">eviocgabs</span>(<span class="ident">fd</span>: ::<span class="ident">std</span>::<span class="ident">os</span>::<span class="ident">raw</span>::<span class="ident">c_int</span>, <span class="ident">abs</span>: <span class="ident">u32</span>, <span class="ident">buf</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">input_absinfo</span>) <span class="op">-&gt;</span> ::<span class="ident">std</span>::<span class="ident">os</span>::<span class="ident">raw</span>::<span class="ident">c_int</span> {
+    ::<span class="ident">ioctl</span>(<span class="ident">fd</span>, <span class="macro">ior</span><span class="macro">!</span>(<span class="string">b&#39;E&#39;</span>, <span class="number">0x40</span> <span class="op">+</span> <span class="ident">abs</span>, ::<span class="ident">std</span>::<span class="ident">mem</span>::<span class="ident">size_of</span>::<span class="op">&lt;</span><span class="ident">input_absinfo</span><span class="op">&gt;</span>()) <span class="kw">as</span> ::<span class="ident">std</span>::<span class="ident">os</span>::<span class="ident">raw</span>::<span class="ident">c_ulong</span>, <span class="ident">buf</span>)
+}
 
-<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span> <span class='op'>=</span> <span class='string'>&quot;x86_64&quot;</span>)]</span>
-<span class='macro'>include</span><span class='macro'>!</span>(<span class='string'>&quot;linux-generated-x86_64.rs&quot;</span>);
+<span class="macro">ioctl</span><span class="macro">!</span>(<span class="ident">bad</span> <span class="ident">write</span> <span class="ident">blkroset</span> <span class="ident">with</span> <span class="macro">io</span><span class="macro">!</span>(<span class="number">0x12</span>, <span class="number">93</span>); ::<span class="ident">std</span>::<span class="ident">os</span>::<span class="ident">raw</span>::<span class="ident">c_int</span>);
+<span class="macro">ioctl</span><span class="macro">!</span>(<span class="ident">bad</span> <span class="ident">read</span> <span class="ident">blkroget</span> <span class="ident">with</span> <span class="macro">io</span><span class="macro">!</span>(<span class="number">0x12</span>, <span class="number">94</span>); ::<span class="ident">std</span>::<span class="ident">os</span>::<span class="ident">raw</span>::<span class="ident">c_int</span>);
+<span class="macro">ioctl</span><span class="macro">!</span>(<span class="ident">none</span> <span class="ident">blkrrpart</span> <span class="ident">with</span> <span class="number">0x12</span>, <span class="number">95</span>);
+<span class="macro">ioctl</span><span class="macro">!</span>(<span class="ident">bad</span> <span class="ident">read</span> <span class="ident">blkgetsize</span> <span class="ident">with</span> <span class="macro">io</span><span class="macro">!</span>(<span class="number">0x12</span>, <span class="number">96</span>); ::<span class="ident">std</span>::<span class="ident">os</span>::<span class="ident">raw</span>::<span class="ident">c_ulong</span>);
+<span class="macro">ioctl</span><span class="macro">!</span>(<span class="ident">none</span> <span class="ident">blkflsbuf</span> <span class="ident">with</span> <span class="number">0x12</span>, <span class="number">97</span>);
+<span class="macro">ioctl</span><span class="macro">!</span>(<span class="ident">arg</span>  <span class="ident">blkraset</span> <span class="ident">with</span> <span class="number">0x12</span>, <span class="number">98</span>);
+<span class="macro">ioctl</span><span class="macro">!</span>(<span class="ident">bad</span> <span class="ident">read</span> <span class="ident">blkraget</span> <span class="ident">with</span> <span class="macro">io</span><span class="macro">!</span>(<span class="number">0x12</span>, <span class="number">99</span>); ::<span class="ident">std</span>::<span class="ident">os</span>::<span class="ident">raw</span>::<span class="ident">c_long</span>);
+<span class="macro">ioctl</span><span class="macro">!</span>(<span class="ident">arg</span>  <span class="ident">blkfraset</span> <span class="ident">with</span> <span class="number">0x12</span>, <span class="number">100</span>);
+<span class="macro">ioctl</span><span class="macro">!</span>(<span class="ident">bad</span> <span class="ident">read</span> <span class="ident">blkfraget</span> <span class="ident">with</span> <span class="macro">io</span><span class="macro">!</span>(<span class="number">0x12</span>, <span class="number">101</span>); ::<span class="ident">std</span>::<span class="ident">os</span>::<span class="ident">raw</span>::<span class="ident">c_long</span>);
+<span class="comment">// ioctl!(bad blksectset with io!(0x12, 102));</span>
+<span class="macro">ioctl</span><span class="macro">!</span>(<span class="ident">bad</span> <span class="ident">read</span> <span class="ident">blksectget</span> <span class="ident">with</span> <span class="macro">io</span><span class="macro">!</span>(<span class="number">0x12</span>, <span class="number">103</span>); ::<span class="ident">std</span>::<span class="ident">os</span>::<span class="ident">raw</span>::<span class="ident">c_ushort</span>);
+<span class="macro">ioctl</span><span class="macro">!</span>(<span class="ident">bad</span> <span class="ident">read</span> <span class="ident">blksszget</span> <span class="ident">with</span> <span class="macro">io</span><span class="macro">!</span>(<span class="number">0x12</span>, <span class="number">104</span>); ::<span class="ident">std</span>::<span class="ident">os</span>::<span class="ident">raw</span>::<span class="ident">c_int</span>);
+<span class="macro">ioctl</span><span class="macro">!</span>(<span class="ident">bad</span> <span class="ident">read</span> <span class="ident">blkbszget</span> <span class="ident">with</span> <span class="macro">ior</span><span class="macro">!</span>(<span class="number">0x12</span>, <span class="number">112</span>, ::<span class="ident">std</span>::<span class="ident">mem</span>::<span class="ident">size_of</span>::<span class="op">&lt;</span>::<span class="ident">libc</span>::<span class="ident">size_t</span><span class="op">&gt;</span>()); ::<span class="ident">std</span>::<span class="ident">os</span>::<span class="ident">raw</span>::<span class="ident">c_int</span>);
+<span class="macro">ioctl</span><span class="macro">!</span>(<span class="ident">bad</span> <span class="ident">write</span> <span class="ident">blkbszset</span> <span class="ident">with</span> <span class="macro">iow</span><span class="macro">!</span>(<span class="number">0x12</span>, <span class="number">113</span>, ::<span class="ident">std</span>::<span class="ident">mem</span>::<span class="ident">size_of</span>::<span class="op">&lt;</span>::<span class="ident">libc</span>::<span class="ident">size_t</span><span class="op">&gt;</span>()); ::<span class="ident">std</span>::<span class="ident">os</span>::<span class="ident">raw</span>::<span class="ident">c_int</span>);
+<span class="macro">ioctl</span><span class="macro">!</span>(<span class="ident">bad</span> <span class="ident">read</span> <span class="ident">blkgetsize64</span> <span class="ident">with</span> <span class="macro">ior</span><span class="macro">!</span>(<span class="number">0x12</span>, <span class="number">114</span>, ::<span class="ident">std</span>::<span class="ident">mem</span>::<span class="ident">size_of</span>::<span class="op">&lt;</span>::<span class="ident">libc</span>::<span class="ident">size_t</span><span class="op">&gt;</span>()); <span class="ident">u64</span>);
+<span class="comment">//ioctl!(readwrite blktracesetup with 0x12, 115; blk_user_trace_setup);</span>
+<span class="macro">ioctl</span><span class="macro">!</span>(<span class="ident">none</span> <span class="ident">blktracestart</span> <span class="ident">with</span> <span class="number">0x12</span>, <span class="number">116</span>);
+<span class="macro">ioctl</span><span class="macro">!</span>(<span class="ident">none</span> <span class="ident">blktracestop</span> <span class="ident">with</span> <span class="number">0x12</span>, <span class="number">117</span>);
+<span class="macro">ioctl</span><span class="macro">!</span>(<span class="ident">none</span> <span class="ident">blktraceteardown</span> <span class="ident">with</span> <span class="number">0x12</span>, <span class="number">118</span>);
+<span class="macro">ioctl</span><span class="macro">!</span>(<span class="ident">bad</span> <span class="ident">write</span> <span class="ident">blkdiscard</span> <span class="ident">with</span> <span class="macro">io</span><span class="macro">!</span>(<span class="number">0x12</span>, <span class="number">119</span>); [<span class="ident">u64</span>; <span class="number">2</span>]);
+<span class="macro">ioctl</span><span class="macro">!</span>(<span class="ident">bad</span> <span class="ident">read</span> <span class="ident">blkiomin</span> <span class="ident">with</span> <span class="macro">io</span><span class="macro">!</span>(<span class="number">0x12</span>, <span class="number">120</span>); ::<span class="ident">std</span>::<span class="ident">os</span>::<span class="ident">raw</span>::<span class="ident">c_uint</span>);
+<span class="macro">ioctl</span><span class="macro">!</span>(<span class="ident">bad</span> <span class="ident">read</span> <span class="ident">blkioopt</span> <span class="ident">with</span> <span class="macro">io</span><span class="macro">!</span>(<span class="number">0x12</span>, <span class="number">121</span>); ::<span class="ident">std</span>::<span class="ident">os</span>::<span class="ident">raw</span>::<span class="ident">c_uint</span>);
+<span class="macro">ioctl</span><span class="macro">!</span>(<span class="ident">bad</span> <span class="ident">read</span> <span class="ident">blkalignoff</span> <span class="ident">with</span> <span class="macro">io</span><span class="macro">!</span>(<span class="number">0x12</span>, <span class="number">122</span>); ::<span class="ident">std</span>::<span class="ident">os</span>::<span class="ident">raw</span>::<span class="ident">c_int</span>);
+<span class="macro">ioctl</span><span class="macro">!</span>(<span class="ident">bad</span> <span class="ident">read</span> <span class="ident">blkpbszget</span> <span class="ident">with</span> <span class="macro">io</span><span class="macro">!</span>(<span class="number">0x12</span>, <span class="number">123</span>); ::<span class="ident">std</span>::<span class="ident">os</span>::<span class="ident">raw</span>::<span class="ident">c_uint</span>);
+<span class="macro">ioctl</span><span class="macro">!</span>(<span class="ident">bad</span> <span class="ident">read</span> <span class="ident">blkdiscardzeros</span> <span class="ident">with</span> <span class="macro">io</span><span class="macro">!</span>(<span class="number">0x12</span>, <span class="number">124</span>); ::<span class="ident">std</span>::<span class="ident">os</span>::<span class="ident">raw</span>::<span class="ident">c_uint</span>);
+<span class="macro">ioctl</span><span class="macro">!</span>(<span class="ident">bad</span> <span class="ident">write</span> <span class="ident">blksecdiscard</span> <span class="ident">with</span> <span class="macro">io</span><span class="macro">!</span>(<span class="number">0x12</span>, <span class="number">125</span>); [<span class="ident">u64</span>; <span class="number">2</span>]);
+<span class="macro">ioctl</span><span class="macro">!</span>(<span class="ident">bad</span> <span class="ident">read</span> <span class="ident">blkrotational</span> <span class="ident">with</span> <span class="macro">io</span><span class="macro">!</span>(<span class="number">0x12</span>, <span class="number">126</span>); ::<span class="ident">std</span>::<span class="ident">os</span>::<span class="ident">raw</span>::<span class="ident">c_ushort</span>);
+<span class="macro">ioctl</span><span class="macro">!</span>(<span class="ident">bad</span> <span class="ident">write</span> <span class="ident">blkzeroout</span> <span class="ident">with</span> <span class="macro">io</span><span class="macro">!</span>(<span class="number">0x12</span>, <span class="number">127</span>); [<span class="ident">u64</span>; <span class="number">2</span>]);
+
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_arch</span> <span class="op">=</span> <span class="string">&quot;x86_64&quot;</span>)]</span>
+<span class="macro">include</span><span class="macro">!</span>(<span class="string">&quot;linux-generated-x86_64.rs&quot;</span>);
 </pre>
 </section>
     <section id='search' class="content hidden"></section>
