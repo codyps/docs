@@ -9,6 +9,7 @@
 
     <title>leak::Leak - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../normalize.css">
     <link rel="stylesheet" type="text/css" href="../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../main.css">
     
@@ -49,7 +50,7 @@
                    </a>
                </span><a class='srclink' href='../src/leak/lib.rs.html#16-18' title='goto source code'>[src]</a></span></h1>
 <pre class='rust trait'>pub trait Leak&lt;T:&nbsp;?<a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a>&gt; {
-    fn <a href='#tymethod.leak' class='fnname'>leak</a>&lt;'a&gt;(self) -&gt; &amp;'a mut T <span class='where'>where T: 'a</span>;
+    fn <a href='#tymethod.leak' class='fnname'>leak</a>&lt;'a&gt;(self) -&gt; &amp;'a mut T <span class='where fmt-newline'>where T: 'a</span>;
 }</pre><div class='docblock'><p>Leak a piece of data by never calling its destructor</p>
 
 <p>Useful for things that are going to be used for the life of the program, but aren&#39;t technically
@@ -66,7 +67,7 @@ configuration/data read at program start).</p>
 </div>
             <h2 id='required-methods'>Required Methods</h2>
             <div class='methods'>
-        <h3 id='tymethod.leak' class='method stab '><span id='leak.v' class='invisible'><code>fn <a href='#tymethod.leak' class='fnname'>leak</a>&lt;'a&gt;(self) -&gt; &amp;'a mut T <span class='where'>where T: 'a</span></code></span></h3></div>
+        <h3 id='tymethod.leak' class='method'><span id='leak.v' class='invisible'><code>fn <a href='#tymethod.leak' class='fnname'>leak</a>&lt;'a&gt;(self) -&gt; &amp;'a mut T <span class='where fmt-newline'>where T: 'a</span></code></span></h3></div>
         <h2 id='implementors'>Implementors</h2>
         <ul class='item-list' id='implementors-list'>
     <li><code>impl&lt;T:&nbsp;?<a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a>&gt; Leak&lt;T&gt; for <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html' title='alloc::boxed::Box'>Box</a>&lt;T&gt;</code></li>
