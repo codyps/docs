@@ -9,6 +9,7 @@
 
     <title>systemd::bus::InterfaceName - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
     
@@ -98,7 +99,7 @@ behaviour when <code>ptr</code> is used inside the <code>unsafe</code> block:</p
 <span class='kw'>let</span> <span class='ident'>ptr</span> <span class='op'>=</span> <span class='ident'>CString</span>::<span class='ident'>new</span>(<span class='string'>&quot;Hello&quot;</span>).<span class='ident'>unwrap</span>().<span class='ident'>as_ptr</span>();
 <span class='kw'>unsafe</span> {
     <span class='comment'>// `ptr` is dangling</span>
-    <span class='op'>*</span><span class='ident'>ptr</span>;
+    <span class='kw-2'>*</span><span class='ident'>ptr</span>;
 }</pre>
 
 <p>This happens because the pointer returned by <code>as_ptr</code> does not carry any
@@ -113,7 +114,7 @@ To fix the problem, bind the string to a local variable:</p>
 <span class='kw'>let</span> <span class='ident'>ptr</span> <span class='op'>=</span> <span class='ident'>hello</span>.<span class='ident'>as_ptr</span>();
 <span class='kw'>unsafe</span> {
     <span class='comment'>// `ptr` is valid because `hello` is in scope</span>
-    <span class='op'>*</span><span class='ident'>ptr</span>;
+    <span class='kw-2'>*</span><span class='ident'>ptr</span>;
 }</pre>
 </div><h4 id='method.to_bytes' class='method'><span id='to_bytes.v' class='invisible'><code>fn <a href='#method.to_bytes' class='fnname'>to_bytes</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a></code><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div></span></h4>
 <div class='docblock'><p>Converts this C string to a byte slice.</p>
