@@ -9,6 +9,7 @@
 
     <title>linux.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../../main.css">
     
@@ -147,7 +148,7 @@
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>unix</span>::<span class='ident'>io</span>::{<span class='ident'>AsRawFd</span>,<span class='ident'>IntoRawFd</span>,<span class='ident'>FromRawFd</span>,<span class='ident'>RawFd</span>};
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>unix</span>::<span class='ident'>fs</span>::<span class='ident'>FileTypeExt</span>;
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>raw</span>::{<span class='ident'>c_int</span>};
-<span class='kw'>use</span> <span class='kw'>super</span>::<span class='kw'>super</span>::<span class='op'>*</span>;
+<span class='kw'>use</span> <span class='kw'>super</span>::<span class='kw'>super</span>::<span class='kw-2'>*</span>;
 
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>BlockDev</span> {
     <span class='comment'>// TODO: consider generalizing for other AsRawFd types</span>
