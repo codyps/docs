@@ -51,20 +51,7 @@
                </span><a class='srclink' href='../src/leak/lib.rs.html#16-18' title='goto source code'>[src]</a></span></h1>
 <pre class='rust trait'>pub trait Leak&lt;T:&nbsp;?<a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a>&gt; {
     fn <a href='#tymethod.leak' class='fnname'>leak</a>&lt;'a&gt;(self) -&gt; &amp;'a mut T <span class="where fmt-newline">where T: 'a</span>;
-}</pre><div class='docblock'><p>Leak a piece of data by never calling its destructor</p>
-
-<p>Useful for things that are going to be used for the life of the program, but aren&#39;t technically
-static (because they are created in response to arguments, environment, or other
-configuration/data read at program start).</p>
-
-<p>This is a modified version of the proposed rfc: <a href="https://github.com/rust-lang/rfcs/pull/1233">https://github.com/rust-lang/rfcs/pull/1233</a></p>
-
-<p>Notable changes:</p>
-
-<ul>
-<li>for convenience, leak() is a non-static method</li>
-</ul>
-</div>
+}</pre><div class='docblock'><p>Leak a piece of data by never calling its destructor</p><p>Useful for things that are going to be used for the life of the program, but aren&#39;t technically static (because they are created in response to arguments, environment, or other configuration/data read at program start).</p><p>This is a modified version of the proposed rfc: https://github.com/rust-lang/rfcs/pull/1233</p><p>Notable changes:</p><ul><li>for convenience, leak() is a non-static method</li></ul></div>
             <h2 id='required-methods'>Required Methods</h2>
             <div class='methods'>
         <h3 id='tymethod.leak' class='method'><span id='leak.v' class='invisible'><code>fn <a href='#tymethod.leak' class='fnname'>leak</a>&lt;'a&gt;(self) -&gt; &amp;'a mut T <span class="where fmt-newline">where T: 'a</span></code></span></h3></div>
