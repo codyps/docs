@@ -53,14 +53,7 @@
 <span class="macro">macro_rules</span><span class="macro">!</span> <span class="ident">sd_try</span> {
     (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">e</span>:<span class="ident">expr</span>) <span class="op">=&gt;</span> { ... };
 }</pre>
-<div class='docblock'><p>An analogue of <code>try!()</code> for systemd FFI calls.</p>
-
-<p>The parameter should be a call to a systemd FFI fn with an c_int return
-value. It is called, and if the return is negative then <code>sd_try!()</code>
-interprets it as an error code and returns IoError from the enclosing fn.
-Otherwise, the value of <code>sd_try!()</code> is the non-negative value returned by
-the FFI call.</p>
-</div></section>
+<div class='docblock'><p>An analogue of <code>try!()</code> for systemd FFI calls.</p><p>The parameter should be a call to a systemd FFI fn with an c_int return value. It is called, and if the return is negative then <code>sd_try!()</code> interprets it as an error code and returns IoError from the enclosing fn. Otherwise, the value of <code>sd_try!()</code> is the non-negative value returned by the FFI call.</p></div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
