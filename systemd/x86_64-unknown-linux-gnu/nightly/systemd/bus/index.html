@@ -49,13 +49,23 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../../src/systemd/bus/mod.rs.html#1-1399' title='goto source code'>[src]</a></span></h1>
-<div class='docblock'><p>An interface to work with the dbus message bus.</p><p>WARNING: this is not complete. Right now we&#39;re missing:</p><ul><li>message encoding/decoding</li><li>server support</li><li>async client support</li></ul><p>In short, the only functional thing is issuing blocking dbus calls with pre-populated messages and writing custom ffi decoders of the message replies.</p></div><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+<div class='docblock'><p>An interface to work with the dbus message bus.</p>
+<p>WARNING: this is not complete. Right now we're missing:</p>
+<ul>
+<li>message encoding/decoding</li>
+<li>server support</li>
+<li>async client support</li>
+</ul>
+<p>In short, the only functional thing is issuing blocking dbus calls with pre-populated messages
+and writing custom ffi decoders of the message replies.</p>
+</div><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
 <table>
                        <tr class=' module-item'>
                            <td><a class="mod" href="types/index.html"
                                   title='mod systemd::bus::types'>types</a></td>
                            <td class='docblock-short'>
                                 <p>Define a mechanism for converting types to messages and messages to types</p>
+
                            </td>
                        </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
@@ -92,6 +102,7 @@
                                   title='struct systemd::bus::InterfaceName'>InterfaceName</a></td>
                            <td class='docblock-short'>
                                 <p>A wrapper which promises it always holds a validated dbus interface name</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -106,6 +117,7 @@
                                   title='struct systemd::bus::Message'>Message</a></td>
                            <td class='docblock-short'>
                                 <p>A message to be sent or that was recieved over dbus</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -113,6 +125,7 @@
                                   title='struct systemd::bus::MessageIter'>MessageIter</a></td>
                            <td class='docblock-short'>
                                 <p>An iterator over the elements of a <code>Message</code>, use this to read data out of a message.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -120,6 +133,7 @@
                                   title='struct systemd::bus::MessageRef'>MessageRef</a></td>
                            <td class='docblock-short'>
                                 <p>A reference to a <code>Message</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -127,6 +141,7 @@
                                   title='struct systemd::bus::ObjectPath'>ObjectPath</a></td>
                            <td class='docblock-short'>
                                 <p>A wrapper which promises it always holds a valid dbus object path</p>
+
                            </td>
                        </tr></table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
 <table>
@@ -134,7 +149,9 @@
                            <td><a class="type" href="type.Result.html"
                                   title='type systemd::bus::Result'>Result</a></td>
                            <td class='docblock-short'>
-                                <p>Result type for dbus calls that contains errors returned by remote services (and local errors as well).</p>
+                                <p>Result type for dbus calls that contains errors returned by remote services (and local errors as
+well).</p>
+
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>
