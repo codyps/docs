@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/mbox-0.1.4/src/placer.rs`.">
+    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/mbox-0.2.0/src/placer.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>placer.rs.html -- source</title>
@@ -151,6 +151,7 @@
 <span id="106">106</span>
 <span id="107">107</span>
 <span id="108">108</span>
+<span id="109">109</span>
 </pre><pre class="rust ">
 <span class="doccomment">//! Placement-new support.</span>
 <span class="doccomment">//!</span>
@@ -255,7 +256,8 @@ fn test_box() {
 }
 
 <span class="attribute">#[<span class="ident">test</span>]</span>
-<span class="attribute">#[<span class="ident">should_panic</span><span class="op">=</span><span class="string">&quot;should panic without crash&quot;</span>]</span>
+<span class="attribute">#[<span class="ident">should_panic</span>(<span class="ident">expected</span><span class="op">=</span><span class="string">&quot;should panic without crash&quot;</span>)]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unreachable_code</span>)]</span>
 <span class="kw">fn</span> <span class="ident">test_panic_during_construction</span>() {
     <span class="kw">let</span> _: <span class="ident">MBox</span><span class="op">&lt;</span><span class="ident">DropCounter</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">MALLOC</span> &lt;- <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;should panic without crash&quot;</span>);
 }
