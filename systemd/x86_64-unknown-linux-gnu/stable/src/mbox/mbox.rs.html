@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/mbox-0.1.4/src/mbox.rs`.">
+    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/mbox-0.2.0/src/mbox.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>mbox.rs.html -- source</title>
@@ -1557,14 +1557,14 @@
 }
 
 <span class='attribute'>#[<span class='ident'>test</span>]</span>
-<span class='attribute'>#[<span class='ident'>should_panic</span><span class='op'>=</span><span class='string'>&quot;panic on clone&quot;</span>]</span>
+<span class='attribute'>#[<span class='ident'>should_panic</span>(<span class='ident'>expected</span><span class='op'>=</span><span class='string'>&quot;panic on clone&quot;</span>)]</span>
 <span class='kw'>fn</span> <span class='ident'>test_panic_during_clone</span>() {
     <span class='kw'>let</span> <span class='ident'>mbox</span> <span class='op'>=</span> <span class='ident'>MBox</span>::<span class='op'>&lt;</span><span class='ident'>PanicOnClone</span><span class='op'>&gt;</span>::<span class='ident'>default</span>();
     <span class='ident'>mbox</span>.<span class='ident'>clone</span>();
 }
 
 <span class='attribute'>#[<span class='ident'>test</span>]</span>
-<span class='attribute'>#[<span class='ident'>should_panic</span><span class='op'>=</span><span class='string'>&quot;panic on clone&quot;</span>]</span>
+<span class='attribute'>#[<span class='ident'>should_panic</span>(<span class='ident'>expected</span><span class='op'>=</span><span class='string'>&quot;panic on clone&quot;</span>)]</span>
 <span class='kw'>fn</span> <span class='ident'>test_panic_during_clone_from</span>() {
     <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>mbox</span> <span class='op'>=</span> <span class='ident'>MBox</span>::<span class='op'>&lt;</span><span class='ident'>PanicOnClone</span><span class='op'>&gt;</span>::<span class='ident'>default</span>();
     <span class='kw'>let</span> <span class='ident'>other</span> <span class='op'>=</span> <span class='ident'>MBox</span>::<span class='ident'>default</span>();
@@ -1669,7 +1669,7 @@
 }
 
 <span class='attribute'>#[<span class='ident'>test</span>]</span>
-<span class='attribute'>#[<span class='ident'>should_panic</span><span class='op'>=</span><span class='string'>&quot;panic on clone&quot;</span>]</span>
+<span class='attribute'>#[<span class='ident'>should_panic</span>(<span class='ident'>expected</span><span class='op'>=</span><span class='string'>&quot;panic on clone&quot;</span>)]</span>
 <span class='kw'>fn</span> <span class='ident'>test_panic_on_clone_slice</span>() {
     <span class='kw'>let</span> <span class='ident'>mbox</span>: <span class='ident'>MBox</span><span class='op'>&lt;</span>[<span class='ident'>PanicOnClone</span>]<span class='op'>&gt;</span> <span class='op'>=</span> <span class='ident'>once</span>(<span class='ident'>PanicOnClone</span>::<span class='ident'>default</span>()).<span class='ident'>collect</span>();
     <span class='ident'>mbox</span>.<span class='ident'>clone</span>();
