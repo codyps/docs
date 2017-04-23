@@ -50,6 +50,7 @@
                    </a>
                </span><a class='srclink' href='../src/io_at/lib.rs.html#255-257' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct LockedSeek&lt;T:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/std/io/trait.Seek.html" title="trait std::io::Seek">Seek</a>&gt; { /* fields omitted */ }</pre><div class='docblock'><p>Allow a Seek + (Read and/or Write) to impliment WriteAt and/or ReadAt</p>
+
 <p>While in most cases more specific adaptations will be more efficient, this allows any Seek to
 impliment WriteAt or ReadAt with not additional restrictions.</p>
 </div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl&lt;T:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/std/io/trait.Seek.html" title="trait std::io::Seek">Seek</a>&gt; <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html" title="trait core::convert::From">From</a>&lt;T&gt; for <a class="struct" href="../io_at/struct.LockedSeek.html" title="struct io_at::LockedSeek">LockedSeek</a>&lt;T&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/io_at/lib.rs.html#260-264' title='goto source code'>[src]</a></span></h3>
