@@ -50,10 +50,12 @@
                    </a>
                </span><a class='srclink' href='../src/mbox/lib.rs.html#1-93' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p><code>malloc</code>-based box.</p>
+
 <p>This crate provides structures that wrap pointers returned from <code>malloc</code> as a Box, and
 automatically <code>free</code> them on drop. These types allow you to interact with pointers and
 null-terminated strings and arrays in a Rusty style.</p>
-<h1 id="examples" class="section-header"><a href="#examples">Examples</a></h1>
+
+<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
 <pre class="rust rust-example-rendered">
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">libc</span>;
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">mbox</span>;
@@ -77,40 +79,41 @@ null-terminated strings and arrays in a Rusty style.</p>
 
     <span class="comment">// the string will be dropped by `free` after the code is done.</span>
 }</pre>
-<h1 id="usage" class="section-header"><a href="#usage">Usage</a></h1>
-<p>This crate provides three main types, all of which uses the system's <code>malloc</code>/<code>free</code> as the
+
+<h1 id='usage' class='section-header'><a href='#usage'>Usage</a></h1>
+<p>This crate provides three main types, all of which uses the system&#39;s <code>malloc</code>/<code>free</code> as the
 allocator.</p>
+
 <ul>
 <li><a href="mbox/struct.MBox.html"><code>MBox&lt;T&gt;</code></a> — Similar to <code>Box&lt;T&gt;</code>.</li>
 <li><a href="sentinel/struct.MString.html"><code>MString</code></a> — Similar to <code>std::ffi::CString</code>.</li>
 <li><a href="sentinel/struct.MArray.html"><code>MArray&lt;T&gt;</code></a> — A null-terminated array, which can be used to
 represent e.g. array of C strings terminated by a null pointer.</li>
 </ul>
-<h1 id="no-std" class="section-header"><a href="#no-std">no-std</a></h1>
+
+<h1 id='no-std' class='section-header'><a href='#no-std'>no-std</a></h1>
 <p>You may compile <code>mbox</code> using the <code>no-std</code> feature to not link to <code>std</code> (it will still link to
 <code>core</code>.</p>
+
 <pre><code class="language-toml">[dependencies]
 mbox = { version = &quot;0.1.3&quot;, features = [&quot;no-std&quot;] }
 </code></pre>
+
 <p>When <code>no-std</code> is activated, you cannot convert an <code>MString</code> into a <code>std::ffi::CStr</code>, as the
 type simply does not exist 🙂.</p>
-<h1 id="migrating-from-other-crates" class="section-header"><a href="#migrating-from-other-crates">Migrating from other crates</a></h1>
+
+<h1 id='migrating-from-other-crates' class='section-header'><a href='#migrating-from-other-crates'>Migrating from other crates</a></h1>
 <p>Note that <code>MBox</code> does not support custom allocator. If the type requires custom allocation,
 <code>MBox</code> cannot serve you.</p>
+
 <ul>
-<li>
-<p><a href="https://crates.io/crates/malloc_buf"><code>malloc_buf</code></a> — <code>MallocBuffer&lt;T&gt;</code> is equivalent to
-<code>MBox&lt;[T]&gt;</code>. Note however we will not check for null pointers.</p>
-</li>
-<li>
-<p><a href="https://crates.io/crates/cbox"><code>cbox</code></a> — When not using a custom <code>DisposeRef</code>, the
-<code>CSemiBox&lt;'static, T&gt;</code> type is equivalent to <code>MBox&lt;T&gt;</code>, and <code>CBox&lt;T&gt;</code> is equivalent to
-<code>&amp;'static T</code>.</p>
-</li>
-<li>
-<p><a href="https://crates.io/crates/c_vec"><code>c_vec</code></a> — When using <code>free</code> as the destructor, <code>CVec&lt;T&gt;</code> is
-equivalent to <code>MBox&lt;[T]&gt;</code> and <code>CSlice&lt;T&gt;</code> as <code>[T]</code>.</p>
-</li>
+<li><p><a href="https://crates.io/crates/malloc_buf"><code>malloc_buf</code></a> — <code>MallocBuffer&lt;T&gt;</code> is equivalent to
+<code>MBox&lt;[T]&gt;</code>. Note however we will not check for null pointers.</p></li>
+<li><p><a href="https://crates.io/crates/cbox"><code>cbox</code></a> — When not using a custom <code>DisposeRef</code>, the
+<code>CSemiBox&lt;&#39;static, T&gt;</code> type is equivalent to <code>MBox&lt;T&gt;</code>, and <code>CBox&lt;T&gt;</code> is equivalent to
+<code>&amp;&#39;static T</code>.</p></li>
+<li><p><a href="https://crates.io/crates/c_vec"><code>c_vec</code></a> — When using <code>free</code> as the destructor, <code>CVec&lt;T&gt;</code> is
+equivalent to <code>MBox&lt;[T]&gt;</code> and <code>CSlice&lt;T&gt;</code> as <code>[T]</code>.</p></li>
 </ul>
 </div><h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
 <table><tr><td><code>pub use mbox::<a class="struct" href="../mbox/mbox/struct.MBox.html" title="struct mbox::mbox::MBox">MBox</a>;</code></td></tr><tr><td><code>pub use sentinel::<a class="struct" href="../mbox/sentinel/struct.MArray.html" title="struct mbox::sentinel::MArray">MArray</a>;</code></td></tr><tr><td><code>pub use sentinel::<a class="struct" href="../mbox/sentinel/struct.MString.html" title="struct mbox::sentinel::MString">MString</a>;</code></td></tr><tr><td><code>pub use placer::<a class="constant" href="../mbox/placer/constant.MALLOC.html" title="constant mbox::placer::MALLOC">MALLOC</a>;</code></td></tr></table><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
@@ -120,7 +123,6 @@ equivalent to <code>MBox&lt;[T]&gt;</code> and <code>CSlice&lt;T&gt;</code> as <
                                   title='mod mbox::free'>free</a></td>
                            <td class='docblock-short'>
                                 <p>Trait to instruct how to properly drop and free pointers.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -128,7 +130,6 @@ equivalent to <code>MBox&lt;[T]&gt;</code> and <code>CSlice&lt;T&gt;</code> as <
                                   title='mod mbox::mbox'>mbox</a></td>
                            <td class='docblock-short'>
                                 <p><code>malloc</code>-based Box.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -136,7 +137,6 @@ equivalent to <code>MBox&lt;[T]&gt;</code> and <code>CSlice&lt;T&gt;</code> as <
                                   title='mod mbox::placer'>placer</a></td>
                            <td class='docblock-short'>
                                 <p>Placement-new support.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -144,7 +144,6 @@ equivalent to <code>MBox&lt;[T]&gt;</code> and <code>CSlice&lt;T&gt;</code> as <
                                   title='mod mbox::sentinel'>sentinel</a></td>
                            <td class='docblock-short'>
                                 <p>Sentinel-terminated types.</p>
-
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>

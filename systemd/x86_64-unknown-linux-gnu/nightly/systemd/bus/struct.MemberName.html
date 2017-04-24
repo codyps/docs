@@ -52,22 +52,28 @@
 <pre class='rust struct'>pub struct MemberName { /* fields omitted */ }</pre><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl <a class="struct" href="../../systemd/bus/struct.MemberName.html" title="struct systemd::bus::MemberName">MemberName</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/systemd/bus/mod.rs.html#365-421' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.from_bytes' class="method"><span id='from_bytes.v' class='invisible'><code>fn <a href='#method.from_bytes' class='fnname'>from_bytes</a>(b: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;[</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;&amp;Self, &amp;'static <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;</code></span></h4>
 <div class='docblock'><p>Create a member name reference from a u8 slice.</p>
+
 <p>Users should be careful to ensure all the following
 requirements are met:</p>
+
 <p>dbus spec 0.26 requires:
-must only contain the ASCII characters '[A-Z][a-z][0-9]_' and may not begin with a digit
-must not contain the '.' character
-must not exceed the maximum name length (255)
-must be at least 1 byte in length</p>
-<p>sd-bus additionally requires nul ('\0') termination of the bus name.</p>
+ must only contain the ASCII characters &#39;[A-Z][a-z][0-9]_&#39; and may not begin with a digit
+ must not contain the &#39;.&#39; character
+ must not exceed the maximum name length (255)
+ must be at least 1 byte in length</p>
+
+<p>sd-bus additionally requires nul (&#39;\0&#39;) termination of the bus name.</p>
 </div><h4 id='method.from_bytes_unchecked' class="method"><span id='from_bytes_unchecked.v' class='invisible'><code>unsafe fn <a href='#method.from_bytes_unchecked' class='fnname'>from_bytes_unchecked</a>(b: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;[</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a>) -&gt; &amp;Self</code></span></h4>
 <h4 id='method.from_ptr_unchecked' class="method"><span id='from_ptr_unchecked.v' class='invisible'><code>unsafe fn <a href='#method.from_ptr_unchecked' class='fnname'>from_ptr_unchecked</a>&lt;'a&gt;(b: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*const </a><a class="type" href="https://doc.rust-lang.org/nightly/std/os/raw/type.c_char.html" title="type std::os::raw::c_char">c_char</a>) -&gt; &amp;'a Self</code></span></h4>
 </div><h2 id='deref-methods'>Methods from <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html" title="trait core::ops::Deref">Deref</a>&lt;Target = <a class="struct" href="https://doc.rust-lang.org/nightly/std/ffi/c_str/struct.CStr.html" title="struct std::ffi::c_str::CStr">CStr</a>&gt;</h2><div class='impl-items'><h4 id='method.as_ptr' class="method"><span id='as_ptr.v' class='invisible'><code>fn <a href='#method.as_ptr' class='fnname'>as_ptr</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*const </a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i8.html">i8</a></code><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div></span></h4>
 <div class='docblock'><p>Returns the inner pointer to this C string.</p>
+
 <p>The returned pointer will be valid for as long as <code>self</code> is and points
 to a contiguous region of memory terminated with a 0 byte to represent
 the end of the string.</p>
+
 <p><strong>WARNING</strong></p>
+
 <p>It is your responsibility to make sure that the underlying memory is not
 freed too early. For example, the following code will cause undefined
 behaviour when <code>ptr</code> is used inside the <code>unsafe</code> block:</p>
@@ -80,6 +86,7 @@ behaviour when <code>ptr</code> is used inside the <code>unsafe</code> block:</p
     <span class="comment">// `ptr` is dangling</span>
     <span class="kw-2">*</span><span class="ident">ptr</span>;
 }</pre>
+
 <p>This happens because the pointer returned by <code>as_ptr</code> does not carry any
 lifetime information and the string is deallocated immediately after
 the <code>CString::new(&quot;Hello&quot;).unwrap().as_ptr()</code> expression is evaluated.
@@ -96,11 +103,14 @@ To fix the problem, bind the string to a local variable:</p>
 }</pre>
 </div><h4 id='method.to_bytes' class="method"><span id='to_bytes.v' class='invisible'><code>fn <a href='#method.to_bytes' class='fnname'>to_bytes</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;[</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a></code><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div></span></h4>
 <div class='docblock'><p>Converts this C string to a byte slice.</p>
+
 <p>This function will calculate the length of this string (which normally
 requires a linear amount of work to be done) and then return the
 resulting slice of <code>u8</code> elements.</p>
+
 <p>The returned slice will <strong>not</strong> contain the trailing nul that this C
 string has.</p>
+
 <blockquote>
 <p><strong>Note</strong>: This method is currently implemented as a 0-cost cast, but
 it is planned to alter its definition in the future to perform the
@@ -108,8 +118,10 @@ length calculation whenever this method is called.</p>
 </blockquote>
 </div><h4 id='method.to_bytes_with_nul' class="method"><span id='to_bytes_with_nul.v' class='invisible'><code>fn <a href='#method.to_bytes_with_nul' class='fnname'>to_bytes_with_nul</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;[</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a></code><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div></span></h4>
 <div class='docblock'><p>Converts this C string to a byte slice containing the trailing 0 byte.</p>
+
 <p>This function is the equivalent of <code>to_bytes</code> except that it will retain
 the trailing nul instead of chopping it off.</p>
+
 <blockquote>
 <p><strong>Note</strong>: This method is currently implemented as a 0-cost cast, but
 it is planned to alter its definition in the future to perform the
@@ -117,8 +129,10 @@ length calculation whenever this method is called.</p>
 </blockquote>
 </div><h4 id='method.to_str' class="method"><span id='to_str.v' class='invisible'><code>fn <a href='#method.to_str' class='fnname'>to_str</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;&amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, <a class="struct" href="https://doc.rust-lang.org/nightly/core/str/struct.Utf8Error.html" title="struct core::str::Utf8Error">Utf8Error</a>&gt;</code><div class='since' title='Stable since Rust version 1.4.0'>1.4.0</div></span></h4>
 <div class='docblock'><p>Yields a <code>&amp;str</code> slice if the <code>CStr</code> contains valid UTF-8.</p>
+
 <p>This function will calculate the length of this string and check for
-UTF-8 validity, and then return the <code>&amp;str</code> if it's valid.</p>
+UTF-8 validity, and then return the <code>&amp;str</code> if it&#39;s valid.</p>
+
 <blockquote>
 <p><strong>Note</strong>: This method is currently implemented to check for validity
 after a 0-cost cast, but it is planned to alter its definition in the
@@ -127,10 +141,12 @@ check whenever this method is called.</p>
 </blockquote>
 </div><h4 id='method.to_string_lossy' class="method"><span id='to_string_lossy.v' class='invisible'><code>fn <a href='#method.to_string_lossy' class='fnname'>to_string_lossy</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/collections/borrow/enum.Cow.html" title="enum collections::borrow::Cow">Cow</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;</code><div class='since' title='Stable since Rust version 1.4.0'>1.4.0</div></span></h4>
 <div class='docblock'><p>Converts a <code>CStr</code> into a <code>Cow&lt;str&gt;</code>.</p>
+
 <p>This function will calculate the length of this string (which normally
 requires a linear amount of work to be done) and then return the
 resulting slice as a <code>Cow&lt;str&gt;</code>, replacing any invalid UTF-8 sequences
 with <code>U+FFFD REPLACEMENT CHARACTER</code>.</p>
+
 <blockquote>
 <p><strong>Note</strong>: This method is currently implemented to check for validity
 after a 0-cost cast, but it is planned to alter its definition in the
