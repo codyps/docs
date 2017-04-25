@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='index.html'>io_block</a></p><script>window.sidebarCurrent = {name: 'BlockSize', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Trait BlockSize</p><div class="block items"><ul><li><a href="#required-methods">Required Methods</a></li><li><a href="#provided-methods">Provided Methods</a></li><li><a href="#implementors">Implementors</a></li></ul></div><p class='location'><a href='index.html'>io_block</a></p><script>window.sidebarCurrent = {name: 'BlockSize', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -56,8 +56,9 @@
     fn <a href='#method.block_size_physical' class='fnname'>block_size_physical</a>(&amp;self) -&gt; <a class="type" href="../io_block/type.Result.html" title="type io_block::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>&gt; { ... }
 }</pre><div class='docblock'><p>Some writable and readable devices (disk drives, media cards) have a block size (number of bytes
 that are read or written at a time) associated with them.</p>
+
 <p>These devices also have a (relatively) fixed (or at least known) number of blocks that limits
-their length. At least, they can't be appended to.</p>
+their length. At least, they can&#39;t be appended to.</p>
 </div>
             <h2 id='required-methods'>Required Methods</h2>
             <div class='methods'>
@@ -67,6 +68,7 @@ their length. At least, they can't be appended to.</p>
             <h2 id='provided-methods'>Provided Methods</h2>
             <div class='methods'>
         <h3 id='method.block_size_physical' class='method'><span id='block_size_physical.v' class='invisible'><code>fn <a href='#method.block_size_physical' class='fnname'>block_size_physical</a>(&amp;self) -&gt; <a class="type" href="../io_block/type.Result.html" title="type io_block::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>&gt;</code></span></h3><div class='docblock'><p>The number of bytes in each physical block</p>
+
 <p>This is only a best guess. Many devices do not report a physical block size or do not
 report and accurate physical block size. Results will vary, be wary.</p>
 </div></div>
