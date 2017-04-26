@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>systemd</a>::<wbr><a href='index.html'>bus</a></p><script>window.sidebarCurrent = {name: 'InterfaceName', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct InterfaceName</p><div class="block items"><ul><li><a href="#methods">Methods</a></li><li><a href="#deref-methods">Methods from Deref&lt;Target=CStr&gt;</a></li><li><a href="#implementations">Trait Implementations</a></li></ul></div><p class='location'><a href='../index.html'>systemd</a>::<wbr><a href='index.html'>bus</a></p><script>window.sidebarCurrent = {name: 'InterfaceName', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -80,7 +80,7 @@ sd-bus additionally requires nul (&#39;\0&#39;) termination of the interface nam
 <li><code>b</code> must be a nul terminated string</li>
 <li><code>b</code> must contain a valid interface</li>
 </ul>
-</div></div><h2 id='deref-methods'>Methods from <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html" title="trait core::ops::Deref">Deref</a>&lt;Target=<a class="struct" href="https://doc.rust-lang.org/nightly/std/ffi/c_str/struct.CStr.html" title="struct std::ffi::c_str::CStr">CStr</a>&gt;</h2><div class='impl-items'><h4 id='method.as_ptr' class="method"><span id='as_ptr.v' class='invisible'><code>fn <a href='#method.as_ptr' class='fnname'>as_ptr</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*const </a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i8.html">i8</a></code><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div></span></h4>
+</div></div><h2 id='deref-methods'>Methods from <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html" title="trait core::ops::Deref">Deref</a>&lt;Target = <a class="struct" href="https://doc.rust-lang.org/nightly/std/ffi/c_str/struct.CStr.html" title="struct std::ffi::c_str::CStr">CStr</a>&gt;</h2><div class='impl-items'><h4 id='method.as_ptr' class="method"><span id='as_ptr.v' class='invisible'><code>fn <a href='#method.as_ptr' class='fnname'>as_ptr</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*const </a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i8.html">i8</a></code><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div></span></h4>
 <div class='docblock'><p>Returns the inner pointer to this C string.</p>
 
 <p>The returned pointer will be valid for as long as <code>self</code> is and points
@@ -168,6 +168,8 @@ after a 0-cost cast, but it is planned to alter its definition in the
 future to perform the length calculation in addition to the UTF-8
 check whenever this method is called.</p>
 </blockquote>
+</div><h4 id='method.into_c_string' class="method"><span id='into_c_string.v' class='invisible'><code>fn <a href='#method.into_c_string' class='fnname'>into_c_string</a>(self: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/std/ffi/c_str/struct.CStr.html" title="struct std::ffi::c_str::CStr">CStr</a>&gt;) -&gt; <a class="struct" href="https://doc.rust-lang.org/nightly/std/ffi/c_str/struct.CString.html" title="struct std::ffi::c_str::CString">CString</a></code></span></h4>
+<div class='stability'><div class='stab unstable'><span class=microscope>🔬</span> This is a nightly-only experimental API.  (<code>into_boxed_c_str</code>)</div></div><div class='docblock'><p>Converts a <code>Box&lt;CStr&gt;</code> into a <code>CString</code> without copying or allocating.</p>
 </div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="struct" href="../../systemd/bus/struct.InterfaceName.html" title="struct systemd::bus::InterfaceName">InterfaceName</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/systemd/bus/mod.rs.html#125' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span></h4>
 <div class='docblock'><p>Formats the value using the given formatter.</p>
