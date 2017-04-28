@@ -17,7 +17,7 @@
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc source">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -43,7 +43,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content source"><pre class="line-numbers"><span id="1"> 1</span>
+    <section id='main' class="content"><pre class="line-numbers"><span id="1"> 1</span>
 <span id="2"> 2</span>
 <span id="3"> 3</span>
 <span id="4"> 4</span>
@@ -63,26 +63,26 @@
 <span id="18">18</span>
 <span id="19">19</span>
 <span id="20">20</span>
-</pre><pre class='rust '>
-<span class='kw'>use</span> <span class='kw'>super</span>::{<span class='ident'>c_char</span>, <span class='ident'>c_int</span>};
+</pre><pre class="rust ">
+<span class="kw">use</span> <span class="kw">super</span>::{<span class="ident">c_char</span>, <span class="ident">c_int</span>};
 
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>sd_id128_t</span> {
-    <span class='kw'>pub</span> <span class='ident'>bytes</span>: [<span class='ident'>u8</span>; <span class='number'>16</span>],
+<span class="attribute">#[<span class="ident">repr</span>(<span class="ident">C</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">sd_id128_t</span> {
+    <span class="kw">pub</span> <span class="ident">bytes</span>: [<span class="ident">u8</span>; <span class="number">16</span>],
 }
 
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SD_ID128_STRING_MAX</span>: <span class='ident'>usize</span> <span class='op'>=</span> <span class='number'>33</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SD_ID128_STRING_MAX</span>: <span class="ident">usize</span> <span class="op">=</span> <span class="number">33</span>;
 
-<span class='kw'>extern</span> <span class='string'>&quot;C&quot;</span> {
-    <span class='comment'>// s: &amp;[c_char;33]</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_id128_to_string</span>(<span class='ident'>id</span>: <span class='ident'>sd_id128_t</span>, <span class='ident'>s</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>c_char</span>) <span class='op'>-&gt;</span> <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>c_char</span>;
+<span class="kw">extern</span> <span class="string">&quot;C&quot;</span> {
+    <span class="comment">// s: &amp;[c_char;33]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_id128_to_string</span>(<span class="ident">id</span>: <span class="ident">sd_id128_t</span>, <span class="ident">s</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_char</span>) <span class="op">-&gt;</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_char</span>;
 
-    <span class='comment'>// s: &amp;[c_char;33]</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_id128_from_string</span>(<span class='ident'>s</span>: <span class='kw-2'>*</span><span class='kw'>const</span> <span class='ident'>c_char</span>, <span class='ident'>ret</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>sd_id128_t</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
+    <span class="comment">// s: &amp;[c_char;33]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_id128_from_string</span>(<span class="ident">s</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>, <span class="ident">ret</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_id128_t</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
 
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_id128_randomize</span>(<span class='ident'>ret</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>sd_id128_t</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_id128_get_machine</span>(<span class='ident'>ret</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>sd_id128_t</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_id128_get_boot</span>(<span class='ident'>ret</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>sd_id128_t</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_id128_randomize</span>(<span class="ident">ret</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_id128_t</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_id128_get_machine</span>(<span class="ident">ret</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_id128_t</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_id128_get_boot</span>(<span class="ident">ret</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_id128_t</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
 }
 </pre>
 </section>

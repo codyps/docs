@@ -17,7 +17,7 @@
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc struct">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -43,18 +43,18 @@
         </form>
     </nav>
 
-    <section id='main' class="content struct">
-<h1 class='fqn'><span class='in-band'>Struct <a href='../../index.html'>systemd</a>::<wbr><a href='../index.html'>bus</a>::<wbr><a href='index.html'>types</a>::<wbr><a class='struct' href=''>UnixFd</a></span><span class='out-of-band'><span id='render-detail'>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../../index.html'>systemd</a>::<wbr><a href='../index.html'>bus</a>::<wbr><a href='index.html'>types</a>::<wbr><a class="struct" href=''>UnixFd</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../../../src/systemd/bus/types.rs.html#148' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct UnixFd(pub <a class='type' href='https://doc.rust-lang.org/nightly/std/os/raw/type.c_int.html' title='std::os::raw::c_int'>c_int</a>);</pre><div class='docblock'><p>A basic wrapper that simply ensures we send a Fd via the dbus file descriptor mechanisms rather
+<pre class='rust struct'>pub struct UnixFd(pub <a class="type" href="https://doc.rust-lang.org/nightly/std/os/raw/type.c_int.html" title="type std::os::raw::c_int">c_int</a>);</pre><div class='docblock'><p>A basic wrapper that simply ensures we send a Fd via the dbus file descriptor mechanisms rather
 than as a integer</p>
-</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='../../../systemd/bus/types/trait.ToSdBusMessage.html' title='systemd::bus::types::ToSdBusMessage'>ToSdBusMessage</a> for <a class='struct' href='../../../systemd/bus/types/struct.UnixFd.html' title='systemd::bus::types::UnixFd'>UnixFd</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/systemd/bus/types.rs.html#150-156' title='goto source code'>[src]</a></span></h3>
-<div class='impl-items'><h4 id='method.to_message' class='method'><span id='to_message.v' class='invisible'><code>fn <a href='../../../systemd/bus/types/trait.ToSdBusMessage.html#tymethod.to_message' class='fnname'>to_message</a>(&amp;self, m: &amp;mut <a class='struct' href='../../../systemd/bus/struct.MessageRef.html' title='systemd::bus::MessageRef'>MessageRef</a>) -&gt; <a class='type' href='../../../systemd/type.Result.html' title='systemd::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></span></h4>
-</div><h3 class='impl'><span class='in-band'><code>impl&lt;'a&gt; <a class='trait' href='../../../systemd/bus/types/trait.FromSdBusMessage.html' title='systemd::bus::types::FromSdBusMessage'>FromSdBusMessage</a>&lt;'a&gt; for <a class='struct' href='../../../systemd/bus/types/struct.UnixFd.html' title='systemd::bus::types::UnixFd'>UnixFd</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/systemd/bus/types.rs.html#158-164' title='goto source code'>[src]</a></span></h3>
-<div class='impl-items'><h4 id='method.from_message' class='method'><span id='from_message.v' class='invisible'><code>fn <a href='../../../systemd/bus/types/trait.FromSdBusMessage.html#tymethod.from_message' class='fnname'>from_message</a>(m: &amp;'a mut <a class='struct' href='../../../systemd/bus/struct.MessageIter.html' title='systemd::bus::MessageIter'>MessageIter</a>&lt;'a&gt;) -&gt; <a class='type' href='../../../systemd/type.Result.html' title='systemd::Result'>Result</a>&lt;<a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;Self&gt;&gt; <span class='where fmt-newline'>where Self: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a></span></code></span></h4>
+</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class="trait" href="../../../systemd/bus/types/trait.ToSdBusMessage.html" title="trait systemd::bus::types::ToSdBusMessage">ToSdBusMessage</a> for <a class="struct" href="../../../systemd/bus/types/struct.UnixFd.html" title="struct systemd::bus::types::UnixFd">UnixFd</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/systemd/bus/types.rs.html#150-156' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.to_message' class="method"><span id='to_message.v' class='invisible'><code>fn <a href='../../../systemd/bus/types/trait.ToSdBusMessage.html#tymethod.to_message' class='fnname'>to_message</a>(&amp;self, m: &amp;mut <a class="struct" href="../../../systemd/bus/struct.MessageRef.html" title="struct systemd::bus::MessageRef">MessageRef</a>) -&gt; <a class="type" href="../../../systemd/type.Result.html" title="type systemd::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">()</a>&gt;</code></span></h4>
+</div><h3 class='impl'><span class='in-band'><code>impl&lt;'a&gt; <a class="trait" href="../../../systemd/bus/types/trait.FromSdBusMessage.html" title="trait systemd::bus::types::FromSdBusMessage">FromSdBusMessage</a>&lt;'a&gt; for <a class="struct" href="../../../systemd/bus/types/struct.UnixFd.html" title="struct systemd::bus::types::UnixFd">UnixFd</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/systemd/bus/types.rs.html#158-164' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.from_message' class="method"><span id='from_message.v' class='invisible'><code>fn <a href='../../../systemd/bus/types/trait.FromSdBusMessage.html#tymethod.from_message' class='fnname'>from_message</a>(m: &amp;'a mut <a class="struct" href="../../../systemd/bus/struct.MessageIter.html" title="struct systemd::bus::MessageIter">MessageIter</a>&lt;'a&gt;) -&gt; <a class="type" href="../../../systemd/type.Result.html" title="type systemd::Result">Result</a>&lt;<a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;Self&gt;&gt; <span class="where fmt-newline">where Self: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a></span></code></span></h4>
 </div></section>
     <section id='search' class="content hidden"></section>
 

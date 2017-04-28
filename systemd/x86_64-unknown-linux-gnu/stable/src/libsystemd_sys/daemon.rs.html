@@ -17,7 +17,7 @@
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc source">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -43,7 +43,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content source"><pre class="line-numbers"><span id="1"> 1</span>
+    <section id='main' class="content"><pre class="line-numbers"><span id="1"> 1</span>
 <span id="2"> 2</span>
 <span id="3"> 3</span>
 <span id="4"> 4</span>
@@ -69,32 +69,32 @@
 <span id="24">24</span>
 <span id="25">25</span>
 <span id="26">26</span>
-</pre><pre class='rust '>
-<span class='kw'>use</span> <span class='kw'>super</span>::{<span class='ident'>c_int</span>, <span class='ident'>size_t</span>, <span class='ident'>c_char</span>, <span class='ident'>pid_t</span>};
+</pre><pre class="rust ">
+<span class="kw">use</span> <span class="kw">super</span>::{<span class="ident">c_int</span>, <span class="ident">size_t</span>, <span class="ident">c_char</span>, <span class="ident">pid_t</span>};
 
-<span class='kw'>extern</span> <span class='string'>&quot;C&quot;</span> {
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_listen_fds</span>(<span class='ident'>unset_environment</span>: <span class='ident'>c_int</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_is_fifo</span>(<span class='ident'>fd</span>: <span class='ident'>c_int</span>, <span class='ident'>path</span>: <span class='kw-2'>*</span><span class='kw'>const</span> <span class='ident'>c_char</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_is_special</span>(<span class='ident'>fd</span>: <span class='ident'>c_int</span>, <span class='ident'>path</span>: <span class='kw-2'>*</span><span class='kw'>const</span> <span class='ident'>c_char</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_is_socket</span>(<span class='ident'>fd</span>: <span class='ident'>c_int</span>, <span class='ident'>family</span>: <span class='ident'>c_int</span>, <span class='ident'>sock_type</span>: <span class='ident'>c_int</span>, <span class='ident'>listening</span>: <span class='ident'>c_int</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_is_socket_inet</span>(<span class='ident'>fd</span>: <span class='ident'>c_int</span>,
-                             <span class='ident'>family</span>: <span class='ident'>c_int</span>,
-                             <span class='ident'>sock_type</span>: <span class='ident'>c_int</span>,
-                             <span class='ident'>listening</span>: <span class='ident'>c_int</span>,
-                             <span class='ident'>port</span>: <span class='ident'>u16</span>)
-                             <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_is_socket_unix</span>(<span class='ident'>fd</span>: <span class='ident'>c_int</span>,
-                             <span class='ident'>sock_type</span>: <span class='ident'>c_int</span>,
-                             <span class='ident'>listening</span>: <span class='ident'>c_int</span>,
-                             <span class='ident'>path</span>: <span class='kw-2'>*</span><span class='kw'>const</span> <span class='ident'>c_char</span>,
-                             <span class='ident'>length</span>: <span class='ident'>size_t</span>)
-                             <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_is_mq</span>(<span class='ident'>fd</span>: <span class='ident'>c_int</span>, <span class='ident'>path</span>: <span class='kw-2'>*</span><span class='kw'>const</span> <span class='ident'>c_char</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_notify</span>(<span class='ident'>unset_environment</span>: <span class='ident'>c_int</span>, <span class='ident'>state</span>: <span class='kw-2'>*</span><span class='kw'>const</span> <span class='ident'>c_char</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
-    <span class='comment'>// skipping sd_*notifyf; ignoring format strings</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_pid_notify</span>(<span class='ident'>pid</span>: <span class='ident'>pid_t</span>, <span class='ident'>unset_environment</span>: <span class='ident'>c_int</span>, <span class='ident'>state</span>: <span class='kw-2'>*</span><span class='kw'>const</span> <span class='ident'>c_char</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_booted</span>() <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_watchdog_enabled</span>(<span class='ident'>unset_environment</span>: <span class='ident'>c_int</span>, <span class='ident'>usec</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>u64</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
+<span class="kw">extern</span> <span class="string">&quot;C&quot;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_listen_fds</span>(<span class="ident">unset_environment</span>: <span class="ident">c_int</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_is_fifo</span>(<span class="ident">fd</span>: <span class="ident">c_int</span>, <span class="ident">path</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_is_special</span>(<span class="ident">fd</span>: <span class="ident">c_int</span>, <span class="ident">path</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_is_socket</span>(<span class="ident">fd</span>: <span class="ident">c_int</span>, <span class="ident">family</span>: <span class="ident">c_int</span>, <span class="ident">sock_type</span>: <span class="ident">c_int</span>, <span class="ident">listening</span>: <span class="ident">c_int</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_is_socket_inet</span>(<span class="ident">fd</span>: <span class="ident">c_int</span>,
+                             <span class="ident">family</span>: <span class="ident">c_int</span>,
+                             <span class="ident">sock_type</span>: <span class="ident">c_int</span>,
+                             <span class="ident">listening</span>: <span class="ident">c_int</span>,
+                             <span class="ident">port</span>: <span class="ident">u16</span>)
+                             <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_is_socket_unix</span>(<span class="ident">fd</span>: <span class="ident">c_int</span>,
+                             <span class="ident">sock_type</span>: <span class="ident">c_int</span>,
+                             <span class="ident">listening</span>: <span class="ident">c_int</span>,
+                             <span class="ident">path</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>,
+                             <span class="ident">length</span>: <span class="ident">size_t</span>)
+                             <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_is_mq</span>(<span class="ident">fd</span>: <span class="ident">c_int</span>, <span class="ident">path</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_notify</span>(<span class="ident">unset_environment</span>: <span class="ident">c_int</span>, <span class="ident">state</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="comment">// skipping sd_*notifyf; ignoring format strings</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_pid_notify</span>(<span class="ident">pid</span>: <span class="ident">pid_t</span>, <span class="ident">unset_environment</span>: <span class="ident">c_int</span>, <span class="ident">state</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_booted</span>() <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_watchdog_enabled</span>(<span class="ident">unset_environment</span>: <span class="ident">c_int</span>, <span class="ident">usec</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u64</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
 }
 </pre>
 </section>

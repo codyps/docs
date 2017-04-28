@@ -17,7 +17,7 @@
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc source">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -43,7 +43,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content source"><pre class="line-numbers"><span id="1">  1</span>
+    <section id='main' class="content"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -207,169 +207,169 @@
 <span id="162">162</span>
 <span id="163">163</span>
 <span id="164">164</span>
-</pre><pre class='rust '>
-<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>test</span>)]</span>
-<span class='attribute'>#[<span class='ident'>macro_use</span>]</span>
-<span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>assert_matches</span>;
+</pre><pre class="rust ">
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
+<span class="attribute">#[<span class="ident">macro_use</span>]</span>
+<span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">assert_matches</span>;
 
-<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>ffi</span>::<span class='ident'>CStr</span>;
-<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>str</span>::<span class='ident'>Utf8Error</span>;
-<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>convert</span>::<span class='ident'>AsRef</span>;
-<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>mem</span>::<span class='ident'>transmute</span>;
-<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>raw</span>::<span class='ident'>c_char</span>;
-<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>ops</span>::<span class='ident'>Deref</span>;
-<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>fmt</span>;
+<span class="kw">use</span> <span class="ident">std</span>::<span class="ident">ffi</span>::<span class="ident">CStr</span>;
+<span class="kw">use</span> <span class="ident">std</span>::<span class="ident">str</span>::<span class="ident">Utf8Error</span>;
+<span class="kw">use</span> <span class="ident">std</span>::<span class="ident">convert</span>::<span class="ident">AsRef</span>;
+<span class="kw">use</span> <span class="ident">std</span>::<span class="ident">mem</span>::<span class="ident">transmute</span>;
+<span class="kw">use</span> <span class="ident">std</span>::<span class="ident">os</span>::<span class="ident">raw</span>::<span class="ident">c_char</span>;
+<span class="kw">use</span> <span class="ident">std</span>::<span class="ident">ops</span>::<span class="ident">Deref</span>;
+<span class="kw">use</span> <span class="ident">std</span>::<span class="ident">fmt</span>;
 
 
-<span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>Utf8CStrError</span> {
-    <span class='ident'>NoNulTerm</span>,
-    <span class='ident'>EmbeddedNulTerm</span>(<span class='ident'>usize</span>),
-    <span class='ident'>Utf8Error</span>(<span class='ident'>Utf8Error</span>)
+<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>)]</span>
+<span class="kw">pub</span> <span class="kw">enum</span> <span class="ident">Utf8CStrError</span> {
+    <span class="ident">NoNulTerm</span>,
+    <span class="ident">EmbeddedNulTerm</span>(<span class="ident">usize</span>),
+    <span class="ident">Utf8Error</span>(<span class="ident">Utf8Error</span>)
 }
 
-<span class='doccomment'>/**
+<span class="doccomment">/**
  * A wrapper that promises it&#39;s contents are null-terminated &amp; validly utf-8 encoded
  *
  * Plain `std::ffi::CStr` only promises null termination, but some ffi (and other bits) require
  * strings that are both valid utf8 and null terminated.
  */</span>
-<span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>PartialEq</span>, <span class='ident'>Eq</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>Utf8CStr</span> {
-    <span class='ident'>inner</span>: <span class='ident'>CStr</span>,
+<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">PartialEq</span>, <span class="ident">Eq</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Utf8CStr</span> {
+    <span class="ident">inner</span>: <span class="ident">CStr</span>,
 }
 
-<span class='kw'>impl</span> <span class='ident'>fmt</span>::<span class='ident'>Debug</span> <span class='kw'>for</span> <span class='ident'>Utf8CStr</span> {
-    <span class='kw'>fn</span> <span class='ident'>fmt</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>fmt</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>fmt</span>::<span class='ident'>Formatter</span>) <span class='op'>-&gt;</span> <span class='ident'>fmt</span>::<span class='prelude-ty'>Result</span> {
-        <span class='kw'>let</span> <span class='ident'>s</span> : <span class='kw-2'>&amp;</span><span class='ident'>str</span> <span class='op'>=</span> <span class='self'>self</span>.<span class='ident'>as_ref</span>();
-        <span class='macro'>write</span><span class='macro'>!</span>(<span class='ident'>fmt</span>, <span class='string'>&quot;{:?}&quot;</span>, <span class='ident'>s</span>)
-    }
-}
-
-<span class='kw'>impl</span> <span class='ident'>fmt</span>::<span class='ident'>Display</span> <span class='kw'>for</span> <span class='ident'>Utf8CStr</span> {
-    <span class='kw'>fn</span> <span class='ident'>fmt</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>fmt</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>fmt</span>::<span class='ident'>Formatter</span>) <span class='op'>-&gt;</span> <span class='ident'>fmt</span>::<span class='prelude-ty'>Result</span> {
-        <span class='kw'>let</span> <span class='ident'>s</span> : <span class='kw-2'>&amp;</span><span class='ident'>str</span> <span class='op'>=</span> <span class='self'>self</span>.<span class='ident'>as_ref</span>();
-        <span class='macro'>write</span><span class='macro'>!</span>(<span class='ident'>fmt</span>, <span class='string'>&quot;{}&quot;</span>, <span class='ident'>s</span>)
+<span class="kw">impl</span> <span class="ident">fmt</span>::<span class="ident">Debug</span> <span class="kw">for</span> <span class="ident">Utf8CStr</span> {
+    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">fmt</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">fmt</span>::<span class="ident">Formatter</span>) <span class="op">-&gt;</span> <span class="ident">fmt</span>::<span class="prelude-ty">Result</span> {
+        <span class="kw">let</span> <span class="ident">s</span> : <span class="kw-2">&amp;</span><span class="ident">str</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">as_ref</span>();
+        <span class="macro">write</span><span class="macro">!</span>(<span class="ident">fmt</span>, <span class="string">&quot;{:?}&quot;</span>, <span class="ident">s</span>)
     }
 }
 
-<span class='kw'>impl</span> <span class='ident'>Utf8CStr</span> {
-    <span class='doccomment'>/// Construct a `Utf8CStr` with no checking.</span>
-    <span class='doccomment'>///</span>
-    <span class='doccomment'>/// Unsafety:</span>
-    <span class='doccomment'>///</span>
-    <span class='doccomment'>///  - `&#39;a` must be the correct lifetime</span>
-    <span class='doccomment'>///  - `v` must be nul terminated</span>
-    <span class='doccomment'>///  - `v` must be utf-8 encoded (for use in `&amp;str`)</span>
-    <span class='doccomment'>///  - `l` must be the length of `v` including the nul terminator</span>
-    <span class='kw'>pub</span> <span class='kw'>unsafe</span> <span class='kw'>fn</span> <span class='ident'>from_raw_parts</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span>(<span class='ident'>v</span>: <span class='kw-2'>*</span><span class='kw'>const</span> <span class='ident'>c_char</span>, <span class='ident'>l</span>: <span class='ident'>usize</span>) <span class='op'>-&gt;</span> <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;a</span> <span class='self'>Self</span> {
-        <span class='ident'>transmute</span>((<span class='ident'>v</span>, <span class='ident'>l</span>))
+<span class="kw">impl</span> <span class="ident">fmt</span>::<span class="ident">Display</span> <span class="kw">for</span> <span class="ident">Utf8CStr</span> {
+    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">fmt</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">fmt</span>::<span class="ident">Formatter</span>) <span class="op">-&gt;</span> <span class="ident">fmt</span>::<span class="prelude-ty">Result</span> {
+        <span class="kw">let</span> <span class="ident">s</span> : <span class="kw-2">&amp;</span><span class="ident">str</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">as_ref</span>();
+        <span class="macro">write</span><span class="macro">!</span>(<span class="ident">fmt</span>, <span class="string">&quot;{}&quot;</span>, <span class="ident">s</span>)
+    }
+}
+
+<span class="kw">impl</span> <span class="ident">Utf8CStr</span> {
+    <span class="doccomment">/// Construct a `Utf8CStr` with no checking.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Unsafety:</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">///  - `&#39;a` must be the correct lifetime</span>
+    <span class="doccomment">///  - `v` must be nul terminated</span>
+    <span class="doccomment">///  - `v` must be utf-8 encoded (for use in `&amp;str`)</span>
+    <span class="doccomment">///  - `l` must be the length of `v` including the nul terminator</span>
+    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_raw_parts</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>(<span class="ident">v</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>, <span class="ident">l</span>: <span class="ident">usize</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="self">Self</span> {
+        <span class="ident">transmute</span>((<span class="ident">v</span>, <span class="ident">l</span>))
     }
 
-    <span class='doccomment'>/// Construct a `Utf8CStr` with minimal checking.</span>
-    <span class='doccomment'>///</span>
-    <span class='doccomment'>/// This currently will scan for the terminating &#39;\0&#39; just to establish the length for various</span>
-    <span class='doccomment'>/// slices.</span>
-    <span class='doccomment'>///</span>
-    <span class='doccomment'>/// Unsafety:</span>
-    <span class='doccomment'>///</span>
-    <span class='doccomment'>///  - `&#39;a` must be the correct lifetime</span>
-    <span class='doccomment'>///  - `v` must be nul terminated</span>
-    <span class='doccomment'>///  - `v` must be utf-8 encoded (for use in `&amp;str`)</span>
-    <span class='kw'>pub</span> <span class='kw'>unsafe</span> <span class='kw'>fn</span> <span class='ident'>from_ptr_unchecked</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span>(<span class='ident'>v</span>: <span class='kw-2'>*</span><span class='kw'>const</span> <span class='ident'>c_char</span>) <span class='op'>-&gt;</span> <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;a</span> <span class='self'>Self</span> {
-        <span class='self'>Self</span>::<span class='ident'>from_cstr_unchecked</span>(<span class='ident'>CStr</span>::<span class='ident'>from_ptr</span>(<span class='ident'>v</span>))
+    <span class="doccomment">/// Construct a `Utf8CStr` with minimal checking.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// This currently will scan for the terminating &#39;\0&#39; just to establish the length for various</span>
+    <span class="doccomment">/// slices.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Unsafety:</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">///  - `&#39;a` must be the correct lifetime</span>
+    <span class="doccomment">///  - `v` must be nul terminated</span>
+    <span class="doccomment">///  - `v` must be utf-8 encoded (for use in `&amp;str`)</span>
+    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_ptr_unchecked</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>(<span class="ident">v</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="self">Self</span> {
+        <span class="self">Self</span>::<span class="ident">from_cstr_unchecked</span>(<span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">v</span>))
     }
 
-    <span class='doccomment'>/// Failable convertion from a CStr.</span>
-    <span class='doccomment'>///</span>
-    <span class='doccomment'>/// Verifies that the CStr is utf8 encoded.</span>
-    <span class='doccomment'>///</span>
-    <span class='doccomment'>/// NOTE: Only handles non-mutable variants. We may want to accept &amp;mut as well in the future.</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>from_cstr</span>(<span class='ident'>v</span>: <span class='kw-2'>&amp;</span><span class='ident'>CStr</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='kw-2'>&amp;</span><span class='self'>Self</span>, <span class='ident'>Utf8Error</span><span class='op'>&gt;</span> {
-        <span class='macro'>try</span><span class='macro'>!</span>(<span class='ident'>v</span>.<span class='ident'>to_str</span>());
-        <span class='prelude-val'>Ok</span>(<span class='kw'>unsafe</span> { <span class='ident'>transmute</span>(<span class='ident'>v</span>)})
+    <span class="doccomment">/// Failable convertion from a CStr.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Verifies that the CStr is utf8 encoded.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// NOTE: Only handles non-mutable variants. We may want to accept &amp;mut as well in the future.</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">from_cstr</span>(<span class="ident">v</span>: <span class="kw-2">&amp;</span><span class="ident">CStr</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="ident">Utf8Error</span><span class="op">&gt;</span> {
+        <span class="macro">try</span><span class="macro">!</span>(<span class="ident">v</span>.<span class="ident">to_str</span>());
+        <span class="prelude-val">Ok</span>(<span class="kw">unsafe</span> { <span class="ident">transmute</span>(<span class="ident">v</span>)})
     }
 
-    <span class='doccomment'>/// Convert from a `&amp;CStr` without any checking</span>
-    <span class='doccomment'>///</span>
-    <span class='doccomment'>/// Unsafety:</span>
-    <span class='doccomment'>///</span>
-    <span class='doccomment'>///  - `v` must be valid utf8 for use in a `&amp;str`</span>
-    <span class='kw'>pub</span> <span class='kw'>unsafe</span> <span class='kw'>fn</span> <span class='ident'>from_cstr_unchecked</span>(<span class='ident'>v</span>: <span class='kw-2'>&amp;</span><span class='ident'>CStr</span>) <span class='op'>-&gt;</span> <span class='kw-2'>&amp;</span><span class='ident'>Utf8CStr</span> {
-        <span class='self'>Self</span>::<span class='ident'>from_bytes_with_nul_unchecked</span>(<span class='ident'>v</span>.<span class='ident'>to_bytes_with_nul</span>())
+    <span class="doccomment">/// Convert from a `&amp;CStr` without any checking</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Unsafety:</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">///  - `v` must be valid utf8 for use in a `&amp;str`</span>
+    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_cstr_unchecked</span>(<span class="ident">v</span>: <span class="kw-2">&amp;</span><span class="ident">CStr</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="ident">Utf8CStr</span> {
+        <span class="self">Self</span>::<span class="ident">from_bytes_with_nul_unchecked</span>(<span class="ident">v</span>.<span class="ident">to_bytes_with_nul</span>())
     }
 
-    <span class='doccomment'>/// Convert directly from bytes</span>
-    <span class='doccomment'>///</span>
-    <span class='doccomment'>/// NOTE: right now this scans `b` a few times over. Ideally, we&#39;d adjust it to only scan `b`</span>
-    <span class='doccomment'>/// once.</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>from_bytes</span>(<span class='ident'>b</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>u8</span>]) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='kw-2'>&amp;</span><span class='self'>Self</span>, <span class='ident'>Utf8CStrError</span><span class='op'>&gt;</span> {
-        <span class='comment'>// FIXME: use from_bytes_with_nul when stablized</span>
-        <span class='kw'>for</span> (<span class='ident'>l</span>, <span class='kw-2'>&amp;</span><span class='ident'>v</span>) <span class='kw'>in</span> <span class='ident'>b</span>[<span class='number'>0</span>..<span class='ident'>b</span>.<span class='ident'>len</span>() <span class='op'>-</span> <span class='number'>1</span>].<span class='ident'>iter</span>().<span class='ident'>enumerate</span>() {
-            <span class='kw'>if</span> <span class='ident'>v</span> <span class='op'>==</span> <span class='string'>b&#39;\0&#39;</span> {
-                <span class='kw'>return</span> <span class='prelude-val'>Err</span>(<span class='ident'>Utf8CStrError</span>::<span class='ident'>EmbeddedNulTerm</span>(<span class='ident'>l</span>));
+    <span class="doccomment">/// Convert directly from bytes</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// NOTE: right now this scans `b` a few times over. Ideally, we&#39;d adjust it to only scan `b`</span>
+    <span class="doccomment">/// once.</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">from_bytes</span>(<span class="ident">b</span>: <span class="kw-2">&amp;</span>[<span class="ident">u8</span>]) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="ident">Utf8CStrError</span><span class="op">&gt;</span> {
+        <span class="comment">// FIXME: use from_bytes_with_nul when stablized</span>
+        <span class="kw">for</span> (<span class="ident">l</span>, <span class="kw-2">&amp;</span><span class="ident">v</span>) <span class="kw">in</span> <span class="ident">b</span>[<span class="number">0</span>..<span class="ident">b</span>.<span class="ident">len</span>() <span class="op">-</span> <span class="number">1</span>].<span class="ident">iter</span>().<span class="ident">enumerate</span>() {
+            <span class="kw">if</span> <span class="ident">v</span> <span class="op">==</span> <span class="string">b&#39;\0&#39;</span> {
+                <span class="kw">return</span> <span class="prelude-val">Err</span>(<span class="ident">Utf8CStrError</span>::<span class="ident">EmbeddedNulTerm</span>(<span class="ident">l</span>));
             }
         }
-        <span class='kw'>if</span> <span class='ident'>b</span>[<span class='ident'>b</span>.<span class='ident'>len</span>() <span class='op'>-</span> <span class='number'>1</span>] <span class='op'>!=</span> <span class='string'>b&#39;\0&#39;</span> {
-            <span class='kw'>return</span> <span class='prelude-val'>Err</span>(<span class='ident'>Utf8CStrError</span>::<span class='ident'>NoNulTerm</span>);
+        <span class="kw">if</span> <span class="ident">b</span>[<span class="ident">b</span>.<span class="ident">len</span>() <span class="op">-</span> <span class="number">1</span>] <span class="op">!=</span> <span class="string">b&#39;\0&#39;</span> {
+            <span class="kw">return</span> <span class="prelude-val">Err</span>(<span class="ident">Utf8CStrError</span>::<span class="ident">NoNulTerm</span>);
         }
 
-        <span class='kw'>let</span> <span class='ident'>c</span> : <span class='kw-2'>&amp;</span><span class='ident'>CStr</span> <span class='op'>=</span> <span class='kw'>unsafe</span> { <span class='ident'>transmute</span>(<span class='ident'>b</span>) };
-        <span class='self'>Self</span>::<span class='ident'>from_cstr</span>(<span class='ident'>c</span>).<span class='ident'>map_err</span>(<span class='op'>|</span><span class='ident'>e</span><span class='op'>|</span> <span class='ident'>Utf8CStrError</span>::<span class='ident'>Utf8Error</span>(<span class='ident'>e</span>))
+        <span class="kw">let</span> <span class="ident">c</span> : <span class="kw-2">&amp;</span><span class="ident">CStr</span> <span class="op">=</span> <span class="kw">unsafe</span> { <span class="ident">transmute</span>(<span class="ident">b</span>) };
+        <span class="self">Self</span>::<span class="ident">from_cstr</span>(<span class="ident">c</span>).<span class="ident">map_err</span>(<span class="op">|</span><span class="ident">e</span><span class="op">|</span> <span class="ident">Utf8CStrError</span>::<span class="ident">Utf8Error</span>(<span class="ident">e</span>))
     }
 
-    <span class='doccomment'>/// Raw convertion from basic data type with no checking.</span>
-    <span class='kw'>pub</span> <span class='kw'>unsafe</span> <span class='kw'>fn</span> <span class='ident'>from_bytes_with_nul_unchecked</span>(<span class='ident'>b</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>u8</span>]) <span class='op'>-&gt;</span> <span class='kw-2'>&amp;</span><span class='self'>Self</span> {
-        <span class='ident'>transmute</span>(<span class='ident'>b</span>)
+    <span class="doccomment">/// Raw convertion from basic data type with no checking.</span>
+    <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_bytes_with_nul_unchecked</span>(<span class="ident">b</span>: <span class="kw-2">&amp;</span>[<span class="ident">u8</span>]) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="self">Self</span> {
+        <span class="ident">transmute</span>(<span class="ident">b</span>)
     }
 
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>as_ptr</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='kw-2'>*</span><span class='kw'>const</span> <span class='ident'>c_char</span> {
-        <span class='kw'>let</span> <span class='ident'>v</span> : <span class='kw-2'>&amp;</span><span class='ident'>CStr</span> <span class='op'>=</span> <span class='self'>self</span>.<span class='ident'>as_ref</span>();
-        <span class='ident'>v</span>.<span class='ident'>as_ptr</span>()
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">as_ptr</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span> {
+        <span class="kw">let</span> <span class="ident">v</span> : <span class="kw-2">&amp;</span><span class="ident">CStr</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">as_ref</span>();
+        <span class="ident">v</span>.<span class="ident">as_ptr</span>()
     }
 
 }
 
-<span class='kw'>impl</span> <span class='ident'>AsRef</span><span class='op'>&lt;</span><span class='ident'>str</span><span class='op'>&gt;</span> <span class='kw'>for</span> <span class='ident'>Utf8CStr</span> {
-    <span class='kw'>fn</span> <span class='ident'>as_ref</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='kw-2'>&amp;</span><span class='ident'>str</span> {
-        <span class='kw'>unsafe</span> { <span class='ident'>transmute</span>(<span class='self'>self</span>.<span class='ident'>inner</span>.<span class='ident'>to_bytes</span>()) }
+<span class="kw">impl</span> <span class="ident">AsRef</span><span class="op">&lt;</span><span class="ident">str</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Utf8CStr</span> {
+    <span class="kw">fn</span> <span class="ident">as_ref</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="ident">str</span> {
+        <span class="kw">unsafe</span> { <span class="ident">transmute</span>(<span class="self">self</span>.<span class="ident">inner</span>.<span class="ident">to_bytes</span>()) }
     }
 }
 
-<span class='kw'>impl</span> <span class='ident'>AsRef</span><span class='op'>&lt;</span><span class='ident'>CStr</span><span class='op'>&gt;</span> <span class='kw'>for</span> <span class='ident'>Utf8CStr</span> {
-    <span class='kw'>fn</span> <span class='ident'>as_ref</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='kw-2'>&amp;</span><span class='ident'>CStr</span> {
-        <span class='kw'>unsafe</span> { <span class='ident'>transmute</span>(<span class='self'>self</span>) }
+<span class="kw">impl</span> <span class="ident">AsRef</span><span class="op">&lt;</span><span class="ident">CStr</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Utf8CStr</span> {
+    <span class="kw">fn</span> <span class="ident">as_ref</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="ident">CStr</span> {
+        <span class="kw">unsafe</span> { <span class="ident">transmute</span>(<span class="self">self</span>) }
     }
 }
 
-<span class='kw'>impl</span> <span class='ident'>Deref</span> <span class='kw'>for</span> <span class='ident'>Utf8CStr</span> {
-    <span class='kw'>type</span> <span class='ident'>Target</span> <span class='op'>=</span> <span class='ident'>str</span>;
-    <span class='kw'>fn</span> <span class='ident'>deref</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='kw-2'>&amp;</span><span class='self'>Self</span>::<span class='ident'>Target</span> {
-        <span class='self'>self</span>.<span class='ident'>as_ref</span>()
+<span class="kw">impl</span> <span class="ident">Deref</span> <span class="kw">for</span> <span class="ident">Utf8CStr</span> {
+    <span class="kw">type</span> <span class="ident">Target</span> <span class="op">=</span> <span class="ident">str</span>;
+    <span class="kw">fn</span> <span class="ident">deref</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="self">Self</span>::<span class="ident">Target</span> {
+        <span class="self">self</span>.<span class="ident">as_ref</span>()
     }
 }
 
-<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>test</span>)]</span>
-<span class='kw'>mod</span> <span class='ident'>tests</span> {
-    <span class='kw'>use</span> <span class='kw'>super</span>::<span class='ident'>Utf8CStr</span>;
-    <span class='kw'>use</span> <span class='kw'>super</span>::<span class='ident'>Utf8CStrError</span>;
-    <span class='attribute'>#[<span class='ident'>test</span>]</span>
-    <span class='kw'>fn</span> <span class='ident'>it_works</span>() {
-        <span class='kw'>let</span> <span class='ident'>x</span> <span class='op'>=</span> <span class='ident'>Utf8CStr</span>::<span class='ident'>from_bytes</span>(<span class='string'>b&quot;hello\0&quot;</span>).<span class='ident'>unwrap</span>();
-        <span class='macro'>assert_matches</span><span class='macro'>!</span>(<span class='ident'>Utf8CStr</span>::<span class='ident'>from_bytes</span>(<span class='string'>b&quot;hell&quot;</span>).<span class='ident'>err</span>().<span class='ident'>unwrap</span>(), <span class='ident'>Utf8CStrError</span>::<span class='ident'>NoNulTerm</span>);
-        <span class='macro'>assert_matches</span><span class='macro'>!</span>(<span class='ident'>Utf8CStr</span>::<span class='ident'>from_bytes</span>(<span class='string'>b&quot;hell\0d&quot;</span>).<span class='ident'>err</span>().<span class='ident'>unwrap</span>(), <span class='ident'>Utf8CStrError</span>::<span class='ident'>EmbeddedNulTerm</span>(<span class='number'>4</span>));
-        <span class='macro'>assert_matches</span><span class='macro'>!</span>(<span class='ident'>Utf8CStr</span>::<span class='ident'>from_bytes</span>(<span class='kw-2'>&amp;</span>[<span class='number'>8</span>,<span class='number'>1</span>,<span class='number'>23</span>,<span class='number'>4</span>,<span class='number'>0xff</span>, <span class='number'>0</span>]).<span class='ident'>err</span>().<span class='ident'>unwrap</span>(), <span class='ident'>Utf8CStrError</span>::<span class='ident'>Utf8Error</span>(_));
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
+<span class="kw">mod</span> <span class="ident">tests</span> {
+    <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">Utf8CStr</span>;
+    <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">Utf8CStrError</span>;
+    <span class="attribute">#[<span class="ident">test</span>]</span>
+    <span class="kw">fn</span> <span class="ident">it_works</span>() {
+        <span class="kw">let</span> <span class="ident">x</span> <span class="op">=</span> <span class="ident">Utf8CStr</span>::<span class="ident">from_bytes</span>(<span class="string">b&quot;hello\0&quot;</span>).<span class="ident">unwrap</span>();
+        <span class="macro">assert_matches</span><span class="macro">!</span>(<span class="ident">Utf8CStr</span>::<span class="ident">from_bytes</span>(<span class="string">b&quot;hell&quot;</span>).<span class="ident">err</span>().<span class="ident">unwrap</span>(), <span class="ident">Utf8CStrError</span>::<span class="ident">NoNulTerm</span>);
+        <span class="macro">assert_matches</span><span class="macro">!</span>(<span class="ident">Utf8CStr</span>::<span class="ident">from_bytes</span>(<span class="string">b&quot;hell\0d&quot;</span>).<span class="ident">err</span>().<span class="ident">unwrap</span>(), <span class="ident">Utf8CStrError</span>::<span class="ident">EmbeddedNulTerm</span>(<span class="number">4</span>));
+        <span class="macro">assert_matches</span><span class="macro">!</span>(<span class="ident">Utf8CStr</span>::<span class="ident">from_bytes</span>(<span class="kw-2">&amp;</span>[<span class="number">8</span>,<span class="number">1</span>,<span class="number">23</span>,<span class="number">4</span>,<span class="number">0xff</span>, <span class="number">0</span>]).<span class="ident">err</span>().<span class="ident">unwrap</span>(), <span class="ident">Utf8CStrError</span>::<span class="ident">Utf8Error</span>(_));
 
 
-        <span class='macro'>println</span><span class='macro'>!</span>(<span class='string'>&quot;{:?}&quot;</span>, <span class='ident'>x</span>);
-        <span class='macro'>println</span><span class='macro'>!</span>(<span class='string'>&quot;{}&quot;</span>, <span class='ident'>x</span>);
+        <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;{:?}&quot;</span>, <span class="ident">x</span>);
+        <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;{}&quot;</span>, <span class="ident">x</span>);
 
-        <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>x</span>, <span class='ident'>x</span>);
-        <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>x</span> <span class='op'>!=</span> <span class='ident'>Utf8CStr</span>::<span class='ident'>from_bytes</span>(<span class='string'>b&quot;hell\0&quot;</span>).<span class='ident'>unwrap</span>());
+        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">x</span>, <span class="ident">x</span>);
+        <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">x</span> <span class="op">!=</span> <span class="ident">Utf8CStr</span>::<span class="ident">from_bytes</span>(<span class="string">b&quot;hell\0&quot;</span>).<span class="ident">unwrap</span>());
 
-        <span class='kw'>let</span> <span class='ident'>v</span> <span class='op'>=</span> <span class='string'>b&quot;hello\0&quot;</span>;
-        <span class='kw'>let</span> <span class='ident'>b</span> <span class='op'>=</span> <span class='kw'>unsafe</span> { <span class='ident'>Utf8CStr</span>::<span class='ident'>from_raw_parts</span>(<span class='ident'>v</span>.<span class='ident'>as_ptr</span>() <span class='kw'>as</span> <span class='kw-2'>*</span><span class='kw'>const</span> _, <span class='ident'>v</span>.<span class='ident'>len</span>()) };
-        <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>b</span>, <span class='ident'>x</span>);
+        <span class="kw">let</span> <span class="ident">v</span> <span class="op">=</span> <span class="string">b&quot;hello\0&quot;</span>;
+        <span class="kw">let</span> <span class="ident">b</span> <span class="op">=</span> <span class="kw">unsafe</span> { <span class="ident">Utf8CStr</span>::<span class="ident">from_raw_parts</span>(<span class="ident">v</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> _, <span class="ident">v</span>.<span class="ident">len</span>()) };
+        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">b</span>, <span class="ident">x</span>);
     }
 }
 </pre>

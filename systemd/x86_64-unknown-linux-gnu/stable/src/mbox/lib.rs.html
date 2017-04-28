@@ -17,7 +17,7 @@
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc source">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -43,7 +43,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content source"><pre class="line-numbers"><span id="1"> 1</span>
+    <section id='main' class="content"><pre class="line-numbers"><span id="1"> 1</span>
 <span id="2"> 2</span>
 <span id="3"> 3</span>
 <span id="4"> 4</span>
@@ -137,100 +137,100 @@
 <span id="92">92</span>
 <span id="93">93</span>
 <span id="94">94</span>
-</pre><pre class='rust '>
-<span class='doccomment'>//! `malloc`-based box.</span>
-<span class='doccomment'>//!</span>
-<span class='doccomment'>//! This crate provides structures that wrap pointers returned from `malloc` as a Box, and</span>
-<span class='doccomment'>//! automatically `free` them on drop. These types allow you to interact with pointers and</span>
-<span class='doccomment'>//! null-terminated strings and arrays in a Rusty style.</span>
-<span class='doccomment'>//!</span>
-<span class='doccomment'>//! # Examples</span>
-<span class='doccomment'>//!</span>
-<span class='doccomment'>//! ```rust</span>
-<span class='doccomment'>//! extern crate libc;</span>
-<span class='doccomment'>//! extern crate mbox;</span>
-<span class='doccomment'>//!</span>
-<span class='doccomment'>//! use libc::{c_char, malloc, strcpy};</span>
-<span class='doccomment'>//! use mbox::MString;</span>
-<span class='doccomment'>//!</span>
-<span class='doccomment'>//! // Assume we have a C function that returns a malloc&#39;ed string.</span>
-<span class='doccomment'>//! unsafe extern &quot;C&quot; fn create_str() -&gt; *mut c_char {</span>
-<span class='doccomment'>//!     let ptr = malloc(12) as *mut c_char;</span>
-<span class='doccomment'>//!     strcpy(ptr, b&quot;Hello world\0&quot;.as_ptr() as *const c_char);</span>
-<span class='doccomment'>//!     ptr</span>
-<span class='doccomment'>//! }</span>
-<span class='doccomment'>//!</span>
-<span class='doccomment'>//! fn main() {</span>
-<span class='doccomment'>//!     // we wrap the null-terminated string into an MString.</span>
-<span class='doccomment'>//!     let string = unsafe { MString::from_raw_unchecked(create_str()) };</span>
-<span class='doccomment'>//!</span>
-<span class='doccomment'>//!     // check the content is expected.</span>
-<span class='doccomment'>//!     assert_eq!(&amp;*string, &quot;Hello world&quot;);</span>
-<span class='doccomment'>//!</span>
-<span class='doccomment'>//!     // the string will be dropped by `free` after the code is done.</span>
-<span class='doccomment'>//! }</span>
-<span class='doccomment'>//! ```</span>
-<span class='doccomment'>//!</span>
-<span class='doccomment'>//! # Usage</span>
-<span class='doccomment'>//!</span>
-<span class='doccomment'>//! This crate provides three main types, all of which uses the system&#39;s `malloc`/`free` as the</span>
-<span class='doccomment'>//! allocator.</span>
-<span class='doccomment'>//!</span>
-<span class='doccomment'>//! * [`MBox&lt;T&gt;`](mbox/struct.MBox.html) — Similar to `Box&lt;T&gt;`.</span>
-<span class='doccomment'>//! * [`MString`](sentinel/struct.MString.html) — Similar to `std::ffi::CString`.</span>
-<span class='doccomment'>//! * [`MArray&lt;T&gt;`](sentinel/struct.MArray.html) — A null-terminated array, which can be used to</span>
-<span class='doccomment'>//!   represent e.g. array of C strings terminated by a null pointer.</span>
-<span class='doccomment'>//!</span>
-<span class='doccomment'>//! # no-std</span>
-<span class='doccomment'>//!</span>
-<span class='doccomment'>//! You may compile `mbox` using the `no-std` feature to not link to `std` (it will still link to</span>
-<span class='doccomment'>//! `core`.</span>
-<span class='doccomment'>//!</span>
-<span class='doccomment'>//! ```toml</span>
-<span class='doccomment'>//! [dependencies]</span>
-<span class='doccomment'>//! mbox = { version = &quot;0.1.3&quot;, features = [&quot;no-std&quot;] }</span>
-<span class='doccomment'>//! ```</span>
-<span class='doccomment'>//!</span>
-<span class='doccomment'>//! When `no-std` is activated, you cannot convert an `MString` into a `std::ffi::CStr`, as the</span>
-<span class='doccomment'>//! type simply does not exist 🙂.</span>
-<span class='doccomment'>//!</span>
-<span class='doccomment'>//! # Migrating from other crates</span>
-<span class='doccomment'>//!</span>
-<span class='doccomment'>//! Note that `MBox` does not support custom allocator. If the type requires custom allocation,</span>
-<span class='doccomment'>//! `MBox` cannot serve you.</span>
-<span class='doccomment'>//!</span>
-<span class='doccomment'>//! * [`malloc_buf`](https://crates.io/crates/malloc_buf) — `MallocBuffer&lt;T&gt;` is equivalent to</span>
-<span class='doccomment'>//!   `MBox&lt;[T]&gt;`. Note however we will not check for null pointers.</span>
-<span class='doccomment'>//!</span>
-<span class='doccomment'>//! * [`cbox`](https://crates.io/crates/cbox) — When not using a custom `DisposeRef`, the</span>
-<span class='doccomment'>//!   `CSemiBox&lt;&#39;static, T&gt;` type is equivalent to `MBox&lt;T&gt;`, and `CBox&lt;T&gt;` is equivalent to</span>
-<span class='doccomment'>//!   `&amp;&#39;static T`.</span>
-<span class='doccomment'>//!</span>
-<span class='doccomment'>//! * [`c_vec`](https://crates.io/crates/c_vec) — When using `free` as the destructor, `CVec&lt;T&gt;` is</span>
-<span class='doccomment'>//!   equivalent to `MBox&lt;[T]&gt;` and `CSlice&lt;T&gt;` as `[T]`.</span>
+</pre><pre class="rust ">
+<span class="doccomment">//! `malloc`-based box.</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! This crate provides structures that wrap pointers returned from `malloc` as a Box, and</span>
+<span class="doccomment">//! automatically `free` them on drop. These types allow you to interact with pointers and</span>
+<span class="doccomment">//! null-terminated strings and arrays in a Rusty style.</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! # Examples</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! ```rust</span>
+<span class="doccomment">//! extern crate libc;</span>
+<span class="doccomment">//! extern crate mbox;</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! use libc::{c_char, malloc, strcpy};</span>
+<span class="doccomment">//! use mbox::MString;</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! // Assume we have a C function that returns a malloc&#39;ed string.</span>
+<span class="doccomment">//! unsafe extern &quot;C&quot; fn create_str() -&gt; *mut c_char {</span>
+<span class="doccomment">//!     let ptr = malloc(12) as *mut c_char;</span>
+<span class="doccomment">//!     strcpy(ptr, b&quot;Hello world\0&quot;.as_ptr() as *const c_char);</span>
+<span class="doccomment">//!     ptr</span>
+<span class="doccomment">//! }</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! fn main() {</span>
+<span class="doccomment">//!     // we wrap the null-terminated string into an MString.</span>
+<span class="doccomment">//!     let string = unsafe { MString::from_raw_unchecked(create_str()) };</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//!     // check the content is expected.</span>
+<span class="doccomment">//!     assert_eq!(&amp;*string, &quot;Hello world&quot;);</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//!     // the string will be dropped by `free` after the code is done.</span>
+<span class="doccomment">//! }</span>
+<span class="doccomment">//! ```</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! # Usage</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! This crate provides three main types, all of which uses the system&#39;s `malloc`/`free` as the</span>
+<span class="doccomment">//! allocator.</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! * [`MBox&lt;T&gt;`](mbox/struct.MBox.html) — Similar to `Box&lt;T&gt;`.</span>
+<span class="doccomment">//! * [`MString`](sentinel/struct.MString.html) — Similar to `std::ffi::CString`.</span>
+<span class="doccomment">//! * [`MArray&lt;T&gt;`](sentinel/struct.MArray.html) — A null-terminated array, which can be used to</span>
+<span class="doccomment">//!   represent e.g. array of C strings terminated by a null pointer.</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! # no-std</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! You may compile `mbox` using the `no-std` feature to not link to `std` (it will still link to</span>
+<span class="doccomment">//! `core`.</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! ```toml</span>
+<span class="doccomment">//! [dependencies]</span>
+<span class="doccomment">//! mbox = { version = &quot;0.1.3&quot;, features = [&quot;no-std&quot;] }</span>
+<span class="doccomment">//! ```</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! When `no-std` is activated, you cannot convert an `MString` into a `std::ffi::CStr`, as the</span>
+<span class="doccomment">//! type simply does not exist 🙂.</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! # Migrating from other crates</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! Note that `MBox` does not support custom allocator. If the type requires custom allocation,</span>
+<span class="doccomment">//! `MBox` cannot serve you.</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! * [`malloc_buf`](https://crates.io/crates/malloc_buf) — `MallocBuffer&lt;T&gt;` is equivalent to</span>
+<span class="doccomment">//!   `MBox&lt;[T]&gt;`. Note however we will not check for null pointers.</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! * [`cbox`](https://crates.io/crates/cbox) — When not using a custom `DisposeRef`, the</span>
+<span class="doccomment">//!   `CSemiBox&lt;&#39;static, T&gt;` type is equivalent to `MBox&lt;T&gt;`, and `CBox&lt;T&gt;` is equivalent to</span>
+<span class="doccomment">//!   `&amp;&#39;static T`.</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! * [`c_vec`](https://crates.io/crates/c_vec) — When using `free` as the destructor, `CVec&lt;T&gt;` is</span>
+<span class="doccomment">//!   equivalent to `MBox&lt;[T]&gt;` and `CSlice&lt;T&gt;` as `[T]`.</span>
 
-<span class='attribute'>#<span class='op'>!</span>[<span class='ident'>cfg_attr</span>(<span class='ident'>nightly_channel</span>, <span class='ident'>feature</span>(<span class='ident'>specialization</span>,
-                                     <span class='ident'>unique</span>,
-                                     <span class='ident'>unsize</span>,
-                                     <span class='ident'>coerce_unsized</span>,
-                                     <span class='ident'>placement_new_protocol</span>,
-                                     <span class='ident'>placement_in_syntax</span>,
-                                     <span class='ident'>box_syntax</span>))]</span>
+<span class="attribute">#<span class="op">!</span>[<span class="ident">cfg_attr</span>(<span class="ident">nightly_channel</span>, <span class="ident">feature</span>(<span class="ident">specialization</span>,
+                                     <span class="ident">unique</span>,
+                                     <span class="ident">unsize</span>,
+                                     <span class="ident">coerce_unsized</span>,
+                                     <span class="ident">placement_new_protocol</span>,
+                                     <span class="ident">placement_in_syntax</span>,
+                                     <span class="ident">box_syntax</span>))]</span>
 
-<span class='attribute'>#<span class='op'>!</span>[<span class='ident'>cfg_attr</span>(<span class='ident'>feature</span><span class='op'>=</span><span class='string'>&quot;no-std&quot;</span>, <span class='ident'>no_std</span>)]</span>
+<span class="attribute">#<span class="op">!</span>[<span class="ident">cfg_attr</span>(<span class="ident">feature</span><span class="op">=</span><span class="string">&quot;no-std&quot;</span>, <span class="ident">no_std</span>)]</span>
 
-<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>feature</span><span class='op'>=</span><span class='string'>&quot;no-std&quot;</span>)]</span> <span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>core</span> <span class='kw'>as</span> <span class='ident'>std</span>;
-<span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>libc</span>;
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span><span class="op">=</span><span class="string">&quot;no-std&quot;</span>)]</span> <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">core</span> <span class="kw">as</span> <span class="ident">std</span>;
+<span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">libc</span>;
 
-<span class='kw'>mod</span> <span class='ident'>internal</span>;
-<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>free</span>;
-<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>sentinel</span>;
-<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>mbox</span>;
-<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>nightly_channel</span>)]</span> <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>placer</span>;
+<span class="kw">mod</span> <span class="ident">internal</span>;
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">free</span>;
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">sentinel</span>;
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">mbox</span>;
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">nightly_channel</span>)]</span> <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">placer</span>;
 
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>mbox</span>::<span class='ident'>MBox</span>;
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>sentinel</span>::{<span class='ident'>MArray</span>, <span class='ident'>MString</span>};
-<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>nightly_channel</span>)]</span> <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>placer</span>::<span class='ident'>MALLOC</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">mbox</span>::<span class="ident">MBox</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">sentinel</span>::{<span class="ident">MArray</span>, <span class="ident">MString</span>};
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">nightly_channel</span>)]</span> <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">placer</span>::<span class="ident">MALLOC</span>;
 
 </pre>
 </section>

@@ -17,7 +17,7 @@
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc source">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -43,7 +43,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content source"><pre class="line-numbers"><span id="1"> 1</span>
+    <section id='main' class="content"><pre class="line-numbers"><span id="1"> 1</span>
 <span id="2"> 2</span>
 <span id="3"> 3</span>
 <span id="4"> 4</span>
@@ -138,101 +138,101 @@
 <span id="93">93</span>
 <span id="94">94</span>
 <span id="95">95</span>
-</pre><pre class='rust '>
-<span class='attribute'>#<span class='op'>!</span>[<span class='ident'>allow</span>(<span class='ident'>non_camel_case_types</span>)]</span>
+</pre><pre class="rust ">
+<span class="attribute">#<span class="op">!</span>[<span class="ident">allow</span>(<span class="ident">non_camel_case_types</span>)]</span>
 
-<span class='kw'>use</span> <span class='kw'>super</span>::<span class='ident'>size_t</span>;
-<span class='kw'>use</span> <span class='kw'>super</span>::{<span class='ident'>c_char</span>, <span class='ident'>c_int</span>, <span class='ident'>c_void</span>};
-<span class='kw'>use</span> <span class='kw'>super</span>::<span class='ident'>const_iovec</span>;
+<span class="kw">use</span> <span class="kw">super</span>::<span class="ident">size_t</span>;
+<span class="kw">use</span> <span class="kw">super</span>::{<span class="ident">c_char</span>, <span class="ident">c_int</span>, <span class="ident">c_void</span>};
+<span class="kw">use</span> <span class="kw">super</span>::<span class="ident">const_iovec</span>;
 
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SD_JOURNAL_LOCAL_ONLY</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SD_JOURNAL_RUNTIME_ONLY</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SD_JOURNAL_SYSTEM</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>4</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SD_JOURNAL_CURRENT_USER</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>8</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SD_JOURNAL_LOCAL_ONLY</span>: <span class="ident">c_int</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SD_JOURNAL_RUNTIME_ONLY</span>: <span class="ident">c_int</span> <span class="op">=</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SD_JOURNAL_SYSTEM</span>: <span class="ident">c_int</span> <span class="op">=</span> <span class="number">4</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SD_JOURNAL_CURRENT_USER</span>: <span class="ident">c_int</span> <span class="op">=</span> <span class="number">8</span>;
 
-<span class='kw'>use</span> <span class='ident'>id128</span>::<span class='ident'>sd_id128_t</span>;
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>sd_journal</span> {}
+<span class="kw">use</span> <span class="ident">id128</span>::<span class="ident">sd_id128_t</span>;
+<span class="kw">pub</span> <span class="kw">enum</span> <span class="ident">sd_journal</span> {}
 
-<span class='kw'>extern</span> <span class='string'>&quot;C&quot;</span> {
-    <span class='comment'>// sd-journal</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_journal_sendv</span>(<span class='ident'>iv</span>: <span class='kw-2'>*</span><span class='kw'>const</span> <span class='ident'>const_iovec</span>, <span class='ident'>n</span>: <span class='ident'>c_int</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
-    <span class='comment'>// There are a bunch of other send methods, but for rust it doesn&#39;t make sense to call them</span>
-    <span class='comment'>// (we don&#39;t need to do c-style format strings)</span>
+<span class="kw">extern</span> <span class="string">&quot;C&quot;</span> {
+    <span class="comment">// sd-journal</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_journal_sendv</span>(<span class="ident">iv</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">const_iovec</span>, <span class="ident">n</span>: <span class="ident">c_int</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="comment">// There are a bunch of other send methods, but for rust it doesn&#39;t make sense to call them</span>
+    <span class="comment">// (we don&#39;t need to do c-style format strings)</span>
 
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_journal_open</span>(<span class='ident'>ret</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>sd_journal</span>, <span class='ident'>flags</span>: <span class='ident'>c_int</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_journal_close</span>(<span class='ident'>j</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>sd_journal</span>) <span class='op'>-&gt;</span> ();
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_journal_open</span>(<span class="ident">ret</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_journal</span>, <span class="ident">flags</span>: <span class="ident">c_int</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_journal_close</span>(<span class="ident">j</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_journal</span>) <span class="op">-&gt;</span> ();
 
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_journal_previous</span>(<span class='ident'>j</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>sd_journal</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_journal_next</span>(<span class='ident'>j</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>sd_journal</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_journal_previous</span>(<span class="ident">j</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_journal</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_journal_next</span>(<span class="ident">j</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_journal</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
 
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_journal_previous_skip</span>(<span class='ident'>j</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>sd_journal</span>, <span class='ident'>skip</span>: <span class='ident'>u64</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_journal_next_skip</span>(<span class='ident'>j</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>sd_journal</span>, <span class='ident'>skip</span>: <span class='ident'>u64</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_journal_previous_skip</span>(<span class="ident">j</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_journal</span>, <span class="ident">skip</span>: <span class="ident">u64</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_journal_next_skip</span>(<span class="ident">j</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_journal</span>, <span class="ident">skip</span>: <span class="ident">u64</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
 
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_journal_get_realtime_usec</span>(<span class='ident'>j</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>sd_journal</span>, <span class='ident'>ret</span>: <span class='kw-2'>*</span><span class='kw'>const</span> <span class='ident'>u64</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_journal_get_monotonic_usec</span>(<span class='ident'>j</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>sd_journal</span>,
-                                         <span class='ident'>ret</span>: <span class='kw-2'>*</span><span class='kw'>const</span> <span class='ident'>u64</span>,
-                                         <span class='ident'>ret_boot_id</span>: <span class='kw-2'>*</span><span class='kw'>const</span> <span class='ident'>sd_id128_t</span>)
-                                         <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_journal_get_realtime_usec</span>(<span class="ident">j</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_journal</span>, <span class="ident">ret</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">u64</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_journal_get_monotonic_usec</span>(<span class="ident">j</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_journal</span>,
+                                         <span class="ident">ret</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">u64</span>,
+                                         <span class="ident">ret_boot_id</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">sd_id128_t</span>)
+                                         <span class="op">-&gt;</span> <span class="ident">c_int</span>;
 
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_journal_set_data_threshold</span>(<span class='ident'>j</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>sd_journal</span>, <span class='ident'>sz</span>: <span class='ident'>size_t</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_journal_get_data_threshold</span>(<span class='ident'>j</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>sd_journal</span>, <span class='ident'>sz</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>size_t</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_journal_set_data_threshold</span>(<span class="ident">j</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_journal</span>, <span class="ident">sz</span>: <span class="ident">size_t</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_journal_get_data_threshold</span>(<span class="ident">j</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_journal</span>, <span class="ident">sz</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">size_t</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
 
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_journal_get_data</span>(<span class='ident'>j</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>sd_journal</span>,
-                               <span class='ident'>field</span>: <span class='kw-2'>*</span><span class='kw'>const</span> <span class='ident'>c_char</span>,
-                               <span class='ident'>data</span>: <span class='kw-2'>*</span><span class='kw'>const</span> <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>u8</span>,
-                               <span class='ident'>l</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>size_t</span>)
-                               <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_journal_enumerate_data</span>(<span class='ident'>j</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>sd_journal</span>,
-                                     <span class='ident'>data</span>: <span class='kw-2'>*</span><span class='kw'>const</span> <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>u8</span>,
-                                     <span class='ident'>l</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>size_t</span>)
-                                     <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_journal_restart_data</span>(<span class='ident'>j</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>sd_journal</span>) <span class='op'>-&gt;</span> ();
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_journal_get_data</span>(<span class="ident">j</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_journal</span>,
+                               <span class="ident">field</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>,
+                               <span class="ident">data</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u8</span>,
+                               <span class="ident">l</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">size_t</span>)
+                               <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_journal_enumerate_data</span>(<span class="ident">j</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_journal</span>,
+                                     <span class="ident">data</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u8</span>,
+                                     <span class="ident">l</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">size_t</span>)
+                                     <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_journal_restart_data</span>(<span class="ident">j</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_journal</span>) <span class="op">-&gt;</span> ();
 
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_journal_add_match</span>(<span class='ident'>j</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>sd_journal</span>, <span class='ident'>data</span>: <span class='kw-2'>*</span><span class='kw'>const</span> <span class='ident'>c_void</span>, <span class='ident'>size</span>: <span class='ident'>size_t</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_journal_add_disjunction</span>(<span class='ident'>j</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>sd_journal</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_journal_add_conjunction</span>(<span class='ident'>j</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>sd_journal</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_journal_flush_matches</span>(<span class='ident'>j</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>sd_journal</span>) <span class='op'>-&gt;</span> ();
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_journal_add_match</span>(<span class="ident">j</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_journal</span>, <span class="ident">data</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_void</span>, <span class="ident">size</span>: <span class="ident">size_t</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_journal_add_disjunction</span>(<span class="ident">j</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_journal</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_journal_add_conjunction</span>(<span class="ident">j</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_journal</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_journal_flush_matches</span>(<span class="ident">j</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_journal</span>) <span class="op">-&gt;</span> ();
 
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_journal_seek_head</span>(<span class='ident'>j</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>sd_journal</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_journal_seek_tail</span>(<span class='ident'>j</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>sd_journal</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_journal_seek_monotonic_usec</span>(<span class='ident'>j</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>sd_journal</span>,
-                                          <span class='ident'>boot_id</span>: <span class='ident'>sd_id128_t</span>,
-                                          <span class='ident'>usec</span>: <span class='ident'>u64</span>)
-                                          <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_journal_seek_realtime_usec</span>(<span class='ident'>j</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>sd_journal</span>, <span class='ident'>usec</span>: <span class='ident'>u64</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_journal_seek_cursor</span>(<span class='ident'>j</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>sd_journal</span>, <span class='ident'>cursor</span>: <span class='kw-2'>*</span><span class='kw'>const</span> <span class='ident'>c_char</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_journal_seek_head</span>(<span class="ident">j</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_journal</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_journal_seek_tail</span>(<span class="ident">j</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_journal</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_journal_seek_monotonic_usec</span>(<span class="ident">j</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_journal</span>,
+                                          <span class="ident">boot_id</span>: <span class="ident">sd_id128_t</span>,
+                                          <span class="ident">usec</span>: <span class="ident">u64</span>)
+                                          <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_journal_seek_realtime_usec</span>(<span class="ident">j</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_journal</span>, <span class="ident">usec</span>: <span class="ident">u64</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_journal_seek_cursor</span>(<span class="ident">j</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_journal</span>, <span class="ident">cursor</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
 
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_journal_get_cursor</span>(<span class='ident'>j</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>sd_journal</span>, <span class='ident'>cursor</span>: <span class='kw-2'>*</span><span class='kw'>const</span> <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>c_char</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_journal_test_cursor</span>(<span class='ident'>j</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>sd_journal</span>, <span class='ident'>cursor</span>: <span class='kw-2'>*</span><span class='kw'>const</span> <span class='ident'>c_char</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_journal_get_cursor</span>(<span class="ident">j</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_journal</span>, <span class="ident">cursor</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_char</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_journal_test_cursor</span>(<span class="ident">j</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_journal</span>, <span class="ident">cursor</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
 
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_journal_get_cutoff_realtime_usec</span>(<span class='ident'>j</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>sd_journal</span>,
-                                               <span class='ident'>from</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>u64</span>,
-                                               <span class='ident'>to</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>u64</span>)
-                                               <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_journal_get_cutoff_monotonic_usec</span>(<span class='ident'>j</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>sd_journal</span>,
-                                                <span class='ident'>boot_id</span>: <span class='ident'>sd_id128_t</span>,
-                                                <span class='ident'>from</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>u64</span>,
-                                                <span class='ident'>to</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>u64</span>)
-                                                <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_journal_get_cutoff_realtime_usec</span>(<span class="ident">j</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_journal</span>,
+                                               <span class="ident">from</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u64</span>,
+                                               <span class="ident">to</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u64</span>)
+                                               <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_journal_get_cutoff_monotonic_usec</span>(<span class="ident">j</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_journal</span>,
+                                                <span class="ident">boot_id</span>: <span class="ident">sd_id128_t</span>,
+                                                <span class="ident">from</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u64</span>,
+                                                <span class="ident">to</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u64</span>)
+                                                <span class="op">-&gt;</span> <span class="ident">c_int</span>;
 
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_journal_get_usage</span>(<span class='ident'>j</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>sd_journal</span>, <span class='ident'>bytes</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>u64</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_journal_get_usage</span>(<span class="ident">j</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_journal</span>, <span class="ident">bytes</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u64</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
 
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_journal_query_unique</span>(<span class='ident'>j</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>sd_journal</span>, <span class='ident'>field</span>: <span class='kw-2'>*</span><span class='kw'>const</span> <span class='ident'>c_char</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_journal_enumerate_unique</span>(<span class='ident'>j</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>sd_journal</span>,
-                                       <span class='ident'>data</span>: <span class='kw-2'>*</span><span class='kw'>const</span> <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>c_void</span>,
-                                       <span class='ident'>l</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>size_t</span>)
-                                       <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_journal_restart_unique</span>(<span class='ident'>j</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>sd_journal</span>) <span class='op'>-&gt;</span> ();
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_journal_query_unique</span>(<span class="ident">j</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_journal</span>, <span class="ident">field</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_journal_enumerate_unique</span>(<span class="ident">j</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_journal</span>,
+                                       <span class="ident">data</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_void</span>,
+                                       <span class="ident">l</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">size_t</span>)
+                                       <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_journal_restart_unique</span>(<span class="ident">j</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_journal</span>) <span class="op">-&gt;</span> ();
 
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_journal_get_fd</span>(<span class='ident'>j</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>sd_journal</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_journal_get_events</span>(<span class='ident'>j</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>sd_journal</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_journal_get_timeout</span>(<span class='ident'>j</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>sd_journal</span>, <span class='ident'>timeout_usec</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>u64</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_journal_process</span>(<span class='ident'>j</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>sd_journal</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_journal_wait</span>(<span class='ident'>j</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>sd_journal</span>, <span class='ident'>timeout_usec</span>: <span class='ident'>u64</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_journal_reliable_fd</span>(<span class='ident'>j</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>sd_journal</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_journal_get_fd</span>(<span class="ident">j</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_journal</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_journal_get_events</span>(<span class="ident">j</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_journal</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_journal_get_timeout</span>(<span class="ident">j</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_journal</span>, <span class="ident">timeout_usec</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u64</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_journal_process</span>(<span class="ident">j</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_journal</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_journal_wait</span>(<span class="ident">j</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_journal</span>, <span class="ident">timeout_usec</span>: <span class="ident">u64</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_journal_reliable_fd</span>(<span class="ident">j</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_journal</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
 
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_journal_get_catalog</span>(<span class='ident'>j</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>sd_journal</span>, <span class='ident'>text</span>: <span class='kw-2'>*</span><span class='kw'>const</span> <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>c_char</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sd_journal_get_catalog_for_message_id</span>(<span class='ident'>id</span>: <span class='ident'>sd_id128_t</span>, <span class='ident'>ret</span>: <span class='kw-2'>*</span><span class='kw'>const</span> <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>c_char</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_journal_get_catalog</span>(<span class="ident">j</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_journal</span>, <span class="ident">text</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_char</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_journal_get_catalog_for_message_id</span>(<span class="ident">id</span>: <span class="ident">sd_id128_t</span>, <span class="ident">ret</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_char</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
 }
 </pre>
 </section>

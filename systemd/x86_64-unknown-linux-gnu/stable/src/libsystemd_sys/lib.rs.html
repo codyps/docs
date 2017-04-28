@@ -17,7 +17,7 @@
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc source">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -43,7 +43,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content source"><pre class="line-numbers"><span id="1"> 1</span>
+    <section id='main' class="content"><pre class="line-numbers"><span id="1"> 1</span>
 <span id="2"> 2</span>
 <span id="3"> 3</span>
 <span id="4"> 4</span>
@@ -88,52 +88,52 @@
 <span id="43">43</span>
 <span id="44">44</span>
 <span id="45">45</span>
-</pre><pre class='rust '>
-<span class='doccomment'>//! Contains definitions for low-level bindings.</span>
-<span class='doccomment'>//!</span>
-<span class='doccomment'>//! Most of this module is Rust versions of the systemd headers. The goal of</span>
-<span class='doccomment'>//! this crate is to make it unattractive to ever use the FFI directly, but</span>
-<span class='doccomment'>//! it&#39;s there if you need it.</span>
-<span class='doccomment'>//!</span>
-<span class='doccomment'>//! Items in this module corresponding to systemd functions are well-documented</span>
-<span class='doccomment'>//! by the systemd man pages.</span>
+</pre><pre class="rust ">
+<span class="doccomment">//! Contains definitions for low-level bindings.</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! Most of this module is Rust versions of the systemd headers. The goal of</span>
+<span class="doccomment">//! this crate is to make it unattractive to ever use the FFI directly, but</span>
+<span class="doccomment">//! it&#39;s there if you need it.</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! Items in this module corresponding to systemd functions are well-documented</span>
+<span class="doccomment">//! by the systemd man pages.</span>
 
-<span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>libc</span>;
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>libc</span>::{<span class='ident'>size_t</span>, <span class='ident'>pid_t</span>, <span class='ident'>uid_t</span>, <span class='ident'>gid_t</span>, <span class='ident'>signalfd_siginfo</span>, <span class='ident'>siginfo_t</span>, <span class='ident'>clockid_t</span>, <span class='ident'>int64_t</span>,
-               <span class='ident'>uint32_t</span>, <span class='ident'>uint64_t</span>};
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>raw</span>::{<span class='ident'>c_char</span>, <span class='ident'>c_int</span>, <span class='ident'>c_void</span>, <span class='ident'>c_uint</span>};
+<span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">libc</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">libc</span>::{<span class="ident">size_t</span>, <span class="ident">pid_t</span>, <span class="ident">uid_t</span>, <span class="ident">gid_t</span>, <span class="ident">signalfd_siginfo</span>, <span class="ident">siginfo_t</span>, <span class="ident">clockid_t</span>, <span class="ident">int64_t</span>,
+               <span class="ident">uint32_t</span>, <span class="ident">uint64_t</span>};
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">os</span>::<span class="ident">raw</span>::{<span class="ident">c_char</span>, <span class="ident">c_int</span>, <span class="ident">c_void</span>, <span class="ident">c_uint</span>};
 
-<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>id128</span>;
-<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>event</span>;
-<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>daemon</span>;
-<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>journal</span>;
-<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>login</span>;
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">id128</span>;
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">event</span>;
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">daemon</span>;
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">journal</span>;
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">login</span>;
 
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>iovec</span> {
-    <span class='kw'>pub</span> <span class='ident'>iov_base</span>: <span class='kw-2'>*</span><span class='kw-2'>mut</span> <span class='ident'>c_void</span>,
-    <span class='kw'>pub</span> <span class='ident'>iov_len</span>: <span class='ident'>size_t</span>,
+<span class="attribute">#[<span class="ident">repr</span>(<span class="ident">C</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">iovec</span> {
+    <span class="kw">pub</span> <span class="ident">iov_base</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_void</span>,
+    <span class="kw">pub</span> <span class="ident">iov_len</span>: <span class="ident">size_t</span>,
 }
 
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>const_iovec</span> {
-    <span class='kw'>pub</span> <span class='ident'>iov_base</span>: <span class='kw-2'>*</span><span class='kw'>const</span> <span class='ident'>c_void</span>,
-    <span class='kw'>pub</span> <span class='ident'>iov_len</span>: <span class='ident'>size_t</span>,
+<span class="attribute">#[<span class="ident">repr</span>(<span class="ident">C</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">const_iovec</span> {
+    <span class="kw">pub</span> <span class="ident">iov_base</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_void</span>,
+    <span class="kw">pub</span> <span class="ident">iov_len</span>: <span class="ident">size_t</span>,
 }
 
-<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>array_to_iovecs</span>(<span class='ident'>args</span>: <span class='kw-2'>&amp;</span>[<span class='kw-2'>&amp;</span><span class='ident'>str</span>]) <span class='op'>-&gt;</span> <span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>const_iovec</span><span class='op'>&gt;</span> {
-    <span class='ident'>args</span>.<span class='ident'>iter</span>()
-        .<span class='ident'>map</span>(<span class='op'>|</span><span class='ident'>d</span><span class='op'>|</span> {
-            <span class='ident'>const_iovec</span> {
-                <span class='ident'>iov_base</span>: <span class='ident'>d</span>.<span class='ident'>as_ptr</span>() <span class='kw'>as</span> <span class='kw-2'>*</span><span class='kw'>const</span> <span class='ident'>c_void</span>,
-                <span class='ident'>iov_len</span>: <span class='ident'>d</span>.<span class='ident'>len</span>() <span class='kw'>as</span> <span class='ident'>size_t</span>,
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">array_to_iovecs</span>(<span class="ident">args</span>: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="ident">str</span>]) <span class="op">-&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">const_iovec</span><span class="op">&gt;</span> {
+    <span class="ident">args</span>.<span class="ident">iter</span>()
+        .<span class="ident">map</span>(<span class="op">|</span><span class="ident">d</span><span class="op">|</span> {
+            <span class="ident">const_iovec</span> {
+                <span class="ident">iov_base</span>: <span class="ident">d</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_void</span>,
+                <span class="ident">iov_len</span>: <span class="ident">d</span>.<span class="ident">len</span>() <span class="kw">as</span> <span class="ident">size_t</span>,
             }
         })
-        .<span class='ident'>collect</span>()
+        .<span class="ident">collect</span>()
 }
 
-<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>feature</span> <span class='op'>=</span> <span class='string'>&quot;bus&quot;</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>bus</span>;
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;bus&quot;</span>)]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">bus</span>;
 </pre>
 </section>
     <section id='search' class="content hidden"></section>

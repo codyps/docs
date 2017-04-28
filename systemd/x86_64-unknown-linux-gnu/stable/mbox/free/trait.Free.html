@@ -17,7 +17,7 @@
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc trait">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -43,19 +43,19 @@
         </form>
     </nav>
 
-    <section id='main' class="content trait">
-<h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>mbox</a>::<wbr><a href='index.html'>free</a>::<wbr><a class='trait' href=''>Free</a></span><span class='out-of-band'><span id='render-detail'>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>mbox</a>::<wbr><a href='index.html'>free</a>::<wbr><a class="trait" href=''>Free</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../../src/mbox/free.rs.html#8-15' title='goto source code'>[src]</a></span></h1>
 <pre class='rust trait'>pub trait Free {
-    fn <a href='#tymethod.free' class='fnname'>free</a>(ptr: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut Self</a>);
+    fn <a href='#tymethod.free' class='fnname'>free</a>(ptr: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut Self</a>);
 }</pre><div class='docblock'><p>Implemented for pointers which can be freed.</p>
 </div>
             <h2 id='required-methods'>Required Methods</h2>
             <div class='methods'>
-        <h3 id='tymethod.free' class='method'><span id='free.v' class='invisible'><code>fn <a href='#tymethod.free' class='fnname'>free</a>(ptr: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut Self</a>)</code></span></h3><div class='docblock'><p>Drops the content pointed by this pointer and frees it.</p>
+        <h3 id='tymethod.free' class='method'><span id='free.v' class='invisible'><code>fn <a href='#tymethod.free' class='fnname'>free</a>(ptr: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut Self</a>)</code></span></h3><div class='docblock'><p>Drops the content pointed by this pointer and frees it.</p>
 
 <p>Do not call this method if the pointer has been freed. Users of this trait should maintain a
 flag to track if the pointer has been freed or not (the Rust compiler will automatically do
@@ -64,8 +64,8 @@ this with a <code>Drop</code> type).</p>
         <h2 id='implementors'>Implementors</h2>
         <ul class='item-list' id='implementors-list'>
     <li><code>impl&lt;T&gt; Free for T</code></li>
-<li><code>impl&lt;T&gt; Free for <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>[</a>T<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a></code></li>
-<li><code>impl Free for <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a></code></li>
+<li><code>impl&lt;T&gt; Free for <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">[</a>T<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a></code></li>
+<li><code>impl Free for <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a></code></li>
 </ul><script type="text/javascript" async
                          src="../../implementors/mbox/free/trait.Free.js">
                  </script></section>
