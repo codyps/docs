@@ -17,7 +17,7 @@
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc source">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -43,7 +43,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content source"><pre class="line-numbers"><span id="1"> 1</span>
+    <section id='main' class="content"><pre class="line-numbers"><span id="1"> 1</span>
 <span id="2"> 2</span>
 <span id="3"> 3</span>
 <span id="4"> 4</span>
@@ -90,54 +90,54 @@
 <span id="45">45</span>
 <span id="46">46</span>
 <span id="47">47</span>
-</pre><pre class='rust '>
-<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span> <span class='op'>=</span> <span class='string'>&quot;mips&quot;</span>)]</span>
-<span class='kw'>mod</span> <span class='ident'>consts</span> {
-    <span class='attribute'>#[<span class='ident'>doc</span>(<span class='ident'>hidden</span>)]</span>
-    <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NONE</span>: <span class='ident'>u8</span> <span class='op'>=</span> <span class='number'>1</span>;
-    <span class='attribute'>#[<span class='ident'>doc</span>(<span class='ident'>hidden</span>)]</span>
-    <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>READ</span>: <span class='ident'>u8</span> <span class='op'>=</span> <span class='number'>2</span>;
-    <span class='attribute'>#[<span class='ident'>doc</span>(<span class='ident'>hidden</span>)]</span>
-    <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WRITE</span>: <span class='ident'>u8</span> <span class='op'>=</span> <span class='number'>4</span>;
-    <span class='attribute'>#[<span class='ident'>doc</span>(<span class='ident'>hidden</span>)]</span>
-    <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SIZEBITS</span>: <span class='ident'>u8</span> <span class='op'>=</span> <span class='number'>13</span>;
-    <span class='attribute'>#[<span class='ident'>doc</span>(<span class='ident'>hidden</span>)]</span>
-    <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DIRBITS</span>: <span class='ident'>u8</span> <span class='op'>=</span> <span class='number'>3</span>;
+</pre><pre class="rust ">
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_arch</span> <span class="op">=</span> <span class="string">&quot;mips&quot;</span>)]</span>
+<span class="kw">mod</span> <span class="ident">consts</span> {
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NONE</span>: <span class="ident">u8</span> <span class="op">=</span> <span class="number">1</span>;
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">READ</span>: <span class="ident">u8</span> <span class="op">=</span> <span class="number">2</span>;
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WRITE</span>: <span class="ident">u8</span> <span class="op">=</span> <span class="number">4</span>;
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SIZEBITS</span>: <span class="ident">u8</span> <span class="op">=</span> <span class="number">13</span>;
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DIRBITS</span>: <span class="ident">u8</span> <span class="op">=</span> <span class="number">3</span>;
 }
-<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span> <span class='op'>=</span> <span class='string'>&quot;powerpc&quot;</span>)]</span>
-<span class='kw'>mod</span> <span class='ident'>consts</span> {
-    <span class='attribute'>#[<span class='ident'>doc</span>(<span class='ident'>hidden</span>)]</span>
-    <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NONE</span>: <span class='ident'>u8</span> <span class='op'>=</span> <span class='number'>1</span>;
-    <span class='attribute'>#[<span class='ident'>doc</span>(<span class='ident'>hidden</span>)]</span>
-    <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>READ</span>: <span class='ident'>u8</span> <span class='op'>=</span> <span class='number'>2</span>;
-    <span class='attribute'>#[<span class='ident'>doc</span>(<span class='ident'>hidden</span>)]</span>
-    <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WRITE</span>: <span class='ident'>u8</span> <span class='op'>=</span> <span class='number'>4</span>;
-    <span class='attribute'>#[<span class='ident'>doc</span>(<span class='ident'>hidden</span>)]</span>
-    <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SIZEBITS</span>: <span class='ident'>u8</span> <span class='op'>=</span> <span class='number'>13</span>;
-    <span class='attribute'>#[<span class='ident'>doc</span>(<span class='ident'>hidden</span>)]</span>
-    <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DIRBITS</span>: <span class='ident'>u8</span> <span class='op'>=</span> <span class='number'>3</span>;
-}
-
-<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>not</span>(<span class='ident'>any</span>(<span class='ident'>target_arch</span> <span class='op'>=</span> <span class='string'>&quot;powerpc&quot;</span>, <span class='ident'>target_arch</span> <span class='op'>=</span> <span class='string'>&quot;mips&quot;</span>, <span class='ident'>target_arch</span> <span class='op'>=</span> <span class='string'>&quot;x86&quot;</span>, <span class='ident'>target_arch</span> <span class='op'>=</span> <span class='string'>&quot;arm&quot;</span>, <span class='ident'>target_arch</span> <span class='op'>=</span> <span class='string'>&quot;x86_64&quot;</span>, <span class='ident'>target_arch</span> <span class='op'>=</span> <span class='string'>&quot;aarch64&quot;</span>)))]</span>
-<span class='kw'>use</span> <span class='ident'>this_arch_not_supported</span>;
-
-<span class='comment'>// &quot;Generic&quot; ioctl protocol</span>
-<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>any</span>(<span class='ident'>target_arch</span> <span class='op'>=</span> <span class='string'>&quot;x86&quot;</span>, <span class='ident'>target_arch</span> <span class='op'>=</span> <span class='string'>&quot;arm&quot;</span>, <span class='ident'>target_arch</span> <span class='op'>=</span> <span class='string'>&quot;x86_64&quot;</span>, <span class='ident'>target_arch</span> <span class='op'>=</span> <span class='string'>&quot;aarch64&quot;</span>))]</span>
-<span class='kw'>mod</span> <span class='ident'>consts</span> {
-    <span class='attribute'>#[<span class='ident'>doc</span>(<span class='ident'>hidden</span>)]</span>
-    <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NONE</span>: <span class='ident'>u8</span> <span class='op'>=</span> <span class='number'>0</span>;
-    <span class='attribute'>#[<span class='ident'>doc</span>(<span class='ident'>hidden</span>)]</span>
-    <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>READ</span>: <span class='ident'>u8</span> <span class='op'>=</span> <span class='number'>2</span>;
-    <span class='attribute'>#[<span class='ident'>doc</span>(<span class='ident'>hidden</span>)]</span>
-    <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WRITE</span>: <span class='ident'>u8</span> <span class='op'>=</span> <span class='number'>1</span>;
-    <span class='attribute'>#[<span class='ident'>doc</span>(<span class='ident'>hidden</span>)]</span>
-    <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SIZEBITS</span>: <span class='ident'>u8</span> <span class='op'>=</span> <span class='number'>14</span>;
-    <span class='attribute'>#[<span class='ident'>doc</span>(<span class='ident'>hidden</span>)]</span>
-    <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DIRBITS</span>: <span class='ident'>u8</span> <span class='op'>=</span> <span class='number'>2</span>;
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_arch</span> <span class="op">=</span> <span class="string">&quot;powerpc&quot;</span>)]</span>
+<span class="kw">mod</span> <span class="ident">consts</span> {
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NONE</span>: <span class="ident">u8</span> <span class="op">=</span> <span class="number">1</span>;
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">READ</span>: <span class="ident">u8</span> <span class="op">=</span> <span class="number">2</span>;
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WRITE</span>: <span class="ident">u8</span> <span class="op">=</span> <span class="number">4</span>;
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SIZEBITS</span>: <span class="ident">u8</span> <span class="op">=</span> <span class="number">13</span>;
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DIRBITS</span>: <span class="ident">u8</span> <span class="op">=</span> <span class="number">3</span>;
 }
 
-<span class='attribute'>#[<span class='ident'>doc</span>(<span class='ident'>hidden</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>consts</span>::<span class='kw-2'>*</span>;
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">any</span>(<span class="ident">target_arch</span> <span class="op">=</span> <span class="string">&quot;powerpc&quot;</span>, <span class="ident">target_arch</span> <span class="op">=</span> <span class="string">&quot;mips&quot;</span>, <span class="ident">target_arch</span> <span class="op">=</span> <span class="string">&quot;x86&quot;</span>, <span class="ident">target_arch</span> <span class="op">=</span> <span class="string">&quot;arm&quot;</span>, <span class="ident">target_arch</span> <span class="op">=</span> <span class="string">&quot;x86_64&quot;</span>, <span class="ident">target_arch</span> <span class="op">=</span> <span class="string">&quot;aarch64&quot;</span>)))]</span>
+<span class="kw">use</span> <span class="ident">this_arch_not_supported</span>;
+
+<span class="comment">// &quot;Generic&quot; ioctl protocol</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">target_arch</span> <span class="op">=</span> <span class="string">&quot;x86&quot;</span>, <span class="ident">target_arch</span> <span class="op">=</span> <span class="string">&quot;arm&quot;</span>, <span class="ident">target_arch</span> <span class="op">=</span> <span class="string">&quot;x86_64&quot;</span>, <span class="ident">target_arch</span> <span class="op">=</span> <span class="string">&quot;aarch64&quot;</span>))]</span>
+<span class="kw">mod</span> <span class="ident">consts</span> {
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NONE</span>: <span class="ident">u8</span> <span class="op">=</span> <span class="number">0</span>;
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">READ</span>: <span class="ident">u8</span> <span class="op">=</span> <span class="number">2</span>;
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WRITE</span>: <span class="ident">u8</span> <span class="op">=</span> <span class="number">1</span>;
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SIZEBITS</span>: <span class="ident">u8</span> <span class="op">=</span> <span class="number">14</span>;
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DIRBITS</span>: <span class="ident">u8</span> <span class="op">=</span> <span class="number">2</span>;
+}
+
+<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
+<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span>::<span class="ident">consts</span>::<span class="kw-2">*</span>;
 </pre>
 </section>
     <section id='search' class="content hidden"></section>
