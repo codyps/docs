@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/mbox-0.2.0/src/lib.rs`.">
+    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/mbox-0.3.0/src/lib.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>lib.rs.html -- source</title>
@@ -181,17 +181,17 @@
 <span class="doccomment">//! * [`MArray&lt;T&gt;`](sentinel/struct.MArray.html) — A null-terminated array, which can be used to</span>
 <span class="doccomment">//!   represent e.g. array of C strings terminated by a null pointer.</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! # no-std</span>
+<span class="doccomment">//! # `#![no_std]`</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! You may compile `mbox` using the `no-std` feature to not link to `std` (it will still link to</span>
+<span class="doccomment">//! You may compile `mbox` and disable the `std` feature to not link to `std` (it will still link to</span>
 <span class="doccomment">//! `core`.</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! ```toml</span>
 <span class="doccomment">//! [dependencies]</span>
-<span class="doccomment">//! mbox = { version = &quot;0.1.3&quot;, features = [&quot;no-std&quot;] }</span>
+<span class="doccomment">//! mbox = { version = &quot;0.3&quot;, default-features = false }</span>
 <span class="doccomment">//! ```</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! When `no-std` is activated, you cannot convert an `MString` into a `std::ffi::CStr`, as the</span>
+<span class="doccomment">//! When `#![no_std]` is activated, you cannot convert an `MString` into a `std::ffi::CStr`, as the</span>
 <span class="doccomment">//! type simply does not exist 🙂.</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! # Migrating from other crates</span>
@@ -217,9 +217,9 @@
                                      <span class="ident">placement_in_syntax</span>,
                                      <span class="ident">box_syntax</span>))]</span>
 
-<span class="attribute">#<span class="op">!</span>[<span class="ident">cfg_attr</span>(<span class="ident">feature</span><span class="op">=</span><span class="string">&quot;no-std&quot;</span>, <span class="ident">no_std</span>)]</span>
+<span class="attribute">#<span class="op">!</span>[<span class="ident">cfg_attr</span>(<span class="ident">not</span>(<span class="ident">feature</span><span class="op">=</span><span class="string">&quot;std&quot;</span>), <span class="ident">no_std</span>)]</span>
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span><span class="op">=</span><span class="string">&quot;no-std&quot;</span>)]</span> <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">core</span> <span class="kw">as</span> <span class="ident">std</span>;
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span><span class="op">=</span><span class="string">&quot;std&quot;</span>))]</span> <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">core</span> <span class="kw">as</span> <span class="ident">std</span>;
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">libc</span>;
 
 <span class="kw">mod</span> <span class="ident">internal</span>;
