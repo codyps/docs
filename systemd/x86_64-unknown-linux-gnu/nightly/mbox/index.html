@@ -91,15 +91,15 @@ allocator.</p>
 represent e.g. array of C strings terminated by a null pointer.</li>
 </ul>
 
-<h1 id='no-std' class='section-header'><a href='#no-std'>no-std</a></h1>
-<p>You may compile <code>mbox</code> using the <code>no-std</code> feature to not link to <code>std</code> (it will still link to
+<h1 id='no_std' class='section-header'><a href='#no_std'><code>#![no_std]</code></a></h1>
+<p>You may compile <code>mbox</code> and disable the <code>std</code> feature to not link to <code>std</code> (it will still link to
 <code>core</code>.</p>
 
 <pre><code class="language-toml">[dependencies]
-mbox = { version = &quot;0.1.3&quot;, features = [&quot;no-std&quot;] }
+mbox = { version = &quot;0.3&quot;, default-features = false }
 </code></pre>
 
-<p>When <code>no-std</code> is activated, you cannot convert an <code>MString</code> into a <code>std::ffi::CStr</code>, as the
+<p>When <code>#![no_std]</code> is activated, you cannot convert an <code>MString</code> into a <code>std::ffi::CStr</code>, as the
 type simply does not exist 🙂.</p>
 
 <h1 id='migrating-from-other-crates' class='section-header'><a href='#migrating-from-other-crates'>Migrating from other crates</a></h1>
