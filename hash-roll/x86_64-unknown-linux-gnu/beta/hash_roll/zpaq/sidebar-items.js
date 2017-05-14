@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Zpaq","A splitter used in go 'dedup' and zpaq that does not require looking back in the source data to update"],["ZpaqHash","The rolling hash component of the zpaq splitter"]]});
