@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'>Crate hash_roll</p><div class="block items"><ul><li><a href="#modules">Modules</a></li><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#traits">Traits</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'hash_roll', ty: 'mod', relpath: '../'};</script>
+        <p class='location'>Crate hash_roll</p><div class="block items"><ul><li><a href="#reexports">Reexports</a></li><li><a href="#modules">Modules</a></li><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#traits">Traits</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'hash_roll', ty: 'mod', relpath: '../'};</script>
     </nav>
 
     <nav class="sub">
@@ -48,26 +48,27 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../src/hash_roll/lib.rs.html#1-707' title='goto source code'>[src]</a></span></h1>
-<h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+               </span><a class='srclink' href='../src/hash_roll/lib.rs.html#1-362' title='goto source code'>[src]</a></span></h1>
+<h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
+<table><tr><td><code>pub use bup::<a class="struct" href="../hash_roll/bup/struct.Bup.html" title="struct hash_roll::bup::Bup">Bup</a>;</code></td></tr><tr><td><code>pub use zpaq::<a class="struct" href="../hash_roll/zpaq/struct.Zpaq.html" title="struct hash_roll::zpaq::Zpaq">Zpaq</a>;</code></td></tr><tr><td><code>pub use rsyncable::<a class="struct" href="../hash_roll/rsyncable/struct.Rsyncable.html" title="struct hash_roll::rsyncable::Rsyncable">Rsyncable</a>;</code></td></tr></table><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
 <table>
                        <tr class=' module-item'>
-                           <td><a class="mod" href="circ/index.html"
-                                  title='mod hash_roll::circ'>circ</a></td>
+                           <td><a class="mod" href="bup/index.html"
+                                  title='mod hash_roll::bup'>bup</a></td>
                            <td class='docblock-short'>
                                 
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class="mod" href="slice/index.html"
-                                  title='mod hash_roll::slice'>slice</a></td>
+                           <td><a class="mod" href="rsyncable/index.html"
+                                  title='mod hash_roll::rsyncable'>rsyncable</a></td>
                            <td class='docblock-short'>
                                 
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class="mod" href="window/index.html"
-                                  title='mod hash_roll::window'>window</a></td>
+                           <td><a class="mod" href="zpaq/index.html"
+                                  title='mod hash_roll::zpaq'>zpaq</a></td>
                            <td class='docblock-short'>
                                 
                            </td>
@@ -78,16 +79,6 @@
                                   title='struct hash_roll::Range'>Range</a></td>
                            <td class='docblock-short'>
                                 
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="struct" href="struct.Rsyncable.html"
-                                  title='struct hash_roll::Rsyncable'>Rsyncable</a></td>
-                           <td class='docblock-short'>
-                                <p>&#39;Rsyncable&#39; is used by the gzip rsyncable patch (still not merged, but widely distributed) as
-well as the rsyncrypto project to split the unerlying content into variable sized blocks prior
-to applying a filter (compression and/or encryption) to the blocks, which the intent of allowing
-the resulting filtered data to be more easily propogated via rsync.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -102,14 +93,6 @@ the resulting filtered data to be more easily propogated via rsync.</p>
                                   title='struct hash_roll::SplitterVecs'>SplitterVecs</a></td>
                            <td class='docblock-short'>
                                 
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="struct" href="struct.Zpaq.html"
-                                  title='struct hash_roll::Zpaq'>Zpaq</a></td>
-                           <td class='docblock-short'>
-                                <p>zpaq - a splitter used in go &#39;dedup&#39; and zpaq that does not require looking back in the source
-       data to update</p>
                            </td>
                        </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
 <table>

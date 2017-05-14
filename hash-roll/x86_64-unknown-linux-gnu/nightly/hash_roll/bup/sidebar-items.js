@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Bup",""],["RollSum","Rolling sum used in Bup. This is based on the one in librsync."]]});
