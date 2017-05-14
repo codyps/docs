@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Rsyncable","Window-based splitter using a simple accumulator & modulus hash."]]});
