@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="API documentation for the Rust `circ` mod in crate `hash_roll`.">
-    <meta name="keywords" content="rust, rustlang, rust-lang, circ">
+    <meta name="description" content="API documentation for the Rust `ZpaqHash` struct in crate `hash_roll`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, ZpaqHash">
 
-    <title>hash_roll::circ - Rust</title>
+    <title>hash_roll::zpaq::ZpaqHash - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
@@ -17,7 +17,7 @@
     
     
 </head>
-<body class="rustdoc mod">
+<body class="rustdoc struct">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>hash_roll</a></p><script>window.sidebarCurrent = {name: 'circ', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
+        <p class='location'><a href='../index.html'>hash_roll</a>::<wbr><a href='index.html'>zpaq</a></p><script>window.sidebarCurrent = {name: 'ZpaqHash', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -44,27 +44,16 @@
     </nav>
 
     <section id='main' class="content">
-<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>hash_roll</a>::<wbr><a class="mod" href=''>circ</a></span><span class='out-of-band'><span id='render-detail'>
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>hash_roll</a>::<wbr><a href='index.html'>zpaq</a>::<wbr><a class="struct" href=''>ZpaqHash</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../../src/hash_roll/circ.rs.html#1-161' title='goto source code'>[src]</a></span></h1>
-<h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
-<table>
-                       <tr class=' module-item'>
-                           <td><a class="struct" href="struct.Buf.html"
-                                  title='struct hash_roll::circ::Buf'>Buf</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="struct" href="struct.Iter.html"
-                                  title='struct hash_roll::circ::Iter'>Iter</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr></table></section>
+               </span><a class='srclink' href='../../src/hash_roll/zpaq.rs.html#226-230' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct ZpaqHash { /* fields omitted */ }</pre><div class='docblock'><p>The rolling hash component of the zpaq splitter</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl <a class="struct" href="../../hash_roll/zpaq/struct.ZpaqHash.html" title="struct hash_roll::zpaq::ZpaqHash">ZpaqHash</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/hash_roll/zpaq.rs.html#232-260' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.new' class="method"><span id='new.v' class='invisible'><code>fn <a href='#method.new' class='fnname'>new</a>() -&gt; Self</code></span></h4>
+<h4 id='method.feed' class="method"><span id='feed.v' class='invisible'><code>fn <a href='#method.feed' class='fnname'>feed</a>(&amp;mut self, c: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a></code></span></h4>
+</div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
