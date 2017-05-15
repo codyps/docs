@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Bound",""]],"mod":[["bup",""],["rsyncable",""],["zpaq",""]],"struct":[["Range",""],["SplitterSplit",""],["SplitterVecs",""]],"trait":[["Splitter",""]]});
+initSidebarItems({"enum":[["Bound",""]],"mod":[["bup",""],["rsyncable",""],["zpaq",""]],"struct":[["Range",""],["SplitterSlices","Iterator over slices emitted from a splitter"],["SplitterVecs","Iterator over vecs emitted from a splitter"]],"trait":[["Splitter","An object with transforms a stream of bytes into chunks, potentially by examining the bytes"]]});
