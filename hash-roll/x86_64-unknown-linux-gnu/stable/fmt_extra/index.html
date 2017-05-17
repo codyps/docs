@@ -4,14 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="API documentation for the Rust `bup` mod in crate `hash_roll`.">
-    <meta name="keywords" content="rust, rustlang, rust-lang, bup">
+    <meta name="description" content="API documentation for the Rust `fmt_extra` crate.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, fmt_extra">
 
-    <title>hash_roll::bup - Rust</title>
+    <title>fmt_extra - Rust</title>
 
-    <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css">
+    <link rel="stylesheet" type="text/css" href="../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
     
 
     
@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>hash_roll</a></p><script>window.sidebarCurrent = {name: 'bup', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
+        <p class='location'></p><script>window.sidebarCurrent = {name: 'fmt_extra', ty: 'mod', relpath: '../'};</script>
     </nav>
 
     <nav class="sub">
@@ -44,25 +44,42 @@
     </nav>
 
     <section id='main' class="content">
-<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>hash_roll</a>::<wbr><a class="mod" href=''>bup</a></span><span class='out-of-band'><span id='render-detail'>
+<h1 class='fqn'><span class='in-band'>Crate <a class="mod" href=''>fmt_extra</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../../src/hash_roll/bup.rs.html#1-252' title='goto source code'>[src]</a></span></h1>
+               </span><a class='srclink' href='../src/fmt_extra/lib.rs.html#1-165' title='goto source code'>[src]</a></span></h1>
 <h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
                        <tr class=' module-item'>
-                           <td><a class="struct" href="struct.Bup.html"
-                                  title='struct hash_roll::bup::Bup'>Bup</a></td>
+                           <td><a class="struct" href="struct.AsciiStr.html"
+                                  title='struct fmt_extra::AsciiStr'>AsciiStr</a></td>
                            <td class='docblock-short'>
-                                
+                                <p>A wrapper around anything that dereferences to a byte slice (<code>[u8]</code>) that displays it&#39;s
+contents as a string using rust-like (&amp; c-like) escapes for non ascii characters</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class="struct" href="struct.RollSum.html"
-                                  title='struct hash_roll::bup::RollSum'>RollSum</a></td>
+                           <td><a class="struct" href="struct.Hs.html"
+                                  title='struct fmt_extra::Hs'>Hs</a></td>
                            <td class='docblock-short'>
-                                <p>Rolling sum used in Bup. This is based on the one in librsync.</p>
+                                <p>A wrapper around anything that dereferences to a byte slice (<code>[u8]</code>) that displays it&#39;s
+contents as a hexidicimal string.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Seperated.html"
+                                  title='struct fmt_extra::Seperated'>Seperated</a></td>
+                           <td class='docblock-short'>
+                                <p>Display a given iterator over display-ables using by printing each display-able 1 display-able
+seperator.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.SingleQuotedStr.html"
+                                  title='struct fmt_extra::SingleQuotedStr'>SingleQuotedStr</a></td>
+                           <td class='docblock-short'>
+                                <p>Given a str, display it as a posix-shell style single quoted string with no ambiguity.</p>
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>
@@ -118,11 +135,11 @@
     
 
     <script>
-        window.rootPath = "../../";
-        window.currentCrate = "hash_roll";
+        window.rootPath = "../";
+        window.currentCrate = "fmt_extra";
     </script>
-    <script src="../../jquery.js"></script>
-    <script src="../../main.js"></script>
-    <script defer src="../../search-index.js"></script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    <script defer src="../search-index.js"></script>
 </body>
 </html>
