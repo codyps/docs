@@ -338,7 +338,7 @@
  *
  *  - None
  */</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Clone</span>)]</span>
+<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Clone</span>, <span class="ident">PartialEq</span>, <span class="ident">Eq</span>)]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Zpaq</span>
 {
     <span class="comment">/* FIXME: layout optimization? Is that even needed in rust? */</span>
@@ -358,12 +358,12 @@
     <span class="comment">/* these are based on the zpaq (not go-dedup) calculations */</span>
     <span class="kw">fn</span> <span class="ident">fragment_ave_from_range</span>(<span class="ident">range</span>: <span class="kw-2">&amp;</span><span class="ident">Range</span><span class="op">&lt;</span><span class="ident">usize</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="ident">u8</span>
     {
-        <span class="kw">let</span> <span class="ident">v</span> <span class="op">=</span> <span class="kw">match</span> <span class="ident">range</span>.<span class="ident">last</span> {
+        <span class="kw">let</span> <span class="ident">v</span> <span class="op">=</span> <span class="kw">match</span> <span class="ident">range</span>.<span class="ident">upper</span> {
             <span class="ident">Bound</span>::<span class="ident">Included</span>(<span class="ident">i</span>) <span class="op">=&gt;</span> <span class="ident">i</span>,
             <span class="ident">Bound</span>::<span class="ident">Excluded</span>(<span class="ident">i</span>) <span class="op">=&gt;</span> <span class="ident">i</span> <span class="op">-</span> <span class="number">1</span>,
             <span class="ident">Bound</span>::<span class="ident">Unbounded</span> <span class="op">=&gt;</span> {
                 <span class="comment">/* try to guess based on first */</span>
-                <span class="number">64</span> <span class="op">*</span> <span class="kw">match</span> <span class="ident">range</span>.<span class="ident">first</span> {
+                <span class="number">64</span> <span class="op">*</span> <span class="kw">match</span> <span class="ident">range</span>.<span class="ident">lower</span> {
                     <span class="ident">Bound</span>::<span class="ident">Included</span>(<span class="ident">i</span>) <span class="op">=&gt;</span> <span class="ident">i</span>,
                     <span class="ident">Bound</span>::<span class="ident">Excluded</span>(<span class="ident">i</span>) <span class="op">=&gt;</span> <span class="ident">i</span> <span class="op">+</span> <span class="number">1</span>,
                     <span class="ident">Bound</span>::<span class="ident">Unbounded</span> <span class="op">=&gt;</span> {
