@@ -196,7 +196,10 @@ type of index (see <a href="#method.get"><code>get</code></a>) or <code>None</co
 <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">x</span>, <span class="kw-2">&amp;</span>[<span class="number">0</span>, <span class="number">42</span>, <span class="number">2</span>]);</pre>
 </div><h4 id='method.get_unchecked' class="method"><span id='get_unchecked.v' class='invisible'><code>unsafe fn <a href='#method.get_unchecked' class='fnname'>get_unchecked</a>&lt;I&gt;(&amp;self, index: I) -&gt; &amp;&lt;I as <a class="trait" href="https://doc.rust-lang.org/nightly/core/slice/trait.SliceIndex.html" title="trait core::slice::SliceIndex">SliceIndex</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">[</a>T<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a>&gt;&gt;::<a class="trait" href="https://doc.rust-lang.org/nightly/core/slice/trait.SliceIndex.html" title="trait core::slice::SliceIndex">Output</a> <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;I: <a class="trait" href="https://doc.rust-lang.org/nightly/core/slice/trait.SliceIndex.html" title="trait core::slice::SliceIndex">SliceIndex</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">[</a>T<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a>&gt;,&nbsp;</span></code><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div></span></h4>
 <div class='docblock'><p>Returns a reference to an element or subslice, without doing bounds
-checking. So use it very carefully!</p>
+checking.</p>
+
+<p>This is generally not recommended, use with caution! For a safe
+alternative see <a href="#method.get"><code>get</code></a>.</p>
 
 <h1 id='examples-10' class='section-header'><a href='#examples-10'>Examples</a></h1>
 <pre class="rust rust-example-rendered">
@@ -207,7 +210,10 @@ checking. So use it very carefully!</p>
 }</pre>
 </div><h4 id='method.get_unchecked_mut' class="method"><span id='get_unchecked_mut.v' class='invisible'><code>unsafe fn <a href='#method.get_unchecked_mut' class='fnname'>get_unchecked_mut</a>&lt;I&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;mut self, <br>&nbsp;&nbsp;&nbsp;&nbsp;index: I<br>) -&gt; &amp;mut &lt;I as <a class="trait" href="https://doc.rust-lang.org/nightly/core/slice/trait.SliceIndex.html" title="trait core::slice::SliceIndex">SliceIndex</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">[</a>T<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a>&gt;&gt;::<a class="trait" href="https://doc.rust-lang.org/nightly/core/slice/trait.SliceIndex.html" title="trait core::slice::SliceIndex">Output</a> <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;I: <a class="trait" href="https://doc.rust-lang.org/nightly/core/slice/trait.SliceIndex.html" title="trait core::slice::SliceIndex">SliceIndex</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">[</a>T<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a>&gt;,&nbsp;</span></code><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div></span></h4>
 <div class='docblock'><p>Returns a mutable reference to an element or subslice, without doing
-bounds checking. So use it very carefully!</p>
+bounds checking.</p>
+
+<p>This is generally not recommended, use with caution! For a safe
+alternative see <a href="#method.get_mut"><code>get_mut</code></a>.</p>
 
 <h1 id='examples-11' class='section-header'><a href='#examples-11'>Examples</a></h1>
 <pre class="rust rust-example-rendered">
