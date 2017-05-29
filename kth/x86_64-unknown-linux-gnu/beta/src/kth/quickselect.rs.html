@@ -552,6 +552,7 @@
 <span id="507">507</span>
 <span id="508">508</span>
 <span id="509">509</span>
+<span id="510">510</span>
 </pre><pre class="rust ">
 <span class="doccomment">//! Efficiently locate the k-th element of an array. The k-th element is the element that would be</span>
 <span class="doccomment">//! at index `k` if the array were sorted.</span>
@@ -599,7 +600,8 @@
 <span class="doccomment">/// references Knuth&#39;s TAOCP volume 3.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// There may exist more efficient non-sorting network sorts that could replace this.</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sort5</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Ord</span><span class="op">&gt;</span>(<span class="ident">a</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> [<span class="ident">T</span>;<span class="number">5</span>])
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
+<span class="kw">fn</span> <span class="ident">sort5</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Ord</span><span class="op">&gt;</span>(<span class="ident">a</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> [<span class="ident">T</span>;<span class="number">5</span>])
 {
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">cswap</span> <span class="op">=</span> <span class="op">|</span><span class="ident">i</span>: <span class="ident">usize</span>, <span class="ident">j</span>: <span class="ident">usize</span><span class="op">|</span> {
         <span class="kw">if</span> <span class="ident">a</span>[<span class="ident">i</span>] <span class="op">&gt;</span> <span class="ident">a</span>[<span class="ident">j</span>] {
@@ -697,7 +699,7 @@ pub fn median5&lt;T: Ord&gt;(a: &amp;mut [T;5])
 <span class="doccomment">/// Sort 3 elements. This is equivalent to a theoretical `partition3`.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// A comparison tree with at most 3 comparisons &amp; 2 swaps.</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sort3</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Ord</span><span class="op">&gt;</span>(<span class="ident">a</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> [<span class="ident">T</span>;<span class="number">3</span>])
+<span class="kw">fn</span> <span class="ident">sort3</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Ord</span><span class="op">&gt;</span>(<span class="ident">a</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> [<span class="ident">T</span>;<span class="number">3</span>])
 {
     <span class="kw">if</span> <span class="ident">a</span>[<span class="number">0</span>] <span class="op">&lt;=</span> <span class="ident">a</span>[<span class="number">1</span>] {
         <span class="kw">if</span> <span class="ident">a</span>[<span class="number">1</span>] <span class="op">&lt;=</span> <span class="ident">a</span>[<span class="number">2</span>] {
