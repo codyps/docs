@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["quickselect","Efficiently locate the k-th element of an array. The k-th element is the element that would be at index `k` if the array were sorted."]],"trait":[["SliceExtKth",""]]});
+initSidebarItems({"trait":[["SliceExtKth","Add k-th order element operations to slices."]]});
