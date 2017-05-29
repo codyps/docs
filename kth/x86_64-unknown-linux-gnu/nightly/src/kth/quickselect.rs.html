@@ -553,6 +553,32 @@
 <span id="508">508</span>
 <span id="509">509</span>
 <span id="510">510</span>
+<span id="511">511</span>
+<span id="512">512</span>
+<span id="513">513</span>
+<span id="514">514</span>
+<span id="515">515</span>
+<span id="516">516</span>
+<span id="517">517</span>
+<span id="518">518</span>
+<span id="519">519</span>
+<span id="520">520</span>
+<span id="521">521</span>
+<span id="522">522</span>
+<span id="523">523</span>
+<span id="524">524</span>
+<span id="525">525</span>
+<span id="526">526</span>
+<span id="527">527</span>
+<span id="528">528</span>
+<span id="529">529</span>
+<span id="530">530</span>
+<span id="531">531</span>
+<span id="532">532</span>
+<span id="533">533</span>
+<span id="534">534</span>
+<span id="535">535</span>
+<span id="536">536</span>
 </pre><pre class="rust ">
 <span class="doccomment">//! Efficiently locate the k-th element of an array. The k-th element is the element that would be</span>
 <span class="doccomment">//! at index `k` if the array were sorted.</span>
@@ -654,6 +680,7 @@
 <span class="doccomment">/// - &lt;=7 swaps</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// [Alexandrescu](https://arxiv.org/pdf/1606.00484v1.pdf)</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
 <span class="kw">fn</span> <span class="ident">partition5</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Ord</span><span class="op">&gt;</span>(<span class="ident">x</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> [<span class="ident">T</span>;<span class="number">5</span>])
 {
     <span class="comment">// a b c d e</span>
@@ -804,7 +831,8 @@ pub fn median_of_ninthers_basic&lt;T: Ord&gt;(a: &amp;mut [T])
 <span class="doccomment">/// Split the array into 5 element windows, find the find the median &amp; partition each of those</span>
 <span class="doccomment">/// windows, then on the array of medians, find the median again using the same method until we</span>
 <span class="doccomment">/// have less than 5 elements</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">median_of_medians</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Ord</span><span class="op">&gt;</span>(<span class="ident">a</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> [<span class="ident">T</span>])
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
+<span class="kw">fn</span> <span class="ident">median_of_medians</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Ord</span><span class="op">&gt;</span>(<span class="ident">a</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> [<span class="ident">T</span>])
     <span class="op">-&gt;</span> <span class="ident">usize</span>
 {
     <span class="kw">let</span> <span class="ident">l</span> <span class="op">=</span> <span class="ident">a</span>.<span class="ident">len</span>();
@@ -1061,6 +1089,30 @@ fn bfprt_improved&lt;T: Ord&gt;(a: &amp;mut [T])
         <span class="ident">b</span>.<span class="ident">iter</span>(<span class="op">||</span> {
             <span class="ident">rng</span>.<span class="ident">fill_bytes</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">d</span>);
             <span class="kw">super</span>::<span class="ident">partition5_2</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">d</span>);
+        })
+    }
+
+    <span class="kw">const</span> <span class="ident">BENCH_LEN</span>: <span class="ident">usize</span> <span class="op">=</span> <span class="number">1024</span> <span class="op">*</span> <span class="number">512</span>;
+
+    <span class="attribute">#[<span class="ident">bench</span>]</span>
+    <span class="kw">fn</span> <span class="ident">median_of_medians_big</span>(<span class="ident">b</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">test</span>::<span class="ident">Bencher</span>) {
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">rng</span> <span class="op">=</span> <span class="ident">rand</span>::<span class="ident">thread_rng</span>();
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">d</span> <span class="op">=</span> <span class="macro">vec</span><span class="macro">!</span>[<span class="number">0u8</span>; <span class="ident">BENCH_LEN</span>];
+        <span class="ident">b</span>.<span class="ident">iter</span>(<span class="op">||</span> {
+            <span class="ident">rng</span>.<span class="ident">fill_bytes</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">d</span>);
+            <span class="kw">let</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">rng</span>.<span class="ident">gen</span>::<span class="op">&lt;</span><span class="ident">usize</span><span class="op">&gt;</span>() <span class="op">%</span> <span class="ident">d</span>.<span class="ident">len</span>();
+            <span class="kw">super</span>::<span class="ident">quickselect</span>(<span class="kw">super</span>::<span class="ident">median_of_medians</span>, <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">d</span>[..], <span class="ident">p</span>)
+        })
+    }
+
+    <span class="attribute">#[<span class="ident">bench</span>]</span>
+    <span class="kw">fn</span> <span class="ident">repeated_step3_big</span>(<span class="ident">b</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">test</span>::<span class="ident">Bencher</span>) {
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">rng</span> <span class="op">=</span> <span class="ident">rand</span>::<span class="ident">thread_rng</span>();
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">d</span> <span class="op">=</span> <span class="macro">vec</span><span class="macro">!</span>[<span class="number">0u8</span>; <span class="ident">BENCH_LEN</span>];
+        <span class="ident">b</span>.<span class="ident">iter</span>(<span class="op">||</span> {
+            <span class="ident">rng</span>.<span class="ident">fill_bytes</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">d</span>);
+            <span class="kw">let</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">rng</span>.<span class="ident">gen</span>::<span class="op">&lt;</span><span class="ident">usize</span><span class="op">&gt;</span>() <span class="op">%</span> <span class="ident">d</span>.<span class="ident">len</span>();
+            <span class="kw">super</span>::<span class="ident">quickselect</span>(<span class="kw">super</span>::<span class="ident">repeated_step3</span>, <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">d</span>[..], <span class="ident">p</span>)
         })
     }
 }
