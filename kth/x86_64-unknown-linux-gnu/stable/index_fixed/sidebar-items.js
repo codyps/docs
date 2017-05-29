@@ -1,0 +1,1 @@
+initSidebarItems({"macro":[["index_fixed","Slices (via the Index trait & operation) into fixed size arrays"]]});
