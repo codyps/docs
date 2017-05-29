@@ -88,6 +88,7 @@
 <span id="43">43</span>
 <span id="44">44</span>
 <span id="45">45</span>
+<span id="46">46</span>
 </pre><pre class="rust ">
 <span class="attribute">#<span class="op">!</span>[<span class="ident">cfg_attr</span>(<span class="ident">not</span>(<span class="ident">test</span>), <span class="ident">no_std</span>)]</span>
 <span class="attribute">#<span class="op">!</span>[<span class="ident">cfg_attr</span>(<span class="ident">all</span>(<span class="ident">test</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nightly&quot;</span>), <span class="ident">feature</span>(<span class="ident">test</span>))]</span>
@@ -99,8 +100,9 @@
 <span class="attribute">#[<span class="ident">macro_use</span>]</span>
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">index_fixed</span>;
 
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">quickselect</span>;
+<span class="kw">mod</span> <span class="ident">quickselect</span>;
 
+<span class="doccomment">/// Add k-th order element operations to slices.</span>
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">SliceExtKth</span> {
     <span class="doccomment">/// Re-order the slice so that the element with the order given by pivot order (ie: the element</span>
     <span class="doccomment">/// at the k-th index when the array is sorted) has all elements smaller than it before it, and</span>
