@@ -224,6 +224,9 @@ violate the invariants communicated by the <code>str</code> type.</p>
 <div class='docblock'><p>Creates a string slice from another string slice, bypassing safety
 checks.</p>
 
+<p>This is generally not recommended, use with caution! For a safe
+alternative see <a href="primitive.str.html"><code>str</code></a> and <a href="ops/trait.Index.html"><code>Index</code></a>.</p>
+
 <p>This new slice goes from <code>begin</code> to <code>end</code>, including <code>begin</code> but
 excluding <code>end</code>.</p>
 
@@ -257,7 +260,9 @@ satisfied:</p>
 }</pre>
 </div><h4 id='method.slice_mut_unchecked' class="method"><span id='slice_mut_unchecked.v' class='invisible'><code>unsafe fn <a href='#method.slice_mut_unchecked' class='fnname'>slice_mut_unchecked</a>(&amp;mut self, begin: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>, end: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>) -&gt; &amp;mut <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a></code><div class='since' title='Stable since Rust version 1.5.0'>1.5.0</div></span></h4>
 <div class='docblock'><p>Creates a string slice from another string slice, bypassing safety
-checks.</p>
+checks.
+This is generally not recommended, use with caution! For a safe
+alternative see <a href="primitive.str.html"><code>str</code></a> and <a href="ops/trait.IndexMut.html"><code>IndexMut</code></a>.</p>
 
 <p>This new slice goes from <code>begin</code> to <code>end</code>, including <code>begin</code> but
 excluding <code>end</code>.</p>
@@ -664,7 +669,7 @@ with empty strings in the output:</p>
 
 <pre class="rust rust-example-rendered">
 <span class="kw">let</span> <span class="ident">x</span> <span class="op">=</span> <span class="string">&quot;(///)&quot;</span>.<span class="ident">to_string</span>();
-<span class="kw">let</span> <span class="ident">d</span>: <span class="ident">Vec</span><span class="op">&lt;</span>_<span class="op">&gt;</span> <span class="op">=</span> <span class="ident">x</span>.<span class="ident">split</span>(<span class="string">&#39;/&#39;</span>).<span class="ident">collect</span>();;
+<span class="kw">let</span> <span class="ident">d</span>: <span class="ident">Vec</span><span class="op">&lt;</span>_<span class="op">&gt;</span> <span class="op">=</span> <span class="ident">x</span>.<span class="ident">split</span>(<span class="string">&#39;/&#39;</span>).<span class="ident">collect</span>();
 
 <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">d</span>, <span class="kw-2">&amp;</span>[<span class="string">&quot;(&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="string">&quot;)&quot;</span>]);</pre>
 
@@ -1147,6 +1152,8 @@ the desired type.</p>
 <span class="kw">let</span> <span class="ident">nope</span> <span class="op">=</span> <span class="string">&quot;j&quot;</span>.<span class="ident">parse</span>::<span class="op">&lt;</span><span class="ident">u32</span><span class="op">&gt;</span>();
 
 <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">nope</span>.<span class="ident">is_err</span>());</pre>
+</div><h4 id='method.into_boxed_bytes' class="method"><span id='into_boxed_bytes.v' class='invisible'><code>fn <a href='#method.into_boxed_bytes' class='fnname'>into_boxed_bytes</a>(self: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;) -&gt; <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">[</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a>&gt;</code></span></h4>
+<div class='stability'><div class='stab unstable'><span class=microscope>🔬</span> This is a nightly-only experimental API.  (<code>str_box_extras</code>)</div></div><div class='docblock'><p>Converts a <code>Box&lt;str&gt;</code> into a <code>Box&lt;[u8]&gt;</code> without copying or allocating.</p>
 </div><h4 id='method.replace' class="method"><span id='replace.v' class='invisible'><code>fn <a href='#method.replace' class='fnname'>replace</a>&lt;'a, P&gt;(&amp;'a self, from: P, to: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <a class="struct" href="https://doc.rust-lang.org/nightly/collections/string/struct.String.html" title="struct collections::string::String">String</a> <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;P: <a class="trait" href="https://doc.rust-lang.org/nightly/core/str/pattern/trait.Pattern.html" title="trait core::str::pattern::Pattern">Pattern</a>&lt;'a&gt;,&nbsp;</span></code><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div></span></h4>
 <div class='docblock'><p>Replaces all matches of a pattern with another string.</p>
 
@@ -1392,7 +1399,6 @@ parameter in-place.</p>
         window.rootPath = "../../";
         window.currentCrate = "mbox";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     <script defer src="../../search-index.js"></script>
 </body>
