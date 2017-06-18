@@ -1,1 +1,1 @@
-initSidebarItems({"macro":[["index_fixed","Slices (via the Index trait & operation) into fixed size arrays"]]});
+initSidebarItems({"macro":[["index_fixed","Slices (via the Index trait & operation) into fixed size arrays"],["index_fixed_get","`slice::get` and `slice::get_mut`, but return an `Option<&[T;N]>` or `Option<&mut [T;N]>`"]]});
