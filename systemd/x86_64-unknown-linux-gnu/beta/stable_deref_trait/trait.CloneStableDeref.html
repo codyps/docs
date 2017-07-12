@@ -4,20 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="API documentation for the Rust `mbox` mod in crate `mbox`.">
-    <meta name="keywords" content="rust, rustlang, rust-lang, mbox">
+    <meta name="description" content="API documentation for the Rust `CloneStableDeref` trait in crate `stable_deref_trait`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, CloneStableDeref">
 
-    <title>mbox::mbox - Rust</title>
+    <title>stable_deref_trait::CloneStableDeref - Rust</title>
 
-    <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css">
+    <link rel="stylesheet" type="text/css" href="../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
     
 
     
     
 </head>
-<body class="rustdoc mod">
+<body class="rustdoc trait">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'>Module mbox</p><div class="block items"><ul><li><a href="#structs">Structs</a></li></ul></div><p class='location'><a href='../index.html'>mbox</a></p><script>window.sidebarCurrent = {name: 'mbox', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
+        <p class='location'>Trait CloneStableDeref</p><div class="block items"><ul><li><a href="#implementors">Implementors</a></li></ul></div><p class='location'><a href='index.html'>stable_deref_trait</a></p><script>window.sidebarCurrent = {name: 'CloneStableDeref', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -44,28 +44,21 @@
     </nav>
 
     <section id='main' class="content">
-<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>mbox</a>::<wbr><a class="mod" href=''>mbox</a></span><span class='out-of-band'><span id='render-detail'>
+<h1 class='fqn'><span class='in-band'>Trait <a href='index.html'>stable_deref_trait</a>::<wbr><a class="trait" href=''>CloneStableDeref</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../../src/mbox/mbox.rs.html#1-817' title='goto source code'>[src]</a></span></h1>
-<div class='docblock'><p><code>malloc</code>-based Box.</p>
-</div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
-<table>
-                       <tr class=' module-item'>
-                           <td><a class="struct" href="struct.MBox.html"
-                                  title='struct mbox::mbox::MBox'>MBox</a></td>
-                           <td class='docblock-short'>
-                                <p>A malloc-backed box. This structure allows Rust to exchange objects with C without cloning.</p>
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="struct" href="struct.MSliceIntoIter.html"
-                                  title='struct mbox::mbox::MSliceIntoIter'>MSliceIntoIter</a></td>
-                           <td class='docblock-short'>
-                                <p>The iterator returned from <code>MBox&lt;[T]&gt;::into_iter()</code>.</p>
-                           </td>
-                       </tr></table></section>
+               </span><a class='srclink' href='../src/stable_deref_trait/lib.rs.html#126' title='goto source code'>[src]</a></span></h1>
+<pre class='rust trait'>pub unsafe trait CloneStableDeref: <a class="trait" href="../stable_deref_trait/trait.StableDeref.html" title="trait stable_deref_trait::StableDeref">StableDeref</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a> { }</pre><div class='docblock'><p>An unsafe marker trait for types where clones deref to the same address. This has all the requirements of StableDeref, and additionally requires that after calling clone(), both the old and new value deref to the same address. For example, Rc and Arc implement CloneStableDeref, but Box and Vec do not.</p>
+
+<p>Note that a single type should never implement both DerefMut and CloneStableDeref. If it did, this would let you get two mutable references to the same location, by cloning and then calling deref_mut() on both values.</p>
+</div>
+        <h2 id='implementors'>Implementors</h2>
+        <ul class='item-list' id='implementors-list'>
+    <li><code>impl&lt;'a, T:&nbsp;?<a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a>&gt; CloneStableDeref for &amp;'a T</code></li>
+</ul><script type="text/javascript" async
+                         src="../implementors/stable_deref_trait/trait.CloneStableDeref.js">
+                 </script></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -119,10 +112,10 @@
     
 
     <script>
-        window.rootPath = "../../";
-        window.currentCrate = "mbox";
+        window.rootPath = "../";
+        window.currentCrate = "stable_deref_trait";
     </script>
-    <script src="../../main.js"></script>
-    <script defer src="../../search-index.js"></script>
+    <script src="../main.js"></script>
+    <script defer src="../search-index.js"></script>
 </body>
 </html>
