@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/mbox-0.3.1/src/sentinel.rs`.">
+    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/mbox-0.4.0/src/sentinel.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>sentinel.rs.html -- source</title>
@@ -461,10 +461,15 @@
 <span id="416">416</span>
 <span id="417">417</span>
 <span id="418">418</span>
+<span id="419">419</span>
+<span id="420">420</span>
+<span id="421">421</span>
+<span id="422">422</span>
 </pre><pre class="rust ">
 <span class="doccomment">//! Sentinel-terminated types.</span>
 
 <span class="kw">use</span> <span class="ident">libc</span>::{<span class="ident">strlen</span>, <span class="ident">c_char</span>};
+<span class="kw">use</span> <span class="ident">stable_deref_trait</span>::<span class="ident">StableDeref</span>;
 
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">mem</span>::{<span class="ident">forget</span>, <span class="ident">size_of</span>};
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">str</span>::<span class="ident">Utf8Error</span>;
@@ -631,6 +636,9 @@
 
     }
 }
+
+<span class="kw">unsafe</span> <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Sentinel</span><span class="op">&gt;</span> <span class="ident">StableDeref</span> <span class="kw">for</span> <span class="ident">MArray</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {}
+<span class="kw">unsafe</span> <span class="kw">impl</span> <span class="ident">StableDeref</span> <span class="kw">for</span> <span class="ident">MString</span> {}
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Sentinel</span><span class="op">&gt;</span> <span class="ident">DerefMut</span> <span class="kw">for</span> <span class="ident">MArray</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
     <span class="kw">fn</span> <span class="ident">deref_mut</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> [<span class="ident">T</span>] {
