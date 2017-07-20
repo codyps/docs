@@ -134,7 +134,7 @@ length calculation whenever this method is called.</p>
 </div><h4 id='method.to_bytes_with_nul' class="method"><span id='to_bytes_with_nul.v' class='invisible'><code>fn <a href='#method.to_bytes_with_nul' class='fnname'>to_bytes_with_nul</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;[</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a></code><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div></span></h4>
 <div class='docblock'><p>Converts this C string to a byte slice containing the trailing 0 byte.</p>
 
-<p>This function is the equivalent of <code>to_bytes</code> except that it will retain
+<p>This function is the equivalent of <a href="#method.to_bytes"><code>to_bytes</code></a> except that it will retain
 the trailing nul instead of chopping it off.</p>
 
 <blockquote>
@@ -143,10 +143,10 @@ it is planned to alter its definition in the future to perform the
 length calculation whenever this method is called.</p>
 </blockquote>
 </div><h4 id='method.to_str' class="method"><span id='to_str.v' class='invisible'><code>fn <a href='#method.to_str' class='fnname'>to_str</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;&amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, <a class="struct" href="https://doc.rust-lang.org/nightly/core/str/struct.Utf8Error.html" title="struct core::str::Utf8Error">Utf8Error</a>&gt;</code><div class='since' title='Stable since Rust version 1.4.0'>1.4.0</div></span></h4>
-<div class='docblock'><p>Yields a <code>&amp;str</code> slice if the <code>CStr</code> contains valid UTF-8.</p>
+<div class='docblock'><p>Yields a <a href="../primitive.str.html"><code>&amp;str</code></a> slice if the <code>CStr</code> contains valid UTF-8.</p>
 
 <p>This function will calculate the length of this string and check for
-UTF-8 validity, and then return the <code>&amp;str</code> if it&#39;s valid.</p>
+UTF-8 validity, and then return the <a href="../primitive.str.html"><code>&amp;str</code></a> if it&#39;s valid.</p>
 
 <blockquote>
 <p><strong>Note</strong>: This method is currently implemented to check for validity
@@ -155,11 +155,11 @@ future to perform the length calculation in addition to the UTF-8
 check whenever this method is called.</p>
 </blockquote>
 </div><h4 id='method.to_string_lossy' class="method"><span id='to_string_lossy.v' class='invisible'><code>fn <a href='#method.to_string_lossy' class='fnname'>to_string_lossy</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/collections/borrow/enum.Cow.html" title="enum collections::borrow::Cow">Cow</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;</code><div class='since' title='Stable since Rust version 1.4.0'>1.4.0</div></span></h4>
-<div class='docblock'><p>Converts a <code>CStr</code> into a <code>Cow&lt;str&gt;</code>.</p>
+<div class='docblock'><p>Converts a <code>CStr</code> into a <a href="../borrow/enum.Cow.html"><code>Cow</code></a><code>&lt;</code><a href="../primitive.str.html"><code>str</code></a><code>&gt;</code>.</p>
 
 <p>This function will calculate the length of this string (which normally
 requires a linear amount of work to be done) and then return the
-resulting slice as a <code>Cow&lt;str&gt;</code>, replacing any invalid UTF-8 sequences
+resulting slice as a <a href="../borrow/enum.Cow.html"><code>Cow</code></a><code>&lt;</code><a href="../primitive.str.html"><code>str</code></a><code>&gt;</code>, replacing any invalid UTF-8 sequences
 with <code>U+FFFD REPLACEMENT CHARACTER</code>.</p>
 
 <blockquote>
@@ -169,7 +169,7 @@ future to perform the length calculation in addition to the UTF-8
 check whenever this method is called.</p>
 </blockquote>
 </div><h4 id='method.into_c_string' class="method"><span id='into_c_string.v' class='invisible'><code>fn <a href='#method.into_c_string' class='fnname'>into_c_string</a>(self: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/std/ffi/c_str/struct.CStr.html" title="struct std::ffi::c_str::CStr">CStr</a>&gt;) -&gt; <a class="struct" href="https://doc.rust-lang.org/nightly/std/ffi/c_str/struct.CString.html" title="struct std::ffi::c_str::CString">CString</a></code></span></h4>
-<div class='stability'><div class='stab unstable'><span class=microscope>🔬</span> This is a nightly-only experimental API.  (<code>into_boxed_c_str</code>)</div></div><div class='docblock'><p>Converts a <code>Box&lt;CStr&gt;</code> into a <code>CString</code> without copying or allocating.</p>
+<div class='stability'><div class='stab unstable'><span class=microscope>🔬</span> This is a nightly-only experimental API.  (<code>into_boxed_c_str</code>)</div></div><div class='docblock'><p>Converts a <a href="../boxed/struct.Box.html"><code>Box</code></a><code>&lt;CStr&gt;</code> into a <a href="struct.CString.html"><code>CString</code></a> without copying or allocating.</p>
 </div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="struct" href="../../systemd/bus/struct.InterfaceName.html" title="struct systemd::bus::InterfaceName">InterfaceName</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/systemd/bus/mod.rs.html#125' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span></h4>
 <div class='docblock'><p>Formats the value using the given formatter.</p>
@@ -235,7 +235,6 @@ check whenever this method is called.</p>
         window.rootPath = "../../";
         window.currentCrate = "systemd";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     <script defer src="../../search-index.js"></script>
 </body>
