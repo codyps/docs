@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/mbox-0.4.0/src/mbox.rs`.">
+    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/mbox-0.4.1/src/mbox.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>mbox.rs.html -- source</title>
@@ -903,7 +903,7 @@
     <span class="doccomment">/// Constructs a new malloc-backed box from a pointer allocated by `malloc`. The content of the</span>
     <span class="doccomment">/// pointer must be already initialized.</span>
     <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_raw</span>(<span class="ident">ptr</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">T</span>) <span class="op">-&gt;</span> <span class="ident">MBox</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
-        <span class="ident">MBox</span>(<span class="ident">Unique</span>::<span class="ident">new</span>(<span class="ident">ptr</span>))
+        <span class="ident">MBox</span>(<span class="ident">Unique</span>::<span class="ident">new_unchecked</span>(<span class="ident">ptr</span>))
     }
 
     <span class="doccomment">/// Obtains the pointer owned by the box.</span>
