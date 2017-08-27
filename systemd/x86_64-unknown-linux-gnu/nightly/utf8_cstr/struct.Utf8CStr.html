@@ -57,7 +57,7 @@ strings that are both valid utf8 and null terminated.</p>
                     <h2 id='methods' class='small-section-header'>
                       Methods<a href='#methods' class='anchor'></a>
                     </h2>
-                <h3 class='impl'><span class='in-band'><code>impl <a class="struct" href="../utf8_cstr/struct.Utf8CStr.html" title="struct utf8_cstr::Utf8CStr">Utf8CStr</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/utf8_cstr/lib.rs.html#46-121' title='goto source code'>[src]</a></span></h3>
+                <h3 id='impl' class='impl'><span class='in-band'><code>impl <a class="struct" href="../utf8_cstr/struct.Utf8CStr.html" title="struct utf8_cstr::Utf8CStr">Utf8CStr</a></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/utf8_cstr/lib.rs.html#46-121' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.from_raw_parts' class="method"><span id='from_raw_parts.v' class='invisible'><code>unsafe fn <a href='#method.from_raw_parts' class='fnname'>from_raw_parts</a>&lt;'a&gt;(v: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*const </a><a class="type" href="https://doc.rust-lang.org/nightly/std/os/raw/type.c_char.html" title="type std::os::raw::c_char">c_char</a>, l: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;'a </a>Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/utf8_cstr/lib.rs.html#55-57' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Construct a <code>Utf8CStr</code> with no checking.</p>
 
@@ -1090,7 +1090,7 @@ you&#39;re trying to parse into.</p>
 <p>Will return <a href="str/trait.FromStr.html#associatedtype.Err"><code>Err</code></a> if it&#39;s not possible to parse this string slice into
 the desired type.</p>
 
-<h1 id='example' class='section-header'><a href='#example'>Example</a></h1>
+<h1 id='examples-35' class='section-header'><a href='#examples-35'>Examples</a></h1>
 <p>Basic usage</p>
 
 <pre class="rust rust-example-rendered">
@@ -1118,7 +1118,7 @@ the desired type.</p>
 While doing so, it attempts to find matches of a pattern. If it finds any, it
 replaces them with the replacement string slice.</p>
 
-<h1 id='examples-35' class='section-header'><a href='#examples-35'>Examples</a></h1>
+<h1 id='examples-36' class='section-header'><a href='#examples-36'>Examples</a></h1>
 <p>Basic usage:</p>
 
 <pre class="rust rust-example-rendered">
@@ -1138,7 +1138,7 @@ replaces them with the replacement string slice.</p>
 While doing so, it attempts to find matches of a pattern. If it finds any, it
 replaces them with the replacement string slice at most <code>count</code> times.</p>
 
-<h1 id='examples-36' class='section-header'><a href='#examples-36'>Examples</a></h1>
+<h1 id='examples-37' class='section-header'><a href='#examples-37'>Examples</a></h1>
 <p>Basic usage:</p>
 
 <pre class="rust rust-example-rendered">
@@ -1162,7 +1162,7 @@ replaces them with the replacement string slice at most <code>count</code> times
 the case, this function returns a <a href="string/struct.String.html"><code>String</code></a> instead of modifying the
 parameter in-place.</p>
 
-<h1 id='examples-37' class='section-header'><a href='#examples-37'>Examples</a></h1>
+<h1 id='examples-38' class='section-header'><a href='#examples-38'>Examples</a></h1>
 <p>Basic usage:</p>
 
 <pre class="rust rust-example-rendered">
@@ -1198,7 +1198,7 @@ parameter in-place.</p>
 the case, this function returns a <a href="string/struct.String.html"><code>String</code></a> instead of modifying the
 parameter in-place.</p>
 
-<h1 id='examples-38' class='section-header'><a href='#examples-38'>Examples</a></h1>
+<h1 id='examples-39' class='section-header'><a href='#examples-39'>Examples</a></h1>
 <p>Basic usage:</p>
 
 <pre class="rust rust-example-rendered">
@@ -1224,7 +1224,7 @@ parameter in-place.</p>
 </div><h4 id='method.repeat' class="method"><span id='repeat.v' class='invisible'><code>fn <a href='#method.repeat' class='fnname'>repeat</a>(&amp;self, n: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>) -&gt; <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a></code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.16.0'>1.16.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/alloc/str.rs.html#2007-2011' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Create a <a href="string/struct.String.html"><code>String</code></a> by repeating a string <code>n</code> times.</p>
 
-<h1 id='examples-39' class='section-header'><a href='#examples-39'>Examples</a></h1>
+<h1 id='examples-40' class='section-header'><a href='#examples-40'>Examples</a></h1>
 <p>Basic usage:</p>
 
 <pre class="rust rust-example-rendered">
@@ -1233,25 +1233,25 @@ parameter in-place.</p>
             <h2 id='implementations' class='small-section-header'>
               Trait Implementations<a href='#implementations' class='anchor'></a>
             </h2>
-        <h3 class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html" title="trait core::cmp::PartialEq">PartialEq</a> for <a class="struct" href="../utf8_cstr/struct.Utf8CStr.html" title="struct utf8_cstr::Utf8CStr">Utf8CStr</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/utf8_cstr/lib.rs.html#27' title='goto source code'>[src]</a></span></h3>
+        <h3 id='impl-PartialEq' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html" title="trait core::cmp::PartialEq">PartialEq</a> for <a class="struct" href="../utf8_cstr/struct.Utf8CStr.html" title="struct utf8_cstr::Utf8CStr">Utf8CStr</a></code><a href='#impl-PartialEq' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/utf8_cstr/lib.rs.html#27' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.eq' class="method"><span id='eq.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class="struct" href="../utf8_cstr/struct.Utf8CStr.html" title="struct utf8_cstr::Utf8CStr">Utf8CStr</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/utf8_cstr/lib.rs.html#27' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>This method tests for <code>self</code> and <code>other</code> values to be equal, and is used by <code>==</code>. <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq">Read more</a></p>
 </div><h4 id='method.ne' class="method"><span id='ne.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.ne' class='fnname'>ne</a>(&amp;self, __arg_0: &amp;<a class="struct" href="../utf8_cstr/struct.Utf8CStr.html" title="struct utf8_cstr::Utf8CStr">Utf8CStr</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/utf8_cstr/lib.rs.html#27' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>This method tests for <code>!=</code>.</p>
-</div></div><h3 class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/cmp/trait.Eq.html" title="trait core::cmp::Eq">Eq</a> for <a class="struct" href="../utf8_cstr/struct.Utf8CStr.html" title="struct utf8_cstr::Utf8CStr">Utf8CStr</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/utf8_cstr/lib.rs.html#27' title='goto source code'>[src]</a></span></h3>
-<div class='impl-items'></div><h3 class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="struct" href="../utf8_cstr/struct.Utf8CStr.html" title="struct utf8_cstr::Utf8CStr">Utf8CStr</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/utf8_cstr/lib.rs.html#32-37' title='goto source code'>[src]</a></span></h3>
+</div></div><h3 id='impl-Eq' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/cmp/trait.Eq.html" title="trait core::cmp::Eq">Eq</a> for <a class="struct" href="../utf8_cstr/struct.Utf8CStr.html" title="struct utf8_cstr::Utf8CStr">Utf8CStr</a></code><a href='#impl-Eq' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/utf8_cstr/lib.rs.html#27' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'></div><h3 id='impl-Debug' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="struct" href="../utf8_cstr/struct.Utf8CStr.html" title="struct utf8_cstr::Utf8CStr">Utf8CStr</a></code><a href='#impl-Debug' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/utf8_cstr/lib.rs.html#32-37' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, fmt: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/utf8_cstr/lib.rs.html#33-36' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Formats the value using the given formatter.</p>
-</div></div><h3 class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html" title="trait core::fmt::Display">Display</a> for <a class="struct" href="../utf8_cstr/struct.Utf8CStr.html" title="struct utf8_cstr::Utf8CStr">Utf8CStr</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/utf8_cstr/lib.rs.html#39-44' title='goto source code'>[src]</a></span></h3>
+</div></div><h3 id='impl-Display' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html" title="trait core::fmt::Display">Display</a> for <a class="struct" href="../utf8_cstr/struct.Utf8CStr.html" title="struct utf8_cstr::Utf8CStr">Utf8CStr</a></code><a href='#impl-Display' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/utf8_cstr/lib.rs.html#39-44' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.fmt-1' class="method"><span id='fmt.v-1' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, fmt: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/utf8_cstr/lib.rs.html#40-43' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Formats the value using the given formatter. <a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html#tymethod.fmt">Read more</a></p>
-</div></div><h3 class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html" title="trait core::convert::AsRef">AsRef</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt; for <a class="struct" href="../utf8_cstr/struct.Utf8CStr.html" title="struct utf8_cstr::Utf8CStr">Utf8CStr</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/utf8_cstr/lib.rs.html#123-127' title='goto source code'>[src]</a></span></h3>
+</div></div><h3 id='impl-AsRef&lt;str&gt;' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html" title="trait core::convert::AsRef">AsRef</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt; for <a class="struct" href="../utf8_cstr/struct.Utf8CStr.html" title="struct utf8_cstr::Utf8CStr">Utf8CStr</a></code><a href='#impl-AsRef&lt;str&gt;' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/utf8_cstr/lib.rs.html#123-127' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.as_ref' class="method"><span id='as_ref.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref' class='fnname'>as_ref</a>(&amp;self) -&gt; &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/utf8_cstr/lib.rs.html#124-126' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Performs the conversion.</p>
-</div></div><h3 class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html" title="trait core::convert::AsRef">AsRef</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/std/ffi/c_str/struct.CStr.html" title="struct std::ffi::c_str::CStr">CStr</a>&gt; for <a class="struct" href="../utf8_cstr/struct.Utf8CStr.html" title="struct utf8_cstr::Utf8CStr">Utf8CStr</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/utf8_cstr/lib.rs.html#129-133' title='goto source code'>[src]</a></span></h3>
+</div></div><h3 id='impl-AsRef&lt;CStr&gt;' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html" title="trait core::convert::AsRef">AsRef</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/std/ffi/c_str/struct.CStr.html" title="struct std::ffi::c_str::CStr">CStr</a>&gt; for <a class="struct" href="../utf8_cstr/struct.Utf8CStr.html" title="struct utf8_cstr::Utf8CStr">Utf8CStr</a></code><a href='#impl-AsRef&lt;CStr&gt;' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/utf8_cstr/lib.rs.html#129-133' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.as_ref-1' class="method"><span id='as_ref.v-1' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref' class='fnname'>as_ref</a>(&amp;self) -&gt; &amp;<a class="struct" href="https://doc.rust-lang.org/nightly/std/ffi/c_str/struct.CStr.html" title="struct std::ffi::c_str::CStr">CStr</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/utf8_cstr/lib.rs.html#130-132' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Performs the conversion.</p>
-</div></div><h3 class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/deref/trait.Deref.html" title="trait core::ops::deref::Deref">Deref</a> for <a class="struct" href="../utf8_cstr/struct.Utf8CStr.html" title="struct utf8_cstr::Utf8CStr">Utf8CStr</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/utf8_cstr/lib.rs.html#135-140' title='goto source code'>[src]</a></span></h3>
+</div></div><h3 id='impl-Deref' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/deref/trait.Deref.html" title="trait core::ops::deref::Deref">Deref</a> for <a class="struct" href="../utf8_cstr/struct.Utf8CStr.html" title="struct utf8_cstr::Utf8CStr">Utf8CStr</a></code><a href='#impl-Deref' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/utf8_cstr/lib.rs.html#135-140' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='associatedtype.Target' class="type"><span id='Target.t' class='invisible'><code>type <a href='https://doc.rust-lang.org/nightly/core/ops/deref/trait.Deref.html#associatedtype.Target' class="type">Target</a> = <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a></code></span></h4>
 <div class='docblock'><p>The resulting type after dereferencing.</p>
 </div><h4 id='method.deref' class="method"><span id='deref.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/deref/trait.Deref.html#tymethod.deref' class='fnname'>deref</a>(&amp;self) -&gt; &amp;Self::<a class="type" href="https://doc.rust-lang.org/nightly/core/ops/deref/trait.Deref.html#associatedtype.Target" title="type core::ops::deref::Deref::Target">Target</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/utf8_cstr/lib.rs.html#137-139' title='goto source code'>[src]</a></span></h4>
