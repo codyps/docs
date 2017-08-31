@@ -483,7 +483,7 @@ The matched element is not contained in the subslices.</p>
 
 <h1 id='examples-27' class='section-header'><a href='#examples-27'>Examples</a></h1>
 <pre class="rust rust-example-rendered">
-<span class="attribute">#<span class="op">!</span>[<span class="ident">feature</span>(<span class="ident">slice_rsplit</span>)]</span>
+<span class="attribute">#![<span class="ident">feature</span>(<span class="ident">slice_rsplit</span>)]</span>
 
 <span class="kw">let</span> <span class="ident">slice</span> <span class="op">=</span> [<span class="number">11</span>, <span class="number">22</span>, <span class="number">33</span>, <span class="number">0</span>, <span class="number">44</span>, <span class="number">55</span>];
 <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">iter</span> <span class="op">=</span> <span class="ident">slice</span>.<span class="ident">rsplit</span>(<span class="op">|</span><span class="ident">num</span><span class="op">|</span> <span class="kw-2">*</span><span class="ident">num</span> <span class="op">==</span> <span class="number">0</span>);
@@ -496,7 +496,7 @@ The matched element is not contained in the subslices.</p>
 slice will be the first (or last) item returned by the iterator.</p>
 
 <pre class="rust rust-example-rendered">
-<span class="attribute">#<span class="op">!</span>[<span class="ident">feature</span>(<span class="ident">slice_rsplit</span>)]</span>
+<span class="attribute">#![<span class="ident">feature</span>(<span class="ident">slice_rsplit</span>)]</span>
 
 <span class="kw">let</span> <span class="ident">v</span> <span class="op">=</span> <span class="kw-2">&amp;</span>[<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">8</span>];
 <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">it</span> <span class="op">=</span> <span class="ident">v</span>.<span class="ident">rsplit</span>(<span class="op">|</span><span class="ident">n</span><span class="op">|</span> <span class="kw-2">*</span><span class="ident">n</span> <span class="op">%</span> <span class="number">2</span> <span class="op">==</span> <span class="number">0</span>);
@@ -512,7 +512,7 @@ backwards. The matched element is not contained in the subslices.</p>
 
 <h1 id='examples-28' class='section-header'><a href='#examples-28'>Examples</a></h1>
 <pre class="rust rust-example-rendered">
-<span class="attribute">#<span class="op">!</span>[<span class="ident">feature</span>(<span class="ident">slice_rsplit</span>)]</span>
+<span class="attribute">#![<span class="ident">feature</span>(<span class="ident">slice_rsplit</span>)]</span>
 
 <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">v</span> <span class="op">=</span> [<span class="number">100</span>, <span class="number">400</span>, <span class="number">300</span>, <span class="number">200</span>, <span class="number">600</span>, <span class="number">500</span>];
 
@@ -882,7 +882,7 @@ rotation with <code>k == 0</code>, the inverse of a rotation with <code>mid == 0
 
 <h1 id='examples-45' class='section-header'><a href='#examples-45'>Examples</a></h1>
 <pre class="rust rust-example-rendered">
-<span class="attribute">#<span class="op">!</span>[<span class="ident">feature</span>(<span class="ident">slice_rotate</span>)]</span>
+<span class="attribute">#![<span class="ident">feature</span>(<span class="ident">slice_rotate</span>)]</span>
 
 <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">a</span> <span class="op">=</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>];
 <span class="kw">let</span> <span class="ident">mid</span> <span class="op">=</span> <span class="number">2</span>;
@@ -950,7 +950,7 @@ rotation with <code>k == 0</code>, the inverse of a rotation with <code>mid == 0
 
 <h1 id='example' class='section-header'><a href='#example'>Example</a></h1>
 <pre class="rust rust-example-rendered">
-<span class="attribute">#<span class="op">!</span>[<span class="ident">feature</span>(<span class="ident">swap_with_slice</span>)]</span>
+<span class="attribute">#![<span class="ident">feature</span>(<span class="ident">swap_with_slice</span>)]</span>
 
 <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">src</span> <span class="op">=</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];
 <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">dst</span> <span class="op">=</span> [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>];
