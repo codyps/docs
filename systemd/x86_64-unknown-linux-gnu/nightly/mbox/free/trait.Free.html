@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'>Trait Free</p><div class="block items"><ul><li><a href="#required-methods">Required Methods</a></li><li><a href="#implementors">Implementors</a></li></ul></div><p class='location'><a href='../index.html'>mbox</a>::<wbr><a href='index.html'>free</a></p><script>window.sidebarCurrent = {name: 'Free', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Trait Free</p><div class="block items"><ul><li><a href="#required-methods">Required Methods</a></li><li><a href="#foreign-impls">Implementations on Foreign Types</a></li><li><a href="#implementors">Implementors</a></li></ul></div><p class='location'><a href='../index.html'>mbox</a>::<wbr><a href='index.html'>free</a></p><script>window.sidebarCurrent = {name: 'Free', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -63,13 +63,19 @@
 flag to track if the pointer has been freed or not (the Rust compiler will automatically do
 this with a <code>Drop</code> type).</p>
 </div></div>
+                <h2 id='foreign-impls' class='section-header'>
+                  Implementations on Foreign Types<a href='#foreign-impls' class='anchor'></a>
+                </h2>
+            <h3 id='impl-Free' class='impl'><span class='in-band'><code>impl&lt;T&gt; <a class="trait" href="../../mbox/free/trait.Free.html" title="trait mbox::free::Free">Free</a> for <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">[</a>T<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a></code><a href='#impl-Free' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/mbox/free.rs.html#36-44' title='goto source code'>[src]</a></span></h3>
+<span class='docblock autohide'><div class='impl-items'><h4 id='method.free' class="method"><span id='free.v-1' class='invisible'><code>fn <a href='#method.free' class='fnname'>free</a>(fat_ptr: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">[</a>T<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a>)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/mbox/free.rs.html#37-43' title='goto source code'>[src]</a></span></h4>
+</div></span><h3 id='impl-Free-1' class='impl'><span class='in-band'><code>impl <a class="trait" href="../../mbox/free/trait.Free.html" title="trait mbox::free::Free">Free</a> for <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a></code><a href='#impl-Free-1' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/mbox/free.rs.html#46-50' title='goto source code'>[src]</a></span></h3>
+<span class='docblock autohide'><div class='impl-items'><h4 id='method.free-1' class="method"><span id='free.v-2' class='invisible'><code>fn <a href='#method.free' class='fnname'>free</a>(fat_ptr: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/mbox/free.rs.html#47-49' title='goto source code'>[src]</a></span></h4>
+</div></span>
         <h2 id='implementors' class='small-section-header'>
           Implementors<a href='#implementors' class='anchor'></a>
         </h2>
         <ul class='item-list' id='implementors-list'>
     <li><code>impl&lt;T&gt; Free for T</code></li>
-<li><code>impl&lt;T&gt; Free for <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">[</a>T<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a></code></li>
-<li><code>impl Free for <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a></code></li>
 </ul><script type="text/javascript" async
                          src="../../implementors/mbox/free/trait.Free.js">
                  </script></section>

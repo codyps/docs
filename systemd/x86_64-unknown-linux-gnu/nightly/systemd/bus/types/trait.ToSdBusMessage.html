@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'>Trait ToSdBusMessage</p><div class="block items"><ul><li><a href="#required-methods">Required Methods</a></li><li><a href="#implementors">Implementors</a></li></ul></div><p class='location'><a href='../../index.html'>systemd</a>::<wbr><a href='../index.html'>bus</a>::<wbr><a href='index.html'>types</a></p><script>window.sidebarCurrent = {name: 'ToSdBusMessage', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Trait ToSdBusMessage</p><div class="block items"><ul><li><a href="#required-methods">Required Methods</a></li><li><a href="#foreign-impls">Implementations on Foreign Types</a></li><li><a href="#implementors">Implementors</a></li></ul></div><p class='location'><a href='../../index.html'>systemd</a>::<wbr><a href='../index.html'>bus</a>::<wbr><a href='index.html'>types</a></p><script>window.sidebarCurrent = {name: 'ToSdBusMessage', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -58,15 +58,21 @@
             </h2>
             <div class='methods'>
         <h3 id='tymethod.to_message' class='method'><span id='to_message.v' class='invisible'><code>fn <a href='#tymethod.to_message' class='fnname'>to_message</a>(&amp;self, m: &amp;mut <a class="struct" href="../../../systemd/bus/struct.MessageRef.html" title="struct systemd::bus::MessageRef">MessageRef</a>) -&gt; <a class="type" href="../../../systemd/type.Result.html" title="type systemd::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">()</a>&gt;</code></span></h3></div>
+                <h2 id='foreign-impls' class='section-header'>
+                  Implementations on Foreign Types<a href='#foreign-impls' class='anchor'></a>
+                </h2>
+            <h3 id='impl-ToSdBusMessage' class='impl'><span class='in-band'><code>impl <a class="trait" href="../../../systemd/bus/types/trait.ToSdBusMessage.html" title="trait systemd::bus::types::ToSdBusMessage">ToSdBusMessage</a> for <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code><a href='#impl-ToSdBusMessage' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/systemd/bus/types.rs.html#128-134' title='goto source code'>[src]</a></span></h3>
+<span class='docblock autohide'><div class='impl-items'><h4 id='method.to_message' class="method"><span id='to_message.v-1' class='invisible'><code>fn <a href='#method.to_message' class='fnname'>to_message</a>(&amp;self, m: &amp;mut <a class="struct" href="../../../systemd/bus/struct.MessageRef.html" title="struct systemd::bus::MessageRef">MessageRef</a>) -&gt; <a class="type" href="../../../systemd/type.Result.html" title="type systemd::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/systemd/bus/types.rs.html#129-133' title='goto source code'>[src]</a></span></h4>
+</div></span><h3 id='impl-ToSdBusMessage-1' class='impl'><span class='in-band'><code>impl&lt;'a&gt; <a class="trait" href="../../../systemd/bus/types/trait.ToSdBusMessage.html" title="trait systemd::bus::types::ToSdBusMessage">ToSdBusMessage</a> for &amp;'a <a class="struct" href="../../../utf8_cstr/struct.Utf8CStr.html" title="struct utf8_cstr::Utf8CStr">Utf8CStr</a></code><a href='#impl-ToSdBusMessage-1' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/systemd/bus/types.rs.html#186-190' title='goto source code'>[src]</a></span></h3>
+<span class='docblock autohide'><div class='impl-items'><h4 id='method.to_message-1' class="method"><span id='to_message.v-2' class='invisible'><code>fn <a href='#method.to_message' class='fnname'>to_message</a>(&amp;self, m: &amp;mut <a class="struct" href="../../../systemd/bus/struct.MessageRef.html" title="struct systemd::bus::MessageRef">MessageRef</a>) -&gt; <a class="type" href="../../../systemd/type.Result.html" title="type systemd::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/systemd/bus/types.rs.html#187-189' title='goto source code'>[src]</a></span></h4>
+</div></span>
         <h2 id='implementors' class='small-section-header'>
           Implementors<a href='#implementors' class='anchor'></a>
         </h2>
         <ul class='item-list' id='implementors-list'>
     <li><code>impl&lt;T:&nbsp;<a class="trait" href="../../../systemd/bus/types/trait.SdBusMessageDirect.html" title="trait systemd::bus::types::SdBusMessageDirect">SdBusMessageDirect</a>&gt; ToSdBusMessage for T</code></li>
-<li><code>impl ToSdBusMessage for <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></li>
 <li><code>impl ToSdBusMessage for <a class="struct" href="../../../systemd/bus/types/struct.UnixFd.html" title="struct systemd::bus::types::UnixFd">UnixFd</a></code></li>
 <li><code>impl&lt;'a&gt; ToSdBusMessage for &amp;'a <a class="struct" href="../../../systemd/bus/struct.ObjectPath.html" title="struct systemd::bus::ObjectPath">ObjectPath</a></code></li>
-<li><code>impl&lt;'a&gt; ToSdBusMessage for &amp;'a <a class="struct" href="../../../utf8_cstr/struct.Utf8CStr.html" title="struct utf8_cstr::Utf8CStr">Utf8CStr</a></code></li>
 </ul><script type="text/javascript" async
                          src="../../../implementors/systemd/bus/types/trait.ToSdBusMessage.js">
                  </script></section>
