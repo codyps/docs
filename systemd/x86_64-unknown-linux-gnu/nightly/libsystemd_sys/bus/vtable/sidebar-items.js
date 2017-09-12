@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["SdBusVtableFlag",""],["SdBusVtableType",""]],"struct":[["sd_bus_table_method",""],["sd_bus_table_property",""],["sd_bus_table_signal",""],["sd_bus_table_start",""],["sd_bus_vtable",""]]});

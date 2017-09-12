@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["Utf8CStrError",""]],"struct":[["Utf8CStr","A wrapper that promises it's contents are null-terminated & validly utf-8 encoded"]]});

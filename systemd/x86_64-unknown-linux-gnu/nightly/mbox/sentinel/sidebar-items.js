@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["MArray","A `malloc`-backed array with an explicit sentinel at the end."],["MString","A `malloc`-backed null-terminated string (similar to `CString`)."]],"trait":[["Sentinel","Implemented for types which has a sentinel value."]]});
