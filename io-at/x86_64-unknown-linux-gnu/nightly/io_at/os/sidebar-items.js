@@ -1,1 +1,0 @@
-initSidebarItems({"mod":[["file",""],["raw",""],["unix",""]],"trait":[["AsRaw","A trait to extract the raw unix file descriptor from an underlying object."]]});
