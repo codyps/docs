@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["MBox","A malloc-backed box. This structure allows Rust to exchange objects with C without cloning."],["MSliceIntoIter","The iterator returned from `MBox<[T]>::into_iter()`."]]});

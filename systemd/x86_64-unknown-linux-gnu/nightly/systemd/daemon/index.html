@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `daemon` mod in crate `systemd`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, daemon">
+
+    <title>systemd::daemon - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc mod">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'>Module daemon</p><div class="block items"><ul><li><a href="#enums">Enums</a></li><li><a href="#constants">Constants</a></li><li><a href="#functions">Functions</a></li></ul></div><p class='location'><a href='../index.html'>systemd</a></p><script>window.sidebarCurrent = {name: 'daemon', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>systemd</a>::<wbr><a class="mod" href=''>daemon</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/systemd/daemon.rs.html#1-218' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>High-level interface to the systemd daemon module.</p>
+</div><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.Listening.html"
+                                  title='enum systemd::daemon::Listening'>Listening</a></td>
+                           <td class='docblock-short'>
+                                <p>Options for checking whether a socket is in listening mode</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.SocketType.html"
+                                  title='enum systemd::daemon::SocketType'>SocketType</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr></table><h2 id='constants' class='section-header'><a href="#constants">Constants</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.LISTEN_FDS_START.html"
+                                  title='constant systemd::daemon::LISTEN_FDS_START'>LISTEN_FDS_START</a></td>
+                           <td class='docblock-short'>
+                                <p>Number of the first passed file descriptor</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.STATE_BUSERROR.html"
+                                  title='constant systemd::daemon::STATE_BUSERROR'>STATE_BUSERROR</a></td>
+                           <td class='docblock-short'>
+                                <p>D-Bus-style error code in case of failure</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.STATE_ERRNO.html"
+                                  title='constant systemd::daemon::STATE_ERRNO'>STATE_ERRNO</a></td>
+                           <td class='docblock-short'>
+                                <p>Errno-style error code in case of failure</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.STATE_MAINPID.html"
+                                  title='constant systemd::daemon::STATE_MAINPID'>STATE_MAINPID</a></td>
+                           <td class='docblock-short'>
+                                <p>Main PID of the daemon, in case systemd didn&#39;t fork it itself</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.STATE_READY.html"
+                                  title='constant systemd::daemon::STATE_READY'>STATE_READY</a></td>
+                           <td class='docblock-short'>
+                                <p>Tells systemd whether daemon startup is finished</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.STATE_STATUS.html"
+                                  title='constant systemd::daemon::STATE_STATUS'>STATE_STATUS</a></td>
+                           <td class='docblock-short'>
+                                <p>Single-line status string describing daemon state</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.STATE_WATCHDOG.html"
+                                  title='constant systemd::daemon::STATE_WATCHDOG'>STATE_WATCHDOG</a></td>
+                           <td class='docblock-short'>
+                                <p>Update the watchdog timestamp (set to 1). Daemon should do this regularly,
+if using this feature.</p>
+                           </td>
+                       </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.booted.html"
+                                  title='fn systemd::daemon::booted'>booted</a></td>
+                           <td class='docblock-short'>
+                                <p>Returns true if the system was booted with systemd.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.is_fifo.html"
+                                  title='fn systemd::daemon::is_fifo'>is_fifo</a></td>
+                           <td class='docblock-short'>
+                                <p>Identifies whether the passed file descriptor is a FIFO.  If a path is
+supplied, the file descriptor must also match the path.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.is_mq.html"
+                                  title='fn systemd::daemon::is_mq'>is_mq</a></td>
+                           <td class='docblock-short'>
+                                <p>Identifies whether the passed file descriptor is a POSIX message queue. If a
+path is supplied, it will also verify the name.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.is_socket.html"
+                                  title='fn systemd::daemon::is_socket'>is_socket</a></td>
+                           <td class='docblock-short'>
+                                <p>Identifies whether the passed file descriptor is a socket. If family and
+type are supplied, they must match as well. See <code>Listening</code> for listening
+check parameters.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.is_socket_inet.html"
+                                  title='fn systemd::daemon::is_socket_inet'>is_socket_inet</a></td>
+                           <td class='docblock-short'>
+                                <p>Identifies whether the passed file descriptor is an Internet socket. If
+family, type, and/or port are supplied, they must match as well. See
+<code>Listening</code> for listening check parameters.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.is_socket_unix.html"
+                                  title='fn systemd::daemon::is_socket_unix'>is_socket_unix</a></td>
+                           <td class='docblock-short'>
+                                <p>Identifies whether the passed file descriptor is an AF_UNIX socket. If type
+are supplied, it must match as well. For normal sockets, leave the path set
+to None; otherwise, pass in the full socket path.  See <code>Listening</code> for
+listening check parameters.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.is_special.html"
+                                  title='fn systemd::daemon::is_special'>is_special</a></td>
+                           <td class='docblock-short'>
+                                <p>Identifies whether the passed file descriptor is a special character device.
+If a path is supplied, the file descriptor must also match the path.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.listen_fds.html"
+                                  title='fn systemd::daemon::listen_fds'>listen_fds</a></td>
+                           <td class='docblock-short'>
+                                <p>Returns how many file descriptors have been passed. Removes the
+<code>$LISTEN_FDS</code> and <code>$LISTEN_PID</code> file descriptors from the environment if
+<code>unset_environment</code> is <code>true</code></p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.notify.html"
+                                  title='fn systemd::daemon::notify'>notify</a></td>
+                           <td class='docblock-short'>
+                                <p>Notifies systemd that daemon state has changed.  state is made up of a set
+of key-value pairs.  See <code>sd-daemon.h</code> for details. Some of the most common
+keys are defined as <code>STATE_*</code> constants in this module. Returns <code>true</code> if
+systemd was contacted successfully.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.pid_notify.html"
+                                  title='fn systemd::daemon::pid_notify'>pid_notify</a></td>
+                           <td class='docblock-short'>
+                                <p>Similar to <code>notify()</code>, but this sends the message on behalf of the supplied
+PID, if possible.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.tcp_listener.html"
+                                  title='fn systemd::daemon::tcp_listener'>tcp_listener</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.watchdog_enabled.html"
+                                  title='fn systemd::daemon::watchdog_enabled'>watchdog_enabled</a></td>
+                           <td class='docblock-short'>
+                                <p>Returns a timeout in microseconds before which the watchdog expects a
+response from the process. If 0, the watchdog is disabled.</p>
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "systemd";
+    </script>
+    <script src="../../main.js"></script>
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>
