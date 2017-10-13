@@ -210,7 +210,7 @@
 <span class="doccomment">//! * [`c_vec`](https://crates.io/crates/c_vec) — When using `free` as the destructor, `CVec&lt;T&gt;` is</span>
 <span class="doccomment">//!   equivalent to `MBox&lt;[T]&gt;` and `CSlice&lt;T&gt;` as `[T]`.</span>
 
-<span class="attribute">#<span class="op">!</span>[<span class="ident">cfg_attr</span>(<span class="ident">nightly_channel</span>, <span class="ident">feature</span>(<span class="ident">specialization</span>,
+<span class="attribute">#![<span class="ident">cfg_attr</span>(<span class="ident">nightly_channel</span>, <span class="ident">feature</span>(<span class="ident">specialization</span>,
                                      <span class="ident">unique</span>,
                                      <span class="ident">unsize</span>,
                                      <span class="ident">coerce_unsized</span>,
@@ -218,7 +218,7 @@
                                      <span class="ident">placement_in_syntax</span>,
                                      <span class="ident">box_syntax</span>))]</span>
 
-<span class="attribute">#<span class="op">!</span>[<span class="ident">cfg_attr</span>(<span class="ident">not</span>(<span class="ident">feature</span><span class="op">=</span><span class="string">&quot;std&quot;</span>), <span class="ident">no_std</span>)]</span>
+<span class="attribute">#![<span class="ident">cfg_attr</span>(<span class="ident">not</span>(<span class="ident">feature</span><span class="op">=</span><span class="string">&quot;std&quot;</span>), <span class="ident">no_std</span>)]</span>
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span><span class="op">=</span><span class="string">&quot;std&quot;</span>))]</span> <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">core</span> <span class="kw">as</span> <span class="ident">std</span>;
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">libc</span>;
