@@ -85,11 +85,15 @@ final will result in an error.</p>
                          <span class="comment">// allocation</span>
 }</pre>
 </div>
-            <h2 id='associated-types'>Associated Types</h2>
+            <h2 id='associated-types' class='small-section-header'>
+              Associated Types<a href='#associated-types' class='anchor'></a>
+            </h2>
             <div class='methods'>
         <h3 id='associatedtype.Output' class='method'><span id='Output.t' class='invisible'><code>type <a href='#associatedtype.Output' class="type">Output</a>: <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html" title="trait core::convert::AsRef">AsRef</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/std/ffi/c_str/struct.CStr.html" title="struct std::ffi::c_str::CStr">CStr</a>&gt;</code></span></h3><div class='docblock'><p>The type of the string after conversion. The type may or may not own the resulting string.</p>
 </div></div>
-            <h2 id='required-methods'>Required Methods</h2>
+            <h2 id='required-methods' class='small-section-header'>
+              Required Methods<a href='#required-methods' class='anchor'></a>
+            </h2>
             <div class='methods'>
         <h3 id='tymethod.try_into_cstr' class='method'><span id='try_into_cstr.v' class='invisible'><code>fn <a href='#tymethod.try_into_cstr' class='fnname'>try_into_cstr</a>(self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;Self::<a class="type" href="../cstr_argument/trait.CStrArgument.html#associatedtype.Output" title="type cstr_argument::CStrArgument::Output">Output</a>, <a class="struct" href="../cstr_argument/struct.NulError.html" title="struct cstr_argument::NulError">NulError</a>&lt;Self&gt;&gt;</code></span></h3><div class='docblock'><p>Returns the string with a null terminator or an error.</p>
 
@@ -97,7 +101,9 @@ final will result in an error.</p>
 <p>This function will return an error if the string contains a null byte at any position
 other than the final.</p>
 </div></div>
-            <h2 id='provided-methods'>Provided Methods</h2>
+            <h2 id='provided-methods' class='small-section-header'>
+              Provided Methods<a href='#provided-methods' class='anchor'></a>
+            </h2>
             <div class='methods'>
         <h3 id='method.into_cstr' class='method'><span id='into_cstr.v' class='invisible'><code>fn <a href='#method.into_cstr' class='fnname'>into_cstr</a>(self) -&gt; Self::<a class="type" href="../cstr_argument/trait.CStrArgument.html#associatedtype.Output" title="type cstr_argument::CStrArgument::Output">Output</a></code></span></h3><div class='docblock'><p>Returns the string with a null terminator.</p>
 
@@ -106,17 +112,19 @@ other than the final.</p>
 than the final. See <a href="#tymethod.try_into_cstr"><code>try_into_cstr</code></a> for a non-panicking version
 of this function.</p>
 </div></div>
-        <h2 id='implementors'>Implementors</h2>
+        <h2 id='implementors' class='small-section-header'>
+          Implementors<a href='#implementors' class='anchor'></a>
+        </h2>
         <ul class='item-list' id='implementors-list'>
-    <li><code>impl&lt;'a&gt; CStrArgument for <a class="struct" href="https://doc.rust-lang.org/nightly/std/ffi/c_str/struct.CString.html" title="struct std::ffi::c_str::CString">CString</a></code></li>
-<li><code>impl&lt;'a&gt; CStrArgument for &amp;'a <a class="struct" href="https://doc.rust-lang.org/nightly/std/ffi/c_str/struct.CString.html" title="struct std::ffi::c_str::CString">CString</a></code></li>
-<li><code>impl&lt;'a&gt; CStrArgument for &amp;'a <a class="struct" href="https://doc.rust-lang.org/nightly/std/ffi/c_str/struct.CStr.html" title="struct std::ffi::c_str::CStr">CStr</a></code></li>
-<li><code>impl CStrArgument for <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a></code></li>
-<li><code>impl&lt;'a&gt; CStrArgument for &amp;'a <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a></code></li>
-<li><code>impl&lt;'a&gt; CStrArgument for &amp;'a <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a></code></li>
-<li><code>impl&lt;'a&gt; CStrArgument for <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>&gt;</code></li>
-<li><code>impl&lt;'a&gt; CStrArgument for &amp;'a <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>&gt;</code></li>
-<li><code>impl&lt;'a&gt; CStrArgument for <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;'a [</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a></code></li>
+    <li><code>impl&lt;'a&gt; CStrArgument for <a class="struct" href="https://doc.rust-lang.org/nightly/std/ffi/c_str/struct.CString.html" title="struct std::ffi::c_str::CString">CString</a><span class="where fmt-newline">  type <a href='#associatedtype.Output' class="type">Output</a> = Self;</span></code></li>
+<li><code>impl&lt;'a&gt; CStrArgument for &amp;'a <a class="struct" href="https://doc.rust-lang.org/nightly/std/ffi/c_str/struct.CString.html" title="struct std::ffi::c_str::CString">CString</a><span class="where fmt-newline">  type <a href='#associatedtype.Output' class="type">Output</a> = &amp;'a <a class="struct" href="https://doc.rust-lang.org/nightly/std/ffi/c_str/struct.CStr.html" title="struct std::ffi::c_str::CStr">CStr</a>;</span></code></li>
+<li><code>impl&lt;'a&gt; CStrArgument for &amp;'a <a class="struct" href="https://doc.rust-lang.org/nightly/std/ffi/c_str/struct.CStr.html" title="struct std::ffi::c_str::CStr">CStr</a><span class="where fmt-newline">  type <a href='#associatedtype.Output' class="type">Output</a> = Self;</span></code></li>
+<li><code>impl CStrArgument for <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a><span class="where fmt-newline">  type <a href='#associatedtype.Output' class="type">Output</a> = <a class="struct" href="https://doc.rust-lang.org/nightly/std/ffi/c_str/struct.CString.html" title="struct std::ffi::c_str::CString">CString</a>;</span></code></li>
+<li><code>impl&lt;'a&gt; CStrArgument for &amp;'a <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a><span class="where fmt-newline">  type <a href='#associatedtype.Output' class="type">Output</a> = <a class="enum" href="https://doc.rust-lang.org/nightly/alloc/borrow/enum.Cow.html" title="enum alloc::borrow::Cow">Cow</a>&lt;'a, <a class="struct" href="https://doc.rust-lang.org/nightly/std/ffi/c_str/struct.CStr.html" title="struct std::ffi::c_str::CStr">CStr</a>&gt;;</span></code></li>
+<li><code>impl&lt;'a&gt; CStrArgument for &amp;'a <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a><span class="where fmt-newline">  type <a href='#associatedtype.Output' class="type">Output</a> = <a class="enum" href="https://doc.rust-lang.org/nightly/alloc/borrow/enum.Cow.html" title="enum alloc::borrow::Cow">Cow</a>&lt;'a, <a class="struct" href="https://doc.rust-lang.org/nightly/std/ffi/c_str/struct.CStr.html" title="struct std::ffi::c_str::CStr">CStr</a>&gt;;</span></code></li>
+<li><code>impl&lt;'a&gt; CStrArgument for <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>&gt;<span class="where fmt-newline">  type <a href='#associatedtype.Output' class="type">Output</a> = <a class="struct" href="https://doc.rust-lang.org/nightly/std/ffi/c_str/struct.CString.html" title="struct std::ffi::c_str::CString">CString</a>;</span></code></li>
+<li><code>impl&lt;'a&gt; CStrArgument for &amp;'a <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>&gt;<span class="where fmt-newline">  type <a href='#associatedtype.Output' class="type">Output</a> = <a class="enum" href="https://doc.rust-lang.org/nightly/alloc/borrow/enum.Cow.html" title="enum alloc::borrow::Cow">Cow</a>&lt;'a, <a class="struct" href="https://doc.rust-lang.org/nightly/std/ffi/c_str/struct.CStr.html" title="struct std::ffi::c_str::CStr">CStr</a>&gt;;</span></code></li>
+<li><code>impl&lt;'a&gt; CStrArgument for <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;'a [</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a><span class="where fmt-newline">  type <a href='#associatedtype.Output' class="type">Output</a> = <a class="enum" href="https://doc.rust-lang.org/nightly/alloc/borrow/enum.Cow.html" title="enum alloc::borrow::Cow">Cow</a>&lt;'a, <a class="struct" href="https://doc.rust-lang.org/nightly/std/ffi/c_str/struct.CStr.html" title="struct std::ffi::c_str::CStr">CStr</a>&gt;;</span></code></li>
 </ul><script type="text/javascript" async
                          src="../implementors/cstr_argument/trait.CStrArgument.js">
                  </script></section>
