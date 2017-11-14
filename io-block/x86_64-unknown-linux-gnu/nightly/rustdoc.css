@@ -582,13 +582,14 @@ body.blur > :not(#help) {
 	display: block;
 	margin-top: -1px;
 }
-#help dd { margin: 5px 33px; }
+#help dd { margin: 5px 35px; }
 #help .infos { padding-left: 0; }
 #help h1, #help h2 { margin-top: 0; }
 #help > div div {
 	width: 50%;
 	float: left;
 	padding: 20px;
+	padding-left: 17px;
 }
 
 .stab {
@@ -943,4 +944,10 @@ pre.rust {
 
 #titles > div:hover {
 	border-bottom: 3px solid #0089ff;
+}
+
+#titles > div > div.count {
+	display: inline-block;
+	color: #888;
+	font-size: 16px;
 }
