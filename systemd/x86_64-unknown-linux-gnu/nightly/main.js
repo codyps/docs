@@ -42,9 +42,9 @@
 
     // On the search screen, so you remain on the last tab you opened.
     //
-    // 0 for "Types/modules"
-    // 1 for "As parameters"
-    // 2 for "As return value"
+    // 0 for "In Names"
+    // 1 for "In Parameters"
+    // 2 for "In Return Types"
     var currentTab = 0;
 
     function hasClass(elem, className) {
@@ -119,8 +119,7 @@
             map(function(s) {
                 var pair = s.split("=");
                 params[decodeURIComponent(pair[0])] =
-                    typeof pair[1] === "undefined" ?
-                            null : decodeURIComponent(pair[1]);
+                    typeof pair[1] === "undefined" ? null : decodeURIComponent(pair[1]);
             });
         return params;
     }
@@ -1196,9 +1195,9 @@
             output = '<h1>Results for ' + escape(query.query) +
                 (query.type ? ' (type: ' + escape(query.type) + ')' : '') + '</h1>' +
                 '<div id="titles">' +
-                makeTabHeader(0, "Types/modules", results['others'].length) +
-                makeTabHeader(1, "As parameters", results['in_args'].length) +
-                makeTabHeader(2, "As return value", results['returned'].length) +
+                makeTabHeader(0, "In Names", results['others'].length) +
+                makeTabHeader(1, "In Parameters", results['in_args'].length) +
+                makeTabHeader(2, "In Return Types", results['returned'].length) +
                 '</div><div id="results">';
 
             output += addTab(results['others'], query);
@@ -1821,6 +1820,14 @@
                 }
             }
         };
+    }
+
+    var params = getQueryStringParams();
+    if (params && params.search) {
+        addClass(document.getElementById("main"), "hidden");
+        var search = document.getElementById("search");
+        removeClass(search, "hidden");
+        search.innerHTML = '<h3 style="text-align: center;">Loading search results...</h3>';
     }
 }());
 
