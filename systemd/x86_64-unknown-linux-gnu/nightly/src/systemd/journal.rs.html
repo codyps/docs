@@ -356,6 +356,73 @@
 <span id="310">310</span>
 <span id="311">311</span>
 <span id="312">312</span>
+<span id="313">313</span>
+<span id="314">314</span>
+<span id="315">315</span>
+<span id="316">316</span>
+<span id="317">317</span>
+<span id="318">318</span>
+<span id="319">319</span>
+<span id="320">320</span>
+<span id="321">321</span>
+<span id="322">322</span>
+<span id="323">323</span>
+<span id="324">324</span>
+<span id="325">325</span>
+<span id="326">326</span>
+<span id="327">327</span>
+<span id="328">328</span>
+<span id="329">329</span>
+<span id="330">330</span>
+<span id="331">331</span>
+<span id="332">332</span>
+<span id="333">333</span>
+<span id="334">334</span>
+<span id="335">335</span>
+<span id="336">336</span>
+<span id="337">337</span>
+<span id="338">338</span>
+<span id="339">339</span>
+<span id="340">340</span>
+<span id="341">341</span>
+<span id="342">342</span>
+<span id="343">343</span>
+<span id="344">344</span>
+<span id="345">345</span>
+<span id="346">346</span>
+<span id="347">347</span>
+<span id="348">348</span>
+<span id="349">349</span>
+<span id="350">350</span>
+<span id="351">351</span>
+<span id="352">352</span>
+<span id="353">353</span>
+<span id="354">354</span>
+<span id="355">355</span>
+<span id="356">356</span>
+<span id="357">357</span>
+<span id="358">358</span>
+<span id="359">359</span>
+<span id="360">360</span>
+<span id="361">361</span>
+<span id="362">362</span>
+<span id="363">363</span>
+<span id="364">364</span>
+<span id="365">365</span>
+<span id="366">366</span>
+<span id="367">367</span>
+<span id="368">368</span>
+<span id="369">369</span>
+<span id="370">370</span>
+<span id="371">371</span>
+<span id="372">372</span>
+<span id="373">373</span>
+<span id="374">374</span>
+<span id="375">375</span>
+<span id="376">376</span>
+<span id="377">377</span>
+<span id="378">378</span>
+<span id="379">379</span>
 </pre><pre class="rust ">
 <span class="kw">use</span> <span class="ident">libc</span>::{<span class="ident">c_char</span>, <span class="ident">c_int</span>, <span class="ident">size_t</span>};
 <span class="kw">use</span> <span class="ident">log</span>::{<span class="self">self</span>, <span class="ident">Log</span>, <span class="ident">LogRecord</span>, <span class="ident">LogLocation</span>, <span class="ident">LogLevel</span>, <span class="ident">LogLevelFilter</span>, <span class="ident">SetLoggerError</span>};
@@ -364,6 +431,7 @@
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">ffi</span>::<span class="ident">CString</span>;
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">io</span>::<span class="ident">ErrorKind</span>::<span class="ident">InvalidData</span>;
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">os</span>::<span class="ident">raw</span>::<span class="ident">c_void</span>;
+<span class="kw">use</span> <span class="ident">std</span>::<span class="ident">u64</span>;
 <span class="kw">use</span> <span class="ident">ffi</span>::<span class="ident">array_to_iovecs</span>;
 <span class="kw">use</span> <span class="ident">ffi</span>::<span class="ident">id128</span>::<span class="ident">sd_id128_t</span>;
 <span class="kw">use</span> <span class="ident">ffi</span>::<span class="ident">journal</span> <span class="kw">as</span> <span class="ident">ffi</span>;
@@ -460,6 +528,12 @@
     <span class="ident">time</span>::<span class="ident">Duration</span>::<span class="ident">new</span>(<span class="ident">secs</span>, <span class="ident">sub_nsec</span>)
 }
 
+<span class="kw">fn</span> <span class="ident">usec_from_duration</span>(<span class="ident">duration</span>: <span class="ident">time</span>::<span class="ident">Duration</span>) <span class="op">-&gt;</span> <span class="ident">u64</span> {
+    <span class="kw">let</span> <span class="ident">sub_usecs</span> <span class="op">=</span> (<span class="ident">duration</span>.<span class="ident">subsec_nanos</span>() <span class="op">/</span> <span class="number">1000</span>) <span class="kw">as</span> <span class="ident">u64</span>;
+    <span class="ident">duration</span>.<span class="ident">as_secs</span>() <span class="op">*</span> <span class="number">1_000_000</span> <span class="op">+</span> <span class="ident">sub_usecs</span>
+}
+
+
 <span class="kw">fn</span> <span class="ident">system_time_from_realtime_usec</span>(<span class="ident">usec</span>: <span class="ident">u64</span>) <span class="op">-&gt;</span> <span class="ident">time</span>::<span class="ident">SystemTime</span> {
     <span class="kw">let</span> <span class="ident">d</span> <span class="op">=</span> <span class="ident">duration_from_usec</span>(<span class="ident">usec</span>);
     <span class="ident">time</span>::<span class="ident">UNIX_EPOCH</span> <span class="op">+</span> <span class="ident">d</span>
@@ -476,6 +550,7 @@
 }
 
 <span class="doccomment">/// Represents the set of journal files to read.</span>
+<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>, <span class="ident">Debug</span>)]</span>
 <span class="kw">pub</span> <span class="kw">enum</span> <span class="ident">JournalFiles</span> {
     <span class="doccomment">/// The system-wide journal.</span>
     <span class="ident">System</span>,
@@ -501,6 +576,14 @@
         <span class="ident">cursor</span>: <span class="ident">String</span>,
     },
 }
+
+<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>, <span class="ident">Debug</span>)]</span>
+<span class="kw">pub</span> <span class="kw">enum</span> <span class="ident">JournalWaitResult</span> {
+    <span class="ident">Nop</span>,
+    <span class="ident">Append</span>,
+    <span class="ident">Invalidate</span>
+}
+
 
 <span class="kw">impl</span> <span class="ident">Journal</span> {
     <span class="doccomment">/// Open the systemd journal for reading.</span>
@@ -536,6 +619,8 @@
     }
 
     <span class="doccomment">/// Get and parse the currently journal record from the journal</span>
+    <span class="doccomment">/// It returns Result&lt;Option&lt;...&gt;&gt; out of convenience for calling</span>
+    <span class="doccomment">/// functions. It always returns Ok(Some(...)) if successful.</span>
     <span class="kw">fn</span> <span class="ident">get_record</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">JournalRecord</span><span class="op">&gt;&gt;</span> {
         <span class="kw">unsafe</span> { <span class="ident">ffi</span>::<span class="ident">sd_journal_restart_data</span>(<span class="self">self</span>.<span class="ident">j</span>) }
 
@@ -568,6 +653,8 @@
         
     }
 
+    <span class="doccomment">/// Read the previous record from the journal. Returns `Ok(None)` if there</span>
+    <span class="doccomment">/// are no more records to read.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">previous_record</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">JournalRecord</span><span class="op">&gt;&gt;</span> {
         <span class="kw">if</span> <span class="macro">sd_try</span><span class="macro">!</span>(<span class="ident">ffi</span>::<span class="ident">sd_journal_previous</span>(<span class="self">self</span>.<span class="ident">j</span>)) <span class="op">==</span> <span class="number">0</span> {
             <span class="kw">return</span> <span class="prelude-val">Ok</span>(<span class="prelude-val">None</span>);
@@ -575,6 +662,53 @@
         
         <span class="self">self</span>.<span class="ident">get_record</span>()
     }
+
+    <span class="doccomment">/// Wait for next record to arrive.</span>
+    <span class="doccomment">/// Pass wait_time `None` to wait for an unlimited period for new records.</span>
+    <span class="kw">fn</span> <span class="ident">wait</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">wait_time</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">time</span>::<span class="ident">Duration</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">JournalWaitResult</span><span class="op">&gt;</span> {
+
+        <span class="kw">let</span> <span class="ident">time</span> <span class="op">=</span> <span class="ident">wait_time</span>.<span class="ident">map</span>(<span class="ident">usec_from_duration</span>).<span class="ident">unwrap_or</span>(::<span class="ident">std</span>::<span class="ident">u64</span>::<span class="ident">MAX</span>);
+
+        <span class="kw">match</span> <span class="macro">sd_try</span><span class="macro">!</span>(<span class="ident">ffi</span>::<span class="ident">sd_journal_wait</span>(<span class="self">self</span>.<span class="ident">j</span>, <span class="ident">time</span>)) {
+            <span class="ident">ffi</span>::<span class="ident">SD_JOURNAL_NOP</span> <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>(<span class="ident">JournalWaitResult</span>::<span class="ident">Nop</span>),
+            <span class="ident">ffi</span>::<span class="ident">SD_JOURNAL_APPEND</span> <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>(<span class="ident">JournalWaitResult</span>::<span class="ident">Append</span>),
+            <span class="ident">ffi</span>::<span class="ident">SD_JOURNAL_INVALIDATE</span> <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>(<span class="ident">JournalWaitResult</span>::<span class="ident">Invalidate</span>),
+            _ <span class="op">=&gt;</span> <span class="prelude-val">Err</span>(<span class="ident">io</span>::<span class="ident">Error</span>::<span class="ident">new</span>(<span class="ident">InvalidData</span>, <span class="string">&quot;Failed to wait for changes&quot;</span>))
+        }
+    }
+
+    <span class="doccomment">/// Wait for the next record to appear. Returns `Ok(None)` if there were no</span>
+    <span class="doccomment">/// new records in the given wait time.</span>
+    <span class="doccomment">/// Pass wait_time `None` to wait for an unlimited period for new records.</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">await_next_record</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">wait_time</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">time</span>::<span class="ident">Duration</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">JournalRecord</span><span class="op">&gt;&gt;</span> {
+        <span class="kw">match</span> <span class="self">self</span>.<span class="ident">wait</span>(<span class="ident">wait_time</span>)<span class="question-mark">?</span> {
+            <span class="ident">JournalWaitResult</span>::<span class="ident">Nop</span> <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>(<span class="prelude-val">None</span>),
+            <span class="ident">JournalWaitResult</span>::<span class="ident">Append</span> <span class="op">=&gt;</span> <span class="self">self</span>.<span class="ident">next_record</span>(),
+
+            <span class="comment">// This is possibly wrong, but I can&#39;t generate a scenario with </span>
+            <span class="comment">// ..::Invalidate and neither systemd&#39;s journalctl, </span>
+            <span class="comment">// systemd-journal-upload, and other utilities handle that case.</span>
+            <span class="ident">JournalWaitResult</span>::<span class="ident">Invalidate</span> <span class="op">=&gt;</span> <span class="self">self</span>.<span class="ident">next_record</span>()
+        }
+    }
+
+    <span class="doccomment">/// Iterate through all elements from the current cursor, then await the</span>
+    <span class="doccomment">/// next record(s) and wait again.</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">watch_all_elements</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="kw-2">mut</span> <span class="ident">f</span>: <span class="ident">F</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>()<span class="op">&gt;</span>
+        <span class="kw">where</span> <span class="ident">F</span>: <span class="ident">FnMut</span>(<span class="ident">JournalRecord</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
+            <span class="kw">loop</span> {
+                <span class="kw">let</span> <span class="ident">candidate</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">next_record</span>()<span class="question-mark">?</span>;
+                <span class="kw">let</span> <span class="ident">rec</span> <span class="op">=</span> <span class="kw">match</span> <span class="ident">candidate</span> {
+                    <span class="prelude-val">Some</span>(<span class="ident">rec</span>) <span class="op">=&gt;</span> <span class="ident">rec</span>,
+                    <span class="prelude-val">None</span> <span class="op">=&gt;</span> { <span class="kw">loop</span> {
+                        <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">r</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">await_next_record</span>(<span class="prelude-val">None</span>)<span class="question-mark">?</span> {
+                            <span class="kw">break</span> <span class="ident">r</span>;
+                        }
+                    }}
+                };
+                <span class="ident">f</span>(<span class="ident">rec</span>)<span class="question-mark">?</span>
+            }
+        }
 
     <span class="doccomment">/// Seek to a specific position in journal. On success, returns a cursor</span>
     <span class="doccomment">/// to the current entry.</span>
