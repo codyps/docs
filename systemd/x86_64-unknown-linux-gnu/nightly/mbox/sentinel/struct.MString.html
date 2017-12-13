@@ -1339,7 +1339,7 @@ parameter in-place.</p>
 
 <pre class="rust rust-example-rendered">
 <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="string">&quot;abc&quot;</span>.<span class="ident">repeat</span>(<span class="number">4</span>), <span class="ident">String</span>::<span class="ident">from</span>(<span class="string">&quot;abcabcabcabc&quot;</span>));</pre>
-</div><h4 id='method.is_ascii' class="method"><span id='is_ascii.v' class='invisible'><code>pub fn <a href='#method.is_ascii' class='fnname'>is_ascii</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.21.0'>1.21.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/alloc/str.rs.html#2083-2088' title='goto source code'>[src]</a></span></h4>
+</div><h4 id='method.is_ascii' class="method"><span id='is_ascii.v' class='invisible'><code>pub fn <a href='#method.is_ascii' class='fnname'>is_ascii</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.23.0'>1.23.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/alloc/str.rs.html#2083-2088' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Checks if all characters in this string are within the ASCII range.</p>
 
 <h1 id='examples-46' class='section-header'><a href='#examples-46'>Examples</a></h1>
@@ -1349,7 +1349,7 @@ parameter in-place.</p>
 
 <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">ascii</span>.<span class="ident">is_ascii</span>());
 <span class="macro">assert</span><span class="macro">!</span>(<span class="op">!</span><span class="ident">non_ascii</span>.<span class="ident">is_ascii</span>());</pre>
-</div><h4 id='method.to_ascii_uppercase' class="method"><span id='to_ascii_uppercase.v' class='invisible'><code>pub fn <a href='#method.to_ascii_uppercase' class='fnname'>to_ascii_uppercase</a>(&amp;self) -&gt; <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a></code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.21.0'>1.21.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/alloc/str.rs.html#2113-2118' title='goto source code'>[src]</a></span></h4>
+</div><h4 id='method.to_ascii_uppercase' class="method"><span id='to_ascii_uppercase.v' class='invisible'><code>pub fn <a href='#method.to_ascii_uppercase' class='fnname'>to_ascii_uppercase</a>(&amp;self) -&gt; <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a></code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.23.0'>1.23.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/alloc/str.rs.html#2113-2118' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Returns a copy of this string where each character is mapped to its
 ASCII upper case equivalent.</p>
 
@@ -1366,7 +1366,7 @@ but non-ASCII letters are unchanged.</p>
 <span class="kw">let</span> <span class="ident">s</span> <span class="op">=</span> <span class="string">&quot;Grüße, Jürgen ❤&quot;</span>;
 
 <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="string">&quot;GRüßE, JüRGEN ❤&quot;</span>, <span class="ident">s</span>.<span class="ident">to_ascii_uppercase</span>());</pre>
-</div><h4 id='method.to_ascii_lowercase' class="method"><span id='to_ascii_lowercase.v' class='invisible'><code>pub fn <a href='#method.to_ascii_lowercase' class='fnname'>to_ascii_lowercase</a>(&amp;self) -&gt; <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a></code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.21.0'>1.21.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/alloc/str.rs.html#2143-2148' title='goto source code'>[src]</a></span></h4>
+</div><h4 id='method.to_ascii_lowercase' class="method"><span id='to_ascii_lowercase.v' class='invisible'><code>pub fn <a href='#method.to_ascii_lowercase' class='fnname'>to_ascii_lowercase</a>(&amp;self) -&gt; <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a></code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.23.0'>1.23.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/alloc/str.rs.html#2143-2148' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Returns a copy of this string where each character is mapped to its
 ASCII lower case equivalent.</p>
 
@@ -1383,7 +1383,7 @@ but non-ASCII letters are unchanged.</p>
 <span class="kw">let</span> <span class="ident">s</span> <span class="op">=</span> <span class="string">&quot;Grüße, Jürgen ❤&quot;</span>;
 
 <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="string">&quot;grüße, jürgen ❤&quot;</span>, <span class="ident">s</span>.<span class="ident">to_ascii_lowercase</span>());</pre>
-</div><h4 id='method.eq_ignore_ascii_case' class="method"><span id='eq_ignore_ascii_case.v' class='invisible'><code>pub fn <a href='#method.eq_ignore_ascii_case' class='fnname'>eq_ignore_ascii_case</a>(&amp;self, other: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.21.0'>1.21.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/alloc/str.rs.html#2164-2166' title='goto source code'>[src]</a></span></h4>
+</div><h4 id='method.eq_ignore_ascii_case' class="method"><span id='eq_ignore_ascii_case.v' class='invisible'><code>pub fn <a href='#method.eq_ignore_ascii_case' class='fnname'>eq_ignore_ascii_case</a>(&amp;self, other: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.23.0'>1.23.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/alloc/str.rs.html#2164-2166' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Checks that two strings are an ASCII case-insensitive match.</p>
 
 <p>Same as <code>to_ascii_lowercase(a) == to_ascii_lowercase(b)</code>,
@@ -1394,7 +1394,7 @@ but without allocating and copying temporaries.</p>
 <span class="macro">assert</span><span class="macro">!</span>(<span class="string">&quot;Ferris&quot;</span>.<span class="ident">eq_ignore_ascii_case</span>(<span class="string">&quot;FERRIS&quot;</span>));
 <span class="macro">assert</span><span class="macro">!</span>(<span class="string">&quot;Ferrös&quot;</span>.<span class="ident">eq_ignore_ascii_case</span>(<span class="string">&quot;FERRöS&quot;</span>));
 <span class="macro">assert</span><span class="macro">!</span>(<span class="op">!</span><span class="string">&quot;Ferrös&quot;</span>.<span class="ident">eq_ignore_ascii_case</span>(<span class="string">&quot;FERRÖS&quot;</span>));</pre>
-</div><h4 id='method.make_ascii_uppercase' class="method"><span id='make_ascii_uppercase.v' class='invisible'><code>pub fn <a href='#method.make_ascii_uppercase' class='fnname'>make_ascii_uppercase</a>(&amp;mut self)</code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.21.0'>1.21.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/alloc/str.rs.html#2178-2181' title='goto source code'>[src]</a></span></h4>
+</div><h4 id='method.make_ascii_uppercase' class="method"><span id='make_ascii_uppercase.v' class='invisible'><code>pub fn <a href='#method.make_ascii_uppercase' class='fnname'>make_ascii_uppercase</a>(&amp;mut self)</code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.23.0'>1.23.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/alloc/str.rs.html#2178-2181' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Converts this string to its ASCII upper case equivalent in-place.</p>
 
 <p>ASCII letters &#39;a&#39; to &#39;z&#39; are mapped to &#39;A&#39; to &#39;Z&#39;,
@@ -1402,7 +1402,7 @@ but non-ASCII letters are unchanged.</p>
 
 <p>To return a new uppercased value without modifying the existing one, use
 <a href="#method.to_ascii_uppercase"><code>to_ascii_uppercase</code></a>.</p>
-</div><h4 id='method.make_ascii_lowercase' class="method"><span id='make_ascii_lowercase.v' class='invisible'><code>pub fn <a href='#method.make_ascii_lowercase' class='fnname'>make_ascii_lowercase</a>(&amp;mut self)</code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.21.0'>1.21.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/alloc/str.rs.html#2193-2196' title='goto source code'>[src]</a></span></h4>
+</div><h4 id='method.make_ascii_lowercase' class="method"><span id='make_ascii_lowercase.v' class='invisible'><code>pub fn <a href='#method.make_ascii_lowercase' class='fnname'>make_ascii_lowercase</a>(&amp;mut self)</code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.23.0'>1.23.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/alloc/str.rs.html#2193-2196' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Converts this string to its ASCII lower case equivalent in-place.</p>
 
 <p>ASCII letters &#39;A&#39; to &#39;Z&#39; are mapped to &#39;a&#39; to &#39;z&#39;,
