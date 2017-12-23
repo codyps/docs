@@ -155,7 +155,7 @@
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">ptr</span>;
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">io</span>;
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">io</span>::<span class="ident">ErrorKind</span>::<span class="ident">InvalidData</span>;
-<span class="kw">use</span> <span class="kw">super</span>::<span class="ident">ffi</span>::{<span class="ident">c_char</span>, <span class="ident">pid_t</span>};
+<span class="kw">use</span> <span class="kw">super</span>::<span class="ident">ffi</span>::{<span class="ident">c_char</span>, <span class="ident">pid_t</span>, <span class="ident">uid_t</span>};
 <span class="kw">use</span> <span class="ident">ffi</span>::<span class="ident">login</span> <span class="kw">as</span> <span class="ident">ffi</span>;
 <span class="kw">use</span> <span class="kw">super</span>::<span class="prelude-ty">Result</span>;
 <span class="kw">use</span> <span class="ident">mbox</span>::<span class="ident">MString</span>;
@@ -253,11 +253,11 @@
 <span class="doccomment">/// Specific processes can be optionally targeted via their PID. When no PID is</span>
 <span class="doccomment">/// specified, operation is executed for the calling process.</span>
 <span class="doccomment">/// This method can be used to retrieve an owner uid.</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_owner_uid</span>(<span class="ident">pid</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">pid_t</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">pid_t</span><span class="op">&gt;</span> {
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_owner_uid</span>(<span class="ident">pid</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">pid_t</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">uid_t</span><span class="op">&gt;</span> {
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">c_owner_uid</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="number">0u32</span>;
     <span class="kw">let</span> <span class="ident">p</span>: <span class="ident">pid_t</span> <span class="op">=</span> <span class="ident">pid</span>.<span class="ident">unwrap_or</span>(<span class="number">0</span>);
     <span class="macro">sd_try</span><span class="macro">!</span>(<span class="ident">ffi</span>::<span class="ident">sd_pid_get_owner_uid</span>(<span class="ident">p</span>, <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">c_owner_uid</span>));
-    <span class="prelude-val">Ok</span>(<span class="ident">c_owner_uid</span> <span class="kw">as</span> <span class="ident">pid_t</span>)
+    <span class="prelude-val">Ok</span>(<span class="ident">c_owner_uid</span> <span class="kw">as</span> <span class="ident">uid_t</span>)
 }
 </pre>
 </section>
