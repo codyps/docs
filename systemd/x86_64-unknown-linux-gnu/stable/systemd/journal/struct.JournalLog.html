@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'>Struct JournalLog</p><div class="block items"><ul><li><a href="#methods">Methods</a></li><li><a href="#implementations">Trait Implementations</a></li></ul></div><p class='location'><a href='../index.html'>systemd</a>::<wbr><a href='index.html'>journal</a></p><script>window.sidebarCurrent = {name: 'JournalLog', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct JournalLog</p><div class="block items"><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.init">init</a><a href="#method.init_with_level">init_with_level</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Log">Log</a></div></div><p class='location'><a href='../index.html'>systemd</a>::<wbr><a href='index.html'>journal</a></p><script>window.sidebarCurrent = {name: 'JournalLog', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -55,8 +55,8 @@
                       Methods<a href='#methods' class='anchor'></a>
                     </h2>
                 <h3 id='impl' class='impl'><span class='in-band'><code>impl <a class="struct" href="../../systemd/journal/struct.JournalLog.html" title="struct systemd::journal::JournalLog">JournalLog</a></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/systemd/journal.rs.html#85-96' title='goto source code'>[src]</a></span></h3>
-<div class='impl-items'><h4 id='method.init' class="method"><span id='init.v' class='invisible'><code>pub fn <a href='#method.init' class='fnname'>init</a>() -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">()</a>, <a class="struct" href="../../log/struct.SetLoggerError.html" title="struct log::SetLoggerError">SetLoggerError</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/systemd/journal.rs.html#86-88' title='goto source code'>[src]</a></span></h4>
-<h4 id='method.init_with_level' class="method"><span id='init_with_level.v' class='invisible'><code>pub fn <a href='#method.init_with_level' class='fnname'>init_with_level</a>(level: <a class="enum" href="../../log/enum.LogLevelFilter.html" title="enum log::LogLevelFilter">LogLevelFilter</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">()</a>, <a class="struct" href="../../log/struct.SetLoggerError.html" title="struct log::SetLoggerError">SetLoggerError</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/systemd/journal.rs.html#90-95' title='goto source code'>[src]</a></span></h4>
+<div class='impl-items'><h4 id='method.init' class="method"><span id='init.v' class='invisible'><code>pub fn <a href='#method.init' class='fnname'>init</a>() -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>, <a class="struct" href="../../log/struct.SetLoggerError.html" title="struct log::SetLoggerError">SetLoggerError</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/systemd/journal.rs.html#86-88' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.init_with_level' class="method"><span id='init_with_level.v' class='invisible'><code>pub fn <a href='#method.init_with_level' class='fnname'>init_with_level</a>(level: <a class="enum" href="../../log/enum.LogLevelFilter.html" title="enum log::LogLevelFilter">LogLevelFilter</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>, <a class="struct" href="../../log/struct.SetLoggerError.html" title="struct log::SetLoggerError">SetLoggerError</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/systemd/journal.rs.html#90-95' title='goto source code'>[src]</a></span></h4>
 </div>
             <h2 id='implementations' class='small-section-header'>
               Trait Implementations<a href='#implementations' class='anchor'></a>
@@ -83,13 +83,15 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
-                    <dt>+</dt>
+                    <dt style="width:31px;">+ / -</dt>
                     <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
