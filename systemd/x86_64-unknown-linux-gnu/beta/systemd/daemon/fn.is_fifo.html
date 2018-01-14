@@ -28,6 +28,7 @@
     
 
     <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
         
         <p class='location'><a href='../index.html'>systemd</a>::<wbr><a href='index.html'>daemon</a></p><script>window.sidebarCurrent = {name: 'is_fifo', ty: 'fn', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
@@ -49,7 +50,7 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../../src/systemd/daemon.rs.html#59-63' title='goto source code'>[src]</a></span></h1>
-<pre class='rust fn'>pub fn is_fifo&lt;S:&nbsp;<a class="trait" href="../../cstr_argument/trait.CStrArgument.html" title="trait cstr_argument::CStrArgument">CStrArgument</a>&gt;(fd: <a class="type" href="https://doc.rust-lang.org/nightly/std/sys/imp/ext/io/type.RawFd.html" title="type std::sys::imp::ext::io::RawFd">Fd</a>, path: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;S&gt;) -&gt; <a class="type" href="../../systemd/type.Result.html" title="type systemd::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>&gt;</pre><div class='docblock'><p>Identifies whether the passed file descriptor is a FIFO.  If a path is
+<pre class='rust fn'>pub fn is_fifo&lt;S:&nbsp;<a class="trait" href="../../cstr_argument/trait.CStrArgument.html" title="trait cstr_argument::CStrArgument">CStrArgument</a>&gt;(fd: <a class="type" href="https://doc.rust-lang.org/nightly/std/sys/unix/ext/io/type.RawFd.html" title="type std::sys::unix::ext::io::RawFd">Fd</a>, path: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;S&gt;) -&gt; <a class="type" href="../../systemd/type.Result.html" title="type systemd::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>&gt;</pre><div class='docblock'><p>Identifies whether the passed file descriptor is a FIFO.  If a path is
 supplied, the file descriptor must also match the path.</p>
 </div></section>
     <section id='search' class="content hidden"></section>
