@@ -52,20 +52,16 @@
                </span><a class='srclink' href='https://doc.rust-lang.org/nightly/src/std/io/error.rs.html#52' title='goto source code'>[src]</a></span></h1>
 <pre class='rust typedef'>type Result&lt;T&gt; = <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;T, <a class="struct" href="https://doc.rust-lang.org/nightly/std/io/error/struct.Error.html" title="struct std::io::error::Error">Error</a>&gt;;</pre><div class='docblock'><p>A specialized <a href="../result/enum.Result.html"><code>Result</code></a> type for I/O
 operations.</p>
-
 <p>This type is broadly used across <a href="../io/index.html"><code>std::io</code></a> for any operation which may
 produce an error.</p>
-
 <p>This typedef is generally used to avoid writing out <a href="../io/struct.Error.html"><code>io::Error</code></a> directly and
 is otherwise a direct mapping to <a href="../result/enum.Result.html"><code>Result</code></a>.</p>
-
 <p>While usual Rust style is to import types directly, aliases of <a href="../result/enum.Result.html"><code>Result</code></a>
 often are not, to make it easier to distinguish between them. <a href="../result/enum.Result.html"><code>Result</code></a> is
 generally assumed to be <a href="../result/enum.Result.html"><code>std::result::Result</code></a>, and so users of this alias
-will generally use <code>io::Result</code> instead of shadowing the prelude&#39;s import
+will generally use <code>io::Result</code> instead of shadowing the prelude's import
 of <a href="../result/enum.Result.html"><code>std::result::Result</code></a>.</p>
-
-<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
+<h1 id="examples" class="section-header"><a href="#examples">Examples</a></h1>
 <p>A convenience function that bubbles an <code>io::Result</code> to its caller:</p>
 
 <pre class="rust rust-example-rendered">
