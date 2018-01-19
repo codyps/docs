@@ -59,7 +59,6 @@
     Debug,
     Trace,
 }</pre><div class='docblock'><p>An enum representing the available verbosity level filters of the logger.</p>
-
 <p>A <code>LevelFilter</code> may be compared directly to a <a href="enum.Level.html"><code>Level</code></a>. Use this type
 to get and set the maximum log level with <a href="fn.max_level.html"><code>max_level()</code></a> and <a href="fn.set_max_level.html"><code>set_max_level</code></a>.</p>
 </div><h2 id='variants' class='variants small-section-header'>
@@ -79,7 +78,6 @@ to get and set the maximum log level with <a href="fn.max_level.html"><code>max_
 <div class='docblock'><p>Returns the most verbose logging level filter.</p>
 </div><h4 id='method.to_level' class="method"><span id='to_level.v' class='invisible'><code>pub fn <a href='#method.to_level' class='fnname'>to_level</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="enum" href="../log/enum.Level.html" title="enum log::Level">Level</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/log/lib.rs.html#558-560' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Converts <code>self</code> to the equivalent <code>Level</code>.</p>
-
 <p>Returns <code>None</code> if <code>self</code> is <code>LevelFilter::Off</code>.</p>
 </div></div>
             <h2 id='implementations' class='small-section-header'>

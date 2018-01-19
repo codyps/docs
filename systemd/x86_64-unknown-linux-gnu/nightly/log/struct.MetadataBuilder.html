@@ -51,12 +51,10 @@
                    </a>
                </span><a class='srclink' href='../src/log/lib.rs.html#879-881' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct MetadataBuilder&lt;'a&gt; { /* fields omitted */ }</pre><div class='docblock'><p>Builder for <a href="struct.Metadata.html"><code>Metadata</code></a>.</p>
-
 <p>Typically should only be used by log library creators or for testing and &quot;shim loggers&quot;.
 The <code>MetadataBuilder</code> can set the different parameters of a <code>Metadata</code> object, and returns
 the created object when <code>build</code> is called.</p>
-
-<h1 id='example' class='section-header'><a href='#example'>Example</a></h1>
+<h1 id="example" class="section-header"><a href="#example">Example</a></h1>
 <pre class="rust rust-example-rendered">
 <span class="kw">let</span> <span class="ident">target</span> <span class="op">=</span> <span class="string">&quot;myApp&quot;</span>;
 <span class="kw">use</span> <span class="ident">log</span>::{<span class="ident">Level</span>, <span class="ident">MetadataBuilder</span>};
@@ -71,9 +69,7 @@ the created object when <code>build</code> is called.</p>
                 <h3 id='impl' class='impl'><span class='in-band'><code>impl&lt;'a&gt; <a class="struct" href="../log/struct.MetadataBuilder.html" title="struct log::MetadataBuilder">MetadataBuilder</a>&lt;'a&gt;</code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/log/lib.rs.html#883-919' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.new' class="method"><span id='new.v' class='invisible'><code>pub fn <a href='#method.new' class='fnname'>new</a>() -&gt; <a class="struct" href="../log/struct.MetadataBuilder.html" title="struct log::MetadataBuilder">MetadataBuilder</a>&lt;'a&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/log/lib.rs.html#891-898' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Construct a new <code>MetadataBuilder</code>.</p>
-
 <p>The default options are:</p>
-
 <ul>
 <li><code>level</code>: <code>Level::Info</code></li>
 <li><code>target</code>: <code>&quot;&quot;</code></li>

@@ -57,13 +57,11 @@
     fn <a href='#method.into_cstr' class='fnname'>into_cstr</a>(self) -&gt; Self::<a class="type" href="../cstr_argument/trait.CStrArgument.html#associatedtype.Output" title="type cstr_argument::CStrArgument::Output">Output</a> { ... }
 }</pre><div class='docblock'><p>A trait for converting function arguments to null terminated strings. It can be used to convert
 string arguments that are passed on to C APIs using the minimal amount of allocations.</p>
-
 <p>Strings that are already null terminated are just wrapped in a CStr without any allocations.
 Strings that are not already null terminated are converted to a CString possibly requiring one
 or more allocations. Trying to convert strings with a null byte in any position other than the
 final will result in an error.</p>
-
-<h1 id='example' class='section-header'><a href='#example'>Example</a></h1>
+<h1 id="example" class="section-header"><a href="#example">Example</a></h1>
 <pre class="rust rust-example-rendered">
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">os</span>::<span class="ident">raw</span>::<span class="ident">c_char</span>;
 <span class="kw">use</span> <span class="ident">cstr_argument</span>::<span class="ident">CStrArgument</span>;
@@ -97,8 +95,7 @@ final will result in an error.</p>
             </h2>
             <div class='methods'>
         <h3 id='tymethod.try_into_cstr' class='method'><span id='try_into_cstr.v' class='invisible'><code>fn <a href='#tymethod.try_into_cstr' class='fnname'>try_into_cstr</a>(self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;Self::<a class="type" href="../cstr_argument/trait.CStrArgument.html#associatedtype.Output" title="type cstr_argument::CStrArgument::Output">Output</a>, <a class="struct" href="../cstr_argument/struct.NulError.html" title="struct cstr_argument::NulError">NulError</a>&lt;Self&gt;&gt;</code></span></h3><div class='docblock'><p>Returns the string with a null terminator or an error.</p>
-
-<h1 id='errors' class='section-header'><a href='#errors'>Errors</a></h1>
+<h1 id="errors" class="section-header"><a href="#errors">Errors</a></h1>
 <p>This function will return an error if the string contains a null byte at any position
 other than the final.</p>
 </div></div>
@@ -107,8 +104,7 @@ other than the final.</p>
             </h2>
             <div class='methods'>
         <h3 id='method.into_cstr' class='method'><span id='into_cstr.v' class='invisible'><code>fn <a href='#method.into_cstr' class='fnname'>into_cstr</a>(self) -&gt; Self::<a class="type" href="../cstr_argument/trait.CStrArgument.html#associatedtype.Output" title="type cstr_argument::CStrArgument::Output">Output</a></code></span></h3><div class='docblock'><p>Returns the string with a null terminator.</p>
-
-<h1 id='panics' class='section-header'><a href='#panics'>Panics</a></h1>
+<h1 id="panics" class="section-header"><a href="#panics">Panics</a></h1>
 <p>This function will panic if the string contains a null byte at any position other
 than the final. See <a href="#tymethod.try_into_cstr"><code>try_into_cstr</code></a> for a non-panicking version
 of this function.</p>

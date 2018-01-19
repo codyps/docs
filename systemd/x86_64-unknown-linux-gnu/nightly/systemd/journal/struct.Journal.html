@@ -51,7 +51,6 @@
                    </a>
                </span><a class='srclink' href='../../src/systemd/journal.rs.html#122-124' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct Journal { /* fields omitted */ }</pre><div class='docblock'><p>A reader for systemd journal.</p>
-
 <p>Supports read, next, previous, and seek operations.</p>
 </div>
                     <h2 id='methods' class='small-section-header'>
@@ -60,14 +59,12 @@
                 <h3 id='impl' class='impl'><span class='in-band'><code>impl <a class="struct" href="../../systemd/journal/struct.Journal.html" title="struct systemd::journal::Journal">Journal</a></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/systemd/journal.rs.html#162-369' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.open' class="method"><span id='open.v' class='invisible'><code>pub fn <a href='#method.open' class='fnname'>open</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;files: <a class="enum" href="../../systemd/journal/enum.JournalFiles.html" title="enum systemd::journal::JournalFiles">JournalFiles</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;runtime_only: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;local_only: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a><br>) -&gt; <a class="type" href="../../systemd/type.Result.html" title="type systemd::Result">Result</a>&lt;<a class="struct" href="../../systemd/journal/struct.Journal.html" title="struct systemd::journal::Journal">Journal</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/systemd/journal.rs.html#175-193' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Open the systemd journal for reading.</p>
-
 <p>Params:</p>
-
 <ul>
 <li>files: the set of journal files to read. If the calling process
-doesn&#39;t have permission to read the system journal, a call to
+doesn't have permission to read the system journal, a call to
 <code>Journal::open</code> with <code>System</code> or <code>All</code> will succeed, but system
-journal entries won&#39;t be included. This behavior is due to systemd.</li>
+journal entries won't be included. This behavior is due to systemd.</li>
 <li>runtime_only: if true, include only journal entries from the current
 boot. If false, include all entries.</li>
 <li>local_only: if true, include only journal entries originating from

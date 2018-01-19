@@ -59,7 +59,6 @@
             </h2>
             <div class='methods'>
         <h3 id='tymethod.free' class='method'><span id='free.v' class='invisible'><code>fn <a href='#tymethod.free' class='fnname'>free</a>(ptr: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut Self</a>)</code></span></h3><div class='docblock'><p>Drops the content pointed by this pointer and frees it.</p>
-
 <p>Do not call this method if the pointer has been freed. Users of this trait should maintain a
 flag to track if the pointer has been freed or not (the Rust compiler will automatically do
 this with a <code>Drop</code> type).</p>
