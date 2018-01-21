@@ -60,20 +60,15 @@
     (<span class="op">&amp;</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">s</span>:<span class="ident">expr</span> ; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">b</span>:<span class="ident">expr</span> , .. <span class="macro-nonterminal">$</span><span class="macro-nonterminal">e</span>:<span class="ident">expr</span>) <span class="op">=&gt;</span> { ... };
 }</pre>
 <div class='docblock'><p>Slices (via the Index trait &amp; operation) into fixed size arrays</p>
-
 <p>Will panic with the same rules as normal slicing.</p>
-
 <p>Will not compile if bounds are not static.</p>
-
 <p>Will not compile if end bound proceeds start bound.</p>
-
-<h1 id='format' class='section-header'><a href='#format'>Format</a></h1>
+<h1 id="format" class="section-header"><a href="#format">Format</a></h1>
 <pre><code class="language-notest">index_fixed! ( {&amp;,&amp;mut} &lt;slice&gt; ; .. &lt;end&gt;)
 index_fixed! ( {&amp;,&amp;mut} &lt;slice&gt; ; &lt;start&gt; , .. &lt;end&gt;)
 index_fixed! ( {&amp;,&amp;mut} &lt;slice&gt; ; &lt;start&gt; , ... &lt;end&gt;)
 </code></pre>
-
-<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
+<h1 id="examples" class="section-header"><a href="#examples">Examples</a></h1>
 <pre><code class="language-notest">let my_slice = [1, 2, 3, 4];
 let slice_of_2 = index_fixed!(&amp;my_slice ; .. 2);
 assert_eq!(slice_of_2, &amp;[1..2]);
