@@ -134,9 +134,9 @@ the lifetime of <code>ptr</code> and the <code>unsafe</code> block.</p>
 <p>The returned slice will <strong>not</strong> contain the trailing nul terminator that this C
 string has.</p>
 <blockquote>
-<p><strong>Note</strong>: This method is currently implemented as a 0-cost cast, but
-it is planned to alter its definition in the future to perform the
-length calculation whenever this method is called.</p>
+<p><strong>Note</strong>: This method is currently implemented as a constant-time
+cast, but it is planned to alter its definition in the future to
+perform the length calculation whenever this method is called.</p>
 </blockquote>
 <h1 id="examples" class="section-header"><a href="#examples">Examples</a></h1>
 <pre class="rust rust-example-rendered">
@@ -166,9 +166,9 @@ function will return the corresponding <a href="../primitive.str.html"><code>&am
 it will return an error with details of where UTF-8 validation failed.</p>
 <blockquote>
 <p><strong>Note</strong>: This method is currently implemented to check for validity
-after a 0-cost cast, but it is planned to alter its definition in the
-future to perform the length calculation in addition to the UTF-8
-check whenever this method is called.</p>
+after a constant-time cast, but it is planned to alter its definition
+in the future to perform the length calculation in addition to the
+UTF-8 check whenever this method is called.</p>
 </blockquote>
 <h1 id="examples-2" class="section-header"><a href="#examples-2">Examples</a></h1>
 <pre class="rust rust-example-rendered">
@@ -185,9 +185,9 @@ replace any invalid UTF-8 sequences with <code>U+FFFD REPLACEMENT CHARACTER</cod
 with the result.</p>
 <blockquote>
 <p><strong>Note</strong>: This method is currently implemented to check for validity
-after a 0-cost cast, but it is planned to alter its definition in the
-future to perform the length calculation in addition to the UTF-8
-check whenever this method is called.</p>
+after a constant-time cast, but it is planned to alter its definition
+in the future to perform the length calculation in addition to the
+UTF-8 check whenever this method is called.</p>
 </blockquote>
 <h1 id="examples-3" class="section-header"><a href="#examples-3">Examples</a></h1>
 <p>Calling <code>to_string_lossy</code> on a <code>CStr</code> containing valid UTF-8:</p>
