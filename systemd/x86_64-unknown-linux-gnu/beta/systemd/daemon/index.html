@@ -10,8 +10,11 @@
     <title>systemd::daemon - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
+    <script src="../../storage.js"></script>
     
 
     
@@ -33,6 +36,13 @@
         <p class='location'>Module daemon</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#enums">Enums</a></li><li><a href="#constants">Constants</a></li><li><a href="#functions">Functions</a></li></ul></div><p class='location'><a href='../index.html'>systemd</a></p><script>window.sidebarCurrent = {name: 'daemon', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -58,6 +68,7 @@
                                   title='enum systemd::daemon::Listening'>Listening</a></td>
                            <td class='docblock-short'>
                                 <p>Options for checking whether a socket is in listening mode</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -73,6 +84,7 @@
                                   title='constant systemd::daemon::LISTEN_FDS_START'>LISTEN_FDS_START</a></td>
                            <td class='docblock-short'>
                                 <p>Number of the first passed file descriptor</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -80,6 +92,7 @@
                                   title='constant systemd::daemon::STATE_BUSERROR'>STATE_BUSERROR</a></td>
                            <td class='docblock-short'>
                                 <p>D-Bus-style error code in case of failure</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -87,13 +100,15 @@
                                   title='constant systemd::daemon::STATE_ERRNO'>STATE_ERRNO</a></td>
                            <td class='docblock-short'>
                                 <p>Errno-style error code in case of failure</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
                            <td><a class="constant" href="constant.STATE_MAINPID.html"
                                   title='constant systemd::daemon::STATE_MAINPID'>STATE_MAINPID</a></td>
                            <td class='docblock-short'>
-                                <p>Main PID of the daemon, in case systemd didn&#39;t fork it itself</p>
+                                <p>Main PID of the daemon, in case systemd didn't fork it itself</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -101,6 +116,7 @@
                                   title='constant systemd::daemon::STATE_READY'>STATE_READY</a></td>
                            <td class='docblock-short'>
                                 <p>Tells systemd whether daemon startup is finished</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -108,6 +124,7 @@
                                   title='constant systemd::daemon::STATE_STATUS'>STATE_STATUS</a></td>
                            <td class='docblock-short'>
                                 <p>Single-line status string describing daemon state</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -116,6 +133,7 @@
                            <td class='docblock-short'>
                                 <p>Update the watchdog timestamp (set to 1). Daemon should do this regularly,
 if using this feature.</p>
+
                            </td>
                        </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
 <table>
@@ -124,6 +142,7 @@ if using this feature.</p>
                                   title='fn systemd::daemon::booted'>booted</a></td>
                            <td class='docblock-short'>
                                 <p>Returns true if the system was booted with systemd.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -132,6 +151,7 @@ if using this feature.</p>
                            <td class='docblock-short'>
                                 <p>Identifies whether the passed file descriptor is a FIFO.  If a path is
 supplied, the file descriptor must also match the path.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -140,6 +160,7 @@ supplied, the file descriptor must also match the path.</p>
                            <td class='docblock-short'>
                                 <p>Identifies whether the passed file descriptor is a POSIX message queue. If a
 path is supplied, it will also verify the name.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -149,6 +170,7 @@ path is supplied, it will also verify the name.</p>
                                 <p>Identifies whether the passed file descriptor is a socket. If family and
 type are supplied, they must match as well. See <code>Listening</code> for listening
 check parameters.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -158,6 +180,7 @@ check parameters.</p>
                                 <p>Identifies whether the passed file descriptor is an Internet socket. If
 family, type, and/or port are supplied, they must match as well. See
 <code>Listening</code> for listening check parameters.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -168,6 +191,7 @@ family, type, and/or port are supplied, they must match as well. See
 are supplied, it must match as well. For normal sockets, leave the path set
 to None; otherwise, pass in the full socket path.  See <code>Listening</code> for
 listening check parameters.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -176,6 +200,7 @@ listening check parameters.</p>
                            <td class='docblock-short'>
                                 <p>Identifies whether the passed file descriptor is a special character device.
 If a path is supplied, the file descriptor must also match the path.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -185,6 +210,7 @@ If a path is supplied, the file descriptor must also match the path.</p>
                                 <p>Returns how many file descriptors have been passed. Removes the
 <code>$LISTEN_FDS</code> and <code>$LISTEN_PID</code> file descriptors from the environment if
 <code>unset_environment</code> is <code>true</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -195,6 +221,7 @@ If a path is supplied, the file descriptor must also match the path.</p>
 of key-value pairs.  See <code>sd-daemon.h</code> for details. Some of the most common
 keys are defined as <code>STATE_*</code> constants in this module. Returns <code>true</code> if
 systemd was contacted successfully.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -203,6 +230,7 @@ systemd was contacted successfully.</p>
                            <td class='docblock-short'>
                                 <p>Similar to <code>notify()</code>, but this sends the message on behalf of the supplied
 PID, if possible.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -218,6 +246,7 @@ PID, if possible.</p>
                            <td class='docblock-short'>
                                 <p>Returns a timeout in microseconds before which the watchdog expects a
 response from the process. If 0, the watchdog is disabled.</p>
+
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>
@@ -232,20 +261,22 @@ response from the process. If 0, the watchdog is disabled.</p>
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 
