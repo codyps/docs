@@ -10,8 +10,11 @@
     <title>io_block::BlockSize - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../main.css">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css" id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../dark.css">
+    <link rel="stylesheet" type="text/css" href="../main.css" id="themeStyle">
+    <script src="../storage.js"></script>
     
 
     
@@ -33,6 +36,13 @@
         <p class='location'>Trait BlockSize</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#required-methods">Required Methods</a><div class="sidebar-links"><a href="#tymethod.block_size_logical">block_size_logical</a><a href="#tymethod.block_count">block_count</a></div><a class="sidebar-title" href="#provided-methods">Provided Methods</a><div class="sidebar-links"><a href="#method.block_size_physical">block_size_physical</a></div><a class="sidebar-title" href="#implementors">Implementors</a></div><p class='location'><a href='index.html'>io_block</a></p><script>window.sidebarCurrent = {name: 'BlockSize', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -57,9 +67,8 @@
     fn <a href='#method.block_size_physical' class='fnname'>block_size_physical</a>(&amp;self) -&gt; <a class="type" href="../io_block/type.Result.html" title="type io_block::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>&gt; { ... }
 }</pre><div class='docblock'><p>Some writable and readable devices (disk drives, media cards) have a block size (number of bytes
 that are read or written at a time) associated with them.</p>
-
 <p>These devices also have a (relatively) fixed (or at least known) number of blocks that limits
-their length. At least, they can&#39;t be appended to.</p>
+their length. At least, they can't be appended to.</p>
 </div>
             <h2 id='required-methods' class='small-section-header'>
               Required Methods<a href='#required-methods' class='anchor'></a>
@@ -73,7 +82,6 @@ their length. At least, they can&#39;t be appended to.</p>
             </h2>
             <div class='methods'>
         <h3 id='method.block_size_physical' class='method'><span id='block_size_physical.v' class='invisible'><code>fn <a href='#method.block_size_physical' class='fnname'>block_size_physical</a>(&amp;self) -&gt; <a class="type" href="../io_block/type.Result.html" title="type io_block::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>&gt;</code></span></h3><div class='docblock'><p>The number of bytes in each physical block</p>
-
 <p>This is only a best guess. Many devices do not report a physical block size or do not
 report and accurate physical block size. Results will vary, be wary.</p>
 </div></div>
@@ -98,20 +106,22 @@ report and accurate physical block size. Results will vary, be wary.</p>
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 
