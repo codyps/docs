@@ -10,8 +10,11 @@
     <title>io_at - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../main.css">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css" id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../dark.css">
+    <link rel="stylesheet" type="text/css" href="../main.css" id="themeStyle">
+    <script src="../storage.js"></script>
     
 
     
@@ -33,6 +36,13 @@
         <p class='location'>Crate io_at</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#modules">Modules</a></li><li><a href="#structs">Structs</a></li><li><a href="#traits">Traits</a></li><li><a href="#types">Type Definitions</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'io_at', ty: 'mod', relpath: '../'};</script></div>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -57,6 +67,7 @@
                                   title='mod io_at::os'>os</a></td>
                            <td class='docblock-short'>
                                 <p>OS specific implimentations of WriteAt and/or ReadAt</p>
+
                            </td>
                        </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
@@ -66,6 +77,7 @@
                            <td class='docblock-short'>
                                 <p>Use an offset as the base for all ReadAt and WriteAt accesses. Where <code>Take</code> modifies then end,
 <code>At</code> modifies the start.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -73,6 +85,7 @@
                                   title='struct io_at::BlockLimitWrite'>BlockLimitWrite</a></td>
                            <td class='docblock-short'>
                                 <p>Limit the amount of data accepted in a single call to WriteAt (ReadAt is unaffected)</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -81,6 +94,7 @@
                            <td class='docblock-short'>
                                 <p>Adapt a WriteAt and/or ReadAt to a Write and/or Read by tracking a single internal offset and
 modifying it.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -88,6 +102,7 @@ modifying it.</p>
                                   title='struct io_at::LockedSeek'>LockedSeek</a></td>
                            <td class='docblock-short'>
                                 <p>Allow a Seek + (Read and/or Write) to impliment WriteAt and/or ReadAt</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -95,6 +110,7 @@ modifying it.</p>
                                   title='struct io_at::Take'>Take</a></td>
                            <td class='docblock-short'>
                                 <p>Limit the maximum offset of a WriteAt and/or ReadAt.</p>
+
                            </td>
                        </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
 <table>
@@ -103,6 +119,7 @@ modifying it.</p>
                                   title='trait io_at::ReadAt'>ReadAt</a></td>
                            <td class='docblock-short'>
                                 <p>Read data at an offset</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -110,6 +127,7 @@ modifying it.</p>
                                   title='trait io_at::WriteAt'>WriteAt</a></td>
                            <td class='docblock-short'>
                                 <p>Write data at an offset</p>
+
                            </td>
                        </tr></table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
 <table>
@@ -119,6 +137,7 @@ modifying it.</p>
                            <td class='docblock-short'>
                                 <p>A specialized <a href="../result/enum.Result.html"><code>Result</code></a> type for I/O
 operations.</p>
+
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>
@@ -133,20 +152,22 @@ operations.</p>
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 
