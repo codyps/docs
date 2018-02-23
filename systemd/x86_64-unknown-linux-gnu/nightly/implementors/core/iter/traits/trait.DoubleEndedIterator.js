@@ -1,6 +1,6 @@
 (function() {var implementors = {};
-implementors["mbox"] = ["impl&lt;T&gt; <a class=\"trait\" href=\"https://doc.rust-lang.org/nightly/core/iter/traits/trait.DoubleEndedIterator.html\" title=\"trait core::iter::traits::DoubleEndedIterator\">DoubleEndedIterator</a> for <a class=\"struct\" href=\"mbox/mbox/struct.MSliceIntoIter.html\" title=\"struct mbox::mbox::MSliceIntoIter\">MSliceIntoIter</a>&lt;T&gt;",];
-implementors["memchr"] = ["impl&lt;'a&gt; <a class=\"trait\" href=\"https://doc.rust-lang.org/nightly/core/iter/traits/trait.DoubleEndedIterator.html\" title=\"trait core::iter::traits::DoubleEndedIterator\">DoubleEndedIterator</a> for <a class=\"struct\" href=\"memchr/struct.Memchr.html\" title=\"struct memchr::Memchr\">Memchr</a>&lt;'a&gt;",];
+implementors["mbox"] = [{text:"impl&lt;T&gt; <a class=\"trait\" href=\"https://doc.rust-lang.org/nightly/core/iter/traits/trait.DoubleEndedIterator.html\" title=\"trait core::iter::traits::DoubleEndedIterator\">DoubleEndedIterator</a> for <a class=\"struct\" href=\"mbox/mbox/struct.MSliceIntoIter.html\" title=\"struct mbox::mbox::MSliceIntoIter\">MSliceIntoIter</a>&lt;T&gt;",synthetic:false,types:["mbox::mbox::MSliceIntoIter"]},];
+implementors["memchr"] = [{text:"impl&lt;'a&gt; <a class=\"trait\" href=\"https://doc.rust-lang.org/nightly/core/iter/traits/trait.DoubleEndedIterator.html\" title=\"trait core::iter::traits::DoubleEndedIterator\">DoubleEndedIterator</a> for <a class=\"struct\" href=\"memchr/struct.Memchr.html\" title=\"struct memchr::Memchr\">Memchr</a>&lt;'a&gt;",synthetic:false,types:["memchr::Memchr"]},];
 
             if (window.register_implementors) {
                 window.register_implementors(implementors);
