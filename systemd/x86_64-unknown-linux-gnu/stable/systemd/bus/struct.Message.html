@@ -10,8 +10,11 @@
     <title>systemd::bus::Message - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
+    <script src="../../storage.js"></script>
     
 
     
@@ -33,6 +36,13 @@
         <p class='location'>Struct Message</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#deref-methods">Methods from Deref&lt;Target=MessageRef&gt;</a><div class="sidebar-links"><a href="#method.bus">bus</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Drop">Drop</a><a href="#impl-Clone">Clone</a><a href="#impl-Deref">Deref</a><a href="#impl-DerefMut">DerefMut</a><a href="#impl-Borrow%3CMessageRef%3E">Borrow&lt;MessageRef&gt;</a><a href="#impl-BorrowMut%3CMessageRef%3E">BorrowMut&lt;MessageRef&gt;</a></div></div><p class='location'><a href='../index.html'>systemd</a>::<wbr><a href='index.html'>bus</a></p><script>window.sidebarCurrent = {name: 'Message', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -51,7 +61,6 @@
                    </a>
                </span><a class='srclink' href='../../src/systemd/bus/mod.rs.html#1000-1002' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct Message { /* fields omitted */ }</pre><div class='docblock'><p>A message to be sent or that was recieved over dbus</p>
-
 <p>This is reference counted, clone does not copy the type</p>
 </div>
                     <h2 id='deref-methods' class='small-section-header'>
@@ -60,49 +69,38 @@
                 <div class='impl-items'><h4 id='method.bus' class="method"><span id='bus.v' class='invisible'><code>pub fn <a href='#method.bus' class='fnname'>bus</a>(&amp;self) -&gt; &amp;<a class="struct" href="../../systemd/bus/struct.BusRef.html" title="struct systemd::bus::BusRef">BusRef</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/systemd/bus/mod.rs.html#1117-1119' title='goto source code'>[src]</a></span></h4>
 <h4 id='method.set_destination' class="method"><span id='set_destination.v' class='invisible'><code>pub fn <a href='#method.set_destination' class='fnname'>set_destination</a>(&amp;mut self, dest: &amp;<a class="struct" href="../../systemd/bus/struct.BusName.html" title="struct systemd::bus::BusName">BusName</a>) -&gt; <a class="type" href="../../systemd/type.Result.html" title="type systemd::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/systemd/bus/mod.rs.html#1127-1131' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Set the message destination, the name of the bus client we want to send this message to.</p>
-
 <p>XXX: describe broadcast</p>
-
 <p>Fails if the message is sealed</p>
 </div><h4 id='method.set_auto_start' class="method"><span id='set_auto_start.v' class='invisible'><code>pub fn <a href='#method.set_auto_start' class='fnname'>set_auto_start</a>(&amp;mut self, yes: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <a class="type" href="../../systemd/type.Result.html" title="type systemd::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/systemd/bus/mod.rs.html#1147-1150' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Set to true to allow the bus to launch an owner for the destination name.</p>
-
 <p>Set to false to prevent the bus from launching an owner for the destination name.</p>
-
 <p>Fails if the message is sealed</p>
-
-<hr>
-
+<hr />
 <p>This controls the NO_AUTO_START dbus header flag.</p>
-
 <p>The
 <a href="https://dbus.freedesktop.org/doc/dbus-specification.html#message-bus-starting-services">specification</a>
 covers some details about the auto start mechanism, but not all of it is specified.</p>
 </div><h4 id='method.send' class="method"><span id='send.v' class='invisible'><code>pub fn <a href='#method.send' class='fnname'>send</a>(&amp;mut self) -&gt; <a class="type" href="../../systemd/type.Result.html" title="type systemd::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/systemd/bus/mod.rs.html#1189-1194' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Send expecting a reply. Returns the reply cookie.</p>
-
 <p>Seals <code>self</code>.</p>
 </div><h4 id='method.send_no_reply' class="method"><span id='send_no_reply.v' class='invisible'><code>pub fn <a href='#method.send_no_reply' class='fnname'>send_no_reply</a>(&amp;mut self) -&gt; <a class="type" href="../../systemd/type.Result.html" title="type systemd::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/systemd/bus/mod.rs.html#1199-1203' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Send without expecting any reply
 Seals <code>self</code>.</p>
 </div><h4 id='method.send_to' class="method"><span id='send_to.v' class='invisible'><code>pub fn <a href='#method.send_to' class='fnname'>send_to</a>(&amp;mut self, dest: &amp;<a class="struct" href="../../systemd/bus/struct.BusName.html" title="struct systemd::bus::BusName">BusName</a>) -&gt; <a class="type" href="../../systemd/type.Result.html" title="type systemd::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/systemd/bus/mod.rs.html#1210-1218' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Send this message to a destination.</p>
-
 <p>Internally, this is the same as <code>.set_destination()</code> + <code>.send()</code>
 Seals <code>self</code>.</p>
 </div><h4 id='method.send_to_no_reply' class="method"><span id='send_to_no_reply.v' class='invisible'><code>pub fn <a href='#method.send_to_no_reply' class='fnname'>send_to_no_reply</a>(&amp;mut self, dest: &amp;<a class="struct" href="../../systemd/bus/struct.BusName.html" title="struct systemd::bus::BusName">BusName</a>) -&gt; <a class="type" href="../../systemd/type.Result.html" title="type systemd::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/systemd/bus/mod.rs.html#1223-1230' title='goto source code'>[src]</a></span></h4>
-<div class='docblock'><p>Same as <code>self.send_to()</code>, but don&#39;t expect a reply.
+<div class='docblock'><p>Same as <code>self.send_to()</code>, but don't expect a reply.
 Seals <code>self</code>.</p>
 </div><h4 id='method.call' class="method"><span id='call.v' class='invisible'><code>pub fn <a href='#method.call' class='fnname'>call</a>(&amp;mut self, usec: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>) -&gt; <a class="type" href="../../systemd/bus/type.Result.html" title="type systemd::bus::Result">Result</a>&lt;<a class="struct" href="../../systemd/bus/struct.Message.html" title="struct systemd::bus::Message">Message</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/systemd/bus/mod.rs.html#1238-1249' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Use this message to call a dbus method. Blocks until a reply is recieved or <code>usec</code>
 microseconds elapse (ie: this times out)</p>
-
 <p>XXX: document blocking forever
 Seals <code>self</code>.</p>
 </div><h4 id='method.call_async' class="method"><span id='call_async.v' class='invisible'><code>pub fn <a href='#method.call_async' class='fnname'>call_async</a>&lt;F:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/function/trait.FnMut.html" title="trait core::ops::function::FnMut">FnMut</a>(&amp;mut <a class="struct" href="../../systemd/bus/struct.MessageRef.html" title="struct systemd::bus::MessageRef">MessageRef</a>) -&gt; <a class="type" href="../../systemd/bus/type.Result.html" title="type systemd::bus::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>&gt;&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;mut self, <br>&nbsp;&nbsp;&nbsp;&nbsp;callback: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;mut </a>F, <br>&nbsp;&nbsp;&nbsp;&nbsp;usec: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a><br>) -&gt; <a class="type" href="../../systemd/type.Result.html" title="type systemd::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/systemd/bus/mod.rs.html#1259-1274' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Use this message to call a dbus method. Returns immediately and will call the callback when
 a reply is recieved.</p>
-
 <p>XXX: document how timeout affects this
 Seals <code>self</code>.</p>
 </div><h4 id='method.new_method_error' class="method"><span id='new_method_error.v' class='invisible'><code>pub fn <a href='#method.new_method_error' class='fnname'>new_method_error</a>(&amp;mut self, error: &amp;<a class="struct" href="../../systemd/bus/struct.Error.html" title="struct systemd::bus::Error">Error</a>) -&gt; <a class="type" href="../../systemd/type.Result.html" title="type systemd::Result">Result</a>&lt;<a class="struct" href="../../systemd/bus/struct.Message.html" title="struct systemd::bus::Message">Message</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/systemd/bus/mod.rs.html#1277-1281' title='goto source code'>[src]</a></span></h4>
@@ -115,10 +113,8 @@ Will fail if the message is sealed</p>
 </div><h4 id='method.iter' class="method"><span id='iter.v' class='invisible'><code>pub fn <a href='#method.iter' class='fnname'>iter</a>&lt;'a&gt;(&amp;'a mut self) -&gt; <a class="type" href="../../systemd/type.Result.html" title="type systemd::Result">Result</a>&lt;<a class="struct" href="../../systemd/bus/struct.MessageIter.html" title="struct systemd::bus::MessageIter">MessageIter</a>&lt;'a&gt;&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/systemd/bus/mod.rs.html#1314-1318' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Get an iterator over the message. This iterator really exists with in the <code>Message</code> itself,
 so we can only hand out one at a time.</p>
-
-<p>Ideally, handing this iterator out wouldn&#39;t prevent the use of other non-iterator
+<p>Ideally, handing this iterator out wouldn't prevent the use of other non-iterator
 accessors, but right now it does (unless you bypass <code>borrowck</code> using <code>unsafe{}</code>)</p>
-
 <p>Requires that message is sealed.</p>
 </div></div>
             <h2 id='implementations' class='small-section-header'>
@@ -159,20 +155,22 @@ accessors, but right now it does (unless you bypass <code>borrowck</code> using 
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

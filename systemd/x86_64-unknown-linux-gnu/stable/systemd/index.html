@@ -10,8 +10,11 @@
     <title>systemd - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../main.css">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css" id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../dark.css">
+    <link rel="stylesheet" type="text/css" href="../main.css" id="themeStyle">
+    <script src="../storage.js"></script>
     
 
     
@@ -33,6 +36,13 @@
         <p class='location'>Crate systemd</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#modules">Modules</a></li><li><a href="#macros">Macros</a></li><li><a href="#structs">Structs</a></li><li><a href="#functions">Functions</a></li><li><a href="#types">Type Definitions</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'systemd', ty: 'mod', relpath: '../'};</script></div>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -57,6 +67,7 @@
                                   title='mod systemd::bus'>bus</a></td>
                            <td class='docblock-short'>
                                 <p>An interface to work with the dbus message bus.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -64,6 +75,7 @@
                                   title='mod systemd::daemon'>daemon</a></td>
                            <td class='docblock-short'>
                                 <p>High-level interface to the systemd daemon module.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -71,6 +83,7 @@
                                   title='mod systemd::id128'>id128</a></td>
                            <td class='docblock-short'>
                                 <p>API for working with 128-bit ID values, which are a generalizastion of OSF UUIDs (see <code>man 3 sd-id128</code> for details</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -78,6 +91,7 @@
                                   title='mod systemd::journal'>journal</a></td>
                            <td class='docblock-short'>
                                 <p>High-level interface to the systemd journal.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -85,6 +99,7 @@
                                   title='mod systemd::login'>login</a></td>
                            <td class='docblock-short'>
                                 <p>Interface to introspect on seats, sessions and users.</p>
+
                            </td>
                        </tr></table><h2 id='macros' class='section-header'><a href="#macros">Macros</a></h2>
 <table>
@@ -93,7 +108,8 @@
                                   title='macro systemd::log_with'>log_with</a></td>
                            <td class='docblock-short'>
                                 <p>Similar to <code>log!()</code>, except it accepts a func argument rather than hard
-coding <code>::log::log()</code>, and it doesn&#39;t filter on <code>log_enabled!()</code>.</p>
+coding <code>::log::log()</code>, and it doesn't filter on <code>log_enabled!()</code>.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -108,6 +124,7 @@ coding <code>::log::log()</code>, and it doesn&#39;t filter on <code>log_enabled
                                   title='macro systemd::sd_try'>sd_try</a></td>
                            <td class='docblock-short'>
                                 <p>An analogue of <code>try!()</code> for systemd FFI calls.</p>
+
                            </td>
                        </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
@@ -117,6 +134,7 @@ coding <code>::log::log()</code>, and it doesn&#39;t filter on <code>log_enabled
                            <td class='docblock-short'>
                                 <p>The error type for I/O operations of the <a href="../io/trait.Read.html"><code>Read</code></a>, <a href="../io/trait.Write.html"><code>Write</code></a>, <a href="../io/trait.Seek.html"><code>Seek</code></a>, and
 associated traits.</p>
+
                            </td>
                        </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
 <table>
@@ -125,6 +143,7 @@ associated traits.</p>
                                   title='fn systemd::ffi_result'>ffi_result</a></td>
                            <td class='docblock-short'>
                                 <p>Convert a systemd ffi return value into a Result</p>
+
                            </td>
                        </tr></table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
 <table>
@@ -134,6 +153,7 @@ associated traits.</p>
                            <td class='docblock-short'>
                                 <p>A specialized <a href="../result/enum.Result.html"><code>Result</code></a> type for I/O
 operations.</p>
+
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>
@@ -148,20 +168,22 @@ operations.</p>
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 
