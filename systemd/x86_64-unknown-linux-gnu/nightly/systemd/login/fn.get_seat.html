@@ -14,7 +14,7 @@
           id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -55,13 +55,11 @@
         </form>
     </nav>
 
-    <section id='main' class="content">
-<h1 class='fqn'><span class='in-band'>Function <a href='../index.html'>systemd</a>::<wbr><a href='index.html'>login</a>::<wbr><a class="fn" href=''>get_seat</a></span><span class='out-of-band'><span id='render-detail'>
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Function <a href='../index.html'>systemd</a>::<wbr><a href='index.html'>login</a>::<wbr><a class="fn" href=''>get_seat</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../../src/systemd/login.rs.html#102-109' title='goto source code'>[src]</a></span></h1>
-<pre class='rust fn'>pub fn get_seat&lt;S:&nbsp;<a class="trait" href="../../cstr_argument/trait.CStrArgument.html" title="trait cstr_argument::CStrArgument">CStrArgument</a>&gt;(session: S) -&gt; <a class="type" href="../../systemd/type.Result.html" title="type systemd::Result">Result</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>&gt;</pre><div class='docblock'><p>Determines the seat identifier of the seat the session identified
+               </span><a class='srclink' href='../../src/systemd/login.rs.html#102-109' title='goto source code'>[src]</a></span></h1><pre class='rust fn'>pub fn get_seat&lt;S:&nbsp;<a class="trait" href="../../cstr_argument/trait.CStrArgument.html" title="trait cstr_argument::CStrArgument">CStrArgument</a>&gt;(session: S) -&gt; <a class="type" href="../../systemd/type.Result.html" title="type systemd::Result">Result</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>&gt;</pre><div class='docblock'><p>Determines the seat identifier of the seat the session identified
 by the specified session identifier belongs to.</p>
 <p>Note that not all sessions are attached to a seat, this call will fail for them.</p>
 </div></section>
