@@ -10,8 +10,11 @@
     <title>index_fixed::index_fixed - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../main.css">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css" id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../dark.css">
+    <link rel="stylesheet" type="text/css" href="../main.css" id="themeStyle">
+    <script src="../storage.js"></script>
     
 
     
@@ -33,6 +36,13 @@
         <p class='location'><a href='index.html'>index_fixed</a></p><script>window.sidebarCurrent = {name: 'index_fixed', ty: 'macro', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -60,20 +70,15 @@
     (<span class="op">&amp;</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">s</span>:<span class="ident">expr</span> ; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">b</span>:<span class="ident">expr</span> , .. <span class="macro-nonterminal">$</span><span class="macro-nonterminal">e</span>:<span class="ident">expr</span>) <span class="op">=&gt;</span> { ... };
 }</pre>
 <div class='docblock'><p>Slices (via the Index trait &amp; operation) into fixed size arrays</p>
-
 <p>Will panic with the same rules as normal slicing.</p>
-
 <p>Will not compile if bounds are not static.</p>
-
 <p>Will not compile if end bound proceeds start bound.</p>
-
-<h1 id='format' class='section-header'><a href='#format'>Format</a></h1>
+<h1 id="format" class="section-header"><a href="#format">Format</a></h1>
 <pre><code class="language-notest">index_fixed! ( {&amp;,&amp;mut} &lt;slice&gt; ; .. &lt;end&gt;)
 index_fixed! ( {&amp;,&amp;mut} &lt;slice&gt; ; &lt;start&gt; , .. &lt;end&gt;)
 index_fixed! ( {&amp;,&amp;mut} &lt;slice&gt; ; &lt;start&gt; , ... &lt;end&gt;)
 </code></pre>
-
-<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
+<h1 id="examples" class="section-header"><a href="#examples">Examples</a></h1>
 <pre><code class="language-notest">let my_slice = [1, 2, 3, 4];
 let slice_of_2 = index_fixed!(&amp;my_slice ; .. 2);
 assert_eq!(slice_of_2, &amp;[1..2]);
@@ -91,20 +96,22 @@ assert_eq!(slice_of_2, &amp;[1..2]);
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 
