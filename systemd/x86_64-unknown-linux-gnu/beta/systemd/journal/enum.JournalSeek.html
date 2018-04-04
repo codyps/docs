@@ -10,10 +10,11 @@
     <title>systemd::journal::JournalSeek - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -33,7 +34,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'>Enum JournalSeek</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#variants">Variants</a><div class="sidebar-links"><a href="#variant.Head">Head</a><a href="#variant.Current">Current</a><a href="#variant.Tail">Tail</a><a href="#variant.ClockMonotonic">ClockMonotonic</a><a href="#variant.ClockRealtime">ClockRealtime</a><a href="#variant.Cursor">Cursor</a></div></div><p class='location'><a href='../index.html'>systemd</a>::<wbr><a href='index.html'>journal</a></p><script>window.sidebarCurrent = {name: 'JournalSeek', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+        <p class='location'>Enum JournalSeek</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#variants">Variants</a><div class="sidebar-links"><a href="#variant.Head">Head</a><a href="#variant.Current">Current</a><a href="#variant.Tail">Tail</a><a href="#variant.ClockMonotonic">ClockMonotonic</a><a href="#variant.ClockRealtime">ClockRealtime</a><a href="#variant.Cursor">Cursor</a></div><a class="sidebar-title" href="#synthetic-implementations">Auto Trait Implementations</a><div class="sidebar-links"><a href="#impl-Send">Send</a><a href="#impl-Sync">Sync</a></div></div><p class='location'><a href='../index.html'>systemd</a>::<wbr><a href='index.html'>journal</a></p><script>window.sidebarCurrent = {name: 'JournalSeek', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <div class="theme-picker">
@@ -54,13 +55,11 @@
         </form>
     </nav>
 
-    <section id='main' class="content">
-<h1 class='fqn'><span class='in-band'>Enum <a href='../index.html'>systemd</a>::<wbr><a href='index.html'>journal</a>::<wbr><a class="enum" href=''>JournalSeek</a></span><span class='out-of-band'><span id='render-detail'>
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Enum <a href='../index.html'>systemd</a>::<wbr><a href='index.html'>journal</a>::<wbr><a class="enum" href=''>JournalSeek</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../../src/systemd/journal.rs.html#139-153' title='goto source code'>[src]</a></span></h1>
-<pre class='rust enum'>pub enum JournalSeek {
+               </span><a class='srclink' href='../../src/systemd/journal.rs.html#139-153' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust enum'>pub enum JournalSeek {
     Head,
     Current,
     Tail,
@@ -74,7 +73,7 @@
     Cursor {
         cursor: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>,
     },
-}</pre><div class='docblock'><p>Seeking position in journal.</p>
+}</pre></div><div class='docblock'><p>Seeking position in journal.</p>
 </div><h2 id='variants' class='variants small-section-header'>
                    Variants<a href='#variants' class='anchor'></a></h2>
 <span id="variant.Head" class="variant small-section-header"><a href="#variant.Head" class="anchor field"></a><span id='Head.v' class='invisible'><code>Head</code></span></span><span id="variant.Current" class="variant small-section-header"><a href="#variant.Current" class="anchor field"></a><span id='Current.v' class='invisible'><code>Current</code></span></span><span id="variant.Tail" class="variant small-section-header"><a href="#variant.Tail" class="anchor field"></a><span id='Tail.v' class='invisible'><code>Tail</code></span></span><span id="variant.ClockMonotonic" class="variant small-section-header"><a href="#variant.ClockMonotonic" class="anchor field"></a><span id='ClockMonotonic.v' class='invisible'><code>ClockMonotonic</code></span></span><span class='docblock autohide sub-variant' id='variant.ClockMonotonic.fields'><h3 class='fields'>Fields of <code>ClockMonotonic</code></h3>
@@ -83,7 +82,17 @@
 
                            <table><tr><td id='variant.ClockRealtime.field.usec'><span id='ClockRealtime.v.usec.v' class='invisible'><code>usec:&nbsp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a></code></span></td><td></td></tr></table></span><span id="variant.Cursor" class="variant small-section-header"><a href="#variant.Cursor" class="anchor field"></a><span id='Cursor.v' class='invisible'><code>Cursor</code></span></span><span class='docblock autohide sub-variant' id='variant.Cursor.fields'><h3 class='fields'>Fields of <code>Cursor</code></h3>
 
-                           <table><tr><td id='variant.Cursor.field.cursor'><span id='Cursor.v.cursor.v' class='invisible'><code>cursor:&nbsp;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a></code></span></td><td></td></tr></table></span></section>
+                           <table><tr><td id='variant.Cursor.field.cursor'><span id='Cursor.v.cursor.v' class='invisible'><code>cursor:&nbsp;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a></code></span></td><td></td></tr></table></span>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+            <div id='implementations-list'>
+        </div>
+                <h2 id='synthetic-implementations' class='small-section-header'>
+                  Auto Trait Implementations<a href='#synthetic-implementations' class='anchor'></a>
+                </h2>
+                <div id='synthetic-implementations-list'>
+            <h3 id='impl-Send' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> for <a class="enum" href="../../systemd/journal/enum.JournalSeek.html" title="enum systemd::journal::JournalSeek">JournalSeek</a></code><a href='#impl-Send' class='anchor'></a></span></td><td><span class='out-of-band'></span></td></tr></tbody></table></h3><div class='impl-items'></div><h3 id='impl-Sync' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html" title="trait core::marker::Sync">Sync</a> for <a class="enum" href="../../systemd/journal/enum.JournalSeek.html" title="enum systemd::journal::JournalSeek">JournalSeek</a></code><a href='#impl-Sync' class='anchor'></a></span></td><td><span class='out-of-band'></span></td></tr></tbody></table></h3><div class='impl-items'></div></div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
