@@ -1,1 +1,0 @@
-initSidebarItems({"trait":[["Free","Implemented for pointers which can be freed."]]});

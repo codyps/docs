@@ -177,23 +177,11 @@
 <span id="120">120</span>
 <span id="121">121</span>
 <span id="122">122</span>
-<span id="123">123</span>
-<span id="124">124</span>
-<span id="125">125</span>
-<span id="126">126</span>
-<span id="127">127</span>
-<span id="128">128</span>
-<span id="129">129</span>
-<span id="130">130</span>
-<span id="131">131</span>
 </pre><pre class="rust ">
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">ptr</span>;
-<span class="kw">use</span> <span class="ident">std</span>::<span class="ident">io</span>;
-<span class="kw">use</span> <span class="ident">std</span>::<span class="ident">io</span>::<span class="ident">ErrorKind</span>::<span class="ident">InvalidData</span>;
 <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">ffi</span>::{<span class="ident">c_char</span>, <span class="ident">c_uint</span>, <span class="ident">pid_t</span>, <span class="ident">uid_t</span>};
 <span class="kw">use</span> <span class="ident">ffi</span>::<span class="ident">login</span> <span class="kw">as</span> <span class="ident">ffi</span>;
-<span class="kw">use</span> <span class="kw">super</span>::<span class="prelude-ty">Result</span>;
-<span class="kw">use</span> <span class="ident">mbox</span>::<span class="ident">MString</span>;
+<span class="kw">use</span> <span class="kw">super</span>::{<span class="prelude-ty">Result</span>, <span class="ident">free_cstring</span>};
 <span class="kw">use</span> <span class="ident">cstr_argument</span>::<span class="ident">CStrArgument</span>;
 
 <span class="doccomment">/// Systemd slice and unit types</span>
@@ -216,9 +204,8 @@
         <span class="ident">UnitType</span>::<span class="ident">UserUnit</span> <span class="op">=&gt;</span> <span class="macro">sd_try</span><span class="macro">!</span>(<span class="ident">ffi</span>::<span class="ident">sd_pid_get_user_unit</span>(<span class="ident">p</span>, <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">c_unit_name</span>)),
         <span class="ident">UnitType</span>::<span class="ident">SystemUnit</span> <span class="op">=&gt;</span> <span class="macro">sd_try</span><span class="macro">!</span>(<span class="ident">ffi</span>::<span class="ident">sd_pid_get_unit</span>(<span class="ident">p</span>, <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">c_unit_name</span>))
     };
-    <span class="kw">let</span> <span class="ident">unit_name</span> <span class="op">=</span> <span class="kw">unsafe</span> { <span class="ident">MString</span>::<span class="ident">from_raw</span>(<span class="ident">c_unit_name</span>) };
-    <span class="kw">let</span> <span class="ident">unit_name</span> <span class="op">=</span> <span class="macro">try</span><span class="macro">!</span>(<span class="ident">unit_name</span>.<span class="ident">or</span>(<span class="prelude-val">Err</span>(<span class="ident">io</span>::<span class="ident">Error</span>::<span class="ident">new</span>(<span class="ident">InvalidData</span>, <span class="string">&quot;Invalid unit name&quot;</span>))));
-    <span class="prelude-val">Ok</span>(<span class="ident">unit_name</span>.<span class="ident">to_string</span>())
+    <span class="kw">let</span> <span class="ident">unit_name</span> <span class="op">=</span> <span class="ident">free_cstring</span>(<span class="ident">c_unit_name</span>).<span class="ident">unwrap</span>();
+    <span class="prelude-val">Ok</span>(<span class="ident">unit_name</span>)
 }
 
 <span class="doccomment">/// Determines the slice (either in system or user session) of a process.</span>
@@ -233,9 +220,8 @@
         <span class="ident">UnitType</span>::<span class="ident">UserUnit</span> <span class="op">=&gt;</span> <span class="macro">sd_try</span><span class="macro">!</span>(<span class="ident">ffi</span>::<span class="ident">sd_pid_get_user_slice</span>(<span class="ident">p</span>, <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">c_slice_name</span>)),
         <span class="ident">UnitType</span>::<span class="ident">SystemUnit</span> <span class="op">=&gt;</span> <span class="macro">sd_try</span><span class="macro">!</span>(<span class="ident">ffi</span>::<span class="ident">sd_pid_get_slice</span>(<span class="ident">p</span>, <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">c_slice_name</span>))
     };
-    <span class="kw">let</span> <span class="ident">slice_id</span> <span class="op">=</span> <span class="kw">unsafe</span> { <span class="ident">MString</span>::<span class="ident">from_raw</span>(<span class="ident">c_slice_name</span>) };
-    <span class="kw">let</span> <span class="ident">slice_id</span> <span class="op">=</span> <span class="macro">try</span><span class="macro">!</span>(<span class="ident">slice_id</span>.<span class="ident">or</span>(<span class="prelude-val">Err</span>(<span class="ident">io</span>::<span class="ident">Error</span>::<span class="ident">new</span>(<span class="ident">InvalidData</span>, <span class="string">&quot;Invalid slice id&quot;</span>))));
-    <span class="prelude-val">Ok</span>(<span class="ident">slice_id</span>.<span class="ident">to_string</span>())
+    <span class="kw">let</span> <span class="ident">slice_id</span> <span class="op">=</span> <span class="ident">free_cstring</span>(<span class="ident">c_slice_name</span>).<span class="ident">unwrap</span>();
+    <span class="prelude-val">Ok</span>(<span class="ident">slice_id</span>)
 }
 
 <span class="doccomment">/// Determines the machine name of a process.</span>
@@ -248,9 +234,8 @@
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">c_machine_name</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_char</span> <span class="op">=</span> <span class="ident">ptr</span>::<span class="ident">null_mut</span>();
     <span class="kw">let</span> <span class="ident">p</span>: <span class="ident">pid_t</span> <span class="op">=</span> <span class="ident">pid</span>.<span class="ident">unwrap_or</span>(<span class="number">0</span>);
     <span class="macro">sd_try</span><span class="macro">!</span>(<span class="ident">ffi</span>::<span class="ident">sd_pid_get_machine_name</span>(<span class="ident">p</span>, <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">c_machine_name</span>));
-    <span class="kw">let</span> <span class="ident">machine_id</span> <span class="op">=</span> <span class="kw">unsafe</span> { <span class="ident">MString</span>::<span class="ident">from_raw</span>(<span class="ident">c_machine_name</span>) };
-    <span class="kw">let</span> <span class="ident">machine_id</span> <span class="op">=</span> <span class="macro">try</span><span class="macro">!</span>(<span class="ident">machine_id</span>.<span class="ident">or</span>(<span class="prelude-val">Err</span>(<span class="ident">io</span>::<span class="ident">Error</span>::<span class="ident">new</span>(<span class="ident">InvalidData</span>, <span class="string">&quot;Invalid machine id&quot;</span>))));
-    <span class="prelude-val">Ok</span>(<span class="ident">machine_id</span>.<span class="ident">to_string</span>())
+    <span class="kw">let</span> <span class="ident">machine_id</span> <span class="op">=</span> <span class="ident">free_cstring</span>(<span class="ident">c_machine_name</span>).<span class="ident">unwrap</span>();
+    <span class="prelude-val">Ok</span>(<span class="ident">machine_id</span>)
 }
 
 <span class="doccomment">/// Determines the control group path of a process.</span>
@@ -265,9 +250,8 @@
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">c_cgroup</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_char</span> <span class="op">=</span> <span class="ident">ptr</span>::<span class="ident">null_mut</span>();
     <span class="kw">let</span> <span class="ident">p</span>: <span class="ident">pid_t</span> <span class="op">=</span> <span class="ident">pid</span>.<span class="ident">unwrap_or</span>(<span class="number">0</span>);
     <span class="macro">sd_try</span><span class="macro">!</span>(<span class="ident">ffi</span>::<span class="ident">sd_pid_get_cgroup</span>(<span class="ident">p</span>, <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">c_cgroup</span>));
-    <span class="kw">let</span> <span class="ident">cg</span> <span class="op">=</span> <span class="kw">unsafe</span> { <span class="ident">MString</span>::<span class="ident">from_raw</span>(<span class="ident">c_cgroup</span>) };
-    <span class="kw">let</span> <span class="ident">cg</span> <span class="op">=</span> <span class="macro">try</span><span class="macro">!</span>(<span class="ident">cg</span>.<span class="ident">or</span>(<span class="prelude-val">Err</span>(<span class="ident">io</span>::<span class="ident">Error</span>::<span class="ident">new</span>(<span class="ident">InvalidData</span>, <span class="string">&quot;Invalid cgroup&quot;</span>))));
-    <span class="prelude-val">Ok</span>(<span class="ident">cg</span>.<span class="ident">to_string</span>())
+    <span class="kw">let</span> <span class="ident">cg</span> <span class="op">=</span> <span class="ident">free_cstring</span>(<span class="ident">c_cgroup</span>).<span class="ident">unwrap</span>();
+    <span class="prelude-val">Ok</span>(<span class="ident">cg</span>)
 }
 
 <span class="doccomment">/// Determines the session identifier of a process.</span>
@@ -279,9 +263,8 @@
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">c_session</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_char</span> <span class="op">=</span> <span class="ident">ptr</span>::<span class="ident">null_mut</span>();
     <span class="kw">let</span> <span class="ident">p</span>: <span class="ident">pid_t</span> <span class="op">=</span> <span class="ident">pid</span>.<span class="ident">unwrap_or</span>(<span class="number">0</span>);
     <span class="macro">sd_try</span><span class="macro">!</span>(<span class="ident">ffi</span>::<span class="ident">sd_pid_get_session</span>(<span class="ident">p</span>, <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">c_session</span>));
-    <span class="kw">let</span> <span class="ident">ss</span> <span class="op">=</span> <span class="kw">unsafe</span> { <span class="ident">MString</span>::<span class="ident">from_raw</span>(<span class="ident">c_session</span>) };
-    <span class="kw">let</span> <span class="ident">ss</span> <span class="op">=</span> <span class="macro">try</span><span class="macro">!</span>(<span class="ident">ss</span>.<span class="ident">or</span>(<span class="prelude-val">Err</span>(<span class="ident">io</span>::<span class="ident">Error</span>::<span class="ident">new</span>(<span class="ident">InvalidData</span>, <span class="string">&quot;Invalid session&quot;</span>))));
-    <span class="prelude-val">Ok</span>(<span class="ident">ss</span>.<span class="ident">to_string</span>())
+    <span class="kw">let</span> <span class="ident">ss</span> <span class="op">=</span> <span class="ident">free_cstring</span>(<span class="ident">c_session</span>).<span class="ident">unwrap</span>();
+    <span class="prelude-val">Ok</span>(<span class="ident">ss</span>)
 }
 
 <span class="doccomment">/// Determines the seat identifier of the seat the session identified</span>
@@ -292,9 +275,8 @@
     <span class="kw">let</span> <span class="ident">session</span> <span class="op">=</span> <span class="ident">session</span>.<span class="ident">into_cstr</span>();
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">c_seat</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_char</span> <span class="op">=</span> <span class="ident">ptr</span>::<span class="ident">null_mut</span>();
     <span class="macro">sd_try</span><span class="macro">!</span>(<span class="ident">ffi</span>::<span class="ident">sd_session_get_seat</span>(<span class="ident">session</span>.<span class="ident">as_ref</span>().<span class="ident">as_ptr</span>(), <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">c_seat</span>));
-    <span class="kw">let</span> <span class="ident">ss</span> <span class="op">=</span> <span class="kw">unsafe</span> { <span class="ident">MString</span>::<span class="ident">from_raw</span>(<span class="ident">c_seat</span>) };
-    <span class="kw">let</span> <span class="ident">ss</span> <span class="op">=</span> <span class="macro">try</span><span class="macro">!</span>(<span class="ident">ss</span>.<span class="ident">or</span>(<span class="prelude-val">Err</span>(<span class="ident">io</span>::<span class="ident">Error</span>::<span class="ident">new</span>(<span class="ident">InvalidData</span>, <span class="string">&quot;Invalid session&quot;</span>))));
-    <span class="prelude-val">Ok</span>(<span class="ident">ss</span>.<span class="ident">to_string</span>())
+    <span class="kw">let</span> <span class="ident">ss</span> <span class="op">=</span> <span class="ident">free_cstring</span>(<span class="ident">c_seat</span>).<span class="ident">unwrap</span>();
+    <span class="prelude-val">Ok</span>(<span class="ident">ss</span>)
 }
 
 <span class="doccomment">/// Determines the VT number of the session identified by the specified session identifier.</span>
