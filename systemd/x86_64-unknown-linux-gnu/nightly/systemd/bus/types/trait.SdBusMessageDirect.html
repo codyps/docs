@@ -55,11 +55,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='../../index.html'>systemd</a>::<wbr><a href='../index.html'>bus</a>::<wbr><a href='index.html'>types</a>::<wbr><a class="trait" href=''>SdBusMessageDirect</a></span><span class='out-of-band'><span id='render-detail'>
-                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                       [<span class='inner'>&#x2212;</span>]
-                   </a>
-               </span><a class='srclink' href='../../../src/systemd/bus/types.rs.html#37-39' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub unsafe trait SdBusMessageDirect {
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='../../index.html'>systemd</a>::<wbr><a href='../index.html'>bus</a>::<wbr><a href='index.html'>types</a>::<wbr><a class="trait" href=''>SdBusMessageDirect</a></span><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../../../src/systemd/bus/types.rs.html#37-39' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub unsafe trait SdBusMessageDirect {
     fn <a href='#tymethod.dbus_type' class='fnname'>dbus_type</a>() -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>;
 }</pre></div><div class='docblock'><p>When impled for a Type, promises that a reference to the type cast to a pointer can be encoded
 using the given <code>dbus_type()</code> using <code>sd_bus_message_append_basic</code> and decoded similarly using
