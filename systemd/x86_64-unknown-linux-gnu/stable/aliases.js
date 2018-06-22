@@ -1,0 +1,9 @@
+var ALIASES = {};
+ALIASES['cfg_if'] = {};
+ALIASES['cstr_argument'] = {};
+ALIASES['libc'] = {};
+ALIASES['libsystemd_sys'] = {};
+ALIASES['log'] = {};
+ALIASES['memchr'] = {};
+ALIASES['systemd'] = {};
+ALIASES['utf8_cstr'] = {};
