@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="API documentation for the Rust `daemon` mod in crate `systemd`."><meta name="keywords" content="rust, rustlang, rust-lang, daemon"><title>systemd::daemon - Rust</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css"><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script src="../../storage.js"></script></head><body class="rustdoc mod"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><p class='location'>Module daemon</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#enums">Enums</a></li><li><a href="#constants">Constants</a></li><li><a href="#functions">Functions</a></li></ul></div><p class='location'><a href='../index.html'>systemd</a></p><script>window.sidebarCurrent = {name: 'daemon', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form js-only"><div class="search-container"><input class="search-input" name="search" autocomplete="off" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><h1 class='fqn'><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../../src/systemd/daemon.rs.html#1-227' title='goto source code'>[src]</a></span><span class='in-band'>Module <a href='../index.html'>systemd</a>::<wbr><a class="mod" href=''>daemon</a></span></h1><div class='docblock'><p>High-level interface to the systemd daemon module.</p>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="API documentation for the Rust `daemon` mod in crate `systemd`."><meta name="keywords" content="rust, rustlang, rust-lang, daemon"><title>systemd::daemon - Rust</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css"><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script src="../../storage.js"></script></head><body class="rustdoc mod"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><p class='location'>Module daemon</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#enums">Enums</a></li><li><a href="#constants">Constants</a></li><li><a href="#functions">Functions</a></li></ul></div><p class='location'><a href='../index.html'>systemd</a></p><script>window.sidebarCurrent = {name: 'daemon', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form js-only"><div class="search-container"><input class="search-input" name="search" autocomplete="off" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><h1 class='fqn'><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../../src/systemd/daemon.rs.html#1-272' title='goto source code'>[src]</a></span><span class='in-band'>Module <a href='../index.html'>systemd</a>::<wbr><a class="mod" href=''>daemon</a></span></h1><div class='docblock'><p>High-level interface to the systemd daemon module.</p>
 </div><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
 <table>
                        <tr class=' module-item'>
@@ -42,6 +42,38 @@
                            </td>
                        </tr>
                        <tr class=' module-item'>
+                           <td><a class="constant" href="constant.STATE_EXTEND_TIMEOUT_USEC.html"
+                                  title='constant systemd::daemon::STATE_EXTEND_TIMEOUT_USEC'>STATE_EXTEND_TIMEOUT_USEC</a></td>
+                           <td class='docblock-short'>
+                                <p>Extend the timeout for the current state.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.STATE_FDNAME.html"
+                                  title='constant systemd::daemon::STATE_FDNAME'>STATE_FDNAME</a></td>
+                           <td class='docblock-short'>
+                                <p>Name the group of file descriptors sent to the service manager.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.STATE_FDSTORE.html"
+                                  title='constant systemd::daemon::STATE_FDSTORE'>STATE_FDSTORE</a></td>
+                           <td class='docblock-short'>
+                                <p>Store file discriptors in the service manager.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.STATE_FDSTOREREMOVE.html"
+                                  title='constant systemd::daemon::STATE_FDSTOREREMOVE'>STATE_FDSTOREREMOVE</a></td>
+                           <td class='docblock-short'>
+                                <p>Remove file discriptors from the service manager store.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
                            <td><a class="constant" href="constant.STATE_MAINPID.html"
                                   title='constant systemd::daemon::STATE_MAINPID'>STATE_MAINPID</a></td>
                            <td class='docblock-short'>
@@ -58,10 +90,26 @@
                            </td>
                        </tr>
                        <tr class=' module-item'>
+                           <td><a class="constant" href="constant.STATE_RELOADING.html"
+                                  title='constant systemd::daemon::STATE_RELOADING'>STATE_RELOADING</a></td>
+                           <td class='docblock-short'>
+                                <p>Tells systemd the daemon is reloading its configuration</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
                            <td><a class="constant" href="constant.STATE_STATUS.html"
                                   title='constant systemd::daemon::STATE_STATUS'>STATE_STATUS</a></td>
                            <td class='docblock-short'>
                                 <p>Single-line status string describing daemon state</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.STATE_STOPPING.html"
+                                  title='constant systemd::daemon::STATE_STOPPING'>STATE_STOPPING</a></td>
+                           <td class='docblock-short'>
+                                <p>Tells systemd the daemon is stopping</p>
 
                            </td>
                        </tr>
@@ -71,6 +119,14 @@
                            <td class='docblock-short'>
                                 <p>Update the watchdog timestamp (set to 1). Daemon should do this regularly,
 if using this feature.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.STATE_WATCHDOG_USEC.html"
+                                  title='constant systemd::daemon::STATE_WATCHDOG_USEC'>STATE_WATCHDOG_USEC</a></td>
+                           <td class='docblock-short'>
+                                <p>Reset the watchdog timeout during runtime.</p>
 
                            </td>
                        </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
@@ -168,6 +224,14 @@ systemd was contacted successfully.</p>
                            <td class='docblock-short'>
                                 <p>Similar to <code>notify()</code>, but this sends the message on behalf of the supplied
 PID, if possible.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.pid_notify_with_fds.html"
+                                  title='fn systemd::daemon::pid_notify_with_fds'>pid_notify_with_fds</a></td>
+                           <td class='docblock-short'>
+                                <p>Similar to <code>pid_notify()</code>, but this also sends file descriptors to the store.</p>
 
                            </td>
                        </tr>
