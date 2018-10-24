@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Id128",""]]});
+initSidebarItems({"struct":[["Id128","A 128-bit ID for systemd."]]});
