@@ -68,6 +68,22 @@
 <span id="68">68</span>
 <span id="69">69</span>
 <span id="70">70</span>
+<span id="71">71</span>
+<span id="72">72</span>
+<span id="73">73</span>
+<span id="74">74</span>
+<span id="75">75</span>
+<span id="76">76</span>
+<span id="77">77</span>
+<span id="78">78</span>
+<span id="79">79</span>
+<span id="80">80</span>
+<span id="81">81</span>
+<span id="82">82</span>
+<span id="83">83</span>
+<span id="84">84</span>
+<span id="85">85</span>
+<span id="86">86</span>
 </pre><pre class="rust ">
 <span class="doccomment">//! Algorithms to find the K-th order element</span>
 <span class="doccomment">//!</span>
@@ -107,16 +123,7 @@
 
 <span class="doccomment">/// Add k-th order element operations to slices.</span>
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">SliceExtKth</span> {
-    <span class="doccomment">/// Re-order the slice so that the element with the order given by pivot order (ie: the element</span>
-    <span class="doccomment">/// at the k-th index when the array is sorted) has all elements smaller than it before it, and</span>
-    <span class="doccomment">/// all elements larger than it afterwards.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The k-th element can then be read from `self[pivot_order]`, if desired.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Panics</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///  - If the slice has length zero.</span>
-    <span class="doccomment">///  - If the pivot_order is larger than the slice length.</span>
+    <span class="doccomment">/// Convenience helper to call [partition_by_kth](partition_by_kth) on this slice.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Examples</span>
     <span class="doccomment">///</span>
@@ -129,15 +136,40 @@
     <span class="doccomment">/// let median = x[m_loc];</span>
     <span class="doccomment">/// assert_eq!(median, 3);</span>
     <span class="doccomment">/// ```</span>
-    <span class="doccomment">/// </span>
     <span class="kw">fn</span> <span class="ident">partition_by_kth</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pivot_order</span>: <span class="ident">usize</span>);
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Ord</span><span class="op">&gt;</span> <span class="ident">SliceExtKth</span> <span class="kw">for</span> [<span class="ident">T</span>] {
     <span class="kw">fn</span> <span class="ident">partition_by_kth</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pivot_order</span>: <span class="ident">usize</span>)
     {
-        <span class="ident">quickselect</span>::<span class="ident">quickselect</span>(<span class="ident">quickselect</span>::<span class="ident">repeated_step3</span>, <span class="self">self</span>, <span class="ident">pivot_order</span>)
+        <span class="ident">partition_by_kth</span>(<span class="self">self</span>, <span class="ident">pivot_order</span>);
     }
+}
+
+<span class="doccomment">/// Re-order the slice so that the element with the order given by pivot order (ie: the element</span>
+<span class="doccomment">/// at the k-th index when the array is sorted) has all elements smaller than it before it, and</span>
+<span class="doccomment">/// all elements larger than it afterwards.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// The k-th element can then be read from `self[pivot_order]`, if desired.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// # Panics</span>
+<span class="doccomment">///</span>
+<span class="doccomment">///  - If the slice has length zero.</span>
+<span class="doccomment">///  - If the pivot_order is larger than the slice length.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// # Examples</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// ```</span>
+<span class="doccomment">/// //          [2,2,3,4,9];</span>
+<span class="doccomment">/// let mut x = [3,9,2,2,4];</span>
+<span class="doccomment">/// let m_loc = x.len()/2;</span>
+<span class="doccomment">/// kth::partition_by_kth(&amp;mut x, m_loc);</span>
+<span class="doccomment">/// let median = x[m_loc];</span>
+<span class="doccomment">/// assert_eq!(median, 3);</span>
+<span class="doccomment">/// ```</span>
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">partition_by_kth</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Ord</span><span class="op">&gt;</span>(<span class="ident">s</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> [<span class="ident">T</span>], <span class="ident">pivot_order</span>: <span class="ident">usize</span>)
+{
+    <span class="ident">quickselect</span>::<span class="ident">quickselect</span>(<span class="ident">quickselect</span>::<span class="ident">repeated_step3</span>, <span class="ident">s</span>, <span class="ident">pivot_order</span>)
 }
 </pre>
 </section><section id="search" class="content hidden"></section><section class="footer"></section><aside id="help" class="hidden"><div><h1 class="hidden">Help</h1><div class="shortcuts"><h2>Keyboard Shortcuts</h2><dl><dt><kbd>?</kbd></dt><dd>Show this help dialog</dd><dt><kbd>S</kbd></dt><dd>Focus the search field</dd><dt><kbd>↑</kbd></dt><dd>Move up in search results</dd><dt><kbd>↓</kbd></dt><dd>Move down in search results</dd><dt><kbd>↹</kbd></dt><dd>Switch tab</dd><dt><kbd>&#9166;</kbd></dt><dd>Go to active search result</dd><dt><kbd>+</kbd></dt><dd>Expand all sections</dd><dt><kbd>-</kbd></dt><dd>Collapse all sections</dd></dl></div><div class="infos"><h2>Search Tricks</h2><p>Prefix searches with a type followed by a colon (e.g. <code>fn:</code>) to restrict the search to a given type.</p><p>Accepted types are: <code>fn</code>, <code>mod</code>, <code>struct</code>, <code>enum</code>, <code>trait</code>, <code>type</code>, <code>macro</code>, and <code>const</code>.</p><p>Search functions by type signature (e.g. <code>vec -> usize</code> or <code>* -> vec</code>)</p><p>Search multiple things at once by splitting your query with comma (e.g. <code>str,u8</code> or <code>String,struct:Vec,test</code>)</p></div></div></aside><script>window.rootPath = "../../";window.currentCrate = "kth";</script><script src="../../aliases.js"></script><script src="../../main.js"></script><script defer src="../../search-index.js"></script></body></html>

@@ -1,1 +1,1 @@
-initSidebarItems({"trait":[["SliceExtKth","Add k-th order element operations to slices."]]});
+initSidebarItems({"fn":[["partition_by_kth","Re-order the slice so that the element with the order given by pivot order (ie: the element at the k-th index when the array is sorted) has all elements smaller than it before it, and all elements larger than it afterwards."]],"trait":[["SliceExtKth","Add k-th order element operations to slices."]]});
