@@ -1,2 +1,2 @@
 var ALIASES = {};
-ALIASES['build_env'] = {};
+ALIASES["build_env"] = {};
