@@ -72,6 +72,12 @@
 <span id="72">72</span>
 <span id="73">73</span>
 <span id="74">74</span>
+<span id="75">75</span>
+<span id="76">76</span>
+<span id="77">77</span>
+<span id="78">78</span>
+<span id="79">79</span>
+<span id="80">80</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! APIs to process and generate 128-bit ID values for systemd.</span>
 <span class="doccomment">//!</span>
@@ -86,6 +92,12 @@
 <span class="doccomment">/// A 128-bit ID for systemd.</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Id128</span> {
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">inner</span>: <span class="ident">ffi</span>::<span class="ident">id128</span>::<span class="ident">sd_id128_t</span>,
+}
+
+<span class="kw">impl</span> <span class="ident">fmt</span>::<span class="ident">Debug</span> <span class="kw">for</span> <span class="ident">Id128</span> {
+    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">fmt</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">fmt</span>::<span class="ident">Formatter</span>) <span class="op">-&gt;</span> <span class="ident">fmt</span>::<span class="prelude-ty">Result</span> {
+        <span class="op">&lt;</span><span class="self">Self</span> <span class="kw">as</span> <span class="ident">fmt</span>::<span class="ident">Display</span><span class="op">&gt;</span>::<span class="ident">fmt</span>(<span class="self">self</span>, <span class="ident">fmt</span>)
+    }
 }
 
 <span class="kw">impl</span> <span class="ident">fmt</span>::<span class="ident">Display</span> <span class="kw">for</span> <span class="ident">Id128</span> {

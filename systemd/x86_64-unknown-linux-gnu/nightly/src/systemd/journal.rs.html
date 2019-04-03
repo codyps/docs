@@ -406,6 +406,7 @@
 <span id="406">406</span>
 <span id="407">407</span>
 <span id="408">408</span>
+<span id="409">409</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="kw">use</span> <span class="ident">libc</span>::{<span class="ident">c_char</span>, <span class="ident">c_int</span>, <span class="ident">size_t</span>};
 <span class="kw">use</span> <span class="ident">log</span>::{<span class="self">self</span>, <span class="ident">Log</span>, <span class="ident">Record</span>, <span class="ident">Level</span>, <span class="ident">SetLoggerError</span>};
@@ -544,6 +545,7 @@
 }
 
 <span class="doccomment">/// Seeking position in journal.</span>
+<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>, <span class="ident">Debug</span>)]</span>
 <span class="kw">pub</span> <span class="kw">enum</span> <span class="ident">JournalSeek</span> {
     <span class="ident">Head</span>,
     <span class="ident">Current</span>,
