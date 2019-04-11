@@ -7,3 +7,4 @@ sourcesIndex["log"] = {"name":"","dirs":[],"files":["lib.rs","macros.rs"]};
 sourcesIndex["memchr"] = {"name":"","dirs":[{"name":"x86","dirs":[],"files":["avx.rs","mod.rs","sse2.rs"]}],"files":["fallback.rs","iter.rs","lib.rs","naive.rs"]};
 sourcesIndex["systemd"] = {"name":"","dirs":[{"name":"bus","dirs":[],"files":["mod.rs","types.rs"]}],"files":["daemon.rs","id128.rs","journal.rs","lib.rs","login.rs"]};
 sourcesIndex["utf8_cstr"] = {"name":"","dirs":[],"files":["lib.rs"]};
+createSourceSidebar();
