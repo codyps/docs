@@ -695,6 +695,64 @@
 <span id="695">695</span>
 <span id="696">696</span>
 <span id="697">697</span>
+<span id="698">698</span>
+<span id="699">699</span>
+<span id="700">700</span>
+<span id="701">701</span>
+<span id="702">702</span>
+<span id="703">703</span>
+<span id="704">704</span>
+<span id="705">705</span>
+<span id="706">706</span>
+<span id="707">707</span>
+<span id="708">708</span>
+<span id="709">709</span>
+<span id="710">710</span>
+<span id="711">711</span>
+<span id="712">712</span>
+<span id="713">713</span>
+<span id="714">714</span>
+<span id="715">715</span>
+<span id="716">716</span>
+<span id="717">717</span>
+<span id="718">718</span>
+<span id="719">719</span>
+<span id="720">720</span>
+<span id="721">721</span>
+<span id="722">722</span>
+<span id="723">723</span>
+<span id="724">724</span>
+<span id="725">725</span>
+<span id="726">726</span>
+<span id="727">727</span>
+<span id="728">728</span>
+<span id="729">729</span>
+<span id="730">730</span>
+<span id="731">731</span>
+<span id="732">732</span>
+<span id="733">733</span>
+<span id="734">734</span>
+<span id="735">735</span>
+<span id="736">736</span>
+<span id="737">737</span>
+<span id="738">738</span>
+<span id="739">739</span>
+<span id="740">740</span>
+<span id="741">741</span>
+<span id="742">742</span>
+<span id="743">743</span>
+<span id="744">744</span>
+<span id="745">745</span>
+<span id="746">746</span>
+<span id="747">747</span>
+<span id="748">748</span>
+<span id="749">749</span>
+<span id="750">750</span>
+<span id="751">751</span>
+<span id="752">752</span>
+<span id="753">753</span>
+<span id="754">754</span>
+<span id="755">755</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="kw">use</span> <span class="kw">super</span>::{<span class="ident">c_char</span>, <span class="ident">c_int</span>, <span class="ident">c_void</span>, <span class="ident">uid_t</span>, <span class="ident">gid_t</span>, <span class="ident">pid_t</span>, <span class="ident">size_t</span>, <span class="ident">c_uint</span>};
 <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">id128</span>::<span class="ident">sd_id128_t</span>;
@@ -758,6 +816,13 @@
                                                               <span class="ident">userdata</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_void</span>)
                                                               <span class="op">-&gt;</span> <span class="ident">c_int</span><span class="op">&gt;</span>;
 
+
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">non_camel_case_types</span>)]</span>
+<span class="kw">type</span> <span class="ident">sd_destroy_t</span> <span class="op">=</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>(<span class="ident">userdata</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_void</span>)<span class="op">&gt;</span>;
+
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">non_camel_case_types</span>)]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">sd_bus_destroy_t</span> <span class="op">=</span> <span class="ident">sd_destroy_t</span>;
+
 <span class="attribute">#[<span class="ident">repr</span>(<span class="ident">C</span>)]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">sd_bus_error</span> {
     <span class="kw">pub</span> <span class="ident">name</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>,
@@ -785,8 +850,11 @@
 
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_new</span>(<span class="ident">ret</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
 
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_set_address</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_set_fd</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_set_address</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>,
+                              <span class="ident">address</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_set_fd</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>,
+                         <span class="ident">input_fd</span>: <span class="ident">c_int</span>,
+                         <span class="ident">output_fd</span>: <span class="ident">c_int</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_set_exec</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>,
                            <span class="ident">path</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>,
                            <span class="ident">argv</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_char</span>)
@@ -811,6 +879,16 @@
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_get_creds_mask</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>, <span class="ident">creds_mask</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u64</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_set_allow_interactive_authorization</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>, <span class="ident">b</span>: <span class="ident">c_int</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_get_allow_interactive_authorization</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_set_exit_on_disconnect</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>, <span class="ident">b</span>: <span class="ident">c_int</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_get_exit_on_disconnect</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_set_close_on_exit</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>, <span class="ident">b</span>: <span class="ident">c_int</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_get_close_on_exit</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_set_watch_bind</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>, <span class="ident">b</span>: <span class="ident">c_int</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_get_watch_bind</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_set_connected_signal</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>, <span class="ident">b</span>: <span class="ident">c_int</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_get_connected_signal</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_set_sender</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>, <span class="ident">sender</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_get_sender</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>, <span class="ident">ret</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
 
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_start</span>(<span class="ident">ret</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
 
@@ -819,11 +897,13 @@
 
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_ref</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>) <span class="op">-&gt;</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>;
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_unref</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>) <span class="op">-&gt;</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_close_unref</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>) <span class="op">-&gt;</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>;
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_flush_close_unref</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>) <span class="op">-&gt;</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>;
 
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_default_flush_close</span>();
 
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_is_open</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_is_ready</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
 
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_get_bus_id</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>, <span class="ident">id</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_id128_t</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_get_scope</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>, <span class="ident">scope</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
@@ -872,6 +952,12 @@
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_attach_event</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>, <span class="ident">e</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_event</span>, <span class="ident">priority</span>: <span class="ident">c_int</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_detach_event</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_get_event</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>) <span class="op">-&gt;</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_event</span>;
+
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_get_n_queued_read</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>, <span class="ident">ret</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u64</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_get_n_queued_write</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>, <span class="ident">ret</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u64</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_set_method_call_timeout</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>, <span class="ident">usec</span>: <span class="ident">u64</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_get_method_call_timeout</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>, <span class="ident">ret</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u64</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
 
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_add_filter</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>,
                              <span class="ident">slot</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_slot</span>,
@@ -936,6 +1022,12 @@
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_slot_get_description</span>(<span class="ident">slot</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_slot</span>,
                                        <span class="ident">description</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>)
                                        <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_slot_get_floating</span>(<span class="ident">slot</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_slot</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_slot_set_floating</span>(<span class="ident">slot</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_slot</span>, <span class="ident">b</span>: <span class="ident">c_int</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_slot_set_destroy_callback</span>(<span class="ident">slot</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_slot</span>, <span class="ident">callback</span>: <span class="ident">sd_bus_destroy_t</span>)
+        <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_slot_get_destroy_callback</span>(<span class="ident">slot</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_slot</span>, <span class="ident">callback</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_destroy_t</span>)
+        <span class="op">-&gt;</span> <span class="ident">c_int</span>;
 
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_slot_get_current_message</span>(<span class="ident">slot</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_slot</span>) <span class="op">-&gt;</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_message</span>;
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_slot_get_current_handler</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_slot</span>) <span class="op">-&gt;</span> <span class="ident">sd_bus_message_handler_t</span>;
@@ -943,6 +1035,7 @@
 
     <span class="comment">// Message object</span>
 
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_message_new</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>, <span class="ident">m</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_message</span>, <span class="ident">typ</span>: <span class="ident">u8</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_message_new_signal</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>,
                                      <span class="ident">m</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_message</span>,
                                      <span class="ident">path</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>,
@@ -984,6 +1077,8 @@
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_message_ref</span>(<span class="ident">m</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_message</span>) <span class="op">-&gt;</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_message</span>;
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_message_unref</span>(<span class="ident">m</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_message</span>) <span class="op">-&gt;</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_message</span>;
 
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_message_seal</span>(<span class="ident">m</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_message</span>, <span class="ident">cookie</span>: <span class="ident">u64</span>, <span class="ident">timeout_usec</span>: <span class="ident">u64</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_message_get_type</span>(<span class="ident">m</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_message</span>, <span class="ident">typ</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u8</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_message_get_cookie</span>(<span class="ident">m</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_message</span>, <span class="ident">cookie</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u64</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_message_get_reply_cookie</span>(<span class="ident">m</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_message</span>, <span class="ident">cookie</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u64</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
@@ -1007,7 +1102,7 @@
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_message_get_seqnum</span>(<span class="ident">m</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_message</span>, <span class="ident">seqnum</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u64</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
 
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_message_get_bus</span>(<span class="ident">m</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_message</span>) <span class="op">-&gt;</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>;
-    <span class="comment">// do not unref the result</span>
+    <span class="doccomment">/// do not unref the result</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_message_get_creds</span>(<span class="ident">m</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_message</span>) <span class="op">-&gt;</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_creds</span>;
 
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_message_is_signal</span>(<span class="ident">m</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_message</span>,
@@ -1031,9 +1126,14 @@
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_message_set_destination</span>(<span class="ident">m</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_message</span>,
                                           <span class="ident">destination</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>)
                                           <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_message_set_sender</span>(<span class="ident">m</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_message</span>,
+                                     <span class="ident">sender</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>)
+        <span class="op">-&gt;</span> <span class="ident">c_int</span>;
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_message_set_priority</span>(<span class="ident">m</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_message</span>, <span class="ident">priority</span>: <span class="ident">i64</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
 
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_message_append</span>(<span class="ident">m</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_message</span>, <span class="ident">types</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>, ...) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="comment">// pub fn sd_bus_message_appendv(m: *mut sd_bus_message, types: *const c_char, ap: va_list) -&gt;</span>
+    <span class="comment">// c_int;</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_message_append_basic</span>(<span class="ident">m</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_message</span>,
                                        <span class="ident">typ</span>: <span class="ident">c_char</span>,
                                        <span class="ident">p</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_void</span>)
@@ -1084,6 +1184,7 @@
                                <span class="op">-&gt;</span> <span class="ident">c_int</span>;
 
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_message_read</span>(<span class="ident">m</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_message</span>, <span class="ident">types</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>, ...) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="comment">//pub fn sd_bus_message_readv(m: *mut sd_bus_message, types: *const c_char, ap: va_list);</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_message_read_basic</span>(<span class="ident">m</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_message</span>, <span class="ident">typ</span>: <span class="ident">c_char</span>, <span class="ident">p</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_void</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_message_read_array</span>(<span class="ident">m</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_message</span>,
                                      <span class="ident">typ</span>: <span class="ident">c_char</span>,
@@ -1113,7 +1214,15 @@
 
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_get_unique_name</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>, <span class="ident">unique</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_request_name</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>, <span class="ident">name</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>, <span class="ident">flags</span>: <span class="ident">u64</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_request_name_async</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>, <span class="ident">ret_slot</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_slot</span>,
+                                     <span class="ident">name</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>, <span class="ident">flags</span>: <span class="ident">u64</span>,
+                                     <span class="ident">callback</span>: <span class="ident">sd_bus_message_handler_t</span>,
+                                     <span class="ident">userdata</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_void</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_release_name</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>, <span class="ident">name</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_release_name_async</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>, <span class="ident">ret_slot</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_slot</span>,
+                                     <span class="ident">name</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>,
+                                     <span class="ident">callback</span>: <span class="ident">sd_bus_message_handler_t</span>,
+                                     <span class="ident">userdata</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_void</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
     <span class="comment">// free the results</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_list_names</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>,
                              <span class="ident">acquired</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_char</span>,
@@ -1171,7 +1280,7 @@
                                        <span class="ident">typ</span>: <span class="ident">c_char</span>,
                                        <span class="ident">ret_ptr</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_void</span>)
                                        <span class="op">-&gt;</span> <span class="ident">c_int</span>;
-    <span class="comment">// free the result!</span>
+    <span class="doccomment">/// free the result!</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_get_property_string</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>,
                                       <span class="ident">destination</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>,
                                       <span class="ident">path</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>,
@@ -1180,7 +1289,7 @@
                                       <span class="ident">ret_error</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_error</span>,
                                       <span class="ident">ret</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_char</span>)
                                       <span class="op">-&gt;</span> <span class="ident">c_int</span>;
-    <span class="comment">// free the result!</span>
+    <span class="doccomment">/// free the result!</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_get_property_strv</span>(<span class="ident">bus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus</span>,
                                     <span class="ident">destination</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>,
                                     <span class="ident">path</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>,
@@ -1388,10 +1497,17 @@
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_track_add_name</span>(<span class="ident">track</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_track</span>, <span class="ident">name</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_track_remove_name</span>(<span class="ident">track</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_track</span>, <span class="ident">name</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
 
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_track_set_recursive</span>(<span class="ident">track</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_track</span>, <span class="ident">b</span>: <span class="ident">c_int</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_track_count_sender</span>(<span class="ident">track</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_track</span>, <span class="ident">m</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_message</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_track_count_name</span>(<span class="ident">track</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_track</span>, <span class="ident">name</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_track_count</span>(<span class="ident">track</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_track</span>) <span class="op">-&gt;</span> <span class="ident">c_uint</span>;
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_track_contains</span>(<span class="ident">track</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_track</span>, <span class="ident">names</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>) <span class="op">-&gt;</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>;
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_track_first</span>(<span class="ident">track</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_track</span>) <span class="op">-&gt;</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>;
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_track_next</span>(<span class="ident">track</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_track</span>) <span class="op">-&gt;</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>;
+
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_track_set_destroy_callback</span>(<span class="ident">track</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_track</span>, <span class="ident">callback</span>: <span class="ident">sd_bus_destroy_t</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sd_bus_track_get_destroy_callback</span>(<span class="ident">track</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_track</span>, <span class="ident">ret</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sd_bus_destroy_t</span>) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
 }
 </pre></div>
 </section><section id="search" class="content hidden"></section><section class="footer"></section><aside id="help" class="hidden"><div><h1 class="hidden">Help</h1><div class="shortcuts"><h2>Keyboard Shortcuts</h2><dl><dt><kbd>?</kbd></dt><dd>Show this help dialog</dd><dt><kbd>S</kbd></dt><dd>Focus the search field</dd><dt><kbd>↑</kbd></dt><dd>Move up in search results</dd><dt><kbd>↓</kbd></dt><dd>Move down in search results</dd><dt><kbd>↹</kbd></dt><dd>Switch tab</dd><dt><kbd>&#9166;</kbd></dt><dd>Go to active search result</dd><dt><kbd>+</kbd></dt><dd>Expand all sections</dd><dt><kbd>-</kbd></dt><dd>Collapse all sections</dd></dl></div><div class="infos"><h2>Search Tricks</h2><p>Prefix searches with a type followed by a colon (e.g., <code>fn:</code>) to restrict the search to a given type.</p><p>Accepted types are: <code>fn</code>, <code>mod</code>, <code>struct</code>, <code>enum</code>, <code>trait</code>, <code>type</code>, <code>macro</code>, and <code>const</code>.</p><p>Search functions by type signature (e.g., <code>vec -> usize</code> or <code>* -> vec</code>)</p><p>Search multiple things at once by splitting your query with comma (e.g., <code>str,u8</code> or <code>String,struct:Vec,test</code>)</p></div></div></aside><script>window.rootPath = "../../../";window.currentCrate = "libsystemd_sys";</script><script src="../../../aliases.js"></script><script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script><script defer src="../../../search-index.js"></script></body></html>
