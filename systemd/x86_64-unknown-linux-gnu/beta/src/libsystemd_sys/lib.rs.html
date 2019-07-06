@@ -42,7 +42,6 @@
 <span id="42">42</span>
 <span id="43">43</span>
 <span id="44">44</span>
-<span id="45">45</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! Contains definitions for low-level bindings.</span>
 <span class="doccomment">//!</span>
@@ -54,8 +53,7 @@
 <span class="doccomment">//! by the systemd man pages.</span>
 
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">libc</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">libc</span>::{<span class="ident">size_t</span>, <span class="ident">pid_t</span>, <span class="ident">uid_t</span>, <span class="ident">gid_t</span>, <span class="ident">signalfd_siginfo</span>, <span class="ident">siginfo_t</span>, <span class="ident">clockid_t</span>, <span class="ident">int64_t</span>,
-               <span class="ident">uint32_t</span>, <span class="ident">uint64_t</span>};
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">libc</span>::{<span class="ident">size_t</span>, <span class="ident">pid_t</span>, <span class="ident">uid_t</span>, <span class="ident">gid_t</span>, <span class="ident">signalfd_siginfo</span>, <span class="ident">siginfo_t</span>, <span class="ident">clockid_t</span>};
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">os</span>::<span class="ident">raw</span>::{<span class="ident">c_char</span>, <span class="ident">c_int</span>, <span class="ident">c_void</span>, <span class="ident">c_uint</span>};
 
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">id128</span>;
