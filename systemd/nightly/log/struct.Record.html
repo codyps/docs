@@ -15,7 +15,7 @@ module path, and message of any <code>Record</code> that is passed to it.</p>
 <span class="kw">struct</span> <span class="ident">SimpleLogger</span>;
 
 <span class="kw">impl</span> <span class="ident">log</span>::<span class="ident">Log</span> <span class="kw">for</span> <span class="ident">SimpleLogger</span> {
-   <span class="kw">fn</span> <span class="ident">enabled</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">metadata</span>: <span class="kw-2">&amp;</span><span class="ident">log</span>::<span class="ident">Metadata</span>) <span class="op">-&gt;</span> <span class="ident">bool</span> {
+   <span class="kw">fn</span> <span class="ident">enabled</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">metadata</span>: <span class="kw-2">&amp;</span><span class="ident">log</span>::<span class="ident">Metadata</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
        <span class="bool-val">true</span>
    }
 
