@@ -6,5 +6,4 @@ implementors["systemd"] = [{text:"impl <a class=\"trait\" href=\"log/trait.Log.h
             } else {
                 window.pending_implementors = implementors;
             }
-        
-})()
+        })()
