@@ -6,5 +6,4 @@ implementors["leak"] = [];
             } else {
                 window.pending_implementors = implementors;
             }
-        
-})()
+        })()
