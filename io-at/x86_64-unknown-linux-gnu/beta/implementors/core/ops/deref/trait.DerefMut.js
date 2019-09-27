@@ -6,5 +6,4 @@ implementors["io_at"] = [{text:"impl&lt;T&gt; <a class=\"trait\" href=\"https://
             } else {
                 window.pending_implementors = implementors;
             }
-        
-})()
+        })()
