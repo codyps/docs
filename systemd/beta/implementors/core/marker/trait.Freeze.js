@@ -12,5 +12,4 @@ implementors["utf8_cstr"] = [{text:"impl Freeze for <a class=\"struct\" href=\"u
             } else {
                 window.pending_implementors = implementors;
             }
-        
-})()
+        })()

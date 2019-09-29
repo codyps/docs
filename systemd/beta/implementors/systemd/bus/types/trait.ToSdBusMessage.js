@@ -6,5 +6,4 @@ implementors["systemd"] = [];
             } else {
                 window.pending_implementors = implementors;
             }
-        
-})()
+        })()
