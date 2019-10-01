@@ -6,5 +6,4 @@ implementors["io_block"] = [];
             } else {
                 window.pending_implementors = implementors;
             }
-        
-})()
+        })()
