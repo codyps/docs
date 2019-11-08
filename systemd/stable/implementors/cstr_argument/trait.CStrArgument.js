@@ -6,5 +6,4 @@ implementors["cstr_argument"] = [];
             } else {
                 window.pending_implementors = implementors;
             }
-        
-})()
+        })()

@@ -147,15 +147,15 @@
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>, <span class="ident">Copy</span>, <span class="ident">Debug</span>)]</span>
 <span class="attribute">#[<span class="ident">repr</span>(<span class="ident">u64</span>)]</span>
 <span class="kw">pub</span> <span class="kw">enum</span> <span class="ident">SdBusVtableFlag</span> {
-    <span class="ident">Deprecated</span> <span class="op">=</span> <span class="number">1</span> <span class="op">&lt;&lt;</span> <span class="number">0</span>,
-    <span class="ident">Hidden</span> <span class="op">=</span> <span class="number">1</span> <span class="op">&lt;&lt;</span> <span class="number">1</span>,
-    <span class="ident">Unprivileged</span> <span class="op">=</span> <span class="number">1</span> <span class="op">&lt;&lt;</span> <span class="number">2</span>,
-    <span class="ident">MethodNoReply</span> <span class="op">=</span> <span class="number">1</span> <span class="op">&lt;&lt;</span> <span class="number">3</span>,
-    <span class="ident">PropertyConst</span> <span class="op">=</span> <span class="number">1</span> <span class="op">&lt;&lt;</span> <span class="number">4</span>,
-    <span class="ident">PropertyEmitsChange</span> <span class="op">=</span> <span class="number">1</span> <span class="op">&lt;&lt;</span> <span class="number">5</span>,
-    <span class="ident">PropertyEmitsInvalidation</span> <span class="op">=</span> <span class="number">1</span> <span class="op">&lt;&lt;</span> <span class="number">6</span>,
-    <span class="ident">PropertyExplicit</span> <span class="op">=</span> <span class="number">1</span> <span class="op">&lt;&lt;</span> <span class="number">7</span>,
-    <span class="ident">CapabilityMask</span> <span class="op">=</span> <span class="number">0xFFFF</span> <span class="op">&lt;&lt;</span> <span class="number">40</span>,
+    <span class="ident">Deprecated</span> <span class="op">=</span> <span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="number">0</span>,
+    <span class="ident">Hidden</span> <span class="op">=</span> <span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="number">1</span>,
+    <span class="ident">Unprivileged</span> <span class="op">=</span> <span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="number">2</span>,
+    <span class="ident">MethodNoReply</span> <span class="op">=</span> <span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="number">3</span>,
+    <span class="ident">PropertyConst</span> <span class="op">=</span> <span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="number">4</span>,
+    <span class="ident">PropertyEmitsChange</span> <span class="op">=</span> <span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="number">5</span>,
+    <span class="ident">PropertyEmitsInvalidation</span> <span class="op">=</span> <span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="number">6</span>,
+    <span class="ident">PropertyExplicit</span> <span class="op">=</span> <span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="number">7</span>,
+    <span class="ident">CapabilityMask</span> <span class="op">=</span> <span class="number">0xFFFF</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="number">40</span>,
 }
 
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>, <span class="ident">Debug</span>)]</span>
@@ -167,16 +167,16 @@
 }
 
 <span class="kw">impl</span> <span class="ident">Default</span> <span class="kw">for</span> <span class="ident">sd_bus_vtable</span> {
-    <span class="kw">fn</span> <span class="ident">default</span>() <span class="op">-&gt;</span> <span class="self">Self</span> {
+    <span class="kw">fn</span> <span class="ident">default</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="kw">unsafe</span> { <span class="ident">zeroed</span>() }
     }
 }
 
 <span class="kw">impl</span> <span class="ident">sd_bus_vtable</span> {
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">type_and_flags</span>(<span class="ident">typ</span>: <span class="ident">u32</span>, <span class="ident">flags</span>: <span class="ident">u64</span>) <span class="op">-&gt;</span> <span class="ident">u64</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">type_and_flags</span>(<span class="ident">typ</span>: <span class="ident">u32</span>, <span class="ident">flags</span>: <span class="ident">u64</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">u64</span> {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">val</span> <span class="op">=</span> [<span class="number">0u8</span>; <span class="number">8</span>];
-        <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">typ</span> <span class="op">&lt;=</span> ((<span class="number">1</span> <span class="op">&lt;&lt;</span> <span class="number">8</span>) <span class="op">-</span> <span class="number">1</span>));
-        <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">flags</span> <span class="op">&lt;=</span> ((<span class="number">1</span> <span class="op">&lt;&lt;</span> <span class="number">56</span>) <span class="op">-</span> <span class="number">1</span>));
+        <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">typ</span> <span class="op">&lt;</span><span class="op">=</span> ((<span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="number">8</span>) <span class="op">-</span> <span class="number">1</span>));
+        <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">flags</span> <span class="op">&lt;</span><span class="op">=</span> ((<span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="number">56</span>) <span class="op">-</span> <span class="number">1</span>));
 
         <span class="ident">val</span>[<span class="number">0</span>] <span class="op">=</span> <span class="ident">typ</span> <span class="kw">as</span> <span class="ident">u8</span>;
         <span class="kw">let</span> <span class="ident">flags_raw</span>: [<span class="ident">u8</span>; <span class="number">8</span>] <span class="op">=</span> <span class="kw">unsafe</span> { <span class="ident">transmute</span>(<span class="ident">flags</span>) };
@@ -190,14 +190,14 @@
     <span class="comment">// type &amp; flags are stored in a bit field, the ordering of which might change depending on the</span>
     <span class="comment">// platform.</span>
     <span class="comment">//</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">typ</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">u32</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">typ</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">u32</span> {
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="ident">raw</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">u8</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">type_and_flags</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">u8</span>;
             <span class="kw-2">*</span><span class="ident">raw</span> <span class="kw">as</span> <span class="ident">u32</span>
         }
     }
 
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">flags</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">u64</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">flags</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">u64</span> {
         <span class="comment">// treat the first byte as 0 and the next 7 as their actual values</span>
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">val</span> <span class="op">=</span> [<span class="number">0u8</span>; <span class="number">8</span>];
         <span class="kw">unsafe</span> {
