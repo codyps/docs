@@ -7,5 +7,4 @@ implementors["libc"] = [{text:"impl Freeze for <a class=\"struct\" href=\"libc/s
             } else {
                 window.pending_implementors = implementors;
             }
-        
-})()
+        })()
