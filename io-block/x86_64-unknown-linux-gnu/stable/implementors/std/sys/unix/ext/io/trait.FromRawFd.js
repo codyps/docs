@@ -6,5 +6,4 @@ implementors["io_block"] = [{text:"impl <a class=\"trait\" href=\"https://doc.ru
             } else {
                 window.pending_implementors = implementors;
             }
-        
-})()
+        })()
