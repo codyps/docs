@@ -6,5 +6,4 @@ implementors["build_env"] = [{text:"impl Freeze for <a class=\"struct\" href=\"b
             } else {
                 window.pending_implementors = implementors;
             }
-        
-})()
+        })()

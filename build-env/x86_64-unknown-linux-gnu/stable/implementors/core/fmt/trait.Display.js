@@ -6,5 +6,4 @@ implementors["build_env"] = [{text:"impl&lt;K:&nbsp;<a class=\"trait\" href=\"ht
             } else {
                 window.pending_implementors = implementors;
             }
-        
-})()
+        })()
