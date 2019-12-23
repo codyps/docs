@@ -402,6 +402,10 @@
 <span id="402">402</span>
 <span id="403">403</span>
 <span id="404">404</span>
+<span id="405">405</span>
+<span id="406">406</span>
+<span id="407">407</span>
+<span id="408">408</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="kw">use</span> <span class="ident">libc</span>::{<span class="ident">c_char</span>, <span class="ident">c_int</span>, <span class="ident">size_t</span>};
 <span class="kw">use</span> <span class="ident">log</span>::{<span class="self">self</span>, <span class="ident">Log</span>, <span class="ident">Record</span>, <span class="ident">Level</span>, <span class="ident">SetLoggerError</span>};
@@ -522,6 +526,10 @@
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Journal</span> {
     <span class="ident">j</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi</span>::<span class="ident">sd_journal</span>,
 }
+
+<span class="comment">// We don&#39;t allow any thread unsafe operations on `Journal`</span>
+<span class="comment">// so it is safe to mark it as `Send`</span>
+<span class="kw">unsafe</span> <span class="kw">impl</span> <span class="ident">Send</span> <span class="kw">for</span> <span class="ident">Journal</span> {}
 
 <span class="doccomment">/// Represents the set of journal files to read.</span>
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>, <span class="ident">Debug</span>)]</span>
