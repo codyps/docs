@@ -1,4 +1,3 @@
-var N=null,E="",T="t",U="u",searchIndex={};
-
-searchIndex["leak"]={"doc":E,"i":[[8,"Leak","leak","Leak a piece of data by never calling its destructor",N,N],[10,"leak",E,E,0,[[],[T]]]],"p":[[8,"Leak"]]};
-initSearch(searchIndex);addSearchOptions(searchIndex);
+var searchIndex={};
+searchIndex["leak"] = {"doc":"","i":[[8,"Leak","leak","Leak a piece of data by never calling its destructor",null,null],[10,"leak","","",0,[[],["t"]]]],"p":[[8,"Leak"]]};
+addSearchOptions(searchIndex);initSearch(searchIndex);
