@@ -4,10 +4,4 @@ implementors["libc"] = [{"text":"impl <a class=\"trait\" href=\"https://doc.rust
 implementors["libsystemd_sys"] = [{"text":"impl <a class=\"trait\" href=\"https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html\" title=\"trait core::marker::Copy\">Copy</a> for <a class=\"enum\" href=\"libsystemd_sys/bus/vtable/enum.SdBusVtableType.html\" title=\"enum libsystemd_sys::bus::vtable::SdBusVtableType\">SdBusVtableType</a>","synthetic":false,"types":["libsystemd_sys::bus::vtable::SdBusVtableType"]},{"text":"impl <a class=\"trait\" href=\"https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html\" title=\"trait core::marker::Copy\">Copy</a> for <a class=\"enum\" href=\"libsystemd_sys/bus/vtable/enum.SdBusVtableFlag.html\" title=\"enum libsystemd_sys::bus::vtable::SdBusVtableFlag\">SdBusVtableFlag</a>","synthetic":false,"types":["libsystemd_sys::bus::vtable::SdBusVtableFlag"]}];
 implementors["log"] = [{"text":"impl <a class=\"trait\" href=\"https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html\" title=\"trait core::marker::Copy\">Copy</a> for <a class=\"enum\" href=\"log/enum.Level.html\" title=\"enum log::Level\">Level</a>","synthetic":false,"types":["log::Level"]},{"text":"impl <a class=\"trait\" href=\"https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html\" title=\"trait core::marker::Copy\">Copy</a> for <a class=\"enum\" href=\"log/enum.LevelFilter.html\" title=\"enum log::LevelFilter\">LevelFilter</a>","synthetic":false,"types":["log::LevelFilter"]}];
 implementors["systemd"] = [{"text":"impl <a class=\"trait\" href=\"https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html\" title=\"trait core::marker::Copy\">Copy</a> for <a class=\"enum\" href=\"systemd/bus/enum.MessageType.html\" title=\"enum systemd::bus::MessageType\">MessageType</a>","synthetic":false,"types":["systemd::bus::MessageType"]}];
-
-            if (window.register_implementors) {
-                window.register_implementors(implementors);
-            } else {
-                window.pending_implementors = implementors;
-            }
-        })()
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()
