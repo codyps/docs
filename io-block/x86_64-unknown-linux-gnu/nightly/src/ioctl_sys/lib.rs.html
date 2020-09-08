@@ -27,7 +27,7 @@
 
 <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> {
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">ioctl</span>(<span class="ident">fd</span>: <span class="ident">c_int</span>, <span class="ident">req</span>: <span class="ident">c_ulong</span>, ...) <span class="op">-&gt;</span> <span class="ident">c_int</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">ioctl</span>(<span class="ident">fd</span>: <span class="ident">c_int</span>, <span class="ident">req</span>: <span class="ident">c_ulong</span>, ...) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">c_int</span>;
 }
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">any</span>(<span class="ident">target_os</span> <span class="op">=</span> <span class="string">&quot;linux&quot;</span>, <span class="ident">target_os</span> <span class="op">=</span> <span class="string">&quot;macos&quot;</span>)))]</span>
