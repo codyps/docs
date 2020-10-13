@@ -1,1 +1,1 @@
-initSidebarItems({"fn":[["pread",""],["pwrite",""]],"trait":[["AsRaw",""]]});
+initSidebarItems({"fn":[["pread",""],["pwrite",""]],"trait":[["AsRaw","A trait to extract the raw unix file descriptor from an underlying object."]]});
