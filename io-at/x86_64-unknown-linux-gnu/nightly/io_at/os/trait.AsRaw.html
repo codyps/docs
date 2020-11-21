@@ -8,7 +8,7 @@ object.</p>
 <p>This is only available on unix platforms and must be imported in order
 to call the method. Windows platforms have a corresponding <code>AsRawHandle</code>
 and <code>AsRawSocket</code> set of traits.</p>
-</div><h2 id="required-methods" class="small-section-header">Required methods<a href="#required-methods" class="anchor"></a></h2><div class="methods"><h3 id="tymethod.as_raw_fd" class="method"><code>pub fn <a href="#tymethod.as_raw_fd" class="fnname">as_raw_fd</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a></code></h3><div class="docblock"><p>Extracts the raw file descriptor.</p>
+</div><h2 id="required-methods" class="small-section-header">Required methods<a href="#required-methods" class="anchor"></a></h2><div class="methods"><h3 id="tymethod.as_raw_fd" class="method"><code>pub fn <a href="#tymethod.as_raw_fd" class="fnname">as_raw_fd</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a></code><a class="srclink" href="https://doc.rust-lang.org/nightly/src/std/sys/unix/ext/io.rs.html#42" title="goto source code">[src]</a></h3><div class="docblock"><p>Extracts the raw file descriptor.</p>
 <p>This method does <strong>not</strong> pass ownership of the raw file descriptor
 to the caller. The descriptor is only guaranteed to be valid while
 the original object has not yet been destroyed.</p>
