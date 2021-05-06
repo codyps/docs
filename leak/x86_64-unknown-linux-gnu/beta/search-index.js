@@ -1,4 +1,4 @@
 var searchIndex = JSON.parse('{\
-"leak":{"doc":"","i":[[8,"Leak","leak","Leak a piece of data by never calling its destructor",null,null],[10,"leak","","",0,[[]]]],"p":[[8,"Leak"]]}\
+"leak":{"doc":"","t":[8,10],"n":["Leak","leak"],"q":["leak",""],"d":["Leak a piece of data by never calling its destructor",""],"i":[0,1],"f":[null,[[]]],"p":[[8,"Leak"]]}\
 }');
-addSearchOptions(searchIndex);initSearch(searchIndex);
+if (window.initSearch) {window.initSearch(searchIndex)};
